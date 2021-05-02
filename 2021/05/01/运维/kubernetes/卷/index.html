@@ -428,8 +428,8 @@
             <div id="articleContent">
                 <h1 id="卷"><a href="#卷" class="headerlink" title="卷"></a>卷</h1><p><strong>卷是pod的一个组成部分</strong>。它被绑定到pod的生命周期里面，只有pod存在时，才会存在。用于共享pod内的磁盘存储。</p>
 <h2 id="卷存在的意义"><a href="#卷存在的意义" class="headerlink" title="卷存在的意义"></a>卷存在的意义</h2><p>pod中每个容器都有自己独立的文件系统，因为文件系统来自于容器镜像<br>如果pod中的每个容器在不共享磁盘存储的情况下，用多个容器在一个pod内就没有存在的意义，因为pod里的容器不能相互访问对方的文件。</p>
-<p><img src="image/%E5%AE%B9%E5%99%A8%E4%B8%8D%E5%85%B1%E4%BA%AB%E7%A3%81%E7%9B%98%E5%AD%98%E5%82%A8%E7%9A%84pod.png" alt="容器不共享磁盘存储的pod"></p>
-<p>而K8S里面通过卷来解决这个问题。<br><img src="image/%E5%AE%B9%E5%99%A8%E6%8C%82%E8%BD%BD%E5%8D%B7.png" alt="容器挂载卷"></p>
+<p><img src="/images/%E5%AE%B9%E5%99%A8%E4%B8%8D%E5%85%B1%E4%BA%AB%E7%A3%81%E7%9B%98%E5%AD%98%E5%82%A8%E7%9A%84pod.png" alt="容器不共享磁盘存储的pod"></p>
+<p>而K8S里面通过卷来解决这个问题。<br><img src="/images/%E5%AE%B9%E5%99%A8%E6%8C%82%E8%BD%BD%E5%8D%B7.png" alt="容器挂载卷"></p>
 <h2 id="卷的类型"><a href="#卷的类型" class="headerlink" title="卷的类型"></a>卷的类型</h2><ul>
 <li>emptyDir：用于存储临时数据的简单空目录。非持久的存储</li>
 <li>hostPath：将目录从工作节点的文件系统挂载到pod</li>
@@ -442,8 +442,8 @@
 </ul>
 <h2 id="持久卷（PersistentVolume）和持久卷声明（PersistentVolumeClaim）"><a href="#持久卷（PersistentVolume）和持久卷声明（PersistentVolumeClaim）" class="headerlink" title="持久卷（PersistentVolume）和持久卷声明（PersistentVolumeClaim）"></a>持久卷（PersistentVolume）和持久卷声明（PersistentVolumeClaim）</h2><p>持久卷不属于任何命名空间，它跟节点一样使集群层面的资源。<br>当一个持久卷和一个持久卷声明绑定时，这个持久卷不可以被另外一个持久卷声明所绑定和使用</p>
 <h3 id="持久卷和持久卷声明的意义"><a href="#持久卷和持久卷声明的意义" class="headerlink" title="持久卷和持久卷声明的意义"></a>持久卷和持久卷声明的意义</h3><p>K8s中，为了使应用能正常请求存储资源，同时避免处理基础设施细节。因此引入了持久卷和持久卷声明两种资源。</p>
-<h3 id="持久卷和持久卷声明和底层存储之间的关系"><a href="#持久卷和持久卷声明和底层存储之间的关系" class="headerlink" title="持久卷和持久卷声明和底层存储之间的关系"></a>持久卷和持久卷声明和底层存储之间的关系</h3><p><img src="image/%E6%8C%81%E4%B9%85%E5%8D%B7%E5%92%8C%E6%8C%81%E4%B9%85%E5%8D%B7%E5%A3%B0%E6%98%8E%E5%92%8C%E5%BA%95%E5%B1%82%E5%AD%98%E5%82%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB.png" alt="持久卷和持久卷声明和底层存储之间的关系"></p>
-<p>持久卷不属于任何命名空间，它跟节点一样使集群层面的资源。但是持久卷声明使在特定命名空间中创建的，所以持久卷和持久卷声明只能被同一命名空间内的pod创建使用<br><img src="image/%E6%8C%81%E4%B9%85%E5%8D%B7%E5%92%8C%E6%8C%81%E4%B9%85%E5%8D%B7%E5%A3%B0%E6%98%8E%E5%92%8C%E5%BA%95%E5%B1%82%E5%AD%98%E5%82%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB2.png" alt="持久卷和持久卷声明和底层存储之间的关系2"></p>
+<h3 id="持久卷和持久卷声明和底层存储之间的关系"><a href="#持久卷和持久卷声明和底层存储之间的关系" class="headerlink" title="持久卷和持久卷声明和底层存储之间的关系"></a>持久卷和持久卷声明和底层存储之间的关系</h3><p><img src="/images/%E6%8C%81%E4%B9%85%E5%8D%B7%E5%92%8C%E6%8C%81%E4%B9%85%E5%8D%B7%E5%A3%B0%E6%98%8E%E5%92%8C%E5%BA%95%E5%B1%82%E5%AD%98%E5%82%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB.png" alt="持久卷和持久卷声明和底层存储之间的关系"></p>
+<p>持久卷不属于任何命名空间，它跟节点一样使集群层面的资源。但是持久卷声明使在特定命名空间中创建的，所以持久卷和持久卷声明只能被同一命名空间内的pod创建使用<br><img src="/images/%E6%8C%81%E4%B9%85%E5%8D%B7%E5%92%8C%E6%8C%81%E4%B9%85%E5%8D%B7%E5%A3%B0%E6%98%8E%E5%92%8C%E5%BA%95%E5%B1%82%E5%AD%98%E5%82%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB2.png" alt="持久卷和持久卷声明和底层存储之间的关系2"></p>
 <h3 id="PCV访问模式"><a href="#PCV访问模式" class="headerlink" title="PCV访问模式"></a>PCV访问模式</h3><ul>
 <li>RWO:ReadWriteOnce 仅允许单个节点挂载读写</li>
 <li>ROX:ReadOnlyMany 允许多个挂载只读</li>
@@ -454,7 +454,7 @@
 <li>减少了用户对于底层存储资源各方面细节的关注，只需要关注自己创建的PVC资源，引用存储类的对应StorageClass资源即可</li>
 <li>集群管理员将从多次创建PV这项工作中解脱出来，只要有了StorageClass资源，PVC创建引用好后，k8s系统会自动为其创建合适的PV，并且将PV和PVC绑定好，从而实现动态的资源供应</li>
 </ol>
-<h3 id="持久卷动态配置过程"><a href="#持久卷动态配置过程" class="headerlink" title="持久卷动态配置过程"></a>持久卷动态配置过程</h3><p><img src="image/%E6%8C%81%E4%B9%85%E5%8D%B7%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B.png" alt="持久卷动态配置过程"></p>
+<h3 id="持久卷动态配置过程"><a href="#持久卷动态配置过程" class="headerlink" title="持久卷动态配置过程"></a>持久卷动态配置过程</h3><p><img src="/images/%E6%8C%81%E4%B9%85%E5%8D%B7%E5%8A%A8%E6%80%81%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B.png" alt="持久卷动态配置过程"></p>
 
                 
             </div>
@@ -916,60 +916,6 @@
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
-    
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
@@ -1007,7 +953,7 @@
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/goasleep" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
@@ -1022,10 +968,6 @@
 
 
 
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
 
 
 

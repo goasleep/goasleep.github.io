@@ -431,8 +431,8 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="Nginx-负载均衡"><a href="#Nginx-负载均衡" class="headerlink" title="Nginx 负载均衡"></a>Nginx 负载均衡</h1><h2 id="Nginx-负载均衡特点"><a href="#Nginx-负载均衡特点" class="headerlink" title="Nginx 负载均衡特点"></a>Nginx 负载均衡特点</h2><p>Nginx并不会立刻转发到上游服务器，而是先把用户的请求（包括HTTP包体） 完整地接收到Nginx所在服务器的硬盘或者内存中，然后再向上游服务器发起连接， 把缓存的客户端请求转发到上游服务器。（接收到完整的客户端请求（如1GB的文件） 后， 才会与上游服务器建立连接转发请求）。</p>
-<p>缺点：延长了一个请求的处理时间，并增加了用于缓存请求内容的内存和磁盘空间<br>优点：降低了上游服务器的负载， 尽量把压力放在Nginx服务器上<br><img src="image/%E4%BD%9C%E4%B8%BA%E9%9D%99%E6%80%81Web%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84Nginx.png" alt="作为静态Web服务器与反向代理服务器的Nginx"></p>
-<p><img src="image/Nginx%E4%BD%9C%E4%B8%BA%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%B6%E8%BD%AC%E5%8F%91%E8%AF%B7%E6%B1%82%E7%9A%84%E6%B5%81%E7%A8%8B.png" alt="Nginx作为反向代理服务器时转发请求的流程"></p>
+<p>缺点：延长了一个请求的处理时间，并增加了用于缓存请求内容的内存和磁盘空间<br>优点：降低了上游服务器的负载， 尽量把压力放在Nginx服务器上<br><img src="/images/%E4%BD%9C%E4%B8%BA%E9%9D%99%E6%80%81Web%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84Nginx.png" alt="作为静态Web服务器与反向代理服务器的Nginx"></p>
+<p><img src="/images/Nginx%E4%BD%9C%E4%B8%BA%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%B6%E8%BD%AC%E5%8F%91%E8%AF%B7%E6%B1%82%E7%9A%84%E6%B5%81%E7%A8%8B.png" alt="Nginx作为反向代理服务器时转发请求的流程"></p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ol>
 <li>upstream块：upstream块定义了一个上游服务器的集群， 便于反向代理中的proxy_pass使用</li>
 <li>ip_hash：我们可能会希望来自某一个用户的请求始终落到固定的一台上游服务器中。如果同一个用户的请求任意地转发到集群中的任一台上游服务器中， 那么每一台上游服务器都有可能会缓存同一份信息， 这既会造成资源。的浪费， 也会难以有效地管理缓存信息，这样确保了<strong>同一个客户端的请求只会转发到指定的上游服务器中</strong>。</li>
@@ -689,13 +689,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/01/Nginx/Nginx%E9%85%8D%E7%BD%AE%E9%A1%B9/">
+                <a href="/2021/05/01/Nginx/Nginx%E6%93%8D%E4%BD%9C/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Nginx 配置">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Nginx 操作">
                         
-                        <span class="card-title">Nginx 配置</span>
+                        <span class="card-title">Nginx 操作</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -742,13 +742,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/01/Nginx/Nginx%E9%97%AE%E9%A2%98%E9%9B%86/">
+                <a href="/2021/05/01/Nginx/Nginx%E9%85%8D%E7%BD%AE%E9%A1%B9/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Nginx 问题集">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Nginx 配置">
                         
-                        <span class="card-title">Nginx 问题集</span>
+                        <span class="card-title">Nginx 配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -917,60 +917,6 @@
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
-    
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
@@ -1008,7 +954,7 @@
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/goasleep" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
@@ -1023,10 +969,6 @@
 
 
 
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
 
 
 

@@ -428,7 +428,7 @@
             <div id="articleContent">
                 <h1 id="Zabbix"><a href="#Zabbix" class="headerlink" title="Zabbix"></a>Zabbix</h1><h1 id="Zabbix连接方式"><a href="#Zabbix连接方式" class="headerlink" title="Zabbix连接方式"></a>Zabbix连接方式</h1><p>Zabbix-Server 和 Zabbix-Proxy可以通过VPN，SSH,Stunnel连接</p>
 <h2 id="Zabbix监控配置流程"><a href="#Zabbix监控配置流程" class="headerlink" title="Zabbix监控配置流程"></a>Zabbix监控配置流程</h2><p>Host Group(主机组) —&gt; Hosts(主机) —-&gt; Applications(监控项组) —-&gt; Items(监控项) —–&gt; Triggers(触发器) —-&gt; Event(事件) —-&gt; Actions(处理动作) —-&gt; User Groups(用户组) —-&gt; Users(用户) —-&gt;Medias(告警方式) —-&gt; Audit(日志审计)</p>
-<p><img src="../image/image/zabbix%E8%AD%A6%E5%91%8A%E6%B5%81%E7%A8%8B.png" alt="zabbix警告流程"></p>
+<p><img src="/images/zabbix%E8%AD%A6%E5%91%8A%E6%B5%81%E7%A8%8B.png" alt="zabbix警告流程"></p>
 <p>Items:采集数据<br>Trigger：对采集的数据进行阈值判断，触发阈值，产生事件<br>Action：Action对达到阈值的Trigger触发警告</p>
 <p>每一个Trigger必须对应一个Item，但是一个Item可以对应多个Trigger</p>
 <h2 id="监控方式"><a href="#监控方式" class="headerlink" title="监控方式"></a>监控方式</h2><h3 id="Agent监控方式"><a href="#Agent监控方式" class="headerlink" title="Agent监控方式"></a>Agent监控方式</h3><h3 id="Trapper-监控方式"><a href="#Trapper-监控方式" class="headerlink" title="Trapper 监控方式"></a>Trapper 监控方式</h3><p>Trapper-Server，采用主动推送的方式。Trapper不需要安装客户端，Key的名称可以灵活定义。<br>再Trapper工作模式中，Zabbix数据发送的程序时zabbix-sender。</p>
@@ -707,13 +707,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/01/Docker/docker%E7%AE%80%E4%BB%8B/">
+                <a href="/2021/05/01/composition_principle/%E6%B5%81%E6%B0%B4%E7%BA%BF/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Docker 网络">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="CPU 流水线">
                         
-                        <span class="card-title">Docker 网络</span>
+                        <span class="card-title">CPU 流水线</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -730,8 +730,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" class="post-category">
-                                    云原生
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    计算机基础
                                 </a>
                             
                             
@@ -741,8 +741,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Docker/">
-                        <span class="chip bg-color">Docker</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+                        <span class="chip bg-color">计算机组成原理</span>
                     </a>
                     
                 </div>
@@ -927,60 +927,6 @@
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
-    
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
@@ -1018,7 +964,7 @@
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/goasleep" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
@@ -1033,10 +979,6 @@
 
 
 
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
 
 
 

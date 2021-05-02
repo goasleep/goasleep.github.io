@@ -426,14 +426,14 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="渲染流程"><a href="#渲染流程" class="headerlink" title="渲染流程"></a>渲染流程</h1><h2 id="渲染流水线"><a href="#渲染流水线" class="headerlink" title="渲染流水线"></a>渲染流水线</h2><p><img src="../image/%E6%B8%B2%E6%9F%93%E6%B5%81%E6%B0%B4%E7%BA%BF.png" alt="渲染流水线"></p>
+                <h1 id="渲染流程"><a href="#渲染流程" class="headerlink" title="渲染流程"></a>渲染流程</h1><h2 id="渲染流水线"><a href="#渲染流水线" class="headerlink" title="渲染流水线"></a>渲染流水线</h2><p><img src="/images/%E6%B8%B2%E6%9F%93%E6%B5%81%E6%B0%B4%E7%BA%BF.png" alt="渲染流水线"></p>
 <h2 id="1-HTML-转化成DOM树"><a href="#1-HTML-转化成DOM树" class="headerlink" title="1. HTML 转化成DOM树"></a>1. HTML 转化成DOM树</h2><h3 id="构建流程"><a href="#构建流程" class="headerlink" title="构建流程"></a>构建流程</h3><ol>
 <li>网络进程接收到响应头的content-type字段为html的时候，就会请求选择或创建一个管道</li>
 <li>渲染进程准备好后，会建立一个共享的数据管道</li>
 <li>当网络进程接收到数据以后，就会将数据送入管道中</li>
 <li>渲染进程的动态的从管道中接收字节流，进行词法分析，解析成DOM节点，然后添加到DOM树中</li>
 <li>当包含了CSS的引用的时候，需在先构建CSSOM树，而JS又可以改变CSS，所以执行JS依赖于CSSOM树</li>
-<li>当执行到了JS的脚本，暂停整个DOM的解析，JavaScript引擎介入并执行这段脚本，之后继续解析<h3 id="DOM构建流程图"><a href="#DOM构建流程图" class="headerlink" title="DOM构建流程图"></a>DOM构建流程图</h3><img src="../image/DOM%E6%A0%91%E6%9E%84%E9%80%A0.png" alt="DOM构建流程图"><h3 id="构建中的优化"><a href="#构建中的优化" class="headerlink" title="构建中的优化"></a>构建中的优化</h3></li>
+<li>当执行到了JS的脚本，暂停整个DOM的解析，JavaScript引擎介入并执行这段脚本，之后继续解析<h3 id="DOM构建流程图"><a href="#DOM构建流程图" class="headerlink" title="DOM构建流程图"></a>DOM构建流程图</h3><img src="/images/DOM%E6%A0%91%E6%9E%84%E9%80%A0.png" alt="DOM构建流程图"><h3 id="构建中的优化"><a href="#构建中的优化" class="headerlink" title="构建中的优化"></a>构建中的优化</h3></li>
 <li>JS文件下载会阻塞DOM的解析，Chrome在接收到字节流的时候，添加了预解析的流程，开启预解析线程，分析HTML中的JS,CSS文件，然后提前下载JS CSS 文件</li>
 <li>也可以使用CDN，或者压缩JS文件体积来加速JS文件的下载</li>
 <li>如果JS没有操作DOM的代码，可以设置JS脚本设置为异步加载</li>
@@ -935,60 +935,6 @@
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
-    
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
@@ -1026,7 +972,7 @@
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/goasleep" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
@@ -1041,10 +987,6 @@
 
 
 
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
 
 
 

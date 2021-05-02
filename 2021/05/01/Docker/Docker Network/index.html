@@ -442,12 +442,12 @@
 <h3 id="2-bridge-桥接模式"><a href="#2-bridge-桥接模式" class="headerlink" title="2. bridge 桥接模式"></a>2. bridge 桥接模式</h3><p>可以打通容器与容器间网络通信的需求。bridge 桥接模式是 Docker 的默认网络模式。桥接模式是基于Linux的veth和bridge技术实现的</p>
 <h4 id="Linux-veth"><a href="#Linux-veth" class="headerlink" title="Linux veth"></a>Linux veth</h4><p>veth 是 Linux 中的虚拟设备接口，veth 都是成对出现的，它在容器中，通常充当一个桥梁。veth 可以用来连接虚拟网络设备，例如 veth 可以用来连通两个 Net Namespace，从而使得两个 Net Namespace 之间可以互相访问</p>
 <h4 id="Linux-bridge"><a href="#Linux-bridge" class="headerlink" title="Linux bridge"></a>Linux bridge</h4><p>Linux bridge 是一个虚拟设备，是用来连接网络的设备，相当于物理网络环境中的交换机。Linux bridge 可以用来转发两个 Net Namespace 内的流量</p>
-<h4 id="veth和bridge的关系"><a href="#veth和bridge的关系" class="headerlink" title="veth和bridge的关系"></a>veth和bridge的关系</h4><p><img src="../image/image/veth%E5%92%8Cbridge%E7%9A%84%E5%85%B3%E7%B3%BB.png" alt="veth和bridge的关系"><br>bridge 就像一台交换机，而 veth 就像一根网线，通过交换机和网线可以把两个不同 Net Namespace 的容器连通，使得它们可以互相通信</p>
+<h4 id="veth和bridge的关系"><a href="#veth和bridge的关系" class="headerlink" title="veth和bridge的关系"></a>veth和bridge的关系</h4><p><img src="/images/veth%E5%92%8Cbridge%E7%9A%84%E5%85%B3%E7%B3%BB.png" alt="veth和bridge的关系"><br>bridge 就像一台交换机，而 veth 就像一根网线，通过交换机和网线可以把两个不同 Net Namespace 的容器连通，使得它们可以互相通信</p>
 <h3 id="3-host-主机网络模式"><a href="#3-host-主机网络模式" class="headerlink" title="3. host 主机网络模式"></a>3. host 主机网络模式</h3><p>可以让容器内的进程共享主机网络，从而监听或修改主机网络<br>使用 host 主机网络模式时</p>
 <ul>
 <li>libnetwork 不会为容器创建新的网络配置和 Net Namespace</li>
 <li>Docker 容器中的进程直接共享主机的网络配置，可以直接使用主机的网络信息，此时，在容器内监听的端口，也将直接占用到主机的端口</li>
-<li>除了网络共享主机的网络外，其他的包括进程、文件系统、主机名等都是与主机隔离的<h3 id="4-container-网络模式：可以将两个容器放在同一个网络命名空间内，让两个业务通过-localhost-即可实现访问"><a href="#4-container-网络模式：可以将两个容器放在同一个网络命名空间内，让两个业务通过-localhost-即可实现访问" class="headerlink" title="4. container 网络模式：可以将两个容器放在同一个网络命名空间内，让两个业务通过 localhost 即可实现访问"></a>4. container 网络模式：可以将两个容器放在同一个网络命名空间内，让两个业务通过 localhost 即可实现访问</h3>container 网络模式允许一个容器共享另一个容器的网络命名空间<h3 id="网络模式和应用场景"><a href="#网络模式和应用场景" class="headerlink" title="网络模式和应用场景"></a>网络模式和应用场景</h3><img src="../image/image/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F%E5%8F%8A%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF.png" alt="网络模式及应用场景"></li>
+<li>除了网络共享主机的网络外，其他的包括进程、文件系统、主机名等都是与主机隔离的<h3 id="4-container-网络模式：可以将两个容器放在同一个网络命名空间内，让两个业务通过-localhost-即可实现访问"><a href="#4-container-网络模式：可以将两个容器放在同一个网络命名空间内，让两个业务通过-localhost-即可实现访问" class="headerlink" title="4. container 网络模式：可以将两个容器放在同一个网络命名空间内，让两个业务通过 localhost 即可实现访问"></a>4. container 网络模式：可以将两个容器放在同一个网络命名空间内，让两个业务通过 localhost 即可实现访问</h3>container 网络模式允许一个容器共享另一个容器的网络命名空间<h3 id="网络模式和应用场景"><a href="#网络模式和应用场景" class="headerlink" title="网络模式和应用场景"></a>网络模式和应用场景</h3><img src="/images/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%BC%8F%E5%8F%8A%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF.png" alt="网络模式及应用场景"></li>
 </ul>
 
                 
@@ -694,13 +694,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/01/composition_principle/%E6%B5%81%E6%B0%B4%E7%BA%BF/">
+                <a href="/2021/05/01/java%E7%A2%8E%E7%A2%8E%E5%BF%B5/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="CPU 流水线">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Java碎碎念">
                         
-                        <span class="card-title">CPU 流水线</span>
+                        <span class="card-title">Java碎碎念</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -717,8 +717,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    计算机基础
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
                                 </a>
                             
                             
@@ -728,8 +728,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
-                        <span class="chip bg-color">计算机组成原理</span>
+                    <a href="/tags/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/">
+                        <span class="chip bg-color">个人成长</span>
                     </a>
                     
                 </div>
@@ -914,60 +914,6 @@
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
-    
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
@@ -1005,7 +951,7 @@
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/goasleep" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
@@ -1020,10 +966,6 @@
 
 
 
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
 
 
 

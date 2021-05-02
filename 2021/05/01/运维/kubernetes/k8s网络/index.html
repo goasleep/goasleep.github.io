@@ -432,10 +432,10 @@
             <div id="articleContent">
                 <h1 id="k8s-网络"><a href="#k8s-网络" class="headerlink" title="k8s 网络"></a>k8s 网络</h1><h2 id="跨pod网络"><a href="#跨pod网络" class="headerlink" title="跨pod网络"></a>跨pod网络</h2><p>pod用于同通信的网络必须是：pod自己认为的IP地址一定和所有其他节点认为该pod拥有的IP地址一致</p>
 <p>k8s规定pod之间必须通过非NAT网络进行连接。</p>
-<p><img src="image/Kubernetes%E8%A7%84%E5%AE%9Apod%E5%BF%85%E9%A1%BB%E9%80%9A%E8%BF%87%E9%9D%9ENAT%E7%BD%91%E7%BB%9C%E8%BF%9B%E8%A1%8C%E8%BF%9E%E6%8E%A5.png" alt="Kubernetes规定pod必须通过非NAT网络进行连接"></p>
-<h3 id="同节点pod通信"><a href="#同节点pod通信" class="headerlink" title="同节点pod通信"></a>同节点pod通信</h3><p>在同一个节点上的pod通过虚拟Ethernet接口连接到同一个桥接来达到pod之间的通信<br><img src="image/%E5%90%8C%E4%B8%80%E8%8A%82%E7%82%B9%E7%9A%84pod%E9%80%9A%E4%BF%A1.png" alt="同一节点的pod通信"></p>
+<p><img src="/images/Kubernetes%E8%A7%84%E5%AE%9Apod%E5%BF%85%E9%A1%BB%E9%80%9A%E8%BF%87%E9%9D%9ENAT%E7%BD%91%E7%BB%9C%E8%BF%9B%E8%A1%8C%E8%BF%9E%E6%8E%A5.png" alt="Kubernetes规定pod必须通过非NAT网络进行连接"></p>
+<h3 id="同节点pod通信"><a href="#同节点pod通信" class="headerlink" title="同节点pod通信"></a>同节点pod通信</h3><p>在同一个节点上的pod通过虚拟Ethernet接口连接到同一个桥接来达到pod之间的通信<br><img src="/images/%E5%90%8C%E4%B8%80%E8%8A%82%E7%82%B9%E7%9A%84pod%E9%80%9A%E4%BF%A1.png" alt="同一节点的pod通信"></p>
 <h3 id="不同节点的pod通信"><a href="#不同节点的pod通信" class="headerlink" title="不同节点的pod通信"></a>不同节点的pod通信</h3><p>不同节点的pod，可以通过overlay或者underlay网络或者是常规路由进行通信。</p>
-<p><img src="image/%E4%B8%8D%E5%90%8C%E8%8A%82%E7%82%B9%E4%B8%8A%E7%9A%84pod%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1.png" alt="不同节点上的pod之间的通信"><br>但连接到相同的网关、之间没有任何路由的时候有效。否则，路由器会扔包，因为IP是私有的。虽然能通过配置路由的方式解决，但是随着节点数增加，配置会变得非常困难。<br>最终可以通过SDN(软件定义网络)解决这个问题。</p>
+<p><img src="/images/%E4%B8%8D%E5%90%8C%E8%8A%82%E7%82%B9%E4%B8%8A%E7%9A%84pod%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1.png" alt="不同节点上的pod之间的通信"><br>但连接到相同的网关、之间没有任何路由的时候有效。否则，路由器会扔包，因为IP是私有的。虽然能通过配置路由的方式解决，但是随着节点数增加，配置会变得非常困难。<br>最终可以通过SDN(软件定义网络)解决这个问题。</p>
 
                 
             </div>
@@ -901,60 +901,6 @@
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
-    
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
@@ -992,7 +938,7 @@
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/goasleep" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
@@ -1007,10 +953,6 @@
 
 
 
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
 
 
 

@@ -451,7 +451,7 @@
 <h3 id="内存保护"><a href="#内存保护" class="headerlink" title="内存保护"></a>内存保护</h3><p>内存分配前，需要保护操作系统不受用户进程的影响，同时保护用户进程不受其他用户进程的影响</p>
 <ol>
 <li>在CPU设置一对上下限寄存器，存放用户作业主存的上下限</li>
-<li>采用重定位寄存器(基址寄存器)和界地址寄存器(限长寄存器)来实现。冲顶文寄存器含最小的物理地址值，界地址寄存器含逻辑地址的最大值<br><img src="image/%E9%87%8D%E5%AE%9A%E4%BD%8D%E5%92%8C%E7%95%8C%E5%9C%B0%E5%9D%80%E5%AF%84%E5%AD%98%E5%99%A8.png" alt="重定位"></li>
+<li>采用重定位寄存器(基址寄存器)和界地址寄存器(限长寄存器)来实现。冲顶文寄存器含最小的物理地址值，界地址寄存器含逻辑地址的最大值<br><img src="/images/%E9%87%8D%E5%AE%9A%E4%BD%8D%E5%92%8C%E7%95%8C%E5%9C%B0%E5%9D%80%E5%AF%84%E5%AD%98%E5%99%A8.png" alt="重定位"></li>
 </ol>
 <h3 id="扩充内存的方法"><a href="#扩充内存的方法" class="headerlink" title="扩充内存的方法"></a>扩充内存的方法</h3><ol>
 <li>覆盖<ul>
@@ -475,15 +475,15 @@
 </li>
 </ol>
 <h4 id="非连续分配管理方式"><a href="#非连续分配管理方式" class="headerlink" title="非连续分配管理方式"></a>非连续分配管理方式</h4><h5 id="基本分页存储管理方式-页式存储管理"><a href="#基本分页存储管理方式-页式存储管理" class="headerlink" title="基本分页存储管理方式(页式存储管理)"></a>基本分页存储管理方式(页式存储管理)</h5><ol>
-<li>基本地址变换机构<br>借助页表实现(实质上是页号地址转化为块号地址)<br><img src="image/%E5%9F%BA%E6%9C%AC%E5%88%86%E9%A1%B5%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2%E6%9C%BA%E6%9E%84.png" alt="基本地址变换机构"><br>存在问题：<ol>
+<li>基本地址变换机构<br>借助页表实现(实质上是页号地址转化为块号地址)<br><img src="/images/%E5%9F%BA%E6%9C%AC%E5%88%86%E9%A1%B5%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2%E6%9C%BA%E6%9E%84.png" alt="基本地址变换机构"><br>存在问题：<ol>
 <li>地址转换必须足够快，否则访存速度会降低</li>
 <li>页变不能太大，否则内存利用率回降低</li>
 </ol>
 </li>
-<li>具有快表的地址变换机构<br><img src="image/%E5%85%B7%E6%9C%89%E5%BF%AB%E8%A1%A8%E7%9A%84%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2%E6%9C%BA%E6%9E%84.png" alt="快表地址变换机构"><br>快表相当于页表的一个缓存，拿到页号之后，先查找快表</li>
+<li>具有快表的地址变换机构<br><img src="/images/%E5%85%B7%E6%9C%89%E5%BF%AB%E8%A1%A8%E7%9A%84%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2%E6%9C%BA%E6%9E%84.png" alt="快表地址变换机构"><br>快表相当于页表的一个缓存，拿到页号之后，先查找快表</li>
 <li>两级页表<h5 id="基本分段存储管理方式"><a href="#基本分段存储管理方式" class="headerlink" title="基本分段存储管理方式"></a>基本分段存储管理方式</h5></li>
-<li>基本分段地址变换机构(实质上通过基址和偏移量寻找物理地址)<br><img src="image/%E5%9F%BA%E6%9C%AC%E5%88%86%E6%AE%B5%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2%E6%9C%BA%E6%9E%84.png" alt="基本分段地址变换机构"></li>
-<li>段页式内存管理方式<br><img src="image/%E6%AE%B5%E9%A1%B5%E5%BC%8F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86.png" alt="段页式内存管理方式"><ol>
+<li>基本分段地址变换机构(实质上通过基址和偏移量寻找物理地址)<br><img src="/images/%E5%9F%BA%E6%9C%AC%E5%88%86%E6%AE%B5%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86%E5%9C%B0%E5%9D%80%E5%8F%98%E6%8D%A2%E6%9C%BA%E6%9E%84.png" alt="基本分段地址变换机构"></li>
+<li>段页式内存管理方式<br><img src="/images/%E6%AE%B5%E9%A1%B5%E5%BC%8F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86.png" alt="段页式内存管理方式"><ol>
 <li>通过段表查到页表的其实地址和长度，然后通过页表找到页帧号，最后形成物理地址</li>
 </ol>
 </li>
@@ -729,13 +729,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/01/java%E7%A2%8E%E7%A2%8E%E5%BF%B5/">
+                <a href="/2021/05/01/SQL/%E9%AB%98%E6%80%A7%E8%83%BDmysql%E7%AC%94%E8%AE%B0/%E9%87%8D%E6%9E%84%E6%9F%A5%E8%AF%A2%E7%9A%84%E6%96%B9%E5%BC%8F/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Java碎碎念">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Mysql 重构查询">
                         
-                        <span class="card-title">Java碎碎念</span>
+                        <span class="card-title">Mysql 重构查询</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -752,8 +752,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                    后端
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                    数据库
                                 </a>
                             
                             
@@ -763,8 +763,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/">
-                        <span class="chip bg-color">个人成长</span>
+                    <a href="/tags/mysql/">
+                        <span class="chip bg-color">mysql</span>
                     </a>
                     
                 </div>
@@ -949,60 +949,6 @@
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
-    
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
@@ -1040,7 +986,7 @@
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/goasleep" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
@@ -1055,10 +1001,6 @@
 
 
 
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
 
 
 

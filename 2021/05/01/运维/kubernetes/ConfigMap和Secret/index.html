@@ -428,13 +428,13 @@
             <div id="articleContent">
                 <h1 id="ConfigMap"><a href="#ConfigMap" class="headerlink" title="ConfigMap"></a>ConfigMap</h1><p><strong>K8s允许将配置选项分离到单独的资源对象ConfigMap中，本质上使一个KV映射</strong>。应用无须直接读取到ConfigMap。映射的内容通过环境变量或者卷文件的形式传递给容器，而非直接传递给容器。<br>当然，应用程序也可以直接通过kubernetes Rest API按需读取ConfigMap的内容。<br>ConfigMap通常被用作存储非敏感数据，不过依旧希望仅限于文件拥有者的用户和组可读写。</p>
 <h2 id="ConfigMap存在的意义"><a href="#ConfigMap存在的意义" class="headerlink" title="ConfigMap存在的意义"></a>ConfigMap存在的意义</h2><p>ConfigMap的作用使解耦配置。应用配置的关键在于能偶在多个环境中区分配置选项，将配置从应用程序源码中分离，可频繁变更配置值</p>
-<p><img src="image/pod%E9%80%9A%E8%BF%87%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%8EConfigMap%E5%8D%B7%E4%BD%BF%E7%94%A8ConfigMap.png" alt="pod通过环境变量与ConfigMap卷使用ConfigMap"><br>f<br><img src="image/%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%90%8C%E5%90%8DConfigMap.png" alt="不同环境下的同名ConfigMap"></p>
+<p><img src="/images/pod%E9%80%9A%E8%BF%87%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E4%B8%8EConfigMap%E5%8D%B7%E4%BD%BF%E7%94%A8ConfigMap.png" alt="pod通过环境变量与ConfigMap卷使用ConfigMap"><br>f<br><img src="/images/%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E4%B8%8B%E7%9A%84%E5%90%8C%E5%90%8DConfigMap.png" alt="不同环境下的同名ConfigMap"></p>
 <h2 id="ConfigMap的创建方式"><a href="#ConfigMap的创建方式" class="headerlink" title="ConfigMap的创建方式"></a>ConfigMap的创建方式</h2><ul>
 <li>简单创建：kubectl create configmap myConfig –from-literal=sleep-interval=25</li>
 <li>yaml创建：kubectl create -f myConfig.yaml</li>
 <li>文件内容创建：kubectl create configmap myConfig –from-file=config-file.conf</li>
 <li>文件夹创建：kubectl create configmap myConfig –from-file=/path/to/dir</li>
-<li>混合创建： kubectl create configmap myConfig –from-file=/path/to/dir –from-file=my.json –from-file=/path/to/dir<br><img src="image/%E4%BB%8E%E6%96%87%E4%BB%B6%E3%80%81%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BB%A5%E5%8F%8A%E5%AD%97%E9%9D%A2%E9%87%8F%E5%88%9B%E5%BB%BAConfigMap.png" alt="从文件、文件夹以及字面量创建ConfigMap"></li>
+<li>混合创建： kubectl create configmap myConfig –from-file=/path/to/dir –from-file=my.json –from-file=/path/to/dir<br><img src="/images/%E4%BB%8E%E6%96%87%E4%BB%B6%E3%80%81%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BB%A5%E5%8F%8A%E5%AD%97%E9%9D%A2%E9%87%8F%E5%88%9B%E5%BB%BAConfigMap.png" alt="从文件、文件夹以及字面量创建ConfigMap"></li>
 </ul>
 <h2 id="ConfigMap的使用方式"><a href="#ConfigMap的使用方式" class="headerlink" title="ConfigMap的使用方式"></a>ConfigMap的使用方式</h2><h3 id="ConfigMap条目用作环境变量"><a href="#ConfigMap条目用作环境变量" class="headerlink" title="ConfigMap条目用作环境变量"></a>ConfigMap条目用作环境变量</h3><h4 id="单个环境变量"><a href="#单个环境变量" class="headerlink" title="单个环境变量"></a>单个环境变量</h4><ol>
 <li>使用Pod中的spec.containers.env.name 表示环境变量</li>
@@ -446,7 +446,7 @@
 <li>与使用单个环境环境变量相似</li>
 <li>然后通过spec.containers.env.args 引用环境变量<h3 id="ConfigMap卷将条目暴露为文件"><a href="#ConfigMap卷将条目暴露为文件" class="headerlink" title="ConfigMap卷将条目暴露为文件"></a>ConfigMap卷将条目暴露为文件</h3><h4 id="卷内使用ConfigMap条目volumes"><a href="#卷内使用ConfigMap条目volumes" class="headerlink" title="卷内使用ConfigMap条目volumes"></a>卷内使用ConfigMap条目volumes</h4></li>
 <li>在Pod的spec.volumes.configMap中引入ConfigMap卷</li>
-<li>在spec.containers.volumesMounts.mountPath 指明Config卷挂载的位置<br><img src="image/ConfigMap%E6%9D%A1%E7%9B%AE%E4%BD%9C%E4%B8%BA%E5%AE%B9%E5%99%A8%E5%8D%B7%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6.png" alt="ConfigMap条目作为容器卷中的文件"></li>
+<li>在spec.containers.volumesMounts.mountPath 指明Config卷挂载的位置<br><img src="/images/ConfigMap%E6%9D%A1%E7%9B%AE%E4%BD%9C%E4%B8%BA%E5%AE%B9%E5%99%A8%E5%8D%B7%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6.png" alt="ConfigMap条目作为容器卷中的文件"></li>
 </ol>
 <h4 id="卷内暴露指定ConfigMap条目"><a href="#卷内暴露指定ConfigMap条目" class="headerlink" title="卷内暴露指定ConfigMap条目"></a>卷内暴露指定ConfigMap条目</h4><ol>
 <li>在Pod的spec.volumes.configMap.items 指明包含卷中的条目</li>
@@ -454,7 +454,7 @@
 <li>在Pod的spec.volumes.configMap.items.path 指明条目的值被储存在该文件中<h4 id="ConfigMap独立条目作为文件被挂载且不隐藏文件夹中的文件"><a href="#ConfigMap独立条目作为文件被挂载且不隐藏文件夹中的文件" class="headerlink" title="ConfigMap独立条目作为文件被挂载且不隐藏文件夹中的文件"></a>ConfigMap独立条目作为文件被挂载且不隐藏文件夹中的文件</h4>Linux挂在某一文件夹会隐藏该文件夹下的已存在的文件。此时文件夹中只会包含被挂载文件系统的文件，即便使原本文件夹的文件是不可访问也同样如此。</li>
 </ol>
 <p>通过spec.container.volumeMounts.subpath字段可以用于挂载卷中的某个独立文件或者使文件夹，而不需要挂载完整卷</p>
-<p><img src="image/%E6%8C%82%E8%BD%BD%E5%8D%B7%E4%B8%AD%E7%9A%84%E5%8D%95%E7%8B%AC%E6%96%87%E4%BB%B6.png" alt="挂载卷中的单独文件"></p>
+<p><img src="/images/%E6%8C%82%E8%BD%BD%E5%8D%B7%E4%B8%AD%E7%9A%84%E5%8D%95%E7%8B%AC%E6%96%87%E4%BB%B6.png" alt="挂载卷中的单独文件"></p>
 <h4 id="为ConfigMap的文件设置权限"><a href="#为ConfigMap的文件设置权限" class="headerlink" title="为ConfigMap的文件设置权限"></a>为ConfigMap的文件设置权限</h4><p>默认权限是644，可以使用spec.volumes.configMap.defaultMode修改权限</p>
 <h3 id="更新应用配置"><a href="#更新应用配置" class="headerlink" title="更新应用配置"></a>更新应用配置</h3><p>K8S通过符号链接的方式更新卷。每当ConfigMap被更新后，K8s就会创建一个新文件夹，写入所有文件并更新链接至新的文件夹。</p>
 <p>如果挂载的是卷中的单个文件，而不是完整的卷，那么ConfigMap更新后对应的文件不会被更新</p>
@@ -750,13 +750,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/01/%E8%BF%90%E7%BB%B4/kubernetes/Pod/">
+                <a href="/2021/05/01/%E8%BF%90%E7%BB%B4/kubernetes/Pod%20%E7%90%86%E8%A7%A3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="K8S Pod">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="K8S Pod理解">
                         
-                        <span class="card-title">K8S Pod</span>
+                        <span class="card-title">K8S Pod理解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -921,60 +921,6 @@
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
-    
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
@@ -1012,7 +958,7 @@
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/goasleep" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
@@ -1027,10 +973,6 @@
 
 
 
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
 
 
 

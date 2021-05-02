@@ -438,7 +438,7 @@
 </ol>
 </li>
 </ul>
-<h2 id="使用对称加密协议"><a href="#使用对称加密协议" class="headerlink" title="使用对称加密协议"></a>使用对称加密协议</h2><p><img src="../image/HTTPS%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86.png" alt="HTTPS 对称加密"></p>
+<h2 id="使用对称加密协议"><a href="#使用对称加密协议" class="headerlink" title="使用对称加密协议"></a>使用对称加密协议</h2><p><img src="/images/HTTPS%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86.png" alt="HTTPS 对称加密"></p>
 <h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><ol>
 <li>浏览器发送加密套件列表(加密方法)和一个随机数(client-random)给到服务器</li>
 <li>服务器收到后，选择加密套件并产生一个随机数(service-random)返回给浏览器</li>
@@ -448,7 +448,7 @@
 <ul>
 <li>传输随机数的时候是明文的，而且合成密钥的算法是公开的。因此黑客拿到随机数后也可以进行破解</li>
 </ul>
-<h2 id="使用非对称加密协议"><a href="#使用非对称加密协议" class="headerlink" title="使用非对称加密协议"></a>使用非对称加密协议</h2><p><img src="../image/HTTPS%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86.png" alt="HTTPS 非对称加密"></p>
+<h2 id="使用非对称加密协议"><a href="#使用非对称加密协议" class="headerlink" title="使用非对称加密协议"></a>使用非对称加密协议</h2><p><img src="/images/HTTPS%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86.png" alt="HTTPS 非对称加密"></p>
 <h3 id="流程-1"><a href="#流程-1" class="headerlink" title="流程"></a>流程</h3><ol>
 <li>浏览器会发送加密套件列表给到服务器</li>
 <li>服务器发送加密套件和公钥给到浏览器，私钥由服务器自己保存</li>
@@ -456,7 +456,7 @@
 <li>非对称加密效率太低</li>
 <li>无法保证服务器发送给浏览器的数据安全。由于私钥加密只有公钥可以解密，黑客也能获取到公钥，不能保证服务器的安全</li>
 </ol>
-<h2 id="对称加密和非对称加密混合使用"><a href="#对称加密和非对称加密混合使用" class="headerlink" title="对称加密和非对称加密混合使用"></a>对称加密和非对称加密混合使用</h2><p><img src="../image/HTTPS%E5%AF%B9%E7%A7%B0%E6%B7%B7%E5%90%88%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86.png" alt="HTTPS 混合对称加密"></p>
+<h2 id="对称加密和非对称加密混合使用"><a href="#对称加密和非对称加密混合使用" class="headerlink" title="对称加密和非对称加密混合使用"></a>对称加密和非对称加密混合使用</h2><p><img src="/images/HTTPS%E5%AF%B9%E7%A7%B0%E6%B7%B7%E5%90%88%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86.png" alt="HTTPS 混合对称加密"></p>
 <h3 id="流程-2"><a href="#流程-2" class="headerlink" title="流程"></a>流程</h3><ol>
 <li>浏览器发送对称加密套件列表和加密套件列表和Client-random给到服务器</li>
 <li>服务器返回对称加密和非对称加密套件，service-random 和 公钥给到浏览器</li>
@@ -954,60 +954,6 @@
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
-    
     <div class="container row center-align" style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
@@ -1045,7 +991,7 @@
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/goasleep" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
@@ -1060,10 +1006,6 @@
 
 
 
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
 
 
 
