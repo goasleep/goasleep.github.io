@@ -4,31 +4,6 @@
   
     
     <entry>
-      <title>ELK</title>
-      <link href="2021/05/03/middleware/Elasticsearch/ELK/"/>
-      <url>2021/05/03/middleware/Elasticsearch/ELK/</url>
-      
-        <content type="html"><![CDATA[<h1 id="ELK"><a href="#ELK" class="headerlink" title="ELK"></a>ELK</h1><h2 id="E-ElasticSearch"><a href="#E-ElasticSearch" class="headerlink" title="E: ElasticSearch"></a>E: ElasticSearch</h2><h2 id="L-Logstash"><a href="#L-Logstash" class="headerlink" title="L: Logstash"></a>L: Logstash</h2><p>开源的服务器端数据处理通道，支持从不同来源采集数据，转换数据，并将数据发送到不同的存储库中。</p><h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul><li>实时解析和转换数据<ul><li>从IP地址破译出地理坐标</li><li>将PII数据匿名化，完全排除敏感字段</li></ul></li><li>可扩展<ul><li>200多个插件</li></ul></li><li>可靠安全性<ul><li>通过持久化队列保证至少运行中的事件送达一次</li><li>数据传输加密</li></ul></li><li>监控</li></ul><h2 id="K：kibana"><a href="#K：kibana" class="headerlink" title="K：kibana"></a>K：kibana</h2><p>数据化可是工具</p><h2 id="Beats"><a href="#Beats" class="headerlink" title="Beats"></a>Beats</h2><p>轻量级数据采集器</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 中间件 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> ElasticSearch </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Elasticsearch检索原理</title>
       <link href="2021/05/03/middleware/Elasticsearch/Elasticsearch%20%E6%A3%80%E7%B4%A2%E5%8E%9F%E7%90%86/"/>
       <url>2021/05/03/middleware/Elasticsearch/Elasticsearch%20%E6%A3%80%E7%B4%A2%E5%8E%9F%E7%90%86/</url>
@@ -665,7 +640,7 @@
       <link href="2021/05/01/arthas/"/>
       <url>2021/05/01/arthas/</url>
       
-        <content type="html"><![CDATA[<h2 id="查看JVM-信息"><a href="#查看JVM-信息" class="headerlink" title="查看JVM 信息"></a>查看JVM 信息</h2><ul><li>sysprop：打印所有的System Properties信息</li><li>sysenv：获取到环境变量</li><li>jvm：打印出JVM的各种详细信息</li><li>dashboard：查看当前系统的实时数据面板</li></ul><h2 id="查看已加载的类"><a href="#查看已加载的类" class="headerlink" title="查看已加载的类"></a>查看已加载的类</h2><ul><li>sc：查找到所有JVM已经加载到的类</li><li>sm: 查找类的具体函数</li></ul><h2 id="反编译指令-Jad"><a href="#反编译指令-Jad" class="headerlink" title="反编译指令 Jad"></a>反编译指令 Jad</h2><h2 id="动态执行代码-ognl"><a href="#动态执行代码-ognl" class="headerlink" title="动态执行代码 ognl"></a>动态执行代码 ognl</h2><p>ognl ‘@<a href="mailto:&#x6a;&#x61;&#118;&#x61;&#46;&#x6c;&#97;&#110;&#103;&#x2e;&#x53;&#121;&#x73;&#x74;&#101;&#109;&#64;&#x6f;&#x75;&#116;&#46;&#112;&#114;&#105;&#x6e;&#116;&#x6c;&#110;">&#x6a;&#x61;&#118;&#x61;&#46;&#x6c;&#97;&#110;&#103;&#x2e;&#x53;&#121;&#x73;&#x74;&#101;&#109;&#64;&#x6f;&#x75;&#116;&#46;&#112;&#114;&#105;&#x6e;&#116;&#x6c;&#110;</a>(“hello ognl”)’</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="查看JVM-信息"><a href="#查看JVM-信息" class="headerlink" title="查看JVM 信息"></a>查看JVM 信息</h2><ul><li>sysprop：打印所有的System Properties信息</li><li>sysenv：获取到环境变量</li><li>jvm：打印出JVM的各种详细信息</li><li>dashboard：查看当前系统的实时数据面板</li></ul><h2 id="查看已加载的类"><a href="#查看已加载的类" class="headerlink" title="查看已加载的类"></a>查看已加载的类</h2><ul><li>sc：查找到所有JVM已经加载到的类</li><li>sm: 查找类的具体函数</li></ul><h2 id="反编译指令-Jad"><a href="#反编译指令-Jad" class="headerlink" title="反编译指令 Jad"></a>反编译指令 Jad</h2><h2 id="动态执行代码-ognl"><a href="#动态执行代码-ognl" class="headerlink" title="动态执行代码 ognl"></a>动态执行代码 ognl</h2><p>ognl ‘@<a href="mailto:&#106;&#97;&#118;&#x61;&#46;&#x6c;&#97;&#x6e;&#x67;&#46;&#x53;&#121;&#115;&#116;&#101;&#109;&#64;&#111;&#x75;&#116;&#46;&#x70;&#114;&#x69;&#x6e;&#116;&#x6c;&#110;">&#106;&#97;&#118;&#x61;&#46;&#x6c;&#97;&#x6e;&#x67;&#46;&#x53;&#121;&#115;&#116;&#101;&#109;&#64;&#111;&#x75;&#116;&#46;&#x70;&#114;&#x69;&#x6e;&#116;&#x6c;&#110;</a>(“hello ognl”)’</p>]]></content>
       
       
       <categories>
@@ -813,31 +788,6 @@
     
     
     <entry>
-      <title>Docker 组件</title>
-      <link href="2021/05/01/Docker/Docker%E7%BB%84%E4%BB%B6/"/>
-      <url>2021/05/01/Docker/Docker%E7%BB%84%E4%BB%B6/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Docker-组件"><a href="#Docker-组件" class="headerlink" title="Docker 组件"></a>Docker 组件</h1><p><em>Docker 在linux下默认的安装目录/var/lib/docker</em></p><h2 id="Docker-相关组件"><a href="#Docker-相关组件" class="headerlink" title="Docker 相关组件"></a>Docker 相关组件</h2><h3 id="docker-客户端"><a href="#docker-客户端" class="headerlink" title="docker 客户端"></a>docker 客户端</h3><p>对用户可见的操作形式为 docker 命令，通过 docker 命令可以完成所有的 Docker 客户端与服务端的通信（还可以通过 REST API、SDK 等多种形式与 Docker 服务端通信）<br>客户端与服务器端交互的过程：<br>    docker 客户端向服务端发送请求后，服务端根据请求执行具体的动作并将结果返回给 docker客户端，docker 解析服务端的返回结果，并将结果通过命令行标准输出展示给用户。这样一次完整的客户端服务端请求就完成了</p><h3 id="dockerd"><a href="#dockerd" class="headerlink" title="dockerd"></a>dockerd</h3><p>dockerd 是 Docker 服务端的后台常驻进程，用来接收客户端发送的请求，执行具体的处理任务，处理完成后将结果返回给客户端<br>Docker 客户端与 dockerd 的交互方式有三种，客户端和服务器端的通信必须保持一致</p><ol><li>通过 UNIX 套接字与服务端通信<br>配置格式为unix://socket_path，默认 dockerd 生成的 socket 文件路径为 /var/run/docker.sock。该文件只有root用户和docker用户组的用户才能访问</li><li>通过 TCP 与服务端通信<br>配置格式为tcp://host:port，存在安全隐患，可以使用TLS认证来保证传输安全</li><li>通过文件描述符的方式与服务端通信<br> 配置格式为：fd://这种格式一般用于 systemd 管理的系统中<h3 id="docker-init"><a href="#docker-init" class="headerlink" title="docker-init"></a>docker-init</h3>在容器内部，当我们自己的业务进程没有回收子进程的能力时，在执行 docker run 启动容器时可以添加 –init 参数，此时 Docker 会使用 docker-init 作为1号进程，帮你管理容器内子进程，例如回收僵尸进程等<h3 id="docker-proxy"><a href="#docker-proxy" class="headerlink" title="docker-proxy"></a>docker-proxy</h3>docker-proxy 主要是用来做端口映射的，底层依赖于iptables实现<h2 id="containerd相关组件"><a href="#containerd相关组件" class="headerlink" title="containerd相关组件"></a>containerd相关组件</h2><h3 id="containerd"><a href="#containerd" class="headerlink" title="containerd"></a>containerd</h3><h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4></li><li>负责容器生命周期的管理</li><li>镜像的管理，例如容器运行前从镜像仓库拉取镜像到本地</li><li>接收 dockerd 的请求，通过适当的参数调用 runc 启动容器</li><li>管理存储相关资源</li><li>管理网络相关资源<h4 id="containerd和dockerd的交互"><a href="#containerd和dockerd的交互" class="headerlink" title="containerd和dockerd的交互"></a>containerd和dockerd的交互</h4>containerd 包含一个后台常驻进程，默认的 socket 路径为 /run/containerd/containerd.sock，dockerd 通过 UNIX 套接字向 containerd 发送请求，containerd 接收到请求后负责执行相关的动作并把执行结果返回给 dockerd。<h3 id="containerd-shim"><a href="#containerd-shim" class="headerlink" title="containerd-shim"></a>containerd-shim</h3>containerd-shim 的主要作用是将 containerd 和真正的容器进程解耦，使用 containerd-shim 作为容器进程的父进程，从而实现重启 containerd 不影响已经启动的容器进程<h3 id="ctr"><a href="#ctr" class="headerlink" title="ctr"></a>ctr</h3>containerd的客户端，可以直接向containerd发送容器请求<h2 id="runc（容器运行时组件）"><a href="#runc（容器运行时组件）" class="headerlink" title="runc（容器运行时组件）"></a>runc（容器运行时组件）</h2>runc 是一个标准的 OCI 容器运行时的实现，它是一个命令行工具，可以直接用来创建和运行容器</li></ol><p><img src="/images/Docker%E7%BB%84%E4%BB%B6%E5%8F%8A%E5%85%B6%E4%BD%9C%E7%94%A8.png" alt="Docker组件"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 云原生 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Docker </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Docker隔离</title>
       <link href="2021/05/01/Docker/Docker%E8%B5%84%E6%BA%90%E9%9A%94%E7%A6%BB%E4%B8%8E%E9%99%90%E5%88%B6/"/>
       <url>2021/05/01/Docker/Docker%E8%B5%84%E6%BA%90%E9%9A%94%E7%A6%BB%E4%B8%8E%E9%99%90%E5%88%B6/</url>
@@ -857,6 +807,31 @@
             <tag> Docker </tag>
             
             <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Docker 组件</title>
+      <link href="2021/05/01/Docker/Docker%E7%BB%84%E4%BB%B6/"/>
+      <url>2021/05/01/Docker/Docker%E7%BB%84%E4%BB%B6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Docker-组件"><a href="#Docker-组件" class="headerlink" title="Docker 组件"></a>Docker 组件</h1><p><em>Docker 在linux下默认的安装目录/var/lib/docker</em></p><h2 id="Docker-相关组件"><a href="#Docker-相关组件" class="headerlink" title="Docker 相关组件"></a>Docker 相关组件</h2><h3 id="docker-客户端"><a href="#docker-客户端" class="headerlink" title="docker 客户端"></a>docker 客户端</h3><p>对用户可见的操作形式为 docker 命令，通过 docker 命令可以完成所有的 Docker 客户端与服务端的通信（还可以通过 REST API、SDK 等多种形式与 Docker 服务端通信）<br>客户端与服务器端交互的过程：<br>    docker 客户端向服务端发送请求后，服务端根据请求执行具体的动作并将结果返回给 docker客户端，docker 解析服务端的返回结果，并将结果通过命令行标准输出展示给用户。这样一次完整的客户端服务端请求就完成了</p><h3 id="dockerd"><a href="#dockerd" class="headerlink" title="dockerd"></a>dockerd</h3><p>dockerd 是 Docker 服务端的后台常驻进程，用来接收客户端发送的请求，执行具体的处理任务，处理完成后将结果返回给客户端<br>Docker 客户端与 dockerd 的交互方式有三种，客户端和服务器端的通信必须保持一致</p><ol><li>通过 UNIX 套接字与服务端通信<br>配置格式为unix://socket_path，默认 dockerd 生成的 socket 文件路径为 /var/run/docker.sock。该文件只有root用户和docker用户组的用户才能访问</li><li>通过 TCP 与服务端通信<br>配置格式为tcp://host:port，存在安全隐患，可以使用TLS认证来保证传输安全</li><li>通过文件描述符的方式与服务端通信<br> 配置格式为：fd://这种格式一般用于 systemd 管理的系统中<h3 id="docker-init"><a href="#docker-init" class="headerlink" title="docker-init"></a>docker-init</h3>在容器内部，当我们自己的业务进程没有回收子进程的能力时，在执行 docker run 启动容器时可以添加 –init 参数，此时 Docker 会使用 docker-init 作为1号进程，帮你管理容器内子进程，例如回收僵尸进程等<h3 id="docker-proxy"><a href="#docker-proxy" class="headerlink" title="docker-proxy"></a>docker-proxy</h3>docker-proxy 主要是用来做端口映射的，底层依赖于iptables实现<h2 id="containerd相关组件"><a href="#containerd相关组件" class="headerlink" title="containerd相关组件"></a>containerd相关组件</h2><h3 id="containerd"><a href="#containerd" class="headerlink" title="containerd"></a>containerd</h3><h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4></li><li>负责容器生命周期的管理</li><li>镜像的管理，例如容器运行前从镜像仓库拉取镜像到本地</li><li>接收 dockerd 的请求，通过适当的参数调用 runc 启动容器</li><li>管理存储相关资源</li><li>管理网络相关资源<h4 id="containerd和dockerd的交互"><a href="#containerd和dockerd的交互" class="headerlink" title="containerd和dockerd的交互"></a>containerd和dockerd的交互</h4>containerd 包含一个后台常驻进程，默认的 socket 路径为 /run/containerd/containerd.sock，dockerd 通过 UNIX 套接字向 containerd 发送请求，containerd 接收到请求后负责执行相关的动作并把执行结果返回给 dockerd。<h3 id="containerd-shim"><a href="#containerd-shim" class="headerlink" title="containerd-shim"></a>containerd-shim</h3>containerd-shim 的主要作用是将 containerd 和真正的容器进程解耦，使用 containerd-shim 作为容器进程的父进程，从而实现重启 containerd 不影响已经启动的容器进程<h3 id="ctr"><a href="#ctr" class="headerlink" title="ctr"></a>ctr</h3>containerd的客户端，可以直接向containerd发送容器请求<h2 id="runc（容器运行时组件）"><a href="#runc（容器运行时组件）" class="headerlink" title="runc（容器运行时组件）"></a>runc（容器运行时组件）</h2>runc 是一个标准的 OCI 容器运行时的实现，它是一个命令行工具，可以直接用来创建和运行容器</li></ol><p><img src="/images/Docker%E7%BB%84%E4%BB%B6%E5%8F%8A%E5%85%B6%E4%BD%9C%E7%94%A8.png" alt="Docker组件"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 云原生 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
             
         </tags>
       
@@ -1019,11 +994,11 @@
     
     
     <entry>
-      <title>Nginx 负载均衡</title>
-      <link href="2021/05/01/Nginx/Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
-      <url>2021/05/01/Nginx/Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</url>
+      <title>Nginx 操作</title>
+      <link href="2021/05/01/Nginx/Nginx%E6%93%8D%E4%BD%9C/"/>
+      <url>2021/05/01/Nginx/Nginx%E6%93%8D%E4%BD%9C/</url>
       
-        <content type="html"><![CDATA[<h1 id="Nginx-负载均衡"><a href="#Nginx-负载均衡" class="headerlink" title="Nginx 负载均衡"></a>Nginx 负载均衡</h1><h2 id="Nginx-负载均衡特点"><a href="#Nginx-负载均衡特点" class="headerlink" title="Nginx 负载均衡特点"></a>Nginx 负载均衡特点</h2><p>Nginx并不会立刻转发到上游服务器，而是先把用户的请求（包括HTTP包体） 完整地接收到Nginx所在服务器的硬盘或者内存中，然后再向上游服务器发起连接， 把缓存的客户端请求转发到上游服务器。（接收到完整的客户端请求（如1GB的文件） 后， 才会与上游服务器建立连接转发请求）。</p><p>缺点：延长了一个请求的处理时间，并增加了用于缓存请求内容的内存和磁盘空间<br>优点：降低了上游服务器的负载， 尽量把压力放在Nginx服务器上<br><img src="/images/%E4%BD%9C%E4%B8%BA%E9%9D%99%E6%80%81Web%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84Nginx.png" alt="作为静态Web服务器与反向代理服务器的Nginx"></p><p><img src="/images/Nginx%E4%BD%9C%E4%B8%BA%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%B6%E8%BD%AC%E5%8F%91%E8%AF%B7%E6%B1%82%E7%9A%84%E6%B5%81%E7%A8%8B.png" alt="Nginx作为反向代理服务器时转发请求的流程"></p><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ol><li>upstream块：upstream块定义了一个上游服务器的集群， 便于反向代理中的proxy_pass使用</li><li>ip_hash：我们可能会希望来自某一个用户的请求始终落到固定的一台上游服务器中。如果同一个用户的请求任意地转发到集群中的任一台上游服务器中， 那么每一台上游服务器都有可能会缓存同一份信息， 这既会造成资源。的浪费， 也会难以有效地管理缓存信息，这样确保了<strong>同一个客户端的请求只会转发到指定的上游服务器中</strong>。</li><li>proxy_pass:此配置项将当前请求反向代理到URL参数指定的服务器上， URL可以是主机名或IP地址加端口的形式。</li><li>proxy_method:配置项表示转发时的协议方法名</li><li>proxy_hide_header:Nginx会将上游服务器的响应转发给客户端， 可以任意地指定哪些HTTP头部字段不能被转发。</li><li>proxy_pass_header:与proxy_hide_header 相反</li><li>proxy_pass_request_headers：作用为确定是否转发HTTP头部。</li><li>proxy_redirect：当上游服务器返回的响应是重定向或刷新请求（ 如HTTP响应码是301或者302） 时，proxy_redirect可以重设HTTP头部的location或refresh字段</li><li>proxy_next_upstream：此配置项表示当向一台上游服务器转发请求出现错误时， 继续换一台上游服务器处理这个请求</li></ol>]]></content>
+        <content type="html"><![CDATA[<h2 id="重载配置文件"><a href="#重载配置文件" class="headerlink" title="重载配置文件"></a>重载配置文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -S reload 或</span><br><span class="line">kill -HUP 主进程号</span><br></pre></td></tr></table></figure><h2 id="热部署"><a href="#热部署" class="headerlink" title="热部署"></a>热部署</h2><ol><li><p>备份旧的可执行文件</p></li><li><p>给主进程发USER2信号：执行完后新的主进程和旧的同时存在，会将新的请求/连接给到新的主进程中</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -USR2 9944</span><br></pre></td></tr></table></figure></li><li><p>给旧的主进程发送WINCH信号：通知旧的主进程优雅的关闭旧的work进程(执行完任务后关闭)，旧的主进程还在，以便做版本回退。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -WINCH 9944</span><br></pre></td></tr></table></figure></li><li><p>给旧的主进程发送QUIT信号，使其关闭。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -QUIT 9944</span><br></pre></td></tr></table></figure></li><li><p>如果需要进行版本回退，可以给旧的主进程发HUP命令，nginx不重新读取配置文件的情况下重新启动旧主进程的工作进程。然后再优雅的关闭新的主进程</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kill -HUP 9944</span><br><span class="line">kill -QUIT 新的主进程pid</span><br></pre></td></tr></table></figure></li></ol><h2 id="重启日志文件（日志文件分割）"><a href="#重启日志文件（日志文件分割）" class="headerlink" title="重启日志文件（日志文件分割）"></a>重启日志文件（日志文件分割）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reopen </span><br><span class="line">或者 kill -USR1 2030</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -1046,11 +1021,11 @@
     
     
     <entry>
-      <title>Nginx 操作</title>
-      <link href="2021/05/01/Nginx/Nginx%E6%93%8D%E4%BD%9C/"/>
-      <url>2021/05/01/Nginx/Nginx%E6%93%8D%E4%BD%9C/</url>
+      <title>Nginx 负载均衡</title>
+      <link href="2021/05/01/Nginx/Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
+      <url>2021/05/01/Nginx/Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</url>
       
-        <content type="html"><![CDATA[<h2 id="重载配置文件"><a href="#重载配置文件" class="headerlink" title="重载配置文件"></a>重载配置文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -S reload 或</span><br><span class="line">kill -HUP 主进程号</span><br></pre></td></tr></table></figure><h2 id="热部署"><a href="#热部署" class="headerlink" title="热部署"></a>热部署</h2><ol><li><p>备份旧的可执行文件</p></li><li><p>给主进程发USER2信号：执行完后新的主进程和旧的同时存在，会将新的请求/连接给到新的主进程中</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -USR2 9944</span><br></pre></td></tr></table></figure></li><li><p>给旧的主进程发送WINCH信号：通知旧的主进程优雅的关闭旧的work进程(执行完任务后关闭)，旧的主进程还在，以便做版本回退。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -WINCH 9944</span><br></pre></td></tr></table></figure></li><li><p>给旧的主进程发送QUIT信号，使其关闭。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -QUIT 9944</span><br></pre></td></tr></table></figure></li><li><p>如果需要进行版本回退，可以给旧的主进程发HUP命令，nginx不重新读取配置文件的情况下重新启动旧主进程的工作进程。然后再优雅的关闭新的主进程</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kill -HUP 9944</span><br><span class="line">kill -QUIT 新的主进程pid</span><br></pre></td></tr></table></figure></li></ol><h2 id="重启日志文件（日志文件分割）"><a href="#重启日志文件（日志文件分割）" class="headerlink" title="重启日志文件（日志文件分割）"></a>重启日志文件（日志文件分割）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reopen </span><br><span class="line">或者 kill -USR1 2030</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="Nginx-负载均衡"><a href="#Nginx-负载均衡" class="headerlink" title="Nginx 负载均衡"></a>Nginx 负载均衡</h1><h2 id="Nginx-负载均衡特点"><a href="#Nginx-负载均衡特点" class="headerlink" title="Nginx 负载均衡特点"></a>Nginx 负载均衡特点</h2><p>Nginx并不会立刻转发到上游服务器，而是先把用户的请求（包括HTTP包体） 完整地接收到Nginx所在服务器的硬盘或者内存中，然后再向上游服务器发起连接， 把缓存的客户端请求转发到上游服务器。（接收到完整的客户端请求（如1GB的文件） 后， 才会与上游服务器建立连接转发请求）。</p><p>缺点：延长了一个请求的处理时间，并增加了用于缓存请求内容的内存和磁盘空间<br>优点：降低了上游服务器的负载， 尽量把压力放在Nginx服务器上<br><img src="/images/%E4%BD%9C%E4%B8%BA%E9%9D%99%E6%80%81Web%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84Nginx.png" alt="作为静态Web服务器与反向代理服务器的Nginx"></p><p><img src="/images/Nginx%E4%BD%9C%E4%B8%BA%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%B6%E8%BD%AC%E5%8F%91%E8%AF%B7%E6%B1%82%E7%9A%84%E6%B5%81%E7%A8%8B.png" alt="Nginx作为反向代理服务器时转发请求的流程"></p><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ol><li>upstream块：upstream块定义了一个上游服务器的集群， 便于反向代理中的proxy_pass使用</li><li>ip_hash：我们可能会希望来自某一个用户的请求始终落到固定的一台上游服务器中。如果同一个用户的请求任意地转发到集群中的任一台上游服务器中， 那么每一台上游服务器都有可能会缓存同一份信息， 这既会造成资源。的浪费， 也会难以有效地管理缓存信息，这样确保了<strong>同一个客户端的请求只会转发到指定的上游服务器中</strong>。</li><li>proxy_pass:此配置项将当前请求反向代理到URL参数指定的服务器上， URL可以是主机名或IP地址加端口的形式。</li><li>proxy_method:配置项表示转发时的协议方法名</li><li>proxy_hide_header:Nginx会将上游服务器的响应转发给客户端， 可以任意地指定哪些HTTP头部字段不能被转发。</li><li>proxy_pass_header:与proxy_hide_header 相反</li><li>proxy_pass_request_headers：作用为确定是否转发HTTP头部。</li><li>proxy_redirect：当上游服务器返回的响应是重定向或刷新请求（ 如HTTP响应码是301或者302） 时，proxy_redirect可以重设HTTP头部的location或refresh字段</li><li>proxy_next_upstream：此配置项表示当向一台上游服务器转发请求出现错误时， 继续换一台上游服务器处理这个请求</li></ol>]]></content>
       
       
       <categories>
@@ -1352,11 +1327,11 @@
     
     
     <entry>
-      <title>浏览器的JavaScript的执行机制</title>
-      <link href="2021/05/01/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84JS%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/"/>
-      <url>2021/05/01/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84JS%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/</url>
+      <title>浏览器缓存</title>
+      <link href="2021/05/01/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/"/>
+      <url>2021/05/01/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/</url>
       
-        <content type="html"><![CDATA[<h1 id="浏览器的JavaScript的执行机制"><a href="#浏览器的JavaScript的执行机制" class="headerlink" title="浏览器的JavaScript的执行机制"></a>浏览器的JavaScript的执行机制</h1><h2 id="执行顺序问题"><a href="#执行顺序问题" class="headerlink" title="执行顺序问题"></a>执行顺序问题</h2><h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><ol><li>在代码执行过程汇总，JavaScript引擎将变量的声明部分和函数的声明部分提升到代码开头。</li><li>变量被提升后，会给变量设置默认值</li></ol><h3 id="JavaScript的执行流程"><a href="#JavaScript的执行流程" class="headerlink" title="JavaScript的执行流程"></a>JavaScript的执行流程</h3><p><img src="/images/V8%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AE%B5JavaScript%E4%BB%A3%E7%A0%81.png" alt="JavaScript的执行流程"></p><ol><li>语法检查</li><li>预编译阶段<ol><li>js的运行环境<ol><li>全局环境，代码进入预编译即进入了全局环境</li><li>函数环境，函数执行调用，就进入该函数的函数韩静</li><li>eval环境，(允许执行代码字符串，避免使用)</li><li>每进入一个环境都会创建一个相应的执行上下文。js引擎会以栈的方式对这些执行上下文进行处理，形成函数调用栈</li></ol></li><li>函数调用栈<ol><li>首次运行时，会创建一个全局执行上下文并push到栈中</li><li>每当发生函数调用，就会创建新的函数执行上下文push到栈顶</li><li>函数完成后，对应函数的执行上下文会从栈中pop出，上下文控制权交给下一个执行上下文</li></ol></li><li>执行上下文的创建<ol><li>创建变量对象<ol><li>变量提升，函数声明的优先级高于变量声明的优先级</li><li>此时，变量属性都未赋值，默认为undefined</li></ol></li><li>建立作用域链<ol><li>创建作用域链，就是创建词法环境</li><li>词法环境由两部分组成<ol><li>环境记录：环境变量和函数声明的实际位置</li><li>对外部环境的引用：可以访问其外部词法环境</li></ol></li></ol></li><li>确定this的指向<ol><li>this是和执行上下文绑定的，每个执行上下文都有一个this</li><li>全局中的this是指向window对象的</li><li>this指向完全取决于函数调用的位置</li><li>嵌套函数的this不会从外层函数中继承</li></ol></li></ol></li></ol></li><li>执行阶段</li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="缓存流程"><a href="#缓存流程" class="headerlink" title="缓存流程"></a>缓存流程</h1><p><img src="/images/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98.png" alt="浏览器缓存"></p>]]></content>
       
       
       <categories>
@@ -1377,11 +1352,11 @@
     
     
     <entry>
-      <title>浏览器缓存</title>
-      <link href="2021/05/01/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/"/>
-      <url>2021/05/01/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/</url>
+      <title>浏览器的JavaScript的执行机制</title>
+      <link href="2021/05/01/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84JS%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/"/>
+      <url>2021/05/01/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84JS%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/</url>
       
-        <content type="html"><![CDATA[<h1 id="缓存流程"><a href="#缓存流程" class="headerlink" title="缓存流程"></a>缓存流程</h1><p><img src="/images/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98.png" alt="浏览器缓存"></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="浏览器的JavaScript的执行机制"><a href="#浏览器的JavaScript的执行机制" class="headerlink" title="浏览器的JavaScript的执行机制"></a>浏览器的JavaScript的执行机制</h1><h2 id="执行顺序问题"><a href="#执行顺序问题" class="headerlink" title="执行顺序问题"></a>执行顺序问题</h2><h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><ol><li>在代码执行过程汇总，JavaScript引擎将变量的声明部分和函数的声明部分提升到代码开头。</li><li>变量被提升后，会给变量设置默认值</li></ol><h3 id="JavaScript的执行流程"><a href="#JavaScript的执行流程" class="headerlink" title="JavaScript的执行流程"></a>JavaScript的执行流程</h3><p><img src="/images/V8%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AE%B5JavaScript%E4%BB%A3%E7%A0%81.png" alt="JavaScript的执行流程"></p><ol><li>语法检查</li><li>预编译阶段<ol><li>js的运行环境<ol><li>全局环境，代码进入预编译即进入了全局环境</li><li>函数环境，函数执行调用，就进入该函数的函数韩静</li><li>eval环境，(允许执行代码字符串，避免使用)</li><li>每进入一个环境都会创建一个相应的执行上下文。js引擎会以栈的方式对这些执行上下文进行处理，形成函数调用栈</li></ol></li><li>函数调用栈<ol><li>首次运行时，会创建一个全局执行上下文并push到栈中</li><li>每当发生函数调用，就会创建新的函数执行上下文push到栈顶</li><li>函数完成后，对应函数的执行上下文会从栈中pop出，上下文控制权交给下一个执行上下文</li></ol></li><li>执行上下文的创建<ol><li>创建变量对象<ol><li>变量提升，函数声明的优先级高于变量声明的优先级</li><li>此时，变量属性都未赋值，默认为undefined</li></ol></li><li>建立作用域链<ol><li>创建作用域链，就是创建词法环境</li><li>词法环境由两部分组成<ol><li>环境记录：环境变量和函数声明的实际位置</li><li>对外部环境的引用：可以访问其外部词法环境</li></ol></li></ol></li><li>确定this的指向<ol><li>this是和执行上下文绑定的，每个执行上下文都有一个this</li><li>全局中的this是指向window对象的</li><li>this指向完全取决于函数调用的位置</li><li>嵌套函数的this不会从外层函数中继承</li></ol></li></ol></li></ol></li><li>执行阶段</li></ol>]]></content>
       
       
       <categories>
@@ -2005,10 +1980,10 @@
     
     <entry>
       <title>安全基础</title>
-      <link href="2021/05/01/safety/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/"/>
-      <url>2021/05/01/safety/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</url>
+      <link href="2021/05/01/safety/%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB/"/>
+      <url>2021/05/01/safety/%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB/</url>
       
-        <content type="html"><![CDATA[<h1 id="浏览器的同源策略"><a href="#浏览器的同源策略" class="headerlink" title="浏览器的同源策略"></a>浏览器的同源策略</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy">同源策略介绍</a></p><p>同源策略解决的问题：CSRF</p><p>CSRF（cross-site request forgery) 通过伪装成受信任用户的请求来利用受信任的网站。</p><p><a href="https://blog.csdn.net/stpeace/article/details/53512283">CSRF攻防简介</a></p><p><a href="https://tech.meituan.com/2018/10/11/fe-security-csrf.html">如何防止CSRF攻击</a><br>防止手段</p><ul><li>CSRF自动防御策略：同源检测（Origin和Referer验证）</li><li>CSRF主动防御措施：Token验证，双重Cookie验证以及配合Samesite Cookie</li><li>保证页面的幂等性，后端接口不在GET页面做用户操作</li></ul><p>CORS(跨域资源共享标准)<br>CORS 提供了一种设置你的页面可以访问指定的域名下的资源（API）的方法。当然这些域名是你受信任的。从而避免了 CRSF 攻击。CORS 就像是一个过滤器</p><p>跨域问题的解决方案</p><ol><li><p>将Vue 编译后的代码放到 Spring-boot 的 <code>resources/static</code> 目录下。前后端使用一个服务</p></li><li><p>CORS</p><p>2.1 使用注解</p><p>2.2 在配置类中设置CORS（设置全局跨域）</p></li></ol><p>配置跨域问题的注意事项:</p><p>不要设置@CrossOrigin(‘*’)。虽然达到跨域访问的问题，但是不能达到CORS的意义。因为这个操作是信任所有域名</p><p><a href="https://zhuanlan.zhihu.com/p/66276472">SpringBoot+vue跨域问题实例</a></p><h1 id="同源策略的表现"><a href="#同源策略的表现" class="headerlink" title="同源策略的表现"></a>同源策略的表现</h1><ol><li>DOM层面：限制了不同源的JavaScript脚本对当前DOM对象读写操作</li><li>数据层面：限制不同源的站点读取当前站点的Cookie，IndexDB，LocalStorage等数据</li><li>网络层面：限制通过XMLHttpRequest等方式将站点的数据发送给不同源的站点</li></ol>]]></content>
+        <content type="html"><![CDATA[<h2 id="注入攻击"><a href="#注入攻击" class="headerlink" title="注入攻击"></a>注入攻击</h2><p>注入攻击是应用违背了“数据与代码分离原则的”结果</p><p>注入攻击的两个条件</p><ol><li>用户能够控制数据的输入</li><li>原本要执行的代码，拼接了用户的输入，把数据当做代码执行了<h3 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h3></li><li>要避免Web服务器开启错误回显，将错误信息直接返回</li><li>还可以盲注，比如注入 “and 1=2”</li><li>Timing Attach，用BENCHMARK函数造成延迟，如果不为真，则该语句很快就执行完</li><li>BENCHMARK()函数，可以让同一个函数执行若干次，使得结果返回的时间比平常要场，通过时间长短的变化，判断出注入语句是否执行成功。</li></ol><h4 id="防御SQL注入"><a href="#防御SQL注入" class="headerlink" title="防御SQL注入"></a>防御SQL注入</h4><p>要做的事情</p><ul><li><p>找到所有SQL注入漏洞</p></li><li><p>修补这些漏洞</p></li><li><p>使用预编译语句<br>如使用？代替变量</p></li><li><p>使用存储过程<br>尽量避免在存储过程内使用动态的sql，如果无法避免，应该使用严格的输入过滤或者编码函数来处理用户的输入数据</p></li><li><p>检查数据类型</p></li><li><p>使用安全函数</p></li><li><p>数据库应该使用最小权限原则，避免web应用直接使用root、dbowner等高权限账户直接连接数据库</p></li></ul><h3 id="XML注入"><a href="#XML注入" class="headerlink" title="XML注入"></a>XML注入</h3><p>与HTML类似，对用书输入数据包含语言本身的保留字符进行转义</p><h3 id="代码注入"><a href="#代码注入" class="headerlink" title="代码注入"></a>代码注入</h3><p>多吗注入多见于脚本语言<br>JSP的动态include也能导致代码注入</p><h3 id="CRLF注入"><a href="#CRLF注入" class="headerlink" title="CRLF注入"></a>CRLF注入</h3><p>CR(\r),LF(\n)<br>\r\n：换行</p><p>通过注入CRLF可能会改变原有的语义，HTTP就是通过“\r\n”来分割的。如果服务器端没有过滤“\r\n”，又把用户输入的数据放在HTTP头中，则有可能导致安全隐患</p>]]></content>
       
       
       <categories>
@@ -2030,10 +2005,10 @@
     
     <entry>
       <title>安全基础</title>
-      <link href="2021/05/01/safety/%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB/"/>
-      <url>2021/05/01/safety/%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB/</url>
+      <link href="2021/05/01/safety/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/"/>
+      <url>2021/05/01/safety/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/</url>
       
-        <content type="html"><![CDATA[<h2 id="注入攻击"><a href="#注入攻击" class="headerlink" title="注入攻击"></a>注入攻击</h2><p>注入攻击是应用违背了“数据与代码分离原则的”结果</p><p>注入攻击的两个条件</p><ol><li>用户能够控制数据的输入</li><li>原本要执行的代码，拼接了用户的输入，把数据当做代码执行了<h3 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h3></li><li>要避免Web服务器开启错误回显，将错误信息直接返回</li><li>还可以盲注，比如注入 “and 1=2”</li><li>Timing Attach，用BENCHMARK函数造成延迟，如果不为真，则该语句很快就执行完</li><li>BENCHMARK()函数，可以让同一个函数执行若干次，使得结果返回的时间比平常要场，通过时间长短的变化，判断出注入语句是否执行成功。</li></ol><h4 id="防御SQL注入"><a href="#防御SQL注入" class="headerlink" title="防御SQL注入"></a>防御SQL注入</h4><p>要做的事情</p><ul><li><p>找到所有SQL注入漏洞</p></li><li><p>修补这些漏洞</p></li><li><p>使用预编译语句<br>如使用？代替变量</p></li><li><p>使用存储过程<br>尽量避免在存储过程内使用动态的sql，如果无法避免，应该使用严格的输入过滤或者编码函数来处理用户的输入数据</p></li><li><p>检查数据类型</p></li><li><p>使用安全函数</p></li><li><p>数据库应该使用最小权限原则，避免web应用直接使用root、dbowner等高权限账户直接连接数据库</p></li></ul><h3 id="XML注入"><a href="#XML注入" class="headerlink" title="XML注入"></a>XML注入</h3><p>与HTML类似，对用书输入数据包含语言本身的保留字符进行转义</p><h3 id="代码注入"><a href="#代码注入" class="headerlink" title="代码注入"></a>代码注入</h3><p>多吗注入多见于脚本语言<br>JSP的动态include也能导致代码注入</p><h3 id="CRLF注入"><a href="#CRLF注入" class="headerlink" title="CRLF注入"></a>CRLF注入</h3><p>CR(\r),LF(\n)<br>\r\n：换行</p><p>通过注入CRLF可能会改变原有的语义，HTTP就是通过“\r\n”来分割的。如果服务器端没有过滤“\r\n”，又把用户输入的数据放在HTTP头中，则有可能导致安全隐患</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="浏览器的同源策略"><a href="#浏览器的同源策略" class="headerlink" title="浏览器的同源策略"></a>浏览器的同源策略</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy">同源策略介绍</a></p><p>同源策略解决的问题：CSRF</p><p>CSRF（cross-site request forgery) 通过伪装成受信任用户的请求来利用受信任的网站。</p><p><a href="https://blog.csdn.net/stpeace/article/details/53512283">CSRF攻防简介</a></p><p><a href="https://tech.meituan.com/2018/10/11/fe-security-csrf.html">如何防止CSRF攻击</a><br>防止手段</p><ul><li>CSRF自动防御策略：同源检测（Origin和Referer验证）</li><li>CSRF主动防御措施：Token验证，双重Cookie验证以及配合Samesite Cookie</li><li>保证页面的幂等性，后端接口不在GET页面做用户操作</li></ul><p>CORS(跨域资源共享标准)<br>CORS 提供了一种设置你的页面可以访问指定的域名下的资源（API）的方法。当然这些域名是你受信任的。从而避免了 CRSF 攻击。CORS 就像是一个过滤器</p><p>跨域问题的解决方案</p><ol><li><p>将Vue 编译后的代码放到 Spring-boot 的 <code>resources/static</code> 目录下。前后端使用一个服务</p></li><li><p>CORS</p><p>2.1 使用注解</p><p>2.2 在配置类中设置CORS（设置全局跨域）</p></li></ol><p>配置跨域问题的注意事项:</p><p>不要设置@CrossOrigin(‘*’)。虽然达到跨域访问的问题，但是不能达到CORS的意义。因为这个操作是信任所有域名</p><p><a href="https://zhuanlan.zhihu.com/p/66276472">SpringBoot+vue跨域问题实例</a></p><h1 id="同源策略的表现"><a href="#同源策略的表现" class="headerlink" title="同源策略的表现"></a>同源策略的表现</h1><ol><li>DOM层面：限制了不同源的JavaScript脚本对当前DOM对象读写操作</li><li>数据层面：限制不同源的站点读取当前站点的Cookie，IndexDB，LocalStorage等数据</li><li>网络层面：限制通过XMLHttpRequest等方式将站点的数据发送给不同源的站点</li></ol>]]></content>
       
       
       <categories>
@@ -2258,7 +2233,7 @@
       <link href="2021/05/01/%E8%BF%90%E7%BB%B4/arthas/"/>
       <url>2021/05/01/%E8%BF%90%E7%BB%B4/arthas/</url>
       
-        <content type="html"><![CDATA[<h2 id="查看JVM-信息"><a href="#查看JVM-信息" class="headerlink" title="查看JVM 信息"></a>查看JVM 信息</h2><ul><li>sysprop：打印所有的System Properties信息</li><li>sysenv：获取到环境变量</li><li>jvm：打印出JVM的各种详细信息</li><li>dashboard：查看当前系统的实时数据面板</li></ul><h2 id="查看已加载的类"><a href="#查看已加载的类" class="headerlink" title="查看已加载的类"></a>查看已加载的类</h2><ul><li>sc：查找到所有JVM已经加载到的类</li><li>sm: 查找类的具体函数</li></ul><h2 id="反编译指令-Jad"><a href="#反编译指令-Jad" class="headerlink" title="反编译指令 Jad"></a>反编译指令 Jad</h2><h2 id="动态执行代码-ognl"><a href="#动态执行代码-ognl" class="headerlink" title="动态执行代码 ognl"></a>动态执行代码 ognl</h2><p>ognl ‘@<a href="mailto:&#x6a;&#97;&#x76;&#97;&#x2e;&#108;&#x61;&#110;&#x67;&#x2e;&#83;&#121;&#x73;&#116;&#101;&#x6d;&#64;&#x6f;&#117;&#x74;&#46;&#x70;&#114;&#105;&#110;&#x74;&#108;&#110;">&#x6a;&#97;&#x76;&#97;&#x2e;&#108;&#x61;&#110;&#x67;&#x2e;&#83;&#121;&#x73;&#116;&#101;&#x6d;&#64;&#x6f;&#117;&#x74;&#46;&#x70;&#114;&#105;&#110;&#x74;&#108;&#110;</a>(“hello ognl”)’</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="查看JVM-信息"><a href="#查看JVM-信息" class="headerlink" title="查看JVM 信息"></a>查看JVM 信息</h2><ul><li>sysprop：打印所有的System Properties信息</li><li>sysenv：获取到环境变量</li><li>jvm：打印出JVM的各种详细信息</li><li>dashboard：查看当前系统的实时数据面板</li></ul><h2 id="查看已加载的类"><a href="#查看已加载的类" class="headerlink" title="查看已加载的类"></a>查看已加载的类</h2><ul><li>sc：查找到所有JVM已经加载到的类</li><li>sm: 查找类的具体函数</li></ul><h2 id="反编译指令-Jad"><a href="#反编译指令-Jad" class="headerlink" title="反编译指令 Jad"></a>反编译指令 Jad</h2><h2 id="动态执行代码-ognl"><a href="#动态执行代码-ognl" class="headerlink" title="动态执行代码 ognl"></a>动态执行代码 ognl</h2><p>ognl ‘@<a href="mailto:&#106;&#x61;&#x76;&#x61;&#46;&#x6c;&#97;&#x6e;&#x67;&#x2e;&#83;&#121;&#115;&#x74;&#x65;&#109;&#64;&#x6f;&#117;&#x74;&#x2e;&#112;&#x72;&#x69;&#x6e;&#x74;&#x6c;&#x6e;">&#106;&#x61;&#x76;&#x61;&#46;&#x6c;&#97;&#x6e;&#x67;&#x2e;&#83;&#121;&#115;&#x74;&#x65;&#109;&#64;&#x6f;&#117;&#x74;&#x2e;&#112;&#x72;&#x69;&#x6e;&#x74;&#x6c;&#x6e;</a>(“hello ognl”)’</p>]]></content>
       
       
       <categories>
@@ -2604,60 +2579,6 @@
     
     
     <entry>
-      <title>Redis 简介</title>
-      <link href="2021/05/01/middleware/Redis/Redis%E7%AE%80%E4%BB%8B/"/>
-      <url>2021/05/01/middleware/Redis/Redis%E7%AE%80%E4%BB%8B/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h2 id="Redis优缺点"><a href="#Redis优缺点" class="headerlink" title="Redis优缺点"></a>Redis优缺点</h2><p>Redis的数据是存在内存中的，所以读写速度非常快，因此 redis 被广泛应用于缓存方向，每秒可以处理超过10万次读写操作。Redis 也经常用来做分布式锁。除此之外，Redis 支持事务 、持久化、LUA脚本、LRU驱动事件、多种集群方案。</p><p>优点：</p><ul><li>读写性能优异，Redis能读的速度是110000次/s，写的速度是81000次/s</li><li>支持数据持久化，AOF和RDB两种持久化方式</li><li>支出事务，Redis所有操作都是原子性的</li><li>数据结构丰富，除了支持String类型外，还支持hash、set、zset、list等数据结构</li><li>支持主从复制，主机会自动将数据同步到从机，可以进行读写分离</li></ul><p>缺点：</p><ul><li>数据库容量受物理内存限制，不能用作海量数据的高性能读写，使用场景局限于较小数据量的高性能操作和运算</li><li>不具有自动容错和恢复功能，主机从机宕机会导致前端部分读写请求失败，需要等待机器重启或者手动切换前端的IP才能恢复</li><li>主机宕机，宕机前游部分数据未能及时同步到从机，切换IP后会引入数据不一致性问题，降低系统可用性</li><li>Redis较难支持在线扩容，在容量达到在线扩容会变得很复杂，因此在上线时必须确保有足够的空间，这样会对空间造成很大的浪费</li></ul><h2 id="Redis应用场景"><a href="#Redis应用场景" class="headerlink" title="Redis应用场景"></a>Redis应用场景</h2><ul><li>计数器</li><li>缓存(会话缓存，全页缓存)</li><li>查找表</li><li>消息队列(不推荐)</li><li>分布式锁<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2>|数据类型|可以存储的值|应用场景|<br>|String|字符串、整数或者浮点数| 适合最简单的k-v存储，类似于memcached的存储结构，短信验证码，配置信息等|<br>|List|列表|因为list是有序的，比较适合存储一些有序且数据相对固定的数据。如省市区表、字典表等，类似粉丝列表，文章的评论列表|<br>|Set|无序集合|可以简单的理解为ID-List的模式，如微博中一个人有哪些好友，set最牛的地方在于，可以对两个set提供交集、并集、差集操作，比如交集，可以把两个人的粉丝列表整一个交集|<br>|Hash|包含键值对的无序散列表|一般key为ID或者唯一标示，value对应的就是详情了。如商品详情，个人信息详情，新闻详情等|<br>|Zset|有序集合|去重但可以排序，如获取排名前几名的用户|<h2 id="持久化方式"><a href="#持久化方式" class="headerlink" title="持久化方式"></a>持久化方式</h2>Redis 提供两种持久化机制 RDB（默认） 和 AOF 机制.当两种方式同时开启时，数据恢复Redis会优先选择AOF恢复。<h3 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h3>RDB：是Redis DataBase缩写快照，是Redis默认的持久化方式。按照一定的时间将内存的数据以快照的形式保存到硬盘中，对应产生的数据文件为dump.rdb。<br>优点：</li><li>只有一个文件dump.rdb，方便持久化</li><li>容灾性号，一个文件可以保存到安全的磁盘</li><li>性能最大化，fork子进程赖完成写操作，主进程继续处理命令</li><li>相对于数据集大时，比AOF的启动效率更高</li></ul><p>缺点：</p><ol><li>数据安全性低，RDB时间隔一段时间持久化，如果持久化期间，Redis发生故障，会使得数据丢失。<h3 id="AOF"><a href="#AOF" class="headerlink" title="AOF"></a>AOF</h3>AOF持久化(即Append Only File持久化)，则是将Redis执行的每次写命令记录到单独的日志文件中，当重启Redis会重新将持久化的日志中文件恢复数据。</li></ol><p>优点：</p><ul><li>数据安全，aof 持久化可以配置使得每进行一次命令操作就记录到aof文件中一次</li><li>通过append模式写文件，即使中途宕机，可以用过redis-check-aof工具解决数据一致性问题</li><li>AOF机制的rewrite模式及，AOF 文件没被 rewrite 之前可以删除其中的某些命令</li></ul><p>缺点：</p><ul><li>AOF 文件比 RDB 文件大，且恢复速度慢。</li><li>数据集大的时候，比 rdb 启动效率低</li></ul><h2 id="过期键删除策略"><a href="#过期键删除策略" class="headerlink" title="过期键删除策略"></a>过期键删除策略</h2><p>可以设置Redis中缓存Key的过期时间<br>过期策略分为一下三种</p><ul><li>*<em>定时过期</em>8：每个设置过期时间的key都需要创建一个定时器，到过期时间就会立即清除。该策略可以立即清除过期的数据，对内存很友好；但是会占用大量的CPU资源去处理过期的数据，从而影响缓存的响应时间和吞吐量</li><li><strong>惰性过期</strong>：只有当访问一个key时，才会判断该key是否已过期，过期则清除。该策略可以最大化地节省CPU资源，却对内存非常不友好。极端情况可能出现大量的过期key没有再次被访问，从而不会被清除，占用大量内存</li><li><strong>定期过期</strong>：每隔一定的时间，会扫描一定数量的数据库的expires字典中一定数量的key，并清除其中已过期的key。该策略是前两者的一个折中方案</li></ul><h2 id="内存淘汰策略"><a href="#内存淘汰策略" class="headerlink" title="内存淘汰策略"></a>内存淘汰策略</h2><p>Redis的内存淘汰策略是指在Redis的用于缓存的内存不足时，怎么处理需要新写入且需要申请额外空间的数据。</p><h3 id="全局键空间选择性移除"><a href="#全局键空间选择性移除" class="headerlink" title="全局键空间选择性移除"></a>全局键空间选择性移除</h3><p>当内存不足以容纳新写入数据时，会根据策略进行对应的处理</p><ul><li>noeviction：，<strong>新写入操作会报错</strong></li><li>allkeys-lru：在键空间中，移除最近最少使用的key</li><li>allkeys-random：在键空间中，随机移除某个key</li></ul><h3 id="设置过期时间的键空间选择性移除"><a href="#设置过期时间的键空间选择性移除" class="headerlink" title="设置过期时间的键空间选择性移除"></a>设置过期时间的键空间选择性移除</h3><p>当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，会根据策略进行对应的处理</p><ul><li>volatile-lru：<strong>移除最近最少使用的过期key</strong></li><li>volatile-random：，<strong>随机移除某个设置了过期时间key</strong></li><li>volatile-ttl：当<strong>有更早过期时间的key优先移除</strong></li></ul><h2 id="线程模型"><a href="#线程模型" class="headerlink" title="线程模型"></a>线程模型</h2><h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>Redis 事务的本质是通过MULTI、EXEC、WATCH等一组命令的集合。事务支持一次执行多个命令，一个事务中所有命令都会被序列化。在事务执行过程，会按照顺序串行化执行队列中的命令，其他客户端提交的命令请求不会插入到事务执行命令序列中。<br>总结就是<strong>redis事务就是一次性、顺序性、排他性的执行一个队列中的一系列命令</strong></p><h3 id="事务的三个阶段"><a href="#事务的三个阶段" class="headerlink" title="事务的三个阶段"></a>事务的三个阶段</h3><ol><li>事务开始MULTI：开启一个事务，MULTI执行之后，客户端可以继续向服务器发送任意多条命令，这些命令不会立即被执行，而是被放到一个队列中，当EXEC命令被调用时，所有队列中的命令才会被执行</li><li>命令入队</li><li>事务执行EXEC：执行所有事务块内的命令。</li></ol><h3 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h3><p>事务原语：MULTI、EXEC、DISCARD和WATCH<br>Redis会将一个事务中的所有命令序列化，然后按顺序执行。</p><ol><li>redis 不支持回滚</li><li>如果在一个事务中的命令出现错误，那么所有的命令都不会执行</li><li>如果在一个事务中出现运行错误，那么正确的命令会被执行</li></ol><ul><li>WATCH 命令是一个乐观锁，可以为 Redis 事务提供 check-and-set （CAS）行为。 可以监控一个或多个键，一旦其中有一个键被修改（或删除），之后的事务就不会执行，监控一直持续到EXEC命令</li><li>MULTI命令用于开启一个事务，它总是返回OK。 MULTI执行之后，客户端可以继续向服务器发送任意多条命令，这些命令不会立即被执行，而是被放到一个队列中，当EXEC命令被调用时，所有队列中的命令才会被执行</li><li>EXEC：执行所有事务块内的命令。返回事务块内所有命令的返回值，按命令执行的先后顺序排列。 当操作被打断时，返回空值 nil</li><li>调用DISCARD，客户端可以清空事务队列，并放弃执行事务， 并且客户端会从事务状态中退出</li><li>UNWATCH命令可以取消watch对所有key的监控</li></ul><h2 id="集群方案"><a href="#集群方案" class="headerlink" title="集群方案"></a>集群方案</h2><h3 id="哨兵-sentinel-模式"><a href="#哨兵-sentinel-模式" class="headerlink" title="哨兵(sentinel)模式"></a>哨兵(sentinel)模式</h3><p><img src="/images/Redis%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F.png" alt="Redis哨兵模式"><br>哨兵具有以下功能</p><ul><li>集群监控：负责监控 redis master 和 slave 进程是否正常工作</li><li>消息通知：如果某个 redis 实例有故障，那么哨兵负责发送消息作为报警通知给管理员</li><li>故障转移：如果 master node挂掉了，会自动转移到 slave node上。判断一个 master node 是否宕机了，需要大部分的哨兵都同意才行，涉及到了分布式选举的问题</li><li>配置中心：如果故障转移发生了，通知 client 客户端新的 master地址</li></ul><h4 id="哨兵的核心知识"><a href="#哨兵的核心知识" class="headerlink" title="哨兵的核心知识"></a>哨兵的核心知识</h4><ul><li>哨兵至少需要 3 个实例，来保证自己的健壮性</li><li>哨兵 + redis 主从的部署架构，是不保证数据零丢失的，只能保证 redis 集群的高可用性</li><li>对于哨兵 + redis 主从这种复杂的部署架构，尽量在测试环境和生产环境，都进行充足的测试和演练。</li></ul><h3 id="服务端路由查询-官方Redis-Cluster方案"><a href="#服务端路由查询-官方Redis-Cluster方案" class="headerlink" title="服务端路由查询(官方Redis Cluster方案)"></a>服务端路由查询(官方Redis Cluster方案)</h3><p>Redis Cluster是一种服务端Sharding技术。Redis Cluster并没有使用一致性hash，而是采用slot(槽)的概念，一共分成16384个槽。将请求发送到任意节点，接收到请求的节点会将查询请求发送到正确的节点上执行。</p><p> redis cluster 架构下，每个 redis 要放开两个端口号，比如一个是 6379，另外一个就是加1w的端口号。用于节点通信，进行故障检测、配置更新、故障转移授权，比如16379</p><h4 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h4><ol><li>通过哈希的方式，将数据分片，每个节点均分存储一定哈希槽(哈希值)区间的数据，默认分配了16384 个槽位</li><li>每份数据分片会存储在多个互为主从的多节点上</li><li>数据写入先写主节点，再同步到从节点</li><li>同一分片多个节点间的数据不保持一致性</li><li>读取数据时，当客户端操作的key没有分配在该节点上时，redis会返回转向指令，指向正确的节点</li><li>扩容时时需要需要把旧节点的数据迁移一部分到新节点</li></ol><h4 id="节点通信"><a href="#节点通信" class="headerlink" title="节点通信"></a>节点通信</h4><p>集群元数据的维护有两种方式：集中式、Gossip 协议。redis cluster 节点间采用 gossip 协议进行通信。</p><h2 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h2><h2 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a>分布式</h2><h2 id="缓存异常"><a href="#缓存异常" class="headerlink" title="缓存异常"></a>缓存异常</h2>]]></content>
-      
-      
-      <categories>
-          
-          <category> 中间件 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Redis </tag>
-            
-            <tag> 缓存 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Redis 问题集</title>
-      <link href="2021/05/01/middleware/Redis/Redis%E9%97%AE%E9%A2%98%E9%9B%86/"/>
-      <url>2021/05/01/middleware/Redis/Redis%E9%97%AE%E9%A2%98%E9%9B%86/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Redis-问题集"><a href="#Redis-问题集" class="headerlink" title="Redis 问题集"></a>Redis 问题集</h1><h2 id="Redis为什么这么快"><a href="#Redis为什么这么快" class="headerlink" title="Redis为什么这么快"></a>Redis为什么这么快</h2><ol><li>完全基于内存，绝大部分请求时纯粹的基于内存操作</li><li>数据结构简单，对数据的操作也相对简单</li><li>采用单线程，避免不必要的上下文切换和竞争条件，不存在多进程或者多线程的切换消耗CPU，不必考虑各种锁的问题，不存在加锁释放锁的操作，同时避免因为死锁而导致的性能消耗</li><li>使用多路I/O，非阻塞IO</li><li>Redis直接构建里VM机制。如果使用一般的系统调用系统函数的话，会浪费一定的时间去移动和请求</li></ol><h2 id="持久化数据和缓存如何扩容"><a href="#持久化数据和缓存如何扩容" class="headerlink" title="持久化数据和缓存如何扩容"></a>持久化数据和缓存如何扩容</h2><ul><li>如果Redis被当做缓存使用，使用<strong>一致性哈希</strong>实现动态扩容缩容。</li><li>如果Redis被当做一个持久化存储使用，必须使用固定的keys-to-nodes映射关系，节点的数量一旦确定不能变化。否则的话(即Redis节点需要动态变化的情况），必须使用可以在运行时进行数据再平衡的一套系统，而当前只有Redis集群可以做到这样。</li></ul><h2 id="Redis事务支持隔离性吗？"><a href="#Redis事务支持隔离性吗？" class="headerlink" title="Redis事务支持隔离性吗？"></a>Redis事务支持隔离性吗？</h2><p>Redis 是单进程程序，并且它保证在执行事务时，不会对事务进行中断，事务可以运行直到执行完所有事务队列中的命令为止。因此，Redis 的事务是总是带有隔离性的。</p><h2 id="Redis事务保证原子性吗，支持回滚吗"><a href="#Redis事务保证原子性吗，支持回滚吗" class="headerlink" title="Redis事务保证原子性吗，支持回滚吗"></a>Redis事务保证原子性吗，支持回滚吗</h2><p>Redis中，单条命令是原子性执行的，但事务不保证原子性，且没有回滚。事务中任意命令执行失败，其余的命令仍会被执行。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 中间件 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Redis </tag>
-            
-            <tag> 缓存 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Nginx 简介</title>
       <link href="2021/05/01/middleware/Nginx/Nginx/"/>
       <url>2021/05/01/middleware/Nginx/Nginx/</url>
@@ -2812,6 +2733,60 @@
             <tag> Nginx </tag>
             
             <tag> 负载均衡 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Redis 简介</title>
+      <link href="2021/05/01/middleware/Redis/Redis%E7%AE%80%E4%BB%8B/"/>
+      <url>2021/05/01/middleware/Redis/Redis%E7%AE%80%E4%BB%8B/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h2 id="Redis优缺点"><a href="#Redis优缺点" class="headerlink" title="Redis优缺点"></a>Redis优缺点</h2><p>Redis的数据是存在内存中的，所以读写速度非常快，因此 redis 被广泛应用于缓存方向，每秒可以处理超过10万次读写操作。Redis 也经常用来做分布式锁。除此之外，Redis 支持事务 、持久化、LUA脚本、LRU驱动事件、多种集群方案。</p><p>优点：</p><ul><li>读写性能优异，Redis能读的速度是110000次/s，写的速度是81000次/s</li><li>支持数据持久化，AOF和RDB两种持久化方式</li><li>支出事务，Redis所有操作都是原子性的</li><li>数据结构丰富，除了支持String类型外，还支持hash、set、zset、list等数据结构</li><li>支持主从复制，主机会自动将数据同步到从机，可以进行读写分离</li></ul><p>缺点：</p><ul><li>数据库容量受物理内存限制，不能用作海量数据的高性能读写，使用场景局限于较小数据量的高性能操作和运算</li><li>不具有自动容错和恢复功能，主机从机宕机会导致前端部分读写请求失败，需要等待机器重启或者手动切换前端的IP才能恢复</li><li>主机宕机，宕机前游部分数据未能及时同步到从机，切换IP后会引入数据不一致性问题，降低系统可用性</li><li>Redis较难支持在线扩容，在容量达到在线扩容会变得很复杂，因此在上线时必须确保有足够的空间，这样会对空间造成很大的浪费</li></ul><h2 id="Redis应用场景"><a href="#Redis应用场景" class="headerlink" title="Redis应用场景"></a>Redis应用场景</h2><ul><li>计数器</li><li>缓存(会话缓存，全页缓存)</li><li>查找表</li><li>消息队列(不推荐)</li><li>分布式锁<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2>|数据类型|可以存储的值|应用场景|<br>|String|字符串、整数或者浮点数| 适合最简单的k-v存储，类似于memcached的存储结构，短信验证码，配置信息等|<br>|List|列表|因为list是有序的，比较适合存储一些有序且数据相对固定的数据。如省市区表、字典表等，类似粉丝列表，文章的评论列表|<br>|Set|无序集合|可以简单的理解为ID-List的模式，如微博中一个人有哪些好友，set最牛的地方在于，可以对两个set提供交集、并集、差集操作，比如交集，可以把两个人的粉丝列表整一个交集|<br>|Hash|包含键值对的无序散列表|一般key为ID或者唯一标示，value对应的就是详情了。如商品详情，个人信息详情，新闻详情等|<br>|Zset|有序集合|去重但可以排序，如获取排名前几名的用户|<h2 id="持久化方式"><a href="#持久化方式" class="headerlink" title="持久化方式"></a>持久化方式</h2>Redis 提供两种持久化机制 RDB（默认） 和 AOF 机制.当两种方式同时开启时，数据恢复Redis会优先选择AOF恢复。<h3 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h3>RDB：是Redis DataBase缩写快照，是Redis默认的持久化方式。按照一定的时间将内存的数据以快照的形式保存到硬盘中，对应产生的数据文件为dump.rdb。<br>优点：</li><li>只有一个文件dump.rdb，方便持久化</li><li>容灾性号，一个文件可以保存到安全的磁盘</li><li>性能最大化，fork子进程赖完成写操作，主进程继续处理命令</li><li>相对于数据集大时，比AOF的启动效率更高</li></ul><p>缺点：</p><ol><li>数据安全性低，RDB时间隔一段时间持久化，如果持久化期间，Redis发生故障，会使得数据丢失。<h3 id="AOF"><a href="#AOF" class="headerlink" title="AOF"></a>AOF</h3>AOF持久化(即Append Only File持久化)，则是将Redis执行的每次写命令记录到单独的日志文件中，当重启Redis会重新将持久化的日志中文件恢复数据。</li></ol><p>优点：</p><ul><li>数据安全，aof 持久化可以配置使得每进行一次命令操作就记录到aof文件中一次</li><li>通过append模式写文件，即使中途宕机，可以用过redis-check-aof工具解决数据一致性问题</li><li>AOF机制的rewrite模式及，AOF 文件没被 rewrite 之前可以删除其中的某些命令</li></ul><p>缺点：</p><ul><li>AOF 文件比 RDB 文件大，且恢复速度慢。</li><li>数据集大的时候，比 rdb 启动效率低</li></ul><h2 id="过期键删除策略"><a href="#过期键删除策略" class="headerlink" title="过期键删除策略"></a>过期键删除策略</h2><p>可以设置Redis中缓存Key的过期时间<br>过期策略分为一下三种</p><ul><li>*<em>定时过期</em>8：每个设置过期时间的key都需要创建一个定时器，到过期时间就会立即清除。该策略可以立即清除过期的数据，对内存很友好；但是会占用大量的CPU资源去处理过期的数据，从而影响缓存的响应时间和吞吐量</li><li><strong>惰性过期</strong>：只有当访问一个key时，才会判断该key是否已过期，过期则清除。该策略可以最大化地节省CPU资源，却对内存非常不友好。极端情况可能出现大量的过期key没有再次被访问，从而不会被清除，占用大量内存</li><li><strong>定期过期</strong>：每隔一定的时间，会扫描一定数量的数据库的expires字典中一定数量的key，并清除其中已过期的key。该策略是前两者的一个折中方案</li></ul><h2 id="内存淘汰策略"><a href="#内存淘汰策略" class="headerlink" title="内存淘汰策略"></a>内存淘汰策略</h2><p>Redis的内存淘汰策略是指在Redis的用于缓存的内存不足时，怎么处理需要新写入且需要申请额外空间的数据。</p><h3 id="全局键空间选择性移除"><a href="#全局键空间选择性移除" class="headerlink" title="全局键空间选择性移除"></a>全局键空间选择性移除</h3><p>当内存不足以容纳新写入数据时，会根据策略进行对应的处理</p><ul><li>noeviction：，<strong>新写入操作会报错</strong></li><li>allkeys-lru：在键空间中，移除最近最少使用的key</li><li>allkeys-random：在键空间中，随机移除某个key</li></ul><h3 id="设置过期时间的键空间选择性移除"><a href="#设置过期时间的键空间选择性移除" class="headerlink" title="设置过期时间的键空间选择性移除"></a>设置过期时间的键空间选择性移除</h3><p>当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，会根据策略进行对应的处理</p><ul><li>volatile-lru：<strong>移除最近最少使用的过期key</strong></li><li>volatile-random：，<strong>随机移除某个设置了过期时间key</strong></li><li>volatile-ttl：当<strong>有更早过期时间的key优先移除</strong></li></ul><h2 id="线程模型"><a href="#线程模型" class="headerlink" title="线程模型"></a>线程模型</h2><h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>Redis 事务的本质是通过MULTI、EXEC、WATCH等一组命令的集合。事务支持一次执行多个命令，一个事务中所有命令都会被序列化。在事务执行过程，会按照顺序串行化执行队列中的命令，其他客户端提交的命令请求不会插入到事务执行命令序列中。<br>总结就是<strong>redis事务就是一次性、顺序性、排他性的执行一个队列中的一系列命令</strong></p><h3 id="事务的三个阶段"><a href="#事务的三个阶段" class="headerlink" title="事务的三个阶段"></a>事务的三个阶段</h3><ol><li>事务开始MULTI：开启一个事务，MULTI执行之后，客户端可以继续向服务器发送任意多条命令，这些命令不会立即被执行，而是被放到一个队列中，当EXEC命令被调用时，所有队列中的命令才会被执行</li><li>命令入队</li><li>事务执行EXEC：执行所有事务块内的命令。</li></ol><h3 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h3><p>事务原语：MULTI、EXEC、DISCARD和WATCH<br>Redis会将一个事务中的所有命令序列化，然后按顺序执行。</p><ol><li>redis 不支持回滚</li><li>如果在一个事务中的命令出现错误，那么所有的命令都不会执行</li><li>如果在一个事务中出现运行错误，那么正确的命令会被执行</li></ol><ul><li>WATCH 命令是一个乐观锁，可以为 Redis 事务提供 check-and-set （CAS）行为。 可以监控一个或多个键，一旦其中有一个键被修改（或删除），之后的事务就不会执行，监控一直持续到EXEC命令</li><li>MULTI命令用于开启一个事务，它总是返回OK。 MULTI执行之后，客户端可以继续向服务器发送任意多条命令，这些命令不会立即被执行，而是被放到一个队列中，当EXEC命令被调用时，所有队列中的命令才会被执行</li><li>EXEC：执行所有事务块内的命令。返回事务块内所有命令的返回值，按命令执行的先后顺序排列。 当操作被打断时，返回空值 nil</li><li>调用DISCARD，客户端可以清空事务队列，并放弃执行事务， 并且客户端会从事务状态中退出</li><li>UNWATCH命令可以取消watch对所有key的监控</li></ul><h2 id="集群方案"><a href="#集群方案" class="headerlink" title="集群方案"></a>集群方案</h2><h3 id="哨兵-sentinel-模式"><a href="#哨兵-sentinel-模式" class="headerlink" title="哨兵(sentinel)模式"></a>哨兵(sentinel)模式</h3><p><img src="/images/Redis%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F.png" alt="Redis哨兵模式"><br>哨兵具有以下功能</p><ul><li>集群监控：负责监控 redis master 和 slave 进程是否正常工作</li><li>消息通知：如果某个 redis 实例有故障，那么哨兵负责发送消息作为报警通知给管理员</li><li>故障转移：如果 master node挂掉了，会自动转移到 slave node上。判断一个 master node 是否宕机了，需要大部分的哨兵都同意才行，涉及到了分布式选举的问题</li><li>配置中心：如果故障转移发生了，通知 client 客户端新的 master地址</li></ul><h4 id="哨兵的核心知识"><a href="#哨兵的核心知识" class="headerlink" title="哨兵的核心知识"></a>哨兵的核心知识</h4><ul><li>哨兵至少需要 3 个实例，来保证自己的健壮性</li><li>哨兵 + redis 主从的部署架构，是不保证数据零丢失的，只能保证 redis 集群的高可用性</li><li>对于哨兵 + redis 主从这种复杂的部署架构，尽量在测试环境和生产环境，都进行充足的测试和演练。</li></ul><h3 id="服务端路由查询-官方Redis-Cluster方案"><a href="#服务端路由查询-官方Redis-Cluster方案" class="headerlink" title="服务端路由查询(官方Redis Cluster方案)"></a>服务端路由查询(官方Redis Cluster方案)</h3><p>Redis Cluster是一种服务端Sharding技术。Redis Cluster并没有使用一致性hash，而是采用slot(槽)的概念，一共分成16384个槽。将请求发送到任意节点，接收到请求的节点会将查询请求发送到正确的节点上执行。</p><p> redis cluster 架构下，每个 redis 要放开两个端口号，比如一个是 6379，另外一个就是加1w的端口号。用于节点通信，进行故障检测、配置更新、故障转移授权，比如16379</p><h4 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h4><ol><li>通过哈希的方式，将数据分片，每个节点均分存储一定哈希槽(哈希值)区间的数据，默认分配了16384 个槽位</li><li>每份数据分片会存储在多个互为主从的多节点上</li><li>数据写入先写主节点，再同步到从节点</li><li>同一分片多个节点间的数据不保持一致性</li><li>读取数据时，当客户端操作的key没有分配在该节点上时，redis会返回转向指令，指向正确的节点</li><li>扩容时时需要需要把旧节点的数据迁移一部分到新节点</li></ol><h4 id="节点通信"><a href="#节点通信" class="headerlink" title="节点通信"></a>节点通信</h4><p>集群元数据的维护有两种方式：集中式、Gossip 协议。redis cluster 节点间采用 gossip 协议进行通信。</p><h2 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h2><h2 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a>分布式</h2><h2 id="缓存异常"><a href="#缓存异常" class="headerlink" title="缓存异常"></a>缓存异常</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 中间件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Redis </tag>
+            
+            <tag> 缓存 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Redis 问题集</title>
+      <link href="2021/05/01/middleware/Redis/Redis%E9%97%AE%E9%A2%98%E9%9B%86/"/>
+      <url>2021/05/01/middleware/Redis/Redis%E9%97%AE%E9%A2%98%E9%9B%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Redis-问题集"><a href="#Redis-问题集" class="headerlink" title="Redis 问题集"></a>Redis 问题集</h1><h2 id="Redis为什么这么快"><a href="#Redis为什么这么快" class="headerlink" title="Redis为什么这么快"></a>Redis为什么这么快</h2><ol><li>完全基于内存，绝大部分请求时纯粹的基于内存操作</li><li>数据结构简单，对数据的操作也相对简单</li><li>采用单线程，避免不必要的上下文切换和竞争条件，不存在多进程或者多线程的切换消耗CPU，不必考虑各种锁的问题，不存在加锁释放锁的操作，同时避免因为死锁而导致的性能消耗</li><li>使用多路I/O，非阻塞IO</li><li>Redis直接构建里VM机制。如果使用一般的系统调用系统函数的话，会浪费一定的时间去移动和请求</li></ol><h2 id="持久化数据和缓存如何扩容"><a href="#持久化数据和缓存如何扩容" class="headerlink" title="持久化数据和缓存如何扩容"></a>持久化数据和缓存如何扩容</h2><ul><li>如果Redis被当做缓存使用，使用<strong>一致性哈希</strong>实现动态扩容缩容。</li><li>如果Redis被当做一个持久化存储使用，必须使用固定的keys-to-nodes映射关系，节点的数量一旦确定不能变化。否则的话(即Redis节点需要动态变化的情况），必须使用可以在运行时进行数据再平衡的一套系统，而当前只有Redis集群可以做到这样。</li></ul><h2 id="Redis事务支持隔离性吗？"><a href="#Redis事务支持隔离性吗？" class="headerlink" title="Redis事务支持隔离性吗？"></a>Redis事务支持隔离性吗？</h2><p>Redis 是单进程程序，并且它保证在执行事务时，不会对事务进行中断，事务可以运行直到执行完所有事务队列中的命令为止。因此，Redis 的事务是总是带有隔离性的。</p><h2 id="Redis事务保证原子性吗，支持回滚吗"><a href="#Redis事务保证原子性吗，支持回滚吗" class="headerlink" title="Redis事务保证原子性吗，支持回滚吗"></a>Redis事务保证原子性吗，支持回滚吗</h2><p>Redis中，单条命令是原子性执行的，但事务不保证原子性，且没有回滚。事务中任意命令执行失败，其余的命令仍会被执行。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 中间件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Redis </tag>
+            
+            <tag> 缓存 </tag>
             
         </tags>
       
@@ -4088,11 +4063,11 @@
     
     
     <entry>
-      <title>TCP 流量控制</title>
-      <link href="2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/TCP%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6/"/>
-      <url>2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/TCP%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6/</url>
+      <title>TCP的RST报文</title>
+      <link href="2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/TCP%E7%9A%84RST%E6%8A%A5%E6%96%87/"/>
+      <url>2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/TCP%E7%9A%84RST%E6%8A%A5%E6%96%87/</url>
       
-        <content type="html"><![CDATA[<h3 id="TCP-流量控制"><a href="#TCP-流量控制" class="headerlink" title="TCP 流量控制"></a>TCP 流量控制</h3><p>作用：用以消除发送方使接收方缓存溢出的可能性<br>本质上流量控制是一个速度匹配服务<br>原理：<br>接收方根据自己接受缓存的大小，动态地调整发送方的发送窗口发小。发送方通过设置确认报文首部的窗口字段。</p><h3 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h3><p>作用：防止过多的数据注入网络中造成网络路由器和链路过载</p><h4 id="TCP要求发送方维护两个窗口"><a href="#TCP要求发送方维护两个窗口" class="headerlink" title="TCP要求发送方维护两个窗口"></a>TCP要求发送方维护两个窗口</h4><ol><li>接受窗口 rwnd。接收方根据目前接受缓存大小所许诺的最新的窗口值。由发送方控制。</li><li>拥塞窗口 cwnd。发送发根据自己估算的网络拥塞程度而设置窗口值。由发送方根据链路状态估算。<br>$$ 发送窗口的上限值 = Min[rwnd,cwnd] $$</li></ol><p><em>窗口的值指的是最大报文长度(MSS)。MSS的默认值为536字节。所以所有主机都能接受的报文长度为556字节(加上TCP固定首部商都)</em></p><h4 id="维护拥塞窗口的算法"><a href="#维护拥塞窗口的算法" class="headerlink" title="维护拥塞窗口的算法"></a>维护拥塞窗口的算法</h4><p>慢开始、拥塞避免、快重传、快恢复</p><ol><li>一开始使用慢开始算法。发送时 cwnd = 1，每收到一个确认报文后加倍。直到到达一个阈值(ssthresh)。此时cwnd是呈指数增长的</li><li>达到阈值以后，使用拥塞避免算法。每经过一个往返时延，就cwnd + 1。此时cwnd的大小时线性增长的。</li><li>当出现第一次超时(网络拥塞)出现时。再使用慢开始算法，同时阈值调整为超时的cwnd大小的一半</li><li>快重传：当连续收到3个重复的ACK的时候，直接重传未收到的报文，不必等待报文段设置重传计时器超时</li><li>快恢复：当连续收到3个重复的ACK的时候，执行快恢复算法。将cwnd的大小设置为超时的cwnd的大小的一半，之后就执行拥塞避免算法。（不执行慢开始算法）</li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="TCP的RST报文"><a href="#TCP的RST报文" class="headerlink" title="TCP的RST报文"></a>TCP的RST报文</h1><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>RST：（Reset the connection）用于复位因某种原因引起出现的错误连接，也用来拒绝非法数据和请求。如果接收到RST位时候，通常发生了某些错误；</p><p>发送RST包关闭连接时，不必等缓冲区的包都发出去，直接就丢弃缓冲区中的包，发送RST；接收端收到RST包后，也不必发送ACK包来确认</p><h2 id="产生情景"><a href="#产生情景" class="headerlink" title="产生情景"></a>产生情景</h2><ol><li>目的地为某端口的SYN到达，然而该端口上没有正在监听的服务器</li><li>请求超时</li><li>想取消一个已存在的连接</li><li>客户端在服务端已经关闭掉socket之后，仍然在发送数据</li><li>TCP接收到一个根本不存在的连接上的分节</li></ol>]]></content>
       
       
       <categories>
@@ -4115,11 +4090,11 @@
     
     
     <entry>
-      <title>TCP的RST报文</title>
-      <link href="2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/TCP%E7%9A%84RST%E6%8A%A5%E6%96%87/"/>
-      <url>2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/TCP%E7%9A%84RST%E6%8A%A5%E6%96%87/</url>
+      <title>TCP 流量控制</title>
+      <link href="2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/TCP%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6/"/>
+      <url>2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/TCP%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6/</url>
       
-        <content type="html"><![CDATA[<h1 id="TCP的RST报文"><a href="#TCP的RST报文" class="headerlink" title="TCP的RST报文"></a>TCP的RST报文</h1><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>RST：（Reset the connection）用于复位因某种原因引起出现的错误连接，也用来拒绝非法数据和请求。如果接收到RST位时候，通常发生了某些错误；</p><p>发送RST包关闭连接时，不必等缓冲区的包都发出去，直接就丢弃缓冲区中的包，发送RST；接收端收到RST包后，也不必发送ACK包来确认</p><h2 id="产生情景"><a href="#产生情景" class="headerlink" title="产生情景"></a>产生情景</h2><ol><li>目的地为某端口的SYN到达，然而该端口上没有正在监听的服务器</li><li>请求超时</li><li>想取消一个已存在的连接</li><li>客户端在服务端已经关闭掉socket之后，仍然在发送数据</li><li>TCP接收到一个根本不存在的连接上的分节</li></ol>]]></content>
+        <content type="html"><![CDATA[<h3 id="TCP-流量控制"><a href="#TCP-流量控制" class="headerlink" title="TCP 流量控制"></a>TCP 流量控制</h3><p>作用：用以消除发送方使接收方缓存溢出的可能性<br>本质上流量控制是一个速度匹配服务<br>原理：<br>接收方根据自己接受缓存的大小，动态地调整发送方的发送窗口发小。发送方通过设置确认报文首部的窗口字段。</p><h3 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h3><p>作用：防止过多的数据注入网络中造成网络路由器和链路过载</p><h4 id="TCP要求发送方维护两个窗口"><a href="#TCP要求发送方维护两个窗口" class="headerlink" title="TCP要求发送方维护两个窗口"></a>TCP要求发送方维护两个窗口</h4><ol><li>接受窗口 rwnd。接收方根据目前接受缓存大小所许诺的最新的窗口值。由发送方控制。</li><li>拥塞窗口 cwnd。发送发根据自己估算的网络拥塞程度而设置窗口值。由发送方根据链路状态估算。<br>$$ 发送窗口的上限值 = Min[rwnd,cwnd] $$</li></ol><p><em>窗口的值指的是最大报文长度(MSS)。MSS的默认值为536字节。所以所有主机都能接受的报文长度为556字节(加上TCP固定首部商都)</em></p><h4 id="维护拥塞窗口的算法"><a href="#维护拥塞窗口的算法" class="headerlink" title="维护拥塞窗口的算法"></a>维护拥塞窗口的算法</h4><p>慢开始、拥塞避免、快重传、快恢复</p><ol><li>一开始使用慢开始算法。发送时 cwnd = 1，每收到一个确认报文后加倍。直到到达一个阈值(ssthresh)。此时cwnd是呈指数增长的</li><li>达到阈值以后，使用拥塞避免算法。每经过一个往返时延，就cwnd + 1。此时cwnd的大小时线性增长的。</li><li>当出现第一次超时(网络拥塞)出现时。再使用慢开始算法，同时阈值调整为超时的cwnd大小的一半</li><li>快重传：当连续收到3个重复的ACK的时候，直接重传未收到的报文，不必等待报文段设置重传计时器超时</li><li>快恢复：当连续收到3个重复的ACK的时候，执行快恢复算法。将cwnd的大小设置为超时的cwnd的大小的一半，之后就执行拥塞避免算法。（不执行慢开始算法）</li></ol>]]></content>
       
       
       <categories>
@@ -4435,31 +4410,6 @@
     
     
     <entry>
-      <title>Linux 命令</title>
-      <link href="2021/05/01/%E8%BF%90%E7%BB%B4/linux/linux%E5%9F%BA%E7%A1%80/linux%E5%91%BD%E4%BB%A4/"/>
-      <url>2021/05/01/%E8%BF%90%E7%BB%B4/linux/linux%E5%9F%BA%E7%A1%80/linux%E5%91%BD%E4%BB%A4/</url>
-      
-        <content type="html"><![CDATA[<h2 id="账号管理"><a href="#账号管理" class="headerlink" title="账号管理"></a>账号管理</h2><h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><ol><li>新增用户 useradd<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd -u [UID] -g [GID&#x2F;Group name] -d [home directory] [user name]</span><br><span class="line">useradd -u 5 -g group1 -d &#x2F;home&#x2F;group1 username</span><br></pre></td></tr></table></figure></li><li>修改密码 passwd</li><li>修改用户 usermod</li><li>删除用户 userdel</li></ol><h3 id="组管理"><a href="#组管理" class="headerlink" title="组管理"></a>组管理</h3><ol><li>新增用户组 groupadd</li><li>删除用户组 groupdel</li></ol><h3 id="查看用户信息"><a href="#查看用户信息" class="headerlink" title="查看用户信息"></a>查看用户信息</h3><ol><li>查看用户：users、who、w</li><li>调查用户：finger</li></ol><h3 id="切换用户"><a href="#切换用户" class="headerlink" title="切换用户"></a>切换用户</h3><ol><li>切换成其他用户：su</li><li>用其他用户的身份执行命令：sudo</li></ol><h2 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h2><ol><li>单一时刻执行一次任务：at<ol><li>查看当前at命令调度的任务列表：atq</li><li>删除at任务列表的任务：atrm</li></ol></li><li>周期任务：cron</li></ol><h2 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h2><h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><ol><li>创建文件：touch</li><li>删除文件：rm</li><li>移动或者重命名文件：mv</li><li>查看文件：cat</li><li>查看文件头：head(显示文件前10行的内容，使用-n调整显示的行数)</li><li>查看文件尾：tail(显示文件后10行内容)</li><li>文件格式转换：dos2unix</li></ol><h3 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h3><ol><li>进入目录：cd</li><li>创建目录：mkdir</li><li>删除目录：rm和rmdir</li><li>文件和目录复制：cp</li></ol><h3 id="文件和目录权限"><a href="#文件和目录权限" class="headerlink" title="文件和目录权限"></a>文件和目录权限</h3><ol><li>查看文件和目录权限： ls -l</li><li>改变文件权限：chmod</li><li>改变文件的拥有者：chown</li><li>改变文件的拥有组：chgrp</li><li>查看文件类型：file</li><li>查看文件隐藏属性：lsattr</li><li>设置文件隐藏属性：chattr</li></ol><h3 id="文件查找"><a href="#文件查找" class="headerlink" title="文件查找"></a>文件查找</h3><ol><li>一般查找：find</li><li>数据库查找：locate<ol><li>更新数据库：updatedb</li></ol></li><li>查找执行文件：which/whereis</li></ol><h3 id="文件打包和压缩"><a href="#文件打包和压缩" class="headerlink" title="文件打包和压缩"></a>文件打包和压缩</h3><ol><li>gzip/gunzip：压缩成gz</li><li>tar：压缩成gz/tgz<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">压缩：</span><br><span class="line">tar -zcvf [compressed file name] [origin file name/directory]</span><br><span class="line">tar -zcvf boot.tgz /boot</span><br><span class="line">-z:使用gzip雅座</span><br><span class="line">-c:创建压缩文件</span><br><span class="line">-v:显示当前被压缩的文件</span><br><span class="line">-f:使用文件名</span><br><span class="line"></span><br><span class="line">解压：</span><br><span class="line">tar -zxvf [compressed file name] [target directory]</span><br></pre></td></tr></table></figure></li><li>bzip2：压缩成bz2<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">压缩：bzip2 [file name]</span><br><span class="line">解压：bzip -d [compressed file name]</span><br></pre></td></tr></table></figure></li><li>cpio：通常和find一起使用，通过管道的方式传递给cpio进行备份，生成cpio文件<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">备份：find . -name *.conf | cpio -cov &gt; /temp/config.cpio</span><br><span class="line">还原：cpio --absolute-filenames -icvu &lt; /temp/conf.cpio</span><br></pre></td></tr></table></figure></li></ol><h2 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h2><h3 id="磁盘挂载"><a href="#磁盘挂载" class="headerlink" title="磁盘挂载"></a>磁盘挂载</h3><ol><li>创建文件系统：fdisk</li><li>磁盘挂载：mount</li><li>磁盘检查：fsck、badblocks<ol><li>fsck(file system check)用于未挂载的磁盘，否则会造成文件系统损坏</li><li>badblocks用于检查磁盘坏道</li></ol></li></ol><h3 id="逻辑卷"><a href="#逻辑卷" class="headerlink" title="逻辑卷"></a>逻辑卷</h3><ol><li>创建和查看物理卷：pvcreate，pvdisplay</li><li>创建和查看卷组：vgcreate，vgdisplay</li><li>扩展卷组：vgextend</li><li>创建和查看逻辑卷：lvcreate，lvdisplay</li></ol><h2 id="字符处理"><a href="#字符处理" class="headerlink" title="字符处理"></a>字符处理</h2><ol><li>文本搜索：grep<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">grep [-ivnc] [pattern] [file name]</span><br><span class="line">grep -ivnc &#x27;name&#x27; test.txt</span><br><span class="line">-i:不区分大小写</span><br><span class="line">-v:反向匹配</span><br><span class="line">-n:输出行号</span><br><span class="line">-c:统计包含匹配的行数</span><br></pre></td></tr></table></figure></li><li>排序：sort<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sort [-ntkr] [file name]</span><br><span class="line">-n:采取数字排序</span><br><span class="line">-t:指定分隔符</span><br><span class="line">-k:指定第几列</span><br><span class="line">-r:反向排序</span><br></pre></td></tr></table></figure></li><li>删除重复内容：uniq(需要和sort一起使用)<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uniq [-ic]</span><br><span class="line">-i:忽略大小写</span><br><span class="line">-c:计算重复行数</span><br></pre></td></tr></table></figure></li><li>截取文本:cut(处理的对象时一行文本)</li><li>文本替换:tr</li><li>文本合并:paste</li><li>分割大文件:split(只支持行数分割和大小分割，二进制文件只能按照大小分割)</li></ol><h2 id="网络管理"><a href="#网络管理" class="headerlink" title="网络管理"></a>网络管理</h2><ol><li>检查和配置网卡：ipconfig</li><li>路由和网关：route</li><li>网络测试工具<ol><li>检测可达性：ping</li><li>查询DNS记录：host</li><li>查询路由：traceroute</li></ol></li></ol><h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><ol><li>进程查看：ps，top</li><li>进程终止：kill，killall</li><li>查询进程打开的文件：lsof（list open file）<ol><li>查找使用某个端口的进程：lsof -i:8080</li><li>还能恢复文件，只能正在被某个进程使用的文件</li></ol></li><li>进程优先级调整：nice、renice</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> Linux </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>linux启动流程</title>
       <link href="2021/05/01/%E8%BF%90%E7%BB%B4/linux/linux%E5%9F%BA%E7%A1%80/linux%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/"/>
       <url>2021/05/01/%E8%BF%90%E7%BB%B4/linux/linux%E5%9F%BA%E7%A1%80/linux%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B/</url>
@@ -4485,11 +4435,11 @@
     
     
     <entry>
-      <title>Linux基础知识</title>
-      <link href="2021/05/01/%E8%BF%90%E7%BB%B4/linux/linux%E5%9F%BA%E7%A1%80/linux%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
-      <url>2021/05/01/%E8%BF%90%E7%BB%B4/linux/linux%E5%9F%BA%E7%A1%80/linux%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+      <title>Linux 命令</title>
+      <link href="2021/05/01/%E8%BF%90%E7%BB%B4/linux/linux%E5%9F%BA%E7%A1%80/linux%E5%91%BD%E4%BB%A4/"/>
+      <url>2021/05/01/%E8%BF%90%E7%BB%B4/linux/linux%E5%9F%BA%E7%A1%80/linux%E5%91%BD%E4%BB%A4/</url>
       
-        <content type="html"><![CDATA[<h1 id="linux基础知识"><a href="#linux基础知识" class="headerlink" title="linux基础知识"></a>linux基础知识</h1><h2 id="linux文件目录"><a href="#linux文件目录" class="headerlink" title="linux文件目录"></a>linux文件目录</h2><h3 id="bin"><a href="#bin" class="headerlink" title="/bin"></a>/bin</h3><p>二进制可执行命令 (ls,cat,mkdir等),启动时会用到的命令，即文件系统还没有被挂载的时候都可以使用的命令 </p><h3 id="boot"><a href="#boot" class="headerlink" title="/boot"></a>/boot</h3><p>放置开机的时候会使用的文件，包括一些连接文件以及镜像文件</p><h3 id="dev"><a href="#dev" class="headerlink" title="/dev"></a>/dev</h3><p>任何设备与设备接口都是以文件的形式存在于该目录中</p><h3 id="etc-系统管理和配置文件"><a href="#etc-系统管理和配置文件" class="headerlink" title="/etc 系统管理和配置文件"></a>/etc 系统管理和配置文件</h3><p>系统的所有配置文件都存在这个目录中</p><h3 id="opt"><a href="#opt" class="headerlink" title="/opt"></a>/opt</h3><p>额外安装的可选应用程序包所放置的位置。一般情况下，我们可以把tomcat等都安装到这里。</p><h3 id="home"><a href="#home" class="headerlink" title="/home"></a>/home</h3><p>用户的主目录，在 Linux 中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的，比如用户user的主目录就是/home/user，可以用~user表示</p><h3 id="lib-标准程序设计库，又叫动态链接共享库，作用类似windows里的-dll文件"><a href="#lib-标准程序设计库，又叫动态链接共享库，作用类似windows里的-dll文件" class="headerlink" title="/lib 标准程序设计库，又叫动态链接共享库，作用类似windows里的.dll文件"></a>/lib 标准程序设计库，又叫动态链接共享库，作用类似windows里的.dll文件</h3><p>放置开机时会使用的函数库</p><h3 id="sbin-超级管理命令"><a href="#sbin-超级管理命令" class="headerlink" title="/sbin 超级管理命令"></a>/sbin 超级管理命令</h3><p>存放的是系统管理员使用的系统管理程序，如ifconfig等。</p><h3 id="tmp-temporary"><a href="#tmp-temporary" class="headerlink" title="/tmp (temporary)"></a>/tmp (temporary)</h3><p>公共的临时文件存储点</p><h3 id="boot-1"><a href="#boot-1" class="headerlink" title="/boot"></a>/boot</h3><p>存放用于系统引导时使用的各种文件</p><h3 id="root"><a href="#root" class="headerlink" title="/root"></a>/root</h3><p>系统管理员的主目录</p><h3 id="mnt"><a href="#mnt" class="headerlink" title="/mnt"></a>/mnt</h3><p>系统提供这个目录是让用户临时挂载其他的文件系统</p><h3 id="lost-found"><a href="#lost-found" class="headerlink" title="/lost+found"></a>/lost+found</h3><p>这个目录平时是空的，系统非正常关机而留下“无家可归”的文件</p><h3 id="proc"><a href="#proc" class="headerlink" title="/proc"></a>/proc</h3><p>虚拟的目录，是系统内存的映射。可直接访问这个目录来获取系统信息。</p><h3 id="media"><a href="#media" class="headerlink" title="/media"></a>/media</h3><p>下面放置可删除设备，linux 系统会自动识别一些设备，例如U盘、光驱</p><h3 id="srv（service）"><a href="#srv（service）" class="headerlink" title="/srv（service）"></a>/srv（service）</h3><p>该目录存放一些服务启动之后需要提取的数据，比如WWW服务的数据就可以放在这里</p><h3 id="sys"><a href="#sys" class="headerlink" title="/sys"></a>/sys</h3><p>sysfs 文件系统集成了下面3种文件系统的信息：针对进程信息的 proc 文件系统、针对设备的 devfs 文件系统以及针对伪终端的 devpts 文件系统。<br>该文件系统是内核设备树的一个直观反映。当一个内核对象被创建的时候，对应的文件和目录也在内核对象子系统中被创建。</p><h3 id="var-variable"><a href="#var-variable" class="headerlink" title="/var (variable)"></a>/var (variable)</h3><p>某些大文件的溢出区，比方说各种服务的日志文件</p><h3 id="usr-UNIX-Software-Resource"><a href="#usr-UNIX-Software-Resource" class="headerlink" title="/usr (UNIX Software Resource)"></a>/usr (UNIX Software Resource)</h3><p>最庞大的目录，要用到的应用程序和文件几乎都在这个目录</p><h2 id="profile-bash-profile-bashrc"><a href="#profile-bash-profile-bashrc" class="headerlink" title="profile,bash_profile,bashrc"></a>profile,bash_profile,bashrc</h2><h3 id="profile-etc-profile"><a href="#profile-etc-profile" class="headerlink" title="profile(etc/profile)"></a>profile(etc/profile)</h3><p>设置系统级的环境变量和启动程序，当用户登录login时，文件会被执行，并从/etc/profile.d目录下查找shell的设置</p><h3 id="bashrc"><a href="#bashrc" class="headerlink" title="bashrc"></a>bashrc</h3><p>用于配置函数或者别名。有两种级别，系统级位于/etc/bashrc，用户级位于~/.bashrc，两者分别会对所有用户和当前用户生效，bashrc只会针对指定的shell类型起作用。bash只会被bash shell调用</p><h3 id="bash-profile-文件"><a href="#bash-profile-文件" class="headerlink" title="bash_profile 文件"></a>bash_profile 文件</h3><p>bash_profile只对单一用户生效，文件存储于~/.bash_profile，是用户级别的设置，可以理解为某一个用户的profile目录下，这个文件同样可以用于环境配置和启动程序，但对单个用户有效。与profile不同的是，bash_profile 只会对当前用户生效</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="账号管理"><a href="#账号管理" class="headerlink" title="账号管理"></a>账号管理</h2><h3 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h3><ol><li>新增用户 useradd<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">useradd -u [UID] -g [GID&#x2F;Group name] -d [home directory] [user name]</span><br><span class="line">useradd -u 5 -g group1 -d &#x2F;home&#x2F;group1 username</span><br></pre></td></tr></table></figure></li><li>修改密码 passwd</li><li>修改用户 usermod</li><li>删除用户 userdel</li></ol><h3 id="组管理"><a href="#组管理" class="headerlink" title="组管理"></a>组管理</h3><ol><li>新增用户组 groupadd</li><li>删除用户组 groupdel</li></ol><h3 id="查看用户信息"><a href="#查看用户信息" class="headerlink" title="查看用户信息"></a>查看用户信息</h3><ol><li>查看用户：users、who、w</li><li>调查用户：finger</li></ol><h3 id="切换用户"><a href="#切换用户" class="headerlink" title="切换用户"></a>切换用户</h3><ol><li>切换成其他用户：su</li><li>用其他用户的身份执行命令：sudo</li></ol><h2 id="定时任务"><a href="#定时任务" class="headerlink" title="定时任务"></a>定时任务</h2><ol><li>单一时刻执行一次任务：at<ol><li>查看当前at命令调度的任务列表：atq</li><li>删除at任务列表的任务：atrm</li></ol></li><li>周期任务：cron</li></ol><h2 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h2><h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><ol><li>创建文件：touch</li><li>删除文件：rm</li><li>移动或者重命名文件：mv</li><li>查看文件：cat</li><li>查看文件头：head(显示文件前10行的内容，使用-n调整显示的行数)</li><li>查看文件尾：tail(显示文件后10行内容)</li><li>文件格式转换：dos2unix</li></ol><h3 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h3><ol><li>进入目录：cd</li><li>创建目录：mkdir</li><li>删除目录：rm和rmdir</li><li>文件和目录复制：cp</li></ol><h3 id="文件和目录权限"><a href="#文件和目录权限" class="headerlink" title="文件和目录权限"></a>文件和目录权限</h3><ol><li>查看文件和目录权限： ls -l</li><li>改变文件权限：chmod</li><li>改变文件的拥有者：chown</li><li>改变文件的拥有组：chgrp</li><li>查看文件类型：file</li><li>查看文件隐藏属性：lsattr</li><li>设置文件隐藏属性：chattr</li></ol><h3 id="文件查找"><a href="#文件查找" class="headerlink" title="文件查找"></a>文件查找</h3><ol><li>一般查找：find</li><li>数据库查找：locate<ol><li>更新数据库：updatedb</li></ol></li><li>查找执行文件：which/whereis</li></ol><h3 id="文件打包和压缩"><a href="#文件打包和压缩" class="headerlink" title="文件打包和压缩"></a>文件打包和压缩</h3><ol><li>gzip/gunzip：压缩成gz</li><li>tar：压缩成gz/tgz<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">压缩：</span><br><span class="line">tar -zcvf [compressed file name] [origin file name/directory]</span><br><span class="line">tar -zcvf boot.tgz /boot</span><br><span class="line">-z:使用gzip雅座</span><br><span class="line">-c:创建压缩文件</span><br><span class="line">-v:显示当前被压缩的文件</span><br><span class="line">-f:使用文件名</span><br><span class="line"></span><br><span class="line">解压：</span><br><span class="line">tar -zxvf [compressed file name] [target directory]</span><br></pre></td></tr></table></figure></li><li>bzip2：压缩成bz2<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">压缩：bzip2 [file name]</span><br><span class="line">解压：bzip -d [compressed file name]</span><br></pre></td></tr></table></figure></li><li>cpio：通常和find一起使用，通过管道的方式传递给cpio进行备份，生成cpio文件<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">备份：find . -name *.conf | cpio -cov &gt; /temp/config.cpio</span><br><span class="line">还原：cpio --absolute-filenames -icvu &lt; /temp/conf.cpio</span><br></pre></td></tr></table></figure></li></ol><h2 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h2><h3 id="磁盘挂载"><a href="#磁盘挂载" class="headerlink" title="磁盘挂载"></a>磁盘挂载</h3><ol><li>创建文件系统：fdisk</li><li>磁盘挂载：mount</li><li>磁盘检查：fsck、badblocks<ol><li>fsck(file system check)用于未挂载的磁盘，否则会造成文件系统损坏</li><li>badblocks用于检查磁盘坏道</li></ol></li></ol><h3 id="逻辑卷"><a href="#逻辑卷" class="headerlink" title="逻辑卷"></a>逻辑卷</h3><ol><li>创建和查看物理卷：pvcreate，pvdisplay</li><li>创建和查看卷组：vgcreate，vgdisplay</li><li>扩展卷组：vgextend</li><li>创建和查看逻辑卷：lvcreate，lvdisplay</li></ol><h2 id="字符处理"><a href="#字符处理" class="headerlink" title="字符处理"></a>字符处理</h2><ol><li>文本搜索：grep<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">grep [-ivnc] [pattern] [file name]</span><br><span class="line">grep -ivnc &#x27;name&#x27; test.txt</span><br><span class="line">-i:不区分大小写</span><br><span class="line">-v:反向匹配</span><br><span class="line">-n:输出行号</span><br><span class="line">-c:统计包含匹配的行数</span><br></pre></td></tr></table></figure></li><li>排序：sort<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sort [-ntkr] [file name]</span><br><span class="line">-n:采取数字排序</span><br><span class="line">-t:指定分隔符</span><br><span class="line">-k:指定第几列</span><br><span class="line">-r:反向排序</span><br></pre></td></tr></table></figure></li><li>删除重复内容：uniq(需要和sort一起使用)<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uniq [-ic]</span><br><span class="line">-i:忽略大小写</span><br><span class="line">-c:计算重复行数</span><br></pre></td></tr></table></figure></li><li>截取文本:cut(处理的对象时一行文本)</li><li>文本替换:tr</li><li>文本合并:paste</li><li>分割大文件:split(只支持行数分割和大小分割，二进制文件只能按照大小分割)</li></ol><h2 id="网络管理"><a href="#网络管理" class="headerlink" title="网络管理"></a>网络管理</h2><ol><li>检查和配置网卡：ipconfig</li><li>路由和网关：route</li><li>网络测试工具<ol><li>检测可达性：ping</li><li>查询DNS记录：host</li><li>查询路由：traceroute</li></ol></li></ol><h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><ol><li>进程查看：ps，top</li><li>进程终止：kill，killall</li><li>查询进程打开的文件：lsof（list open file）<ol><li>查找使用某个端口的进程：lsof -i:8080</li><li>还能恢复文件，只能正在被某个进程使用的文件</li></ol></li><li>进程优先级调整：nice、renice</li></ol>]]></content>
       
       
       <categories>
@@ -4515,6 +4465,31 @@
       <url>2021/05/01/%E8%BF%90%E7%BB%B4/linux/linux%E5%9F%BA%E7%A1%80/linux%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/</url>
       
         <content type="html"><![CDATA[<h2 id="Linux逻辑卷"><a href="#Linux逻辑卷" class="headerlink" title="Linux逻辑卷"></a>Linux逻辑卷</h2><ol><li>物理卷（physical volume,PV）：物理磁盘分区</li><li>卷组（Volume Group，VG）：PV的集合</li><li>逻辑卷（Logic Volume,LV）:PV划出来的一块逻辑磁盘</li></ol><h2 id="Shell-内建命令"><a href="#Shell-内建命令" class="headerlink" title="Shell 内建命令"></a>Shell 内建命令</h2><p>指的是Bash本身提供的命令，而不是文件系统中的执行文件，如cd。<br>执行外建命令会触发IO，还需要fork一个单独的进程来完成，执行完再退出，而内建命令不需要，因此内建命令会比外建命令执行地快</p><h2 id="AWK教程"><a href="#AWK教程" class="headerlink" title="AWK教程"></a>AWK教程</h2><p><a href="http://www.ruanyifeng.com/blog/2018/11/awk.html">http://www.ruanyifeng.com/blog/2018/11/awk.html</a></p><h2 id="文件标识符"><a href="#文件标识符" class="headerlink" title="文件标识符"></a>文件标识符</h2><ul><li>标准输入为0</li><li>标准输出为1</li><li>标准错误输出为2</li></ul><h2 id="内存指标"><a href="#内存指标" class="headerlink" title="内存指标"></a>内存指标</h2><h3 id="Buffers-和-Cache"><a href="#Buffers-和-Cache" class="headerlink" title="Buffers 和 Cache"></a>Buffers 和 Cache</h3><ul><li>buffers 主要目的是做流量整形，把突发的大数量规模小的I/O整理成平稳的小数量较大规模的I/O</li><li>cache 是为了弥补高速设备和低速设备的速度差异引入的中间层，最终达到加快访问速度的作用</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux基础知识</title>
+      <link href="2021/05/01/%E8%BF%90%E7%BB%B4/linux/linux%E5%9F%BA%E7%A1%80/linux%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+      <url>2021/05/01/%E8%BF%90%E7%BB%B4/linux/linux%E5%9F%BA%E7%A1%80/linux%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="linux基础知识"><a href="#linux基础知识" class="headerlink" title="linux基础知识"></a>linux基础知识</h1><h2 id="linux文件目录"><a href="#linux文件目录" class="headerlink" title="linux文件目录"></a>linux文件目录</h2><h3 id="bin"><a href="#bin" class="headerlink" title="/bin"></a>/bin</h3><p>二进制可执行命令 (ls,cat,mkdir等),启动时会用到的命令，即文件系统还没有被挂载的时候都可以使用的命令 </p><h3 id="boot"><a href="#boot" class="headerlink" title="/boot"></a>/boot</h3><p>放置开机的时候会使用的文件，包括一些连接文件以及镜像文件</p><h3 id="dev"><a href="#dev" class="headerlink" title="/dev"></a>/dev</h3><p>任何设备与设备接口都是以文件的形式存在于该目录中</p><h3 id="etc-系统管理和配置文件"><a href="#etc-系统管理和配置文件" class="headerlink" title="/etc 系统管理和配置文件"></a>/etc 系统管理和配置文件</h3><p>系统的所有配置文件都存在这个目录中</p><h3 id="opt"><a href="#opt" class="headerlink" title="/opt"></a>/opt</h3><p>额外安装的可选应用程序包所放置的位置。一般情况下，我们可以把tomcat等都安装到这里。</p><h3 id="home"><a href="#home" class="headerlink" title="/home"></a>/home</h3><p>用户的主目录，在 Linux 中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的，比如用户user的主目录就是/home/user，可以用~user表示</p><h3 id="lib-标准程序设计库，又叫动态链接共享库，作用类似windows里的-dll文件"><a href="#lib-标准程序设计库，又叫动态链接共享库，作用类似windows里的-dll文件" class="headerlink" title="/lib 标准程序设计库，又叫动态链接共享库，作用类似windows里的.dll文件"></a>/lib 标准程序设计库，又叫动态链接共享库，作用类似windows里的.dll文件</h3><p>放置开机时会使用的函数库</p><h3 id="sbin-超级管理命令"><a href="#sbin-超级管理命令" class="headerlink" title="/sbin 超级管理命令"></a>/sbin 超级管理命令</h3><p>存放的是系统管理员使用的系统管理程序，如ifconfig等。</p><h3 id="tmp-temporary"><a href="#tmp-temporary" class="headerlink" title="/tmp (temporary)"></a>/tmp (temporary)</h3><p>公共的临时文件存储点</p><h3 id="boot-1"><a href="#boot-1" class="headerlink" title="/boot"></a>/boot</h3><p>存放用于系统引导时使用的各种文件</p><h3 id="root"><a href="#root" class="headerlink" title="/root"></a>/root</h3><p>系统管理员的主目录</p><h3 id="mnt"><a href="#mnt" class="headerlink" title="/mnt"></a>/mnt</h3><p>系统提供这个目录是让用户临时挂载其他的文件系统</p><h3 id="lost-found"><a href="#lost-found" class="headerlink" title="/lost+found"></a>/lost+found</h3><p>这个目录平时是空的，系统非正常关机而留下“无家可归”的文件</p><h3 id="proc"><a href="#proc" class="headerlink" title="/proc"></a>/proc</h3><p>虚拟的目录，是系统内存的映射。可直接访问这个目录来获取系统信息。</p><h3 id="media"><a href="#media" class="headerlink" title="/media"></a>/media</h3><p>下面放置可删除设备，linux 系统会自动识别一些设备，例如U盘、光驱</p><h3 id="srv（service）"><a href="#srv（service）" class="headerlink" title="/srv（service）"></a>/srv（service）</h3><p>该目录存放一些服务启动之后需要提取的数据，比如WWW服务的数据就可以放在这里</p><h3 id="sys"><a href="#sys" class="headerlink" title="/sys"></a>/sys</h3><p>sysfs 文件系统集成了下面3种文件系统的信息：针对进程信息的 proc 文件系统、针对设备的 devfs 文件系统以及针对伪终端的 devpts 文件系统。<br>该文件系统是内核设备树的一个直观反映。当一个内核对象被创建的时候，对应的文件和目录也在内核对象子系统中被创建。</p><h3 id="var-variable"><a href="#var-variable" class="headerlink" title="/var (variable)"></a>/var (variable)</h3><p>某些大文件的溢出区，比方说各种服务的日志文件</p><h3 id="usr-UNIX-Software-Resource"><a href="#usr-UNIX-Software-Resource" class="headerlink" title="/usr (UNIX Software Resource)"></a>/usr (UNIX Software Resource)</h3><p>最庞大的目录，要用到的应用程序和文件几乎都在这个目录</p><h2 id="profile-bash-profile-bashrc"><a href="#profile-bash-profile-bashrc" class="headerlink" title="profile,bash_profile,bashrc"></a>profile,bash_profile,bashrc</h2><h3 id="profile-etc-profile"><a href="#profile-etc-profile" class="headerlink" title="profile(etc/profile)"></a>profile(etc/profile)</h3><p>设置系统级的环境变量和启动程序，当用户登录login时，文件会被执行，并从/etc/profile.d目录下查找shell的设置</p><h3 id="bashrc"><a href="#bashrc" class="headerlink" title="bashrc"></a>bashrc</h3><p>用于配置函数或者别名。有两种级别，系统级位于/etc/bashrc，用户级位于~/.bashrc，两者分别会对所有用户和当前用户生效，bashrc只会针对指定的shell类型起作用。bash只会被bash shell调用</p><h3 id="bash-profile-文件"><a href="#bash-profile-文件" class="headerlink" title="bash_profile 文件"></a>bash_profile 文件</h3><p>bash_profile只对单一用户生效，文件存储于~/.bash_profile，是用户级别的设置，可以理解为某一个用户的profile目录下，这个文件同样可以用于环境配置和启动程序，但对单个用户有效。与profile不同的是，bash_profile 只会对当前用户生效</p>]]></content>
       
       
       <categories>
