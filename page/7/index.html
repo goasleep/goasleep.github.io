@@ -260,9 +260,9 @@
                     var typed = new Typed("#subtitle", {
                         strings: [ 
                             
-                                "从来没有真正的绝境, 只有心灵的迷途",
+                                "天行健，君子以自强不息；地势坤，君子以厚德载物",
                             
-                                "Never really desperate, only the lost of the soul",
+                                "Heaven walks strong, gentlemen constantly strive for self-improvement.The terrain is vast, gentleman carries goods with great virtue.",
                             
                         ],
                         startDelay: 300,
@@ -302,20 +302,26 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/05/01/Docker/Docker%20Network/">
+                    <a href="/2021/05/01/Nginx/Nginx%E6%93%8D%E4%BD%9C/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Docker 网络">
+                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Nginx 操作">
                             
-                            <span class="card-title">Docker 网络</span>
+                            <span class="card-title">Nginx 操作</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Docker 网络CNM(Container Network Model)CNM (Container Network Model) 是 Docker 发布的容器网络标准，意在规范和指定容器网络发展标准，CNM 抽象了容器的网络接口 ，使得
+                                重载配置文件12nginx -S reload 或kill -HUP 主进程号
+
+热部署
+备份旧的可执行文件
+
+给主进程发USER2信号：执行完后新的主进程和旧的同时存在，会将新的请求/连接给到新的主进程中
+1kill -USR2 9944
                             
                         </div>
                         <div class="publish-info">
@@ -326,8 +332,8 @@
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" class="post-category">
-                                    云原生
+                                <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="post-category">
+                                    中间件
                                 </a>
                                 
                                 
@@ -338,12 +344,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Docker/">
-                            <span class="chip bg-color">Docker</span>
+                        <a href="/tags/Nginx/">
+                            <span class="chip bg-color">Nginx</span>
                         </a>
                         
-                        <a href="/tags/Network/">
-                            <span class="chip bg-color">Network</span>
+                        <a href="/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
+                            <span class="chip bg-color">负载均衡</span>
                         </a>
                         
                     </div>
@@ -353,22 +359,26 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/05/01/Docker/Dockerfile%E7%BC%96%E5%86%99%E5%87%86%E5%88%99/">
+                    <a href="/2021/05/01/Nginx/Nginx%E9%85%8D%E7%BD%AE%E9%A1%B9/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Dockerfile 书写原则">
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Nginx 配置">
                             
-                            <span class="card-title">Dockerfile 书写原则</span>
+                            <span class="card-title">Nginx 配置</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Dockerfile 书写原则1. 单一职责由于容器的本质是进程，一个容器代表一个进程，因此不同功能的应用应该尽量拆分为不同的容器，每个容器只负责单一业务进程。
-
-2. 提供注释信息   Dockerfile 也是一种代码，我们应该保持良好
+                                Nginx 配置配置语法：
+配置文件由指令和指令块构成
+每条指令以; 解为，指令与参数之前用空格分割
+指令块以{}大括号将多条指令组织在一起
+include语句允许组合多个配置文件以提升可维护性
+使用#符号添加注释，提高可读性
+使用$符号使
                             
                         </div>
                         <div class="publish-info">
@@ -379,8 +389,8 @@
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" class="post-category">
-                                    云原生
+                                <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="post-category">
+                                    中间件
                                 </a>
                                 
                                 
@@ -391,8 +401,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Docker/">
-                            <span class="chip bg-color">Docker</span>
+                        <a href="/tags/Nginx/">
+                            <span class="chip bg-color">Nginx</span>
+                        </a>
+                        
+                        <a href="/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
+                            <span class="chip bg-color">负载均衡</span>
                         </a>
                         
                     </div>
@@ -402,20 +416,20 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/05/01/Docker/Docker%E8%B5%84%E6%BA%90%E9%9A%94%E7%A6%BB%E4%B8%8E%E9%99%90%E5%88%B6/">
+                    <a href="/2021/05/01/Nginx/Nginx%E9%97%AE%E9%A2%98%E9%9B%86/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Docker隔离">
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Nginx 问题集">
                             
-                            <span class="card-title">Docker隔离</span>
+                            <span class="card-title">Nginx 问题集</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Docker隔离Docker 资源隔离 借助于Linux 的NamespaceNamespace是什么Namespace 是 Linux 内核的一项功能，该功能对内核资源进行分区，以使一组进程看到一组资源，而另一组进程看到另一组资源。它实现
+                                Nginx 如何保证所有worker进程之上的客户端请求数尽量接近。使用accept_mutex锁。accept_mutex是Nginx的负载均衡锁,accept_mutex这把锁可以让多个worker进程轮流地、序列化地与新的客户端建立T
                             
                         </div>
                         <div class="publish-info">
@@ -426,8 +440,8 @@
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" class="post-category">
-                                    云原生
+                                <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="post-category">
+                                    中间件
                                 </a>
                                 
                                 
@@ -438,60 +452,12 @@
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Docker/">
-                            <span class="chip bg-color">Docker</span>
+                        <a href="/tags/Nginx/">
+                            <span class="chip bg-color">Nginx</span>
                         </a>
                         
-                        <a href="/tags/Linux/">
-                            <span class="chip bg-color">Linux</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/05/01/Docker/Docker%E7%BB%84%E4%BB%B6/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Docker 组件">
-                            
-                            <span class="card-title">Docker 组件</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Docker 组件Docker 在linux下默认的安装目录/var/lib/docker
-Docker 相关组件docker 客户端对用户可见的操作形式为 docker 命令，通过 docker 命令可以完成所有的 Docker 客户端与
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" class="post-category">
-                                    云原生
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Docker/">
-                            <span class="chip bg-color">Docker</span>
+                        <a href="/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
+                            <span class="chip bg-color">负载均衡</span>
                         </a>
                         
                     </div>
@@ -501,23 +467,25 @@ Docker 相关组件docker 客户端对用户可见的操作形式为 docker 命�
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/05/01/Docker/Docker%E9%95%9C%E5%83%8F/">
+                    <a href="/2021/05/01/SQL/%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B1%BB%E5%9E%8B/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Docker 镜像">
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Mysql 关系数据库类型">
                             
-                            <span class="card-title">Docker 镜像</span>
+                            <span class="card-title">Mysql 关系数据库类型</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Docker 镜像Docker 镜像是由文件系统叠加而成
-
-最低端是一个引导文件系统，即bootfs
-第二层是root文件系统rootfs，位于引导文件系统之上，rootfs可以使一种或多种操作系统使用联合加载技术会在root文件系统层上加
+                                关系型数据库类型
+OLTP:(Online transaction processing)OLTP管理组织的日常事务。主要目标是数据处理而不是数据分析
+特点
+大量的短时间交易请求和处理
+对信息进行增删改查的操作，常常需要查询明细信息
+必须保
                             
                         </div>
                         <div class="publish-info">
@@ -528,8 +496,8 @@ Docker 相关组件docker 客户端对用户可见的操作形式为 docker 命�
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" class="post-category">
-                                    云原生
+                                <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="post-category">
+                                    数据库
                                 </a>
                                 
                                 
@@ -540,8 +508,8 @@ Docker 相关组件docker 客户端对用户可见的操作形式为 docker 命�
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Docker/">
-                            <span class="chip bg-color">Docker</span>
+                        <a href="/tags/mysql/">
+                            <span class="chip bg-color">mysql</span>
                         </a>
                         
                     </div>
@@ -551,20 +519,22 @@ Docker 相关组件docker 客户端对用户可见的操作形式为 docker 命�
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/05/01/Docker/Docker%E9%97%AE%E9%A2%98%E9%9B%86/">
+                    <a href="/2021/05/01/SRE/SRE%20%E6%8C%87%E5%AF%BC%E6%80%9D%E6%83%B3/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Docker 问题集">
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="SRE 指导思想">
                             
-                            <span class="card-title">Docker 问题集</span>
+                            <span class="card-title">SRE 指导思想</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Dockerfile 和 docker-compose.yml 的区别Dockerfile: Dockerfile 是拿来构建自定义镜像的，并没有直接生成容器docker-compose.yml是用来编排项目的，里面包含使用各种镜像创建的容
+                                指导思想拥抱风险管理风险管理服务的可靠性很大程度上是通过管理风险来进行的。需要将运维风险和业务风险结合。提高一项服务的可靠性，但不会超过该服务的可靠性高昂的成本在于以下两个维度
+
+冗余物理服务器/计算资源的成本投入冗余设备，能够进行更多的维
                             
                         </div>
                         <div class="publish-info">
@@ -575,8 +545,8 @@ Docker 相关组件docker 客户端对用户可见的操作形式为 docker 命�
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" class="post-category">
-                                    云原生
+                                <a href="/categories/SRE/" class="post-category">
+                                    SRE
                                 </a>
                                 
                                 
@@ -587,8 +557,8 @@ Docker 相关组件docker 客户端对用户可见的操作形式为 docker 命�
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Docker/">
-                            <span class="chip bg-color">Docker</span>
+                        <a href="/tags/SRE/">
+                            <span class="chip bg-color">SRE</span>
                         </a>
                         
                     </div>
@@ -598,20 +568,24 @@ Docker 相关组件docker 客户端对用户可见的操作形式为 docker 命�
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/05/01/Docker/docker%20cookbook/">
+                    <a href="/2021/05/01/SRE/SRE%20%E6%96%B9%E6%B3%95%E8%AE%BA/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Docker cookbook">
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="SRE 方法论">
                             
-                            <span class="card-title">Docker cookbook</span>
+                            <span class="card-title">SRE 方法论</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Docker cookbook无权限连接Docker Daemon socket问题描述：Got permission denied while trying to connect to the Docker daemon socket问题
+                                SRE承担的职责：可用性改进，延迟优化，性能优化，效率优化，变更管理，监控，紧急事务处理，容量规划与管理
+工作内容：开发监控系统，规划容量，处理紧急事件，确保事故根源被跟踪修复
+核心方法论：
+确保长期关注研发工作
+将运维工作限制在50%以内
                             
                         </div>
                         <div class="publish-info">
@@ -622,8 +596,8 @@ Docker 相关组件docker 客户端对用户可见的操作形式为 docker 命�
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" class="post-category">
-                                    云原生
+                                <a href="/categories/SRE/" class="post-category">
+                                    SRE
                                 </a>
                                 
                                 
@@ -634,8 +608,8 @@ Docker 相关组件docker 客户端对用户可见的操作形式为 docker 命�
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Docker/">
-                            <span class="chip bg-color">Docker</span>
+                        <a href="/tags/SRE/">
+                            <span class="chip bg-color">SRE</span>
                         </a>
                         
                     </div>
@@ -645,23 +619,23 @@ Docker 相关组件docker 客户端对用户可见的操作形式为 docker 命�
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/05/01/Docker/docker%E7%AE%80%E4%BB%8B/">
+                    <a href="/2021/05/01/SRE/%E5%AE%9E%E4%BE%8B%E5%AD%A6%E4%B9%A0/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Docker 网络">
+                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="SRE实践">
                             
-                            <span class="card-title">Docker 网络</span>
+                            <span class="card-title">SRE实践</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Docker优点
-提供一个简单、轻量的建模方式所需要的环境知识一台仅仅安装兼容版本的linux内核和二进制文件最小限的宿主机
-职责的逻辑分离开发人员只需要关注容器运行的应用程序，运维只需要关注如何管理容器
-快速、高效的生命开发周期缩短代码从
+                                故障排查手段故障报告–&gt; 定位问题 –&gt; 检查 –&gt; 诊断 –&gt; 测试/修复 –&gt; 治愈常见的问题主要集中在定位、检查和诊断环节上应该避免
+
+关注了错误的系统现象，或者错误地理解了系统现象的含义
+不能正确修改系
                             
                         </div>
                         <div class="publish-info">
@@ -672,8 +646,8 @@ Docker 相关组件docker 客户端对用户可见的操作形式为 docker 命�
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" class="post-category">
-                                    云原生
+                                <a href="/categories/SRE/" class="post-category">
+                                    SRE
                                 </a>
                                 
                                 
@@ -684,8 +658,66 @@ Docker 相关组件docker 客户端对用户可见的操作形式为 docker 命�
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/Docker/">
-                            <span class="chip bg-color">Docker</span>
+                        <a href="/tags/SRE/">
+                            <span class="chip bg-color">SRE</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/05/01/SRE/%E6%9C%8D%E5%8A%A1%E5%8F%AF%E9%9D%A0%E5%BA%A6%E6%A8%A1%E5%9E%8B/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="服务可靠度模型">
+                            
+                            <span class="card-title">服务可靠度模型</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                服务可靠度模型模型
+产品设计
+软件开发
+容量规划
+测试+发布
+事后总结/问题根源分析
+应急事件处理
+监控监控系统大型监控系统的难点
+
+
+大型系统中组件数量特别多，分析工作繁杂繁重
+监控系统本身的维护要求必须非常低时序性监控(borgmon 
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-01
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/SRE/" class="post-category">
+                                    SRE
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/SRE/">
+                            <span class="chip bg-color">SRE</span>
                         </a>
                         
                     </div>

@@ -259,9 +259,9 @@
                     var typed = new Typed("#subtitle", {
                         strings: [ 
                             
-                                "从来没有真正的绝境, 只有心灵的迷途",
+                                "天行健，君子以自强不息；地势坤，君子以厚德载物",
                             
-                                "Never really desperate, only the lost of the soul",
+                                "Heaven walks strong, gentlemen constantly strive for self-improvement.The terrain is vast, gentleman carries goods with great virtue.",
                             
                         ],
                         startDelay: 300,
@@ -320,11 +320,20 @@
                 </a>
                 
                 
-                <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" title="中间件: 17">
+                <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" title="云原生: 28">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D5F5E3;">中间件
-                        <span class="tag-length">17</span>
+                            style="background-color: #D5F5E3;">云原生
+                        <span class="tag-length">28</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" title="中间件: 18">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #E8F8F5;">中间件
+                        <span class="tag-length">18</span>
                     </span>
                 </a>
                 
@@ -332,7 +341,7 @@
                 <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库: 14">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #E8F8F5;">数据库
+                            style="background-color: #FEF9E7;">数据库
                         <span class="tag-length">14</span>
                     </span>
                 </a>
@@ -341,17 +350,8 @@
                 <a href="/categories/SRE/" title="SRE: 15">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #FEF9E7;">SRE
+                            style="background-color: #F8F9F9;">SRE
                         <span class="tag-length">15</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" title="云原生: 28">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F8F9F9;">云原生
-                        <span class="tag-length">28</span>
                     </span>
                 </a>
                 
@@ -463,24 +463,26 @@ TCP报文段报文段由TCP首部和TCP数据两部分组成TCP报
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/05/01/operation_system/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/%E8%BF%9B%E7%A8%8B/">
+                    <a href="/2021/05/01/operation_system/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="进程">
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="进程同步">
                             
-                            <span class="card-title">进程</span>
+                            <span class="card-title">进程同步</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                进程目的：更好地描述和控制程序并发执行主要部分
+                                进程同步临界资源对临界资源的访问必须需要互斥地进行访问过程
 
-程序段：进程完成的功能。类似于工人
-数据：程序在执行时所需要的数据。类似于原材料
-PCB：包含进程的描述信息和控制信息。是进程存在的唯一标志。类似于管理员
-进程是系统进行资源分配和调度的一个
+进入区。检查是否可以进入临界区。可以则设置访问临界区的标志
+临界区。访问临界资源的代码
+退出区。将访问临界区的标志清除
+剩余区
+
+同步与互斥同步也称为直接制约关系。指为了完成某种
                             
                         </div>
                         <div class="publish-info">
@@ -514,26 +516,24 @@ PCB：包含进程的描述信息和控制信息。是进程存在的唯一标�
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/05/01/operation_system/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5/">
+                    <a href="/2021/05/01/operation_system/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/%E8%BF%9B%E7%A8%8B/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="进程同步">
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="进程">
                             
-                            <span class="card-title">进程同步</span>
+                            <span class="card-title">进程</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                进程同步临界资源对临界资源的访问必须需要互斥地进行访问过程
+                                进程目的：更好地描述和控制程序并发执行主要部分
 
-进入区。检查是否可以进入临界区。可以则设置访问临界区的标志
-临界区。访问临界资源的代码
-退出区。将访问临界区的标志清除
-剩余区
-
-同步与互斥同步也称为直接制约关系。指为了完成某种
+程序段：进程完成的功能。类似于工人
+数据：程序在执行时所需要的数据。类似于原材料
+PCB：包含进程的描述信息和控制信息。是进程存在的唯一标志。类似于管理员
+进程是系统进行资源分配和调度的一个
                             
                         </div>
                         <div class="publish-info">

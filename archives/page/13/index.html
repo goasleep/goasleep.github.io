@@ -259,9 +259,9 @@
                     var typed = new Typed("#subtitle", {
                         strings: [ 
                             
-                                "从来没有真正的绝境, 只有心灵的迷途",
+                                "天行健，君子以自强不息；地势坤，君子以厚德载物",
                             
-                                "Never really desperate, only the lost of the soul",
+                                "Heaven walks strong, gentlemen constantly strive for self-improvement.The terrain is vast, gentleman carries goods with great virtue.",
                             
                         ],
                         startDelay: 300,
@@ -405,26 +405,27 @@
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2021/05/01/SQL/%E9%AB%98%E6%80%A7%E8%83%BDmysql%E7%AC%94%E8%AE%B0/%E7%B4%A2%E5%BC%95%E7%9A%84%E7%AD%96%E7%95%A5/">
+                        <a href="/2021/05/01/SQL/%E9%AB%98%E6%80%A7%E8%83%BDmysql%E7%AC%94%E8%AE%B0/%E7%BB%B4%E6%8A%A4%E7%B4%A2%E5%BC%95%E5%92%8C%E8%A1%A8/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Mysql 索引策略">
+                                <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Mysql 表和索引维护">
                                 
-                                <span class="card-title">Mysql 索引策略</span>
+                                <span class="card-title">Mysql 表和索引维护</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    索引的策略索引的星级
+                                    维护表和索引找到和修复表使用CHECK TABLE 来查找表是否损坏
+使用REPAIR TABLE 来修复损坏的表
+更新索引统计信息减少碎片碎片的类型：
 
-一星索引：索引将相关记录放在一起
-二星索引：索引中的数据顺序和查找中的排序顺序一致
-三星索引：索引中的列包含查询中需要的全部列
+行碎片
+行间碎片
+剩余空间碎片
 
-独立的列如果查询中的列不是独立的，那么MySQL就不会使用索引
-前缀索引和索引选择性索
+
                                 
                             </div>
                             <div class="publish-info">
@@ -508,6 +509,131 @@
                         <div class="card-action article-tags">
                             
                             <a href="/tags/mysql/"><span class="chip bg-color">mysql</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>01</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/2021/05/01/middleware/Redis/Redis%E7%AE%80%E4%BB%8B/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Redis 简介">
+                                
+                                <span class="card-title">Redis 简介</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    RedisRedis优缺点Redis的数据是存在内存中的，所以读写速度非常快，因此 redis 被广泛应用于缓存方向，每秒可以处理超过10万次读写操作。Redis 也经常用来做分布式锁。除此之外，Redis 支持事务 、持久化、LUA脚本、
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="far fa-clock fa-fw icon-date"></i>2021-05-01
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="post-category">
+                                    中间件
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/Redis/"><span class="chip bg-color">Redis</span></a>
+                            
+                            <a href="/tags/%E7%BC%93%E5%AD%98/"><span class="chip bg-color">缓存</span></a>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <div class="cd-timeline-block">
+
+            
+            
+
+            
+            
+
+            
+            <div class="cd-timeline-img day" data-aos="zoom-in-up">
+                <span>01</span>
+            </div>
+            <article class="cd-timeline-content" data-aos="fade-up">
+                <div class="article col s12 m6">
+                    <div class="card">
+                        <a href="/2021/05/01/middleware/Redis/Redis%E9%97%AE%E9%A2%98%E9%9B%86/">
+                            <div class="card-image">
+                                
+                                
+                                <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Redis 问题集">
+                                
+                                <span class="card-title">Redis 问题集</span>
+                            </div>
+                        </a>
+                        <div class="card-content article-content">
+                            <div class="summary block-with-text">
+                                
+                                    Redis 问题集Redis为什么这么快
+完全基于内存，绝大部分请求时纯粹的基于内存操作
+数据结构简单，对数据的操作也相对简单
+采用单线程，避免不必要的上下文切换和竞争条件，不存在多进程或者多线程的切换消耗CPU，不必考虑各种锁的问题，不存
+                                
+                            </div>
+                            <div class="publish-info">
+                                <span class="publish-date">
+                                    <i class="far fa-clock fa-fw icon-date"></i>2021-05-01
+                                </span>
+                                <span class="publish-author">
+                                    
+                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="post-category">
+                                    中间件
+                                    </a>
+                                    
+                                    
+                                </span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="card-action article-tags">
+                            
+                            <a href="/tags/Redis/"><span class="chip bg-color">Redis</span></a>
+                            
+                            <a href="/tags/%E7%BC%93%E5%AD%98/"><span class="chip bg-color">缓存</span></a>
                             
                         </div>
                         
@@ -660,67 +786,6 @@ N
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2021/05/01/middleware/Nginx/Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Nginx 负载均衡">
-                                
-                                <span class="card-title">Nginx 负载均衡</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    Nginx 负载均衡Nginx 负载均衡特点Nginx并不会立刻转发到上游服务器，而是先把用户的请求（包括HTTP包体） 完整地接收到Nginx所在服务器的硬盘或者内存中，然后再向上游服务器发起连接， 把缓存的客户端请求转发到上游服务器。（
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="far fa-clock fa-fw icon-date"></i>2021-05-01
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="post-category">
-                                    中间件
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/Nginx/"><span class="chip bg-color">Nginx</span></a>
-                            
-                            <a href="/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"><span class="chip bg-color">负载均衡</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>01</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
                         <a href="/2021/05/01/middleware/Nginx/Nginx%E6%93%8D%E4%BD%9C/">
                             <div class="card-image">
                                 
@@ -788,19 +853,19 @@ N
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2021/05/01/middleware/Nginx/Nginx%E9%97%AE%E9%A2%98%E9%9B%86/">
+                        <a href="/2021/05/01/middleware/Nginx/Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Nginx 问题集">
+                                <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Nginx 负载均衡">
                                 
-                                <span class="card-title">Nginx 问题集</span>
+                                <span class="card-title">Nginx 负载均衡</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    Nginx 如何保证所有worker进程之上的客户端请求数尽量接近。使用accept_mutex锁。accept_mutex是Nginx的负载均衡锁,accept_mutex这把锁可以让多个worker进程轮流地、序列化地与新的客户端建立T
+                                    Nginx 负载均衡Nginx 负载均衡特点Nginx并不会立刻转发到上游服务器，而是先把用户的请求（包括HTTP包体） 完整地接收到Nginx所在服务器的硬盘或者内存中，然后再向上游服务器发起连接， 把缓存的客户端请求转发到上游服务器。（
                                 
                             </div>
                             <div class="publish-info">
@@ -916,19 +981,19 @@ include语句允许组合多个配置文件以提升可维护性
             <article class="cd-timeline-content" data-aos="fade-up">
                 <div class="article col s12 m6">
                     <div class="card">
-                        <a href="/2021/05/01/middleware/Redis/Redis%E7%AE%80%E4%BB%8B/">
+                        <a href="/2021/05/01/middleware/Nginx/Nginx%E9%97%AE%E9%A2%98%E9%9B%86/">
                             <div class="card-image">
                                 
                                 
-                                <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Redis 简介">
+                                <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Nginx 问题集">
                                 
-                                <span class="card-title">Redis 简介</span>
+                                <span class="card-title">Nginx 问题集</span>
                             </div>
                         </a>
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    RedisRedis优缺点Redis的数据是存在内存中的，所以读写速度非常快，因此 redis 被广泛应用于缓存方向，每秒可以处理超过10万次读写操作。Redis 也经常用来做分布式锁。除此之外，Redis 支持事务 、持久化、LUA脚本、
+                                    Nginx 如何保证所有worker进程之上的客户端请求数尽量接近。使用accept_mutex锁。accept_mutex是Nginx的负载均衡锁,accept_mutex这把锁可以让多个worker进程轮流地、序列化地与新的客户端建立T
                                 
                             </div>
                             <div class="publish-info">
@@ -951,73 +1016,9 @@ include语句允许组合多个配置文件以提升可维护性
                         
                         <div class="card-action article-tags">
                             
-                            <a href="/tags/Redis/"><span class="chip bg-color">Redis</span></a>
+                            <a href="/tags/Nginx/"><span class="chip bg-color">Nginx</span></a>
                             
-                            <a href="/tags/%E7%BC%93%E5%AD%98/"><span class="chip bg-color">缓存</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>01</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article col s12 m6">
-                    <div class="card">
-                        <a href="/2021/05/01/middleware/Redis/Redis%E9%97%AE%E9%A2%98%E9%9B%86/">
-                            <div class="card-image">
-                                
-                                
-                                <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Redis 问题集">
-                                
-                                <span class="card-title">Redis 问题集</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    Redis 问题集Redis为什么这么快
-完全基于内存，绝大部分请求时纯粹的基于内存操作
-数据结构简单，对数据的操作也相对简单
-采用单线程，避免不必要的上下文切换和竞争条件，不存在多进程或者多线程的切换消耗CPU，不必考虑各种锁的问题，不存
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="far fa-clock fa-fw icon-date"></i>2021-05-01
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="post-category">
-                                    中间件
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/Redis/"><span class="chip bg-color">Redis</span></a>
-                            
-                            <a href="/tags/%E7%BC%93%E5%AD%98/"><span class="chip bg-color">缓存</span></a>
+                            <a href="/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"><span class="chip bg-color">负载均衡</span></a>
                             
                         </div>
                         

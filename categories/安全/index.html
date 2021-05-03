@@ -259,9 +259,9 @@
                     var typed = new Typed("#subtitle", {
                         strings: [ 
                             
-                                "从来没有真正的绝境, 只有心灵的迷途",
+                                "天行健，君子以自强不息；地势坤，君子以厚德载物",
                             
-                                "Never really desperate, only the lost of the soul",
+                                "Heaven walks strong, gentlemen constantly strive for self-improvement.The terrain is vast, gentleman carries goods with great virtue.",
                             
                         ],
                         startDelay: 300,
@@ -320,11 +320,20 @@
                 </a>
                 
                 
-                <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" title="中间件: 17">
+                <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" title="云原生: 28">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D5F5E3;">中间件
-                        <span class="tag-length">17</span>
+                            style="background-color: #D5F5E3;">云原生
+                        <span class="tag-length">28</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" title="中间件: 18">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #E8F8F5;">中间件
+                        <span class="tag-length">18</span>
                     </span>
                 </a>
                 
@@ -332,7 +341,7 @@
                 <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" title="数据库: 14">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #E8F8F5;">数据库
+                            style="background-color: #FEF9E7;">数据库
                         <span class="tag-length">14</span>
                     </span>
                 </a>
@@ -341,17 +350,8 @@
                 <a href="/categories/SRE/" title="SRE: 15">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #FEF9E7;">SRE
+                            style="background-color: #F8F9F9;">SRE
                         <span class="tag-length">15</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" title="云原生: 28">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #F8F9F9;">云原生
-                        <span class="tag-length">28</span>
                     </span>
                 </a>
                 
@@ -405,7 +405,7 @@
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/05/01/safety/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/">
+                    <a href="/2021/05/01/safety/%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB/">
                         <div class="card-image tag-image">
                             
                             
@@ -417,13 +417,13 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                浏览器的同源策略同源策略介绍
-同源策略解决的问题：CSRF
-CSRF（cross-site request forgery) 通过伪装成受信任用户的请求来利用受信任的网站。
-CSRF攻防简介
-如何防止CSRF攻击防止手段
+                                注入攻击注入攻击是应用违背了“数据与代码分离原则的”结果
+注入攻击的两个条件
 
-CSRF自动防御
+用户能够控制数据的输入
+原本要执行的代码，拼接了用户的输入，把数据当做代码执行了SQL注入
+要避免Web服务器开启错误回显，将错误信息直接返回
+还可以盲注，比如
                             
                         </div>
                         <div class="publish-info">
@@ -457,7 +457,7 @@ CSRF自动防御
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/05/01/safety/%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB/">
+                    <a href="/2021/05/01/safety/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/">
                         <div class="card-image tag-image">
                             
                             
@@ -469,13 +469,13 @@ CSRF自动防御
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                注入攻击注入攻击是应用违背了“数据与代码分离原则的”结果
-注入攻击的两个条件
+                                浏览器的同源策略同源策略介绍
+同源策略解决的问题：CSRF
+CSRF（cross-site request forgery) 通过伪装成受信任用户的请求来利用受信任的网站。
+CSRF攻防简介
+如何防止CSRF攻击防止手段
 
-用户能够控制数据的输入
-原本要执行的代码，拼接了用户的输入，把数据当做代码执行了SQL注入
-要避免Web服务器开启错误回显，将错误信息直接返回
-还可以盲注，比如
+CSRF自动防御
                             
                         </div>
                         <div class="publish-info">
@@ -672,53 +672,6 @@ token VS sessi
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/05/01/safety/HTML5%E5%AE%89%E5%85%A8/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="HTML5 安全">
-                            
-                            <span class="card-title">HTML5 安全</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                HTML5 安全新的标签HTML5 定义了很多先标签和新事件，可能会带来新的XSS攻击。如果建立一个黑名单的话，则可能不会覆盖到HTML5新增的标签和功能，从而发生XSS
-iframe 的sandboxHTML5专门为iframe定义新的属
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%AE%89%E5%85%A8/" class="post-category">
-                                    安全
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%AE%89%E5%85%A8/">
-                            <span class="chip bg-color">安全</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
                     <a href="/2021/05/01/safety/SSL/">
                         <div class="card-image tag-image">
                             
@@ -769,6 +722,53 @@ SSL位于应用层和TCP层之间。
                         <a href="/tags/Network/">
                             <span class="chip bg-color">Network</span>
                         </a>
+                        
+                        <a href="/tags/%E5%AE%89%E5%85%A8/">
+                            <span class="chip bg-color">安全</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/05/01/safety/HTML5%E5%AE%89%E5%85%A8/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="HTML5 安全">
+                            
+                            <span class="card-title">HTML5 安全</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                HTML5 安全新的标签HTML5 定义了很多先标签和新事件，可能会带来新的XSS攻击。如果建立一个黑名单的话，则可能不会覆盖到HTML5新增的标签和功能，从而发生XSS
+iframe 的sandboxHTML5专门为iframe定义新的属
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-01
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%AE%89%E5%85%A8/" class="post-category">
+                                    安全
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
                         
                         <a href="/tags/%E5%AE%89%E5%85%A8/">
                             <span class="chip bg-color">安全</span>
