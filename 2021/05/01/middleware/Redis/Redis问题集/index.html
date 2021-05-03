@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Nginx 操作, 彭峰的博客">
+    <meta name="keywords" content="Redis 问题集, 彭峰的博客">
     <meta name="description" content="天行健，君子以自强不息；地势坤，君子以厚德载物">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Nginx 操作 | 彭峰的博客</title>
+    <title>Redis 问题集 | 彭峰的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -244,12 +244,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Nginx 操作</h1>
+                    <h1 class="description center-align post-title">Redis 问题集</h1>
                 </div>
             </div>
         </div>
@@ -365,12 +365,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Nginx/">
-                                <span class="chip bg-color">Nginx</span>
+                            <a href="/tags/Redis/">
+                                <span class="chip bg-color">Redis</span>
                             </a>
                         
-                            <a href="/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
-                                <span class="chip bg-color">负载均衡</span>
+                            <a href="/tags/%E7%BC%93%E5%AD%98/">
+                                <span class="chip bg-color">缓存</span>
                             </a>
                         
                     </div>
@@ -403,7 +403,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    234
+                    442
                 </div>
                 
 
@@ -430,22 +430,19 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="重载配置文件"><a href="#重载配置文件" class="headerlink" title="重载配置文件"></a>重载配置文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -S reload 或</span><br><span class="line">kill -HUP 主进程号</span><br></pre></td></tr></table></figure>
-
-<h2 id="热部署"><a href="#热部署" class="headerlink" title="热部署"></a>热部署</h2><ol>
-<li><p>备份旧的可执行文件</p>
-</li>
-<li><p>给主进程发USER2信号：执行完后新的主进程和旧的同时存在，会将新的请求/连接给到新的主进程中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -USR2 9944</span><br></pre></td></tr></table></figure></li>
-<li><p>给旧的主进程发送WINCH信号：通知旧的主进程优雅的关闭旧的work进程(执行完任务后关闭)，旧的主进程还在，以便做版本回退。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -WINCH 9944</span><br></pre></td></tr></table></figure></li>
-<li><p>给旧的主进程发送QUIT信号，使其关闭。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -QUIT 9944</span><br></pre></td></tr></table></figure></li>
-<li><p>如果需要进行版本回退，可以给旧的主进程发HUP命令，nginx不重新读取配置文件的情况下重新启动旧主进程的工作进程。然后再优雅的关闭新的主进程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kill -HUP 9944</span><br><span class="line">kill -QUIT 新的主进程pid</span><br></pre></td></tr></table></figure></li>
+                <h1 id="Redis-问题集"><a href="#Redis-问题集" class="headerlink" title="Redis 问题集"></a>Redis 问题集</h1><h2 id="Redis为什么这么快"><a href="#Redis为什么这么快" class="headerlink" title="Redis为什么这么快"></a>Redis为什么这么快</h2><ol>
+<li>完全基于内存，绝大部分请求时纯粹的基于内存操作</li>
+<li>数据结构简单，对数据的操作也相对简单</li>
+<li>采用单线程，避免不必要的上下文切换和竞争条件，不存在多进程或者多线程的切换消耗CPU，不必考虑各种锁的问题，不存在加锁释放锁的操作，同时避免因为死锁而导致的性能消耗</li>
+<li>使用多路I/O，非阻塞IO</li>
+<li>Redis直接构建里VM机制。如果使用一般的系统调用系统函数的话，会浪费一定的时间去移动和请求</li>
 </ol>
-<h2 id="重启日志文件（日志文件分割）"><a href="#重启日志文件（日志文件分割）" class="headerlink" title="重启日志文件（日志文件分割）"></a>重启日志文件（日志文件分割）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reopen </span><br><span class="line">或者 kill -USR1 2030</span><br></pre></td></tr></table></figure>
-
+<h2 id="持久化数据和缓存如何扩容"><a href="#持久化数据和缓存如何扩容" class="headerlink" title="持久化数据和缓存如何扩容"></a>持久化数据和缓存如何扩容</h2><ul>
+<li>如果Redis被当做缓存使用，使用<strong>一致性哈希</strong>实现动态扩容缩容。</li>
+<li>如果Redis被当做一个持久化存储使用，必须使用固定的keys-to-nodes映射关系，节点的数量一旦确定不能变化。否则的话(即Redis节点需要动态变化的情况），必须使用可以在运行时进行数据再平衡的一套系统，而当前只有Redis集群可以做到这样。</li>
+</ul>
+<h2 id="Redis事务支持隔离性吗？"><a href="#Redis事务支持隔离性吗？" class="headerlink" title="Redis事务支持隔离性吗？"></a>Redis事务支持隔离性吗？</h2><p>Redis 是单进程程序，并且它保证在执行事务时，不会对事务进行中断，事务可以运行直到执行完所有事务队列中的命令为止。因此，Redis 的事务是总是带有隔离性的。</p>
+<h2 id="Redis事务保证原子性吗，支持回滚吗"><a href="#Redis事务保证原子性吗，支持回滚吗" class="headerlink" title="Redis事务保证原子性吗，支持回滚吗"></a>Redis事务保证原子性吗，支持回滚吗</h2><p>Redis中，单条命令是原子性执行的，但事务不保证原子性，且没有回滚。事务中任意命令执行失败，其余的命令仍会被执行。</p>
 
                 
             </div>
@@ -472,7 +469,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/05/01/%E8%BF%90%E7%BB%B4/Nginx/Nginx%E6%93%8D%E4%BD%9C/">http://example.com/2021/05/01/%E8%BF%90%E7%BB%B4/Nginx/Nginx%E6%93%8D%E4%BD%9C/</a>
+                    <a href="http://example.com/2021/05/01/middleware/Redis/Redis%E9%97%AE%E9%A2%98%E9%9B%86/">http://example.com/2021/05/01/middleware/Redis/Redis%E9%97%AE%E9%A2%98%E9%9B%86/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -510,12 +507,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Nginx/">
-                                    <span class="chip bg-color">Nginx</span>
+                                <a href="/tags/Redis/">
+                                    <span class="chip bg-color">Redis</span>
                                 </a>
                             
-                                <a href="/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
-                                    <span class="chip bg-color">负载均衡</span>
+                                <a href="/tags/%E7%BC%93%E5%AD%98/">
+                                    <span class="chip bg-color">缓存</span>
                                 </a>
                             
                         </div>
@@ -691,13 +688,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/01/%E8%BF%90%E7%BB%B4/Nginx/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">
+                <a href="/2021/05/01/middleware/Redis/Redis%E7%AE%80%E4%BB%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Nginx反向代理">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Redis 简介">
                         
-                        <span class="card-title">Nginx反向代理</span>
+                        <span class="card-title">Redis 简介</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -725,12 +722,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Nginx/">
-                        <span class="chip bg-color">Nginx</span>
+                    <a href="/tags/Redis/">
+                        <span class="chip bg-color">Redis</span>
                     </a>
                     
-                    <a href="/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
-                        <span class="chip bg-color">负载均衡</span>
+                    <a href="/tags/%E7%BC%93%E5%AD%98/">
+                        <span class="chip bg-color">缓存</span>
                     </a>
                     
                 </div>
@@ -744,13 +741,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/01/%E8%BF%90%E7%BB%B4/Nginx/Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
+                <a href="/2021/05/01/operation_system/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E6%A6%82%E5%BF%B5/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Nginx 负载均衡">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="内存管理">
                         
-                        <span class="card-title">Nginx 负载均衡</span>
+                        <span class="card-title">内存管理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -767,8 +764,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="post-category">
-                                    中间件
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    计算机基础
                                 </a>
                             
                             
@@ -778,12 +775,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Nginx/">
-                        <span class="chip bg-color">Nginx</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
-                        <span class="chip bg-color">负载均衡</span>
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
                     </a>
                     
                 </div>
@@ -932,7 +925,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">110.3k</span>&nbsp;字
+                class="white-color">108.6k</span>&nbsp;字
             
             
             

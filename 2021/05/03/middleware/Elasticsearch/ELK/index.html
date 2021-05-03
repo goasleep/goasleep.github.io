@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Nginx 配置, 彭峰的博客">
+    <meta name="keywords" content="ElasticSearch简介, 彭峰的博客">
     <meta name="description" content="天行健，君子以自强不息；地势坤，君子以厚德载物">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Nginx 配置 | 彭峰的博客</title>
+    <title>ElasticSearch简介 | 彭峰的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -244,12 +244,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Nginx 配置</h1>
+                    <h1 class="description center-align post-title">ElasticSearch简介</h1>
                 </div>
             </div>
         </div>
@@ -365,12 +365,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Nginx/">
-                                <span class="chip bg-color">Nginx</span>
-                            </a>
-                        
-                            <a href="/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
-                                <span class="chip bg-color">负载均衡</span>
+                            <a href="/tags/ElasticSearch/">
+                                <span class="chip bg-color">ElasticSearch</span>
                             </a>
                         
                     </div>
@@ -394,7 +390,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-01
+                    2021-05-03
                 </div>
                 
 
@@ -403,14 +399,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    142
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    1 分
                 </div>
                 
 
@@ -430,85 +426,26 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Nginx-配置"><a href="#Nginx-配置" class="headerlink" title="Nginx 配置"></a>Nginx 配置</h1><h2 id="配置语法："><a href="#配置语法：" class="headerlink" title="配置语法："></a>配置语法：</h2><ol>
-<li>配置文件由指令和指令块构成</li>
-<li>每条指令以; 解为，指令与参数之前用空格分割</li>
-<li>指令块以{}大括号将多条指令组织在一起</li>
-<li>include语句允许组合多个配置文件以提升可维护性</li>
-<li>使用#符号添加注释，提高可读性</li>
-<li>使用$符号使用变量</li>
-<li>部分指令的参数支持正则表达式</li>
-</ol>
-<h2 id="优化性能的配置项"><a href="#优化性能的配置项" class="headerlink" title="优化性能的配置项"></a>优化性能的配置项</h2><ol>
-<li>worker进程个数：worker_processes number</li>
-<li>worker进程绑定指定CPU：worker_cpu_affinity cpumask[cpumask…(0001)]</li>
-<li>SSL硬件加速：ssl_engine device</li>
-<li>系统调用gettimeofday的执行频率[^1]:timer_resolution t</li>
-<li>worker进程优先级：worker_priority nice</li>
-</ol>
-<h2 id="事件类配置项"><a href="#事件类配置项" class="headerlink" title="事件类配置项"></a>事件类配置项</h2><ol>
-<li>是否打开accept锁：accept_mutex[on|off][^2]</li>
-<li>accept锁后到真正建立连接之间的延迟时间：accept_mutex_delay 500ms</li>
-<li>批量建立新连接：multi_accept[on|off]</li>
-<li>选择事件模型：use[kqueue|rtsig|epoll|/dev/poll|select|poll|eventport] [^3]</li>
-<li>每个worker的最大连接数:worker_connections number</li>
-</ol>
-<h2 id="请求转发配置"><a href="#请求转发配置" class="headerlink" title="请求转发配置"></a>请求转发配置</h2><h3 id="配置块-server"><a href="#配置块-server" class="headerlink" title="配置块 server"></a>配置块 server</h3><ol>
-<li>监听端口</li>
-<li>主机名称：server_name name[…]</li>
-<li>service name散列桶的大小[^4]：server_names_hash_bucket_size</li>
-<li>service name散列的大小：server_names_hash_max_size</li>
-<li>重定向主机名称的处理：server_name_in_redirect on|off</li>
-<li>Location:</li>
-</ol>
-<h2 id="内存及磁盘资源的分配配置"><a href="#内存及磁盘资源的分配配置" class="headerlink" title="内存及磁盘资源的分配配置"></a>内存及磁盘资源的分配配置</h2><ol>
-<li>HTTP包体只存储到磁盘文件中：client_body_in_file_only on|clean|off;</li>
-<li>HTTP包体尽量写入到一个内存buffer中[^5]：client_body_in_single_buffer on|off;</li>
-<li>存储HTTP头部的内存buffer大小：client_header_buffer_size size</li>
-<li>存储超大HTTP头部的内存buffer大小[^6]：large_client_header_buffers number size</li>
-<li>存储HTTP包体的内存buffer大小[^7]：client_body_buffer_size 8k/16k</li>
-<li> HTTP包体的临时存放目录</li>
-<li> connection_pool_size</li>
-<li> request_pool_size</li>
-</ol>
-<h2 id="网络连接设置"><a href="#网络连接设置" class="headerlink" title="网络连接设置"></a>网络连接设置</h2><ol>
-<li>读取HTTP头部的超时时间：client_header_timeout time</li>
-<li>读取HTTP包体的超时时间：client_body_timeout time</li>
-<li>发送响应的超时时间：send_timeout time</li>
-<li>reset_timeout_connection[^8]：reset_timeout_connection on|off</li>
-<li>lingering_close[^9]：lingering_close off|on|always</li>
-<li>lingering_timeout</li>
-<li>lingering_time</li>
-<li>对某些浏览器禁用keepalive功能:keepalive_disable[msie6|safari|none]</li>
-<li>keepalive超时时间:keepalive_timeout time</li>
-<li>一个keepalive长连接上允许承载的请求最大数:keepalive_requests n</li>
-<li>确定对keepalive连接是否使用TCP_NODELAY选项:tcp_nodelay on|off</li>
-<li>按HTTP方法名限制用户请求:limit_except method…{…}</li>
-<li>HTTP请求包体的最大值:client_max_body_size size</li>
-<li> 对请求的限速:limit_rate speed</li>
-<li> limit_rate_after:Nginx向客户端发送的响应长度超过limit_rate_after后才开始限速</li>
-</ol>
-<h2 id="文件操作设置"><a href="#文件操作设置" class="headerlink" title="文件操作设置"></a>文件操作设置</h2><ol>
-<li>sendfile系统调用[^10]：sendfile on|off;</li>
-<li>AIO系统调用[^11]:aio on|off;</li>
-<li>directio[^12]：directio size|off;</li>
-<li>directio对齐：directio_alignment size</li>
-<li>打开文件缓存：open_file_cache max=N[inactive=time]|off;</li>
-<li>是否缓存打开文件错误的信息：open_file_cache_errors on|off;</li>
-<li>不被淘汰的最小访问次数：open_file_cache_min_uses number;</li>
-<li>检验缓存中元素有效性的频率：open_file_cache_valid time;</li>
-</ol>
-<h2 id="客户端请求的特殊处理"><a href="#客户端请求的特殊处理" class="headerlink" title="客户端请求的特殊处理"></a>客户端请求的特殊处理</h2><ol>
-<li>忽略不合法的HTTP头部：ignore_invalid_headers on|off</li>
-<li>HTTP头部是否允许下划线：underscores_in_headers on|off;</li>
-<li>对If-Modified-Since头部的处理策略[^13]：if_modified_since[off|exact|before]</li>
-<li>文件未找到时是否记录到error日志:log_not_found on|off;</li>
-<li>是否合并相邻的“/”：merge_slashes on|off;</li>
-<li>设置DNS名字解析服务器的地址：resolver address…;</li>
-<li>DNS解析的超时时间：resolver_timeout time;</li>
-<li>是否在响应的Server头部中标明Nginx版本：server_tokens on|off;</li>
-</ol>
-<p>[^1]:gettimeofday:每次内核的事件调用（如epoll、 select、 poll、 kqueue等） 返回时， 都会执行一次gettimeofday，实现用内核的时钟来更新Nginx中的缓存时钟<br>[^2]:accept_mutex是Nginx的负载均衡锁,ccept_mutex这把锁可以让多个worker进程轮流地、序列化地与新的客户端建立TCP连接。<br>[^3]:Nginx会自动使用最适合的事件模型<br>[^4]:server name是存储在散列表里的<br>[^5]:如果HTTP包体超过了client_header_buffer_size的大小，包体还是会写入到磁盘文件<br>[^6]:如果HTTP请求行的大小超过配置值，则返回”Request URI too large”(414)<br>[^7]:HTTP包体会先接收到指定的这块缓存中， 之后才决定是否写入磁盘<br>[^8]:连接超时后将通过向客户端发送RST包来直接重置连接。 这个选项打开后， Nginx会在某个连接超时后， 不是使用正常情形下的四次握手关闭TCP连接， 而是直接向用户发送RST重置包， 不再等待用户的应答， 直接释放Nginx服务器上关于这个套接字使用的所有缓存.一般关闭<br>[^9]:该配置控制Nginx关闭用户连接的方式。 always表示关闭用户连接前必须无条件地处理连接上所有用户发送的数据。 off表示关闭连接时完全不管连接上是否已经有准备就绪的来自用户的数据。 on是中间值， 一般情况下在关闭连接前都会处理连接上的用户发送的数据<br>[^10]:启用Linux上的sendfile系统调用来发送文件， 它减少了内核态与用户态之间的两次内存复制， 这样就会从磁盘中读取文件后直接在内核态发送到网卡设备<br>[^11]:表示是否在FreeBSD或Linux系统上启用内核级别的异步文件I/O功能,与sendfile功能是互斥的<br>[^12]:在FreeBSD和Linux系统上使用O_DIRECT选项去读取文件， 缓冲区大小为size，通常对大文件的读取速度有优化作用。与sendfile功能是互斥的。<br>[^13]:Web浏览器一般会在客户端本地缓存一些文件，并存储当时获取的时<br>间。 这样，下次向Web服务器获取缓存过的资源时， 就可以用If-Modified-Since头部把上次获取的时间捎带上， 而if_modified_since将根据后面的参数决定如何处理If-Modified-Since头部.</p>
+                <h1 id="ELK"><a href="#ELK" class="headerlink" title="ELK"></a>ELK</h1><h2 id="E-ElasticSearch"><a href="#E-ElasticSearch" class="headerlink" title="E: ElasticSearch"></a>E: ElasticSearch</h2><h2 id="L-Logstash"><a href="#L-Logstash" class="headerlink" title="L: Logstash"></a>L: Logstash</h2><p>开源的服务器端数据处理通道，支持从不同来源采集数据，转换数据，并将数据发送到不同的存储库中。</p>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
+<li>实时解析和转换数据<ul>
+<li>从IP地址破译出地理坐标</li>
+<li>将PII数据匿名化，完全排除敏感字段</li>
+</ul>
+</li>
+<li>可扩展<ul>
+<li>200多个插件</li>
+</ul>
+</li>
+<li>可靠安全性<ul>
+<li>通过持久化队列保证至少运行中的事件送达一次</li>
+<li>数据传输加密</li>
+</ul>
+</li>
+<li>监控</li>
+</ul>
+<h2 id="K：kibana"><a href="#K：kibana" class="headerlink" title="K：kibana"></a>K：kibana</h2><p>数据化可是工具</p>
+<h2 id="Beats"><a href="#Beats" class="headerlink" title="Beats"></a>Beats</h2><p>轻量级数据采集器</p>
 
                 
             </div>
@@ -535,7 +472,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/05/01/%E8%BF%90%E7%BB%B4/Nginx/Nginx%E9%85%8D%E7%BD%AE%E9%A1%B9/">http://example.com/2021/05/01/%E8%BF%90%E7%BB%B4/Nginx/Nginx%E9%85%8D%E7%BD%AE%E9%A1%B9/</a>
+                    <a href="http://example.com/2021/05/03/middleware/Elasticsearch/ELK/">http://example.com/2021/05/03/middleware/Elasticsearch/ELK/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -573,12 +510,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Nginx/">
-                                    <span class="chip bg-color">Nginx</span>
-                                </a>
-                            
-                                <a href="/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
-                                    <span class="chip bg-color">负载均衡</span>
+                                <a href="/tags/ElasticSearch/">
+                                    <span class="chip bg-color">ElasticSearch</span>
                                 </a>
                             
                         </div>
@@ -754,13 +687,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/01/%E8%BF%90%E7%BB%B4/Nginx/Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
+                <a href="/2021/05/03/middleware/Elasticsearch/Elasticsearch%20%E6%A3%80%E7%B4%A2%E5%8E%9F%E7%90%86/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Nginx 负载均衡">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">Nginx 负载均衡</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -771,31 +704,15 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-01
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-03
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="post-category">
-                                    中间件
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            彭峰
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Nginx/">
-                        <span class="chip bg-color">Nginx</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
-                        <span class="chip bg-color">负载均衡</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -807,13 +724,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/01/%E8%BF%90%E7%BB%B4/Nginx/Nginx%E9%97%AE%E9%A2%98%E9%9B%86/">
+                <a href="/2021/05/03/middleware/Elasticsearch/Elasticsearch%E7%AE%80%E4%BB%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Nginx 问题集">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Elasticsearch简介">
                         
-                        <span class="card-title">Nginx 问题集</span>
+                        <span class="card-title">Elasticsearch简介</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -824,7 +741,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-03
                             </span>
                         <span class="publish-author">
                             
@@ -841,12 +758,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Nginx/">
-                        <span class="chip bg-color">Nginx</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
-                        <span class="chip bg-color">负载均衡</span>
+                    <a href="/tags/Elasticsearch/">
+                        <span class="chip bg-color">Elasticsearch</span>
                     </a>
                     
                 </div>
@@ -995,7 +908,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">110.3k</span>&nbsp;字
+                class="white-color">108.6k</span>&nbsp;字
             
             
             
