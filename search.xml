@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Volatile关键字</title>
+      <link href="2021/05/04/%E5%90%8E%E7%AB%AF/Java/Volatile%E5%85%B3%E9%94%AE%E5%AD%97/"/>
+      <url>2021/05/04/%E5%90%8E%E7%AB%AF/Java/Volatile%E5%85%B3%E9%94%AE%E5%AD%97/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Volatile"><a href="#Volatile" class="headerlink" title="Volatile"></a>Volatile</h1><h2 id="Volatile的作用"><a href="#Volatile的作用" class="headerlink" title="Volatile的作用"></a>Volatile的作用</h2><p>Volatile是JVM提供的轻量级的同步机制，主要有以下三个功能</p><ul><li>保证可见性</li><li><strong>不保证</strong>原子性</li><li>禁止指令重排<h2 id="Volatile如何实现可见性"><a href="#Volatile如何实现可见性" class="headerlink" title="Volatile如何实现可见性"></a>Volatile如何实现可见性</h2>当某个线程修改了某个值以后，写入主内存。此时其他线程会被通知重新去主内存中读取值。<blockquote><p>Java内存模型中规定:所有变量都存储在主内存，主内存是共享内存区域，所有线程都可以访问，但<strong>线程对变量的操作（读取赋值等）必须在工作内存中进行，首先要将变量从主内存拷贝到自己的工作内存空间，然后对变量进行操作，操作完成后再将变量写会主内存，不能直接操作主内存中的变量</strong>。各个线程中的工作内存中存储着主内存中的变量副本拷贝，因此不同的线程间无法访问对方的工作内存，线程间的通信（传值）必须通过主内存来完成</p></blockquote></li></ul><p>当使用Volatile关键字修饰的共享变量转换成汇编时，会添加一个以lock为前缀的指令，当CPU执行该指令时，需要做两件事：</p><ul><li>将当前内核高速缓存行的数据立刻回写到内存</li><li>使在其他内核里缓存了该内存地址的数据无效，这里<a href="https://blog.csdn.net/itakyubi/article/details/100527743">使用CPU的MESI协议实现</a></li></ul><blockquote><p>MESI协议简单说就是：<br>当CPU写数据时，如果发现操作的变量是共享变量，即在其他CPU中也存在该变量的副本，那么他会<strong>发出信号通知其他CPU将该变量的缓存行设置为无效状态。当其他CPU使用这个变量时，首先会去嗅探是否有对该变量更改的信号，当发现这个变量的缓存行已经无效时，会从新从内存中读取这个变量</strong></p></blockquote><h2 id="为什么Volatile不保证原子性"><a href="#为什么Volatile不保证原子性" class="headerlink" title="为什么Volatile不保证原子性"></a>为什么Volatile不保证原子性</h2><p>当Volatile转化成汇编时，并没有添加锁的操作。因此对于复合操作如num++不具有原子性。但是对于单个变量的读写仍然具有原子性</p><h2 id="Volatile指令重排"><a href="#Volatile指令重排" class="headerlink" title="Volatile指令重排"></a>Volatile指令重排</h2><p>编译器和处理器常常会对指令重排。一般分为以下三种：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">源代码 -&gt; 编译器优化的重排 -&gt; 指令并行的重排 -&gt; 内存系统的重排 -&gt; 最终执行指令</span><br></pre></td></tr></table></figure><p>由于编译器和处理器都能执行指令重排的优化。Volatile指令在生成字节码的同时，会在指令序列中插入内存屏障来禁止特定类型的处理器重排序。</p><ul><li>在每个volatile写操作的前面插入一个StoreStore屏障：禁止上面的普通写和下面的volatile写重排序</li><li>在每个volatile写操作的后面插入一个StoreLoad屏障：防止上面的volatile写与下面可能有的volatile重排序</li><li>在每个volatile读操作的后面插入一个LoadLoad屏障：禁止下面所有的普通读操作和上面的volatile读重排序</li><li>在每个volatile读操作的后面插入一个LoadStore屏障：禁止下面所有的普通写和上面的volatile读重排序</li></ul><p><img src="/images/Volatile%E9%87%8D%E6%8E%92%E5%BA%8F.png" alt="Volatile重排序"></p><blockquote><p>在指令间插入一条Memory Barrier则会告诉编译器和CPU，不管什么指令都不能和这条Memory Barrier指令重排序，也就是说<strong>通过插入内存屏障禁止在内存屏障前后的指令执行重排序优化</strong>。 内存屏障另外一个作用是刷新出各种CPU的缓存数，因此任何CPU上的线程都能读取到这些数据的最新版本。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Elasticsearch检索原理</title>
       <link href="2021/05/03/middleware/Elasticsearch/Elasticsearch%20%E6%A3%80%E7%B4%A2%E5%8E%9F%E7%90%86/"/>
       <url>2021/05/03/middleware/Elasticsearch/Elasticsearch%20%E6%A3%80%E7%B4%A2%E5%8E%9F%E7%90%86/</url>
@@ -640,7 +665,7 @@
       <link href="2021/05/01/arthas/"/>
       <url>2021/05/01/arthas/</url>
       
-        <content type="html"><![CDATA[<h2 id="查看JVM-信息"><a href="#查看JVM-信息" class="headerlink" title="查看JVM 信息"></a>查看JVM 信息</h2><ul><li>sysprop：打印所有的System Properties信息</li><li>sysenv：获取到环境变量</li><li>jvm：打印出JVM的各种详细信息</li><li>dashboard：查看当前系统的实时数据面板</li></ul><h2 id="查看已加载的类"><a href="#查看已加载的类" class="headerlink" title="查看已加载的类"></a>查看已加载的类</h2><ul><li>sc：查找到所有JVM已经加载到的类</li><li>sm: 查找类的具体函数</li></ul><h2 id="反编译指令-Jad"><a href="#反编译指令-Jad" class="headerlink" title="反编译指令 Jad"></a>反编译指令 Jad</h2><h2 id="动态执行代码-ognl"><a href="#动态执行代码-ognl" class="headerlink" title="动态执行代码 ognl"></a>动态执行代码 ognl</h2><p>ognl ‘@<a href="mailto:&#106;&#97;&#118;&#x61;&#46;&#x6c;&#97;&#x6e;&#x67;&#46;&#x53;&#121;&#115;&#116;&#101;&#109;&#64;&#111;&#x75;&#116;&#46;&#x70;&#114;&#x69;&#x6e;&#116;&#x6c;&#110;">&#106;&#97;&#118;&#x61;&#46;&#x6c;&#97;&#x6e;&#x67;&#46;&#x53;&#121;&#115;&#116;&#101;&#109;&#64;&#111;&#x75;&#116;&#46;&#x70;&#114;&#x69;&#x6e;&#116;&#x6c;&#110;</a>(“hello ognl”)’</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="查看JVM-信息"><a href="#查看JVM-信息" class="headerlink" title="查看JVM 信息"></a>查看JVM 信息</h2><ul><li>sysprop：打印所有的System Properties信息</li><li>sysenv：获取到环境变量</li><li>jvm：打印出JVM的各种详细信息</li><li>dashboard：查看当前系统的实时数据面板</li></ul><h2 id="查看已加载的类"><a href="#查看已加载的类" class="headerlink" title="查看已加载的类"></a>查看已加载的类</h2><ul><li>sc：查找到所有JVM已经加载到的类</li><li>sm: 查找类的具体函数</li></ul><h2 id="反编译指令-Jad"><a href="#反编译指令-Jad" class="headerlink" title="反编译指令 Jad"></a>反编译指令 Jad</h2><h2 id="动态执行代码-ognl"><a href="#动态执行代码-ognl" class="headerlink" title="动态执行代码 ognl"></a>动态执行代码 ognl</h2><p>ognl ‘@<a href="mailto:&#x6a;&#97;&#x76;&#97;&#x2e;&#108;&#97;&#x6e;&#103;&#46;&#x53;&#121;&#x73;&#116;&#101;&#x6d;&#64;&#x6f;&#x75;&#x74;&#x2e;&#x70;&#x72;&#x69;&#110;&#116;&#108;&#110;">&#x6a;&#97;&#x76;&#97;&#x2e;&#108;&#97;&#x6e;&#103;&#46;&#x53;&#121;&#x73;&#116;&#101;&#x6d;&#64;&#x6f;&#x75;&#x74;&#x2e;&#x70;&#x72;&#x69;&#110;&#116;&#108;&#110;</a>(“hello ognl”)’</p>]]></content>
       
       
       <categories>
@@ -788,6 +813,31 @@
     
     
     <entry>
+      <title>Docker 组件</title>
+      <link href="2021/05/01/Docker/Docker%E7%BB%84%E4%BB%B6/"/>
+      <url>2021/05/01/Docker/Docker%E7%BB%84%E4%BB%B6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Docker-组件"><a href="#Docker-组件" class="headerlink" title="Docker 组件"></a>Docker 组件</h1><p><em>Docker 在linux下默认的安装目录/var/lib/docker</em></p><h2 id="Docker-相关组件"><a href="#Docker-相关组件" class="headerlink" title="Docker 相关组件"></a>Docker 相关组件</h2><h3 id="docker-客户端"><a href="#docker-客户端" class="headerlink" title="docker 客户端"></a>docker 客户端</h3><p>对用户可见的操作形式为 docker 命令，通过 docker 命令可以完成所有的 Docker 客户端与服务端的通信（还可以通过 REST API、SDK 等多种形式与 Docker 服务端通信）<br>客户端与服务器端交互的过程：<br>    docker 客户端向服务端发送请求后，服务端根据请求执行具体的动作并将结果返回给 docker客户端，docker 解析服务端的返回结果，并将结果通过命令行标准输出展示给用户。这样一次完整的客户端服务端请求就完成了</p><h3 id="dockerd"><a href="#dockerd" class="headerlink" title="dockerd"></a>dockerd</h3><p>dockerd 是 Docker 服务端的后台常驻进程，用来接收客户端发送的请求，执行具体的处理任务，处理完成后将结果返回给客户端<br>Docker 客户端与 dockerd 的交互方式有三种，客户端和服务器端的通信必须保持一致</p><ol><li>通过 UNIX 套接字与服务端通信<br>配置格式为unix://socket_path，默认 dockerd 生成的 socket 文件路径为 /var/run/docker.sock。该文件只有root用户和docker用户组的用户才能访问</li><li>通过 TCP 与服务端通信<br>配置格式为tcp://host:port，存在安全隐患，可以使用TLS认证来保证传输安全</li><li>通过文件描述符的方式与服务端通信<br> 配置格式为：fd://这种格式一般用于 systemd 管理的系统中<h3 id="docker-init"><a href="#docker-init" class="headerlink" title="docker-init"></a>docker-init</h3>在容器内部，当我们自己的业务进程没有回收子进程的能力时，在执行 docker run 启动容器时可以添加 –init 参数，此时 Docker 会使用 docker-init 作为1号进程，帮你管理容器内子进程，例如回收僵尸进程等<h3 id="docker-proxy"><a href="#docker-proxy" class="headerlink" title="docker-proxy"></a>docker-proxy</h3>docker-proxy 主要是用来做端口映射的，底层依赖于iptables实现<h2 id="containerd相关组件"><a href="#containerd相关组件" class="headerlink" title="containerd相关组件"></a>containerd相关组件</h2><h3 id="containerd"><a href="#containerd" class="headerlink" title="containerd"></a>containerd</h3><h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4></li><li>负责容器生命周期的管理</li><li>镜像的管理，例如容器运行前从镜像仓库拉取镜像到本地</li><li>接收 dockerd 的请求，通过适当的参数调用 runc 启动容器</li><li>管理存储相关资源</li><li>管理网络相关资源<h4 id="containerd和dockerd的交互"><a href="#containerd和dockerd的交互" class="headerlink" title="containerd和dockerd的交互"></a>containerd和dockerd的交互</h4>containerd 包含一个后台常驻进程，默认的 socket 路径为 /run/containerd/containerd.sock，dockerd 通过 UNIX 套接字向 containerd 发送请求，containerd 接收到请求后负责执行相关的动作并把执行结果返回给 dockerd。<h3 id="containerd-shim"><a href="#containerd-shim" class="headerlink" title="containerd-shim"></a>containerd-shim</h3>containerd-shim 的主要作用是将 containerd 和真正的容器进程解耦，使用 containerd-shim 作为容器进程的父进程，从而实现重启 containerd 不影响已经启动的容器进程<h3 id="ctr"><a href="#ctr" class="headerlink" title="ctr"></a>ctr</h3>containerd的客户端，可以直接向containerd发送容器请求<h2 id="runc（容器运行时组件）"><a href="#runc（容器运行时组件）" class="headerlink" title="runc（容器运行时组件）"></a>runc（容器运行时组件）</h2>runc 是一个标准的 OCI 容器运行时的实现，它是一个命令行工具，可以直接用来创建和运行容器</li></ol><p><img src="/images/Docker%E7%BB%84%E4%BB%B6%E5%8F%8A%E5%85%B6%E4%BD%9C%E7%94%A8.png" alt="Docker组件"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 云原生 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Docker隔离</title>
       <link href="2021/05/01/Docker/Docker%E8%B5%84%E6%BA%90%E9%9A%94%E7%A6%BB%E4%B8%8E%E9%99%90%E5%88%B6/"/>
       <url>2021/05/01/Docker/Docker%E8%B5%84%E6%BA%90%E9%9A%94%E7%A6%BB%E4%B8%8E%E9%99%90%E5%88%B6/</url>
@@ -807,31 +857,6 @@
             <tag> Docker </tag>
             
             <tag> Linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Docker 组件</title>
-      <link href="2021/05/01/Docker/Docker%E7%BB%84%E4%BB%B6/"/>
-      <url>2021/05/01/Docker/Docker%E7%BB%84%E4%BB%B6/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Docker-组件"><a href="#Docker-组件" class="headerlink" title="Docker 组件"></a>Docker 组件</h1><p><em>Docker 在linux下默认的安装目录/var/lib/docker</em></p><h2 id="Docker-相关组件"><a href="#Docker-相关组件" class="headerlink" title="Docker 相关组件"></a>Docker 相关组件</h2><h3 id="docker-客户端"><a href="#docker-客户端" class="headerlink" title="docker 客户端"></a>docker 客户端</h3><p>对用户可见的操作形式为 docker 命令，通过 docker 命令可以完成所有的 Docker 客户端与服务端的通信（还可以通过 REST API、SDK 等多种形式与 Docker 服务端通信）<br>客户端与服务器端交互的过程：<br>    docker 客户端向服务端发送请求后，服务端根据请求执行具体的动作并将结果返回给 docker客户端，docker 解析服务端的返回结果，并将结果通过命令行标准输出展示给用户。这样一次完整的客户端服务端请求就完成了</p><h3 id="dockerd"><a href="#dockerd" class="headerlink" title="dockerd"></a>dockerd</h3><p>dockerd 是 Docker 服务端的后台常驻进程，用来接收客户端发送的请求，执行具体的处理任务，处理完成后将结果返回给客户端<br>Docker 客户端与 dockerd 的交互方式有三种，客户端和服务器端的通信必须保持一致</p><ol><li>通过 UNIX 套接字与服务端通信<br>配置格式为unix://socket_path，默认 dockerd 生成的 socket 文件路径为 /var/run/docker.sock。该文件只有root用户和docker用户组的用户才能访问</li><li>通过 TCP 与服务端通信<br>配置格式为tcp://host:port，存在安全隐患，可以使用TLS认证来保证传输安全</li><li>通过文件描述符的方式与服务端通信<br> 配置格式为：fd://这种格式一般用于 systemd 管理的系统中<h3 id="docker-init"><a href="#docker-init" class="headerlink" title="docker-init"></a>docker-init</h3>在容器内部，当我们自己的业务进程没有回收子进程的能力时，在执行 docker run 启动容器时可以添加 –init 参数，此时 Docker 会使用 docker-init 作为1号进程，帮你管理容器内子进程，例如回收僵尸进程等<h3 id="docker-proxy"><a href="#docker-proxy" class="headerlink" title="docker-proxy"></a>docker-proxy</h3>docker-proxy 主要是用来做端口映射的，底层依赖于iptables实现<h2 id="containerd相关组件"><a href="#containerd相关组件" class="headerlink" title="containerd相关组件"></a>containerd相关组件</h2><h3 id="containerd"><a href="#containerd" class="headerlink" title="containerd"></a>containerd</h3><h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4></li><li>负责容器生命周期的管理</li><li>镜像的管理，例如容器运行前从镜像仓库拉取镜像到本地</li><li>接收 dockerd 的请求，通过适当的参数调用 runc 启动容器</li><li>管理存储相关资源</li><li>管理网络相关资源<h4 id="containerd和dockerd的交互"><a href="#containerd和dockerd的交互" class="headerlink" title="containerd和dockerd的交互"></a>containerd和dockerd的交互</h4>containerd 包含一个后台常驻进程，默认的 socket 路径为 /run/containerd/containerd.sock，dockerd 通过 UNIX 套接字向 containerd 发送请求，containerd 接收到请求后负责执行相关的动作并把执行结果返回给 dockerd。<h3 id="containerd-shim"><a href="#containerd-shim" class="headerlink" title="containerd-shim"></a>containerd-shim</h3>containerd-shim 的主要作用是将 containerd 和真正的容器进程解耦，使用 containerd-shim 作为容器进程的父进程，从而实现重启 containerd 不影响已经启动的容器进程<h3 id="ctr"><a href="#ctr" class="headerlink" title="ctr"></a>ctr</h3>containerd的客户端，可以直接向containerd发送容器请求<h2 id="runc（容器运行时组件）"><a href="#runc（容器运行时组件）" class="headerlink" title="runc（容器运行时组件）"></a>runc（容器运行时组件）</h2>runc 是一个标准的 OCI 容器运行时的实现，它是一个命令行工具，可以直接用来创建和运行容器</li></ol><p><img src="/images/Docker%E7%BB%84%E4%BB%B6%E5%8F%8A%E5%85%B6%E4%BD%9C%E7%94%A8.png" alt="Docker组件"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 云原生 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Docker </tag>
             
         </tags>
       
@@ -940,33 +965,6 @@
     
     
     <entry>
-      <title>Nginx 简介</title>
-      <link href="2021/05/01/Nginx/Nginx/"/>
-      <url>2021/05/01/Nginx/Nginx/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h1><h2 id="为什么使用Nginx"><a href="#为什么使用Nginx" class="headerlink" title="为什么使用Nginx"></a>为什么使用Nginx</h2><p>核心是支持高并发请求的同时保持高效的服务</p><ul><li>快：Nginx可以比其他Web服务器更快地响应请求</li><li>高扩展：它完全是由多个不同功能、 不同层次、 不同类型且耦合度极<br>低的模块组成</li><li>高可靠：Nginx的高可靠性来自于其核心框架代码<br>的优秀设计、 模块设计的简单性</li><li>低内存：10000个非活跃的HTTP Keep-Alive连接在Nginx中仅消耗2.5MB的内存</li><li>单机支持10w以上的并发连接</li><li>热部署：master管理进程与worker工作进程的分离设计， 使得Nginx能够提供热部署功能。支持不停止服务就更新配置项、 更换日志文件等功能。</li></ul><h2 id="Nginx的组成"><a href="#Nginx的组成" class="headerlink" title="Nginx的组成"></a>Nginx的组成</h2><ul><li>Nginx可以行的二进制文件</li><li>Nginx.conf 配置文件：控制Nginx的行为</li><li>access.log 访问日志：记录每一条http请求信息</li><li>error.log 错误日志：定位问题</li></ul><h2 id="Nginx进程间的关系"><a href="#Nginx进程间的关系" class="headerlink" title="Nginx进程间的关系"></a>Nginx进程间的关系</h2><p>Nginx时使用一个master进程来管理多个worker进程。 一般情况下， worker进程的数量与服务器上的CPU核心数相等。 每一个worker进程都是繁忙的， 它们在真正地提供互联网服务。master进程则很“清闲”， 只负责监控管理worker<br>进程。<strong>worker进程之间通过共享内存、 原子操作等一些进程间通信机制</strong>来实现负载均衡等功能</p><p><img src="/images/nginx%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB.png" alt="nginx进程间的关系"></p><h2 id="Nginx进程间的通讯方式"><a href="#Nginx进程间的通讯方式" class="headerlink" title="Nginx进程间的通讯方式"></a>Nginx进程间的通讯方式</h2><ol><li>信号</li><li>共享内存<ol><li>rbtree(红黑树)会用到(限速等)<ol><li>ngx_stream_limit_conn_module</li><li>ngx_http_limit_conn_module</li><li>ngx_stream_limit_req_module</li><li>http cache</li><li>ssl</li></ol></li><li>单链表会用到<ol><li>Ngx_http_upstream_zone_module</li><li>ngx_stream_upstram_zone_module</li></ol></li></ol></li></ol><p>引入的问题：</p><ol><li>锁</li><li>Slab内存管理器<h3 id="为什么需要按照masterworker方式配置同时启动多个进程呢"><a href="#为什么需要按照masterworker方式配置同时启动多个进程呢" class="headerlink" title="为什么需要按照masterworker方式配置同时启动多个进程呢"></a>为什么需要按照masterworker方式配置同时启动多个进程呢</h3></li><li>master进程可以是唯一的， 它仅专注于自己的纯管理工作， 为管理员提供命令行服务，包括诸如启动服务、 停止服务、 重载配置文件、 平滑升级程序等。</li><li>多个worker进程处理互联网请求不但可以提高服务的健壮性。可以<strong>充分利用现在常见的SMP多核架构， 从而实现微观上真正的多核并发处理</strong>。当Nginx上的进程数与CPU核心数相等时（最好每一个worker进程都绑定特定的CPU核心） ， 进程间切换的代价是最小的</li></ol><h4 id="为什么建议Nginx上的进程数与CPU核心数相等时"><a href="#为什么建议Nginx上的进程数与CPU核心数相等时" class="headerlink" title="为什么建议Nginx上的进程数与CPU核心数相等时"></a>为什么建议Nginx上的进程数与CPU核心数相等时</h4><p>若worker进程的数量多于CPU内核数， 那么会增大进程间切换带来的消耗（Linux是抢占式内核）。同时worker进程绑定指定的CPU内核</p><h4 id="为什么需要绑定到指定的内核"><a href="#为什么需要绑定到指定的内核" class="headerlink" title="为什么需要绑定到指定的内核"></a>为什么需要绑定到指定的内核</h4><p>假定每一个worker进程都是非常繁忙的， 如果多个worker进程都在抢同一个CPU， 那么这就会出现同步问题。 反之， 如果每一个worker进程都独享一个CPU， 就在内核的调度策略上实现了完全的并发。</p><h2 id="Nginx-Hash表使用的注意"><a href="#Nginx-Hash表使用的注意" class="headerlink" title="Nginx Hash表使用的注意"></a>Nginx Hash表使用的注意</h2><ol><li>只为静态的，不变的内容服务</li><li>hash表的bucket_size 需要考虑cpu cache line 的对齐问题</li></ol><h2 id="日志分析（goaccess）"><a href="#日志分析（goaccess）" class="headerlink" title="日志分析（goaccess）"></a>日志分析（goaccess）</h2><h2 id="Nginx文件缓存"><a href="#Nginx文件缓存" class="headerlink" title="Nginx文件缓存"></a>Nginx文件缓存</h2><p>文件缓存会在内存中存储以下3种信息：</p><ul><li>文件句柄，文件大小和修改次数</li><li>已经打开过的目录结构</li><li>没有找到或者没有权限操作的文件信息</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 中间件 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Nginx </tag>
-            
-            <tag> 负载均衡 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Nginx反向代理</title>
       <link href="2021/05/01/Nginx/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
       <url>2021/05/01/Nginx/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</url>
@@ -994,11 +992,11 @@
     
     
     <entry>
-      <title>Nginx 操作</title>
-      <link href="2021/05/01/Nginx/Nginx%E6%93%8D%E4%BD%9C/"/>
-      <url>2021/05/01/Nginx/Nginx%E6%93%8D%E4%BD%9C/</url>
+      <title>Nginx 简介</title>
+      <link href="2021/05/01/Nginx/Nginx/"/>
+      <url>2021/05/01/Nginx/Nginx/</url>
       
-        <content type="html"><![CDATA[<h2 id="重载配置文件"><a href="#重载配置文件" class="headerlink" title="重载配置文件"></a>重载配置文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -S reload 或</span><br><span class="line">kill -HUP 主进程号</span><br></pre></td></tr></table></figure><h2 id="热部署"><a href="#热部署" class="headerlink" title="热部署"></a>热部署</h2><ol><li><p>备份旧的可执行文件</p></li><li><p>给主进程发USER2信号：执行完后新的主进程和旧的同时存在，会将新的请求/连接给到新的主进程中</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -USR2 9944</span><br></pre></td></tr></table></figure></li><li><p>给旧的主进程发送WINCH信号：通知旧的主进程优雅的关闭旧的work进程(执行完任务后关闭)，旧的主进程还在，以便做版本回退。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -WINCH 9944</span><br></pre></td></tr></table></figure></li><li><p>给旧的主进程发送QUIT信号，使其关闭。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -QUIT 9944</span><br></pre></td></tr></table></figure></li><li><p>如果需要进行版本回退，可以给旧的主进程发HUP命令，nginx不重新读取配置文件的情况下重新启动旧主进程的工作进程。然后再优雅的关闭新的主进程</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kill -HUP 9944</span><br><span class="line">kill -QUIT 新的主进程pid</span><br></pre></td></tr></table></figure></li></ol><h2 id="重启日志文件（日志文件分割）"><a href="#重启日志文件（日志文件分割）" class="headerlink" title="重启日志文件（日志文件分割）"></a>重启日志文件（日志文件分割）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reopen </span><br><span class="line">或者 kill -USR1 2030</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h1><h2 id="为什么使用Nginx"><a href="#为什么使用Nginx" class="headerlink" title="为什么使用Nginx"></a>为什么使用Nginx</h2><p>核心是支持高并发请求的同时保持高效的服务</p><ul><li>快：Nginx可以比其他Web服务器更快地响应请求</li><li>高扩展：它完全是由多个不同功能、 不同层次、 不同类型且耦合度极<br>低的模块组成</li><li>高可靠：Nginx的高可靠性来自于其核心框架代码<br>的优秀设计、 模块设计的简单性</li><li>低内存：10000个非活跃的HTTP Keep-Alive连接在Nginx中仅消耗2.5MB的内存</li><li>单机支持10w以上的并发连接</li><li>热部署：master管理进程与worker工作进程的分离设计， 使得Nginx能够提供热部署功能。支持不停止服务就更新配置项、 更换日志文件等功能。</li></ul><h2 id="Nginx的组成"><a href="#Nginx的组成" class="headerlink" title="Nginx的组成"></a>Nginx的组成</h2><ul><li>Nginx可以行的二进制文件</li><li>Nginx.conf 配置文件：控制Nginx的行为</li><li>access.log 访问日志：记录每一条http请求信息</li><li>error.log 错误日志：定位问题</li></ul><h2 id="Nginx进程间的关系"><a href="#Nginx进程间的关系" class="headerlink" title="Nginx进程间的关系"></a>Nginx进程间的关系</h2><p>Nginx时使用一个master进程来管理多个worker进程。 一般情况下， worker进程的数量与服务器上的CPU核心数相等。 每一个worker进程都是繁忙的， 它们在真正地提供互联网服务。master进程则很“清闲”， 只负责监控管理worker<br>进程。<strong>worker进程之间通过共享内存、 原子操作等一些进程间通信机制</strong>来实现负载均衡等功能</p><p><img src="/images/nginx%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB.png" alt="nginx进程间的关系"></p><h2 id="Nginx进程间的通讯方式"><a href="#Nginx进程间的通讯方式" class="headerlink" title="Nginx进程间的通讯方式"></a>Nginx进程间的通讯方式</h2><ol><li>信号</li><li>共享内存<ol><li>rbtree(红黑树)会用到(限速等)<ol><li>ngx_stream_limit_conn_module</li><li>ngx_http_limit_conn_module</li><li>ngx_stream_limit_req_module</li><li>http cache</li><li>ssl</li></ol></li><li>单链表会用到<ol><li>Ngx_http_upstream_zone_module</li><li>ngx_stream_upstram_zone_module</li></ol></li></ol></li></ol><p>引入的问题：</p><ol><li>锁</li><li>Slab内存管理器<h3 id="为什么需要按照masterworker方式配置同时启动多个进程呢"><a href="#为什么需要按照masterworker方式配置同时启动多个进程呢" class="headerlink" title="为什么需要按照masterworker方式配置同时启动多个进程呢"></a>为什么需要按照masterworker方式配置同时启动多个进程呢</h3></li><li>master进程可以是唯一的， 它仅专注于自己的纯管理工作， 为管理员提供命令行服务，包括诸如启动服务、 停止服务、 重载配置文件、 平滑升级程序等。</li><li>多个worker进程处理互联网请求不但可以提高服务的健壮性。可以<strong>充分利用现在常见的SMP多核架构， 从而实现微观上真正的多核并发处理</strong>。当Nginx上的进程数与CPU核心数相等时（最好每一个worker进程都绑定特定的CPU核心） ， 进程间切换的代价是最小的</li></ol><h4 id="为什么建议Nginx上的进程数与CPU核心数相等时"><a href="#为什么建议Nginx上的进程数与CPU核心数相等时" class="headerlink" title="为什么建议Nginx上的进程数与CPU核心数相等时"></a>为什么建议Nginx上的进程数与CPU核心数相等时</h4><p>若worker进程的数量多于CPU内核数， 那么会增大进程间切换带来的消耗（Linux是抢占式内核）。同时worker进程绑定指定的CPU内核</p><h4 id="为什么需要绑定到指定的内核"><a href="#为什么需要绑定到指定的内核" class="headerlink" title="为什么需要绑定到指定的内核"></a>为什么需要绑定到指定的内核</h4><p>假定每一个worker进程都是非常繁忙的， 如果多个worker进程都在抢同一个CPU， 那么这就会出现同步问题。 反之， 如果每一个worker进程都独享一个CPU， 就在内核的调度策略上实现了完全的并发。</p><h2 id="Nginx-Hash表使用的注意"><a href="#Nginx-Hash表使用的注意" class="headerlink" title="Nginx Hash表使用的注意"></a>Nginx Hash表使用的注意</h2><ol><li>只为静态的，不变的内容服务</li><li>hash表的bucket_size 需要考虑cpu cache line 的对齐问题</li></ol><h2 id="日志分析（goaccess）"><a href="#日志分析（goaccess）" class="headerlink" title="日志分析（goaccess）"></a>日志分析（goaccess）</h2><h2 id="Nginx文件缓存"><a href="#Nginx文件缓存" class="headerlink" title="Nginx文件缓存"></a>Nginx文件缓存</h2><p>文件缓存会在内存中存储以下3种信息：</p><ul><li>文件句柄，文件大小和修改次数</li><li>已经打开过的目录结构</li><li>没有找到或者没有权限操作的文件信息</li></ul>]]></content>
       
       
       <categories>
@@ -1026,6 +1024,33 @@
       <url>2021/05/01/Nginx/Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</url>
       
         <content type="html"><![CDATA[<h1 id="Nginx-负载均衡"><a href="#Nginx-负载均衡" class="headerlink" title="Nginx 负载均衡"></a>Nginx 负载均衡</h1><h2 id="Nginx-负载均衡特点"><a href="#Nginx-负载均衡特点" class="headerlink" title="Nginx 负载均衡特点"></a>Nginx 负载均衡特点</h2><p>Nginx并不会立刻转发到上游服务器，而是先把用户的请求（包括HTTP包体） 完整地接收到Nginx所在服务器的硬盘或者内存中，然后再向上游服务器发起连接， 把缓存的客户端请求转发到上游服务器。（接收到完整的客户端请求（如1GB的文件） 后， 才会与上游服务器建立连接转发请求）。</p><p>缺点：延长了一个请求的处理时间，并增加了用于缓存请求内容的内存和磁盘空间<br>优点：降低了上游服务器的负载， 尽量把压力放在Nginx服务器上<br><img src="/images/%E4%BD%9C%E4%B8%BA%E9%9D%99%E6%80%81Web%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84Nginx.png" alt="作为静态Web服务器与反向代理服务器的Nginx"></p><p><img src="/images/Nginx%E4%BD%9C%E4%B8%BA%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%B6%E8%BD%AC%E5%8F%91%E8%AF%B7%E6%B1%82%E7%9A%84%E6%B5%81%E7%A8%8B.png" alt="Nginx作为反向代理服务器时转发请求的流程"></p><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ol><li>upstream块：upstream块定义了一个上游服务器的集群， 便于反向代理中的proxy_pass使用</li><li>ip_hash：我们可能会希望来自某一个用户的请求始终落到固定的一台上游服务器中。如果同一个用户的请求任意地转发到集群中的任一台上游服务器中， 那么每一台上游服务器都有可能会缓存同一份信息， 这既会造成资源。的浪费， 也会难以有效地管理缓存信息，这样确保了<strong>同一个客户端的请求只会转发到指定的上游服务器中</strong>。</li><li>proxy_pass:此配置项将当前请求反向代理到URL参数指定的服务器上， URL可以是主机名或IP地址加端口的形式。</li><li>proxy_method:配置项表示转发时的协议方法名</li><li>proxy_hide_header:Nginx会将上游服务器的响应转发给客户端， 可以任意地指定哪些HTTP头部字段不能被转发。</li><li>proxy_pass_header:与proxy_hide_header 相反</li><li>proxy_pass_request_headers：作用为确定是否转发HTTP头部。</li><li>proxy_redirect：当上游服务器返回的响应是重定向或刷新请求（ 如HTTP响应码是301或者302） 时，proxy_redirect可以重设HTTP头部的location或refresh字段</li><li>proxy_next_upstream：此配置项表示当向一台上游服务器转发请求出现错误时， 继续换一台上游服务器处理这个请求</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 中间件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Nginx </tag>
+            
+            <tag> 负载均衡 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Nginx 操作</title>
+      <link href="2021/05/01/Nginx/Nginx%E6%93%8D%E4%BD%9C/"/>
+      <url>2021/05/01/Nginx/Nginx%E6%93%8D%E4%BD%9C/</url>
+      
+        <content type="html"><![CDATA[<h2 id="重载配置文件"><a href="#重载配置文件" class="headerlink" title="重载配置文件"></a>重载配置文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -S reload 或</span><br><span class="line">kill -HUP 主进程号</span><br></pre></td></tr></table></figure><h2 id="热部署"><a href="#热部署" class="headerlink" title="热部署"></a>热部署</h2><ol><li><p>备份旧的可执行文件</p></li><li><p>给主进程发USER2信号：执行完后新的主进程和旧的同时存在，会将新的请求/连接给到新的主进程中</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -USR2 9944</span><br></pre></td></tr></table></figure></li><li><p>给旧的主进程发送WINCH信号：通知旧的主进程优雅的关闭旧的work进程(执行完任务后关闭)，旧的主进程还在，以便做版本回退。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -WINCH 9944</span><br></pre></td></tr></table></figure></li><li><p>给旧的主进程发送QUIT信号，使其关闭。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -QUIT 9944</span><br></pre></td></tr></table></figure></li><li><p>如果需要进行版本回退，可以给旧的主进程发HUP命令，nginx不重新读取配置文件的情况下重新启动旧主进程的工作进程。然后再优雅的关闭新的主进程</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kill -HUP 9944</span><br><span class="line">kill -QUIT 新的主进程pid</span><br></pre></td></tr></table></figure></li></ol><h2 id="重启日志文件（日志文件分割）"><a href="#重启日志文件（日志文件分割）" class="headerlink" title="重启日志文件（日志文件分割）"></a>重启日志文件（日志文件分割）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reopen </span><br><span class="line">或者 kill -USR1 2030</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -1327,11 +1352,11 @@
     
     
     <entry>
-      <title>浏览器缓存</title>
-      <link href="2021/05/01/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/"/>
-      <url>2021/05/01/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/</url>
+      <title>浏览器的JavaScript的执行机制</title>
+      <link href="2021/05/01/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84JS%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/"/>
+      <url>2021/05/01/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84JS%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/</url>
       
-        <content type="html"><![CDATA[<h1 id="缓存流程"><a href="#缓存流程" class="headerlink" title="缓存流程"></a>缓存流程</h1><p><img src="/images/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98.png" alt="浏览器缓存"></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="浏览器的JavaScript的执行机制"><a href="#浏览器的JavaScript的执行机制" class="headerlink" title="浏览器的JavaScript的执行机制"></a>浏览器的JavaScript的执行机制</h1><h2 id="执行顺序问题"><a href="#执行顺序问题" class="headerlink" title="执行顺序问题"></a>执行顺序问题</h2><h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><ol><li>在代码执行过程汇总，JavaScript引擎将变量的声明部分和函数的声明部分提升到代码开头。</li><li>变量被提升后，会给变量设置默认值</li></ol><h3 id="JavaScript的执行流程"><a href="#JavaScript的执行流程" class="headerlink" title="JavaScript的执行流程"></a>JavaScript的执行流程</h3><p><img src="/images/V8%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AE%B5JavaScript%E4%BB%A3%E7%A0%81.png" alt="JavaScript的执行流程"></p><ol><li>语法检查</li><li>预编译阶段<ol><li>js的运行环境<ol><li>全局环境，代码进入预编译即进入了全局环境</li><li>函数环境，函数执行调用，就进入该函数的函数韩静</li><li>eval环境，(允许执行代码字符串，避免使用)</li><li>每进入一个环境都会创建一个相应的执行上下文。js引擎会以栈的方式对这些执行上下文进行处理，形成函数调用栈</li></ol></li><li>函数调用栈<ol><li>首次运行时，会创建一个全局执行上下文并push到栈中</li><li>每当发生函数调用，就会创建新的函数执行上下文push到栈顶</li><li>函数完成后，对应函数的执行上下文会从栈中pop出，上下文控制权交给下一个执行上下文</li></ol></li><li>执行上下文的创建<ol><li>创建变量对象<ol><li>变量提升，函数声明的优先级高于变量声明的优先级</li><li>此时，变量属性都未赋值，默认为undefined</li></ol></li><li>建立作用域链<ol><li>创建作用域链，就是创建词法环境</li><li>词法环境由两部分组成<ol><li>环境记录：环境变量和函数声明的实际位置</li><li>对外部环境的引用：可以访问其外部词法环境</li></ol></li></ol></li><li>确定this的指向<ol><li>this是和执行上下文绑定的，每个执行上下文都有一个this</li><li>全局中的this是指向window对象的</li><li>this指向完全取决于函数调用的位置</li><li>嵌套函数的this不会从外层函数中继承</li></ol></li></ol></li></ol></li><li>执行阶段</li></ol>]]></content>
       
       
       <categories>
@@ -1352,11 +1377,11 @@
     
     
     <entry>
-      <title>浏览器的JavaScript的执行机制</title>
-      <link href="2021/05/01/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84JS%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/"/>
-      <url>2021/05/01/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84JS%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/</url>
+      <title>浏览器缓存</title>
+      <link href="2021/05/01/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/"/>
+      <url>2021/05/01/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/</url>
       
-        <content type="html"><![CDATA[<h1 id="浏览器的JavaScript的执行机制"><a href="#浏览器的JavaScript的执行机制" class="headerlink" title="浏览器的JavaScript的执行机制"></a>浏览器的JavaScript的执行机制</h1><h2 id="执行顺序问题"><a href="#执行顺序问题" class="headerlink" title="执行顺序问题"></a>执行顺序问题</h2><h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><ol><li>在代码执行过程汇总，JavaScript引擎将变量的声明部分和函数的声明部分提升到代码开头。</li><li>变量被提升后，会给变量设置默认值</li></ol><h3 id="JavaScript的执行流程"><a href="#JavaScript的执行流程" class="headerlink" title="JavaScript的执行流程"></a>JavaScript的执行流程</h3><p><img src="/images/V8%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AE%B5JavaScript%E4%BB%A3%E7%A0%81.png" alt="JavaScript的执行流程"></p><ol><li>语法检查</li><li>预编译阶段<ol><li>js的运行环境<ol><li>全局环境，代码进入预编译即进入了全局环境</li><li>函数环境，函数执行调用，就进入该函数的函数韩静</li><li>eval环境，(允许执行代码字符串，避免使用)</li><li>每进入一个环境都会创建一个相应的执行上下文。js引擎会以栈的方式对这些执行上下文进行处理，形成函数调用栈</li></ol></li><li>函数调用栈<ol><li>首次运行时，会创建一个全局执行上下文并push到栈中</li><li>每当发生函数调用，就会创建新的函数执行上下文push到栈顶</li><li>函数完成后，对应函数的执行上下文会从栈中pop出，上下文控制权交给下一个执行上下文</li></ol></li><li>执行上下文的创建<ol><li>创建变量对象<ol><li>变量提升，函数声明的优先级高于变量声明的优先级</li><li>此时，变量属性都未赋值，默认为undefined</li></ol></li><li>建立作用域链<ol><li>创建作用域链，就是创建词法环境</li><li>词法环境由两部分组成<ol><li>环境记录：环境变量和函数声明的实际位置</li><li>对外部环境的引用：可以访问其外部词法环境</li></ol></li></ol></li><li>确定this的指向<ol><li>this是和执行上下文绑定的，每个执行上下文都有一个this</li><li>全局中的this是指向window对象的</li><li>this指向完全取决于函数调用的位置</li><li>嵌套函数的this不会从外层函数中继承</li></ol></li></ol></li></ol></li><li>执行阶段</li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="缓存流程"><a href="#缓存流程" class="headerlink" title="缓存流程"></a>缓存流程</h1><p><img src="/images/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98.png" alt="浏览器缓存"></p>]]></content>
       
       
       <categories>
@@ -1702,31 +1727,6 @@
     
     
     <entry>
-      <title>CDN</title>
-      <link href="2021/05/01/network/CDN%E5%8A%A0%E9%80%9F/"/>
-      <url>2021/05/01/network/CDN%E5%8A%A0%E9%80%9F/</url>
-      
-        <content type="html"><![CDATA[<h3 id="CDN-Content-Delivery-Network"><a href="#CDN-Content-Delivery-Network" class="headerlink" title="CDN(Content Delivery Network)"></a>CDN(Content Delivery Network)</h3><ul><li>目的：内容分发网络通过在现有的Internet中添加一层新的缓存，将网站的内容发布到最接近用户的网络边缘节点，时用户能够就近地获取到内容，提高用户访问网站的响应速度。解决由于网络宽带小、用户访问量大、网点分布不均匀等问题。</li></ul><h4 id="优化作用的体现："><a href="#优化作用的体现：" class="headerlink" title="优化作用的体现："></a>优化作用的体现：</h4><ul><li>解决服务器端的“第一公里“的问题</li><li>缓解甚至消除不同运营商之间互联的瓶颈造成的影响</li><li>减轻各省的出口宽带压力</li><li>缓解骨干网的压力</li><li>优化网上热点内容分布</li></ul><h4 id="原理图："><a href="#原理图：" class="headerlink" title="原理图："></a>原理图：</h4><p>传统过程</p><p><img src="..%5Cimage%5CCDN%E4%BC%A0%E7%BB%9F%E8%BF%87%E7%A8%8B.png" alt="传统过程"></p><p>加速过程</p><p><img src="..%5Cimage%5CCDN%E5%8A%A0%E9%80%9F%E8%BF%87%E7%A8%8B.png" alt="传统过程"></p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.jianshu.com/p/1dae6e1680ff">https://www.jianshu.com/p/1dae6e1680ff</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 计算机基础 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Network </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>DHCP和PXE</title>
       <link href="2021/05/01/network/DHCP%E5%92%8CPXE/"/>
       <url>2021/05/01/network/DHCP%E5%92%8CPXE/</url>
@@ -1827,6 +1827,31 @@
     
     
     <entry>
+      <title>CDN</title>
+      <link href="2021/05/01/network/CDN%E5%8A%A0%E9%80%9F/"/>
+      <url>2021/05/01/network/CDN%E5%8A%A0%E9%80%9F/</url>
+      
+        <content type="html"><![CDATA[<h3 id="CDN-Content-Delivery-Network"><a href="#CDN-Content-Delivery-Network" class="headerlink" title="CDN(Content Delivery Network)"></a>CDN(Content Delivery Network)</h3><ul><li>目的：内容分发网络通过在现有的Internet中添加一层新的缓存，将网站的内容发布到最接近用户的网络边缘节点，时用户能够就近地获取到内容，提高用户访问网站的响应速度。解决由于网络宽带小、用户访问量大、网点分布不均匀等问题。</li></ul><h4 id="优化作用的体现："><a href="#优化作用的体现：" class="headerlink" title="优化作用的体现："></a>优化作用的体现：</h4><ul><li>解决服务器端的“第一公里“的问题</li><li>缓解甚至消除不同运营商之间互联的瓶颈造成的影响</li><li>减轻各省的出口宽带压力</li><li>缓解骨干网的压力</li><li>优化网上热点内容分布</li></ul><h4 id="原理图："><a href="#原理图：" class="headerlink" title="原理图："></a>原理图：</h4><p>传统过程</p><p><img src="..%5Cimage%5CCDN%E4%BC%A0%E7%BB%9F%E8%BF%87%E7%A8%8B.png" alt="传统过程"></p><p>加速过程</p><p><img src="..%5Cimage%5CCDN%E5%8A%A0%E9%80%9F%E8%BF%87%E7%A8%8B.png" alt="传统过程"></p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.jianshu.com/p/1dae6e1680ff">https://www.jianshu.com/p/1dae6e1680ff</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Network </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>DDos</title>
       <link href="2021/05/01/safety/DDos/"/>
       <url>2021/05/01/safety/DDos/</url>
@@ -1904,31 +1929,6 @@
     
     
     <entry>
-      <title>XSS</title>
-      <link href="2021/05/01/safety/XSS(%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB)/"/>
-      <url>2021/05/01/safety/XSS(%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB)/</url>
-      
-        <content type="html"><![CDATA[<h3 id="XSS简介"><a href="#XSS简介" class="headerlink" title="XSS简介"></a>XSS简介</h3><p>Cross-Site Scripting（跨站脚本攻击）简称 XSS。攻击者往Web页面里插入恶意的Script代码，当用户浏览该页之时，嵌入其中Web里面的Script代码会被执行，从而达到恶意攻击用户的目的。</p><p>本质：恶意代码未经过滤，与网站正常的代码混在一起；浏览器无法分辨哪些脚本是可信的，导致恶意脚本被执行。</p><p>分类：存储型XSS,反射型XSS,DOM型XSS</p><h4 id="反射性XSS"><a href="#反射性XSS" class="headerlink" title="反射性XSS"></a>反射性XSS</h4><p>将用户输入的数据“反射”给浏览器。往往需要诱使用户点击一个恶意链接，才能攻击成功。又称“非持久性XSS”</p><h4 id="存储型XSS"><a href="#存储型XSS" class="headerlink" title="存储型XSS"></a>存储型XSS</h4><p>将用户输入的数据“存储”在服务器端。如写下一篇包含恶意JavaScript代码的博客</p><h4 id="DOM-型XSS"><a href="#DOM-型XSS" class="headerlink" title="DOM 型XSS"></a>DOM 型XSS</h4><p>类似于反射性XSS，用户点击时，修改页面的DOM节点形成XSS</p><p>通常来说风险：存储型 &gt; 反射性<br>攻击过程来说：反射性 &gt; 存储型</p><h3 id="XSS攻击进阶"><a href="#XSS攻击进阶" class="headerlink" title="XSS攻击进阶"></a>XSS攻击进阶</h3><h4 id="XSS-Payload"><a href="#XSS-Payload" class="headerlink" title="XSS Payload"></a>XSS Payload</h4><p>XSS Payload：攻击者能够对用户当前浏览器的页面植入恶意脚本，进而控制用户的浏览器。这种恶意脚本就称为”XSS Payload”</p><p>常见的 XSS Payload: 读取浏览器的cookie对象，从而发起“Cookie劫持”攻击</p><h4 id="构造GET-和POST请求"><a href="#构造GET-和POST请求" class="headerlink" title="构造GET 和POST请求"></a>构造GET 和POST请求</h4><p>通过JavaScript 模拟浏览器发包<br>通过GET执行某些操作<br>通过JavaScript发出Post请求，通过提交表单或者通过XMLHttpRequest</p><h4 id="XSS钓鱼"><a href="#XSS钓鱼" class="headerlink" title="XSS钓鱼"></a>XSS钓鱼</h4><p>XSS的攻击都是通过浏览器的JavaScript脚本自动进行的，缺少和用户交互的过程。<br>比如：修改用户密码时需要用户输入旧密码，这样就可以通过钓鱼 </p><h4 id="识别用户浏览器"><a href="#识别用户浏览器" class="headerlink" title="识别用户浏览器"></a>识别用户浏览器</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(navigator.userAgent);</span><br></pre></td></tr></table></figure><p>更高级的识别技巧：利用不同浏览器之间的是独有的对象判断</p><h4 id="识别用户安装的软件"><a href="#识别用户安装的软件" class="headerlink" title="识别用户安装的软件"></a>识别用户安装的软件</h4><p>如识别firefox的拓展</p><h4 id="获取用户的真实IP地址"><a href="#获取用户的真实IP地址" class="headerlink" title="获取用户的真实IP地址"></a>获取用户的真实IP地址</h4><p>如果客户安装了Java环境，XSS就可以通过调用JavaApplet的接口获取本机IP地址</p><h4 id="XSS构造技巧"><a href="#XSS构造技巧" class="headerlink" title="XSS构造技巧"></a>XSS构造技巧</h4><ul><li>利用字符编码</li><li>绕过长度限制<ul><li>利用 location,hash 藏代码</li><li>远程加载JS</li><li>利用注释符</li></ul></li><li>使用&lt;base&gt;标签<ul><li>作用是定义页面上所有使用相对路径标签的host地址</li></ul></li><li>window.name 实现跨域、跨页面请求数据</li></ul><h3 id="XSS防御"><a href="#XSS防御" class="headerlink" title="XSS防御"></a>XSS防御</h3><p>XSS本质是“HTML 注入”</p><h4 id="HTTP-only"><a href="#HTTP-only" class="headerlink" title="HTTP only"></a>HTTP only</h4><p>通过Set-Cookie给关键Cookie植入HTTPOnly标识，解决XXS后的Cookie劫持攻击<br>防御：</p><h4 id="输入检查"><a href="#输入检查" class="headerlink" title="输入检查"></a>输入检查</h4><p>前后端都对输入进行检查，检查用户输入的数据是否包含一些特殊的字符。这种方式成为“XSS Filter”</p><h4 id="输出检查"><a href="#输出检查" class="headerlink" title="输出检查"></a>输出检查</h4><p>变量输出到HTML页面时，可以使用编码或者转义的方式防御XSS</p><ul><li>使用安全的编码函数，需要注意的是安全编码后的长度可能发生改变，影响某些功能</li><li>可以考虑不止使用一种编码</li></ul><h4 id="处理富文本"><a href="#处理富文本" class="headerlink" title="处理富文本"></a>处理富文本</h4><p>禁止危险标签：&lt;iframe&gt;,&lt;script&gt;,&lt;base&gt;,&lt;form&gt;<br>标签应使用白名单，避免黑名单。如只允许使用&lt;a&gt;,&lt;img&gt;,&lt;div&gt;等安全标签<br>白名单同时应用于属性与事件的选择</p><h4 id="防御DOM-based-XSS"><a href="#防御DOM-based-XSS" class="headerlink" title="防御DOM based XSS"></a>防御DOM based XSS</h4><p>尽量避免用户的输入，关注会修改HTML的语句，如</p><ul><li>xxx.innerHTML= </li><li>document.write …..</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 安全 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 安全 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>安全基础</title>
       <link href="2021/05/01/safety/safety%E5%9F%BA%E7%A1%80/"/>
       <url>2021/05/01/safety/safety%E5%9F%BA%E7%A1%80/</url>
@@ -1984,6 +1984,31 @@
       <url>2021/05/01/safety/%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB/</url>
       
         <content type="html"><![CDATA[<h2 id="注入攻击"><a href="#注入攻击" class="headerlink" title="注入攻击"></a>注入攻击</h2><p>注入攻击是应用违背了“数据与代码分离原则的”结果</p><p>注入攻击的两个条件</p><ol><li>用户能够控制数据的输入</li><li>原本要执行的代码，拼接了用户的输入，把数据当做代码执行了<h3 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h3></li><li>要避免Web服务器开启错误回显，将错误信息直接返回</li><li>还可以盲注，比如注入 “and 1=2”</li><li>Timing Attach，用BENCHMARK函数造成延迟，如果不为真，则该语句很快就执行完</li><li>BENCHMARK()函数，可以让同一个函数执行若干次，使得结果返回的时间比平常要场，通过时间长短的变化，判断出注入语句是否执行成功。</li></ol><h4 id="防御SQL注入"><a href="#防御SQL注入" class="headerlink" title="防御SQL注入"></a>防御SQL注入</h4><p>要做的事情</p><ul><li><p>找到所有SQL注入漏洞</p></li><li><p>修补这些漏洞</p></li><li><p>使用预编译语句<br>如使用？代替变量</p></li><li><p>使用存储过程<br>尽量避免在存储过程内使用动态的sql，如果无法避免，应该使用严格的输入过滤或者编码函数来处理用户的输入数据</p></li><li><p>检查数据类型</p></li><li><p>使用安全函数</p></li><li><p>数据库应该使用最小权限原则，避免web应用直接使用root、dbowner等高权限账户直接连接数据库</p></li></ul><h3 id="XML注入"><a href="#XML注入" class="headerlink" title="XML注入"></a>XML注入</h3><p>与HTML类似，对用书输入数据包含语言本身的保留字符进行转义</p><h3 id="代码注入"><a href="#代码注入" class="headerlink" title="代码注入"></a>代码注入</h3><p>多吗注入多见于脚本语言<br>JSP的动态include也能导致代码注入</p><h3 id="CRLF注入"><a href="#CRLF注入" class="headerlink" title="CRLF注入"></a>CRLF注入</h3><p>CR(\r),LF(\n)<br>\r\n：换行</p><p>通过注入CRLF可能会改变原有的语义，HTTP就是通过“\r\n”来分割的。如果服务器端没有过滤“\r\n”，又把用户输入的数据放在HTTP头中，则有可能导致安全隐患</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 安全 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 安全 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>XSS</title>
+      <link href="2021/05/01/safety/XSS(%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB)/"/>
+      <url>2021/05/01/safety/XSS(%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB)/</url>
+      
+        <content type="html"><![CDATA[<h3 id="XSS简介"><a href="#XSS简介" class="headerlink" title="XSS简介"></a>XSS简介</h3><p>Cross-Site Scripting（跨站脚本攻击）简称 XSS。攻击者往Web页面里插入恶意的Script代码，当用户浏览该页之时，嵌入其中Web里面的Script代码会被执行，从而达到恶意攻击用户的目的。</p><p>本质：恶意代码未经过滤，与网站正常的代码混在一起；浏览器无法分辨哪些脚本是可信的，导致恶意脚本被执行。</p><p>分类：存储型XSS,反射型XSS,DOM型XSS</p><h4 id="反射性XSS"><a href="#反射性XSS" class="headerlink" title="反射性XSS"></a>反射性XSS</h4><p>将用户输入的数据“反射”给浏览器。往往需要诱使用户点击一个恶意链接，才能攻击成功。又称“非持久性XSS”</p><h4 id="存储型XSS"><a href="#存储型XSS" class="headerlink" title="存储型XSS"></a>存储型XSS</h4><p>将用户输入的数据“存储”在服务器端。如写下一篇包含恶意JavaScript代码的博客</p><h4 id="DOM-型XSS"><a href="#DOM-型XSS" class="headerlink" title="DOM 型XSS"></a>DOM 型XSS</h4><p>类似于反射性XSS，用户点击时，修改页面的DOM节点形成XSS</p><p>通常来说风险：存储型 &gt; 反射性<br>攻击过程来说：反射性 &gt; 存储型</p><h3 id="XSS攻击进阶"><a href="#XSS攻击进阶" class="headerlink" title="XSS攻击进阶"></a>XSS攻击进阶</h3><h4 id="XSS-Payload"><a href="#XSS-Payload" class="headerlink" title="XSS Payload"></a>XSS Payload</h4><p>XSS Payload：攻击者能够对用户当前浏览器的页面植入恶意脚本，进而控制用户的浏览器。这种恶意脚本就称为”XSS Payload”</p><p>常见的 XSS Payload: 读取浏览器的cookie对象，从而发起“Cookie劫持”攻击</p><h4 id="构造GET-和POST请求"><a href="#构造GET-和POST请求" class="headerlink" title="构造GET 和POST请求"></a>构造GET 和POST请求</h4><p>通过JavaScript 模拟浏览器发包<br>通过GET执行某些操作<br>通过JavaScript发出Post请求，通过提交表单或者通过XMLHttpRequest</p><h4 id="XSS钓鱼"><a href="#XSS钓鱼" class="headerlink" title="XSS钓鱼"></a>XSS钓鱼</h4><p>XSS的攻击都是通过浏览器的JavaScript脚本自动进行的，缺少和用户交互的过程。<br>比如：修改用户密码时需要用户输入旧密码，这样就可以通过钓鱼 </p><h4 id="识别用户浏览器"><a href="#识别用户浏览器" class="headerlink" title="识别用户浏览器"></a>识别用户浏览器</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(navigator.userAgent);</span><br></pre></td></tr></table></figure><p>更高级的识别技巧：利用不同浏览器之间的是独有的对象判断</p><h4 id="识别用户安装的软件"><a href="#识别用户安装的软件" class="headerlink" title="识别用户安装的软件"></a>识别用户安装的软件</h4><p>如识别firefox的拓展</p><h4 id="获取用户的真实IP地址"><a href="#获取用户的真实IP地址" class="headerlink" title="获取用户的真实IP地址"></a>获取用户的真实IP地址</h4><p>如果客户安装了Java环境，XSS就可以通过调用JavaApplet的接口获取本机IP地址</p><h4 id="XSS构造技巧"><a href="#XSS构造技巧" class="headerlink" title="XSS构造技巧"></a>XSS构造技巧</h4><ul><li>利用字符编码</li><li>绕过长度限制<ul><li>利用 location,hash 藏代码</li><li>远程加载JS</li><li>利用注释符</li></ul></li><li>使用&lt;base&gt;标签<ul><li>作用是定义页面上所有使用相对路径标签的host地址</li></ul></li><li>window.name 实现跨域、跨页面请求数据</li></ul><h3 id="XSS防御"><a href="#XSS防御" class="headerlink" title="XSS防御"></a>XSS防御</h3><p>XSS本质是“HTML 注入”</p><h4 id="HTTP-only"><a href="#HTTP-only" class="headerlink" title="HTTP only"></a>HTTP only</h4><p>通过Set-Cookie给关键Cookie植入HTTPOnly标识，解决XXS后的Cookie劫持攻击<br>防御：</p><h4 id="输入检查"><a href="#输入检查" class="headerlink" title="输入检查"></a>输入检查</h4><p>前后端都对输入进行检查，检查用户输入的数据是否包含一些特殊的字符。这种方式成为“XSS Filter”</p><h4 id="输出检查"><a href="#输出检查" class="headerlink" title="输出检查"></a>输出检查</h4><p>变量输出到HTML页面时，可以使用编码或者转义的方式防御XSS</p><ul><li>使用安全的编码函数，需要注意的是安全编码后的长度可能发生改变，影响某些功能</li><li>可以考虑不止使用一种编码</li></ul><h4 id="处理富文本"><a href="#处理富文本" class="headerlink" title="处理富文本"></a>处理富文本</h4><p>禁止危险标签：&lt;iframe&gt;,&lt;script&gt;,&lt;base&gt;,&lt;form&gt;<br>标签应使用白名单，避免黑名单。如只允许使用&lt;a&gt;,&lt;img&gt;,&lt;div&gt;等安全标签<br>白名单同时应用于属性与事件的选择</p><h4 id="防御DOM-based-XSS"><a href="#防御DOM-based-XSS" class="headerlink" title="防御DOM based XSS"></a>防御DOM based XSS</h4><p>尽量避免用户的输入，关注会修改HTML的语句，如</p><ul><li>xxx.innerHTML= </li><li>document.write …..</li></ul>]]></content>
       
       
       <categories>
@@ -2233,7 +2258,7 @@
       <link href="2021/05/01/%E8%BF%90%E7%BB%B4/arthas/"/>
       <url>2021/05/01/%E8%BF%90%E7%BB%B4/arthas/</url>
       
-        <content type="html"><![CDATA[<h2 id="查看JVM-信息"><a href="#查看JVM-信息" class="headerlink" title="查看JVM 信息"></a>查看JVM 信息</h2><ul><li>sysprop：打印所有的System Properties信息</li><li>sysenv：获取到环境变量</li><li>jvm：打印出JVM的各种详细信息</li><li>dashboard：查看当前系统的实时数据面板</li></ul><h2 id="查看已加载的类"><a href="#查看已加载的类" class="headerlink" title="查看已加载的类"></a>查看已加载的类</h2><ul><li>sc：查找到所有JVM已经加载到的类</li><li>sm: 查找类的具体函数</li></ul><h2 id="反编译指令-Jad"><a href="#反编译指令-Jad" class="headerlink" title="反编译指令 Jad"></a>反编译指令 Jad</h2><h2 id="动态执行代码-ognl"><a href="#动态执行代码-ognl" class="headerlink" title="动态执行代码 ognl"></a>动态执行代码 ognl</h2><p>ognl ‘@<a href="mailto:&#106;&#x61;&#x76;&#x61;&#46;&#x6c;&#97;&#x6e;&#x67;&#x2e;&#83;&#121;&#115;&#x74;&#x65;&#109;&#64;&#x6f;&#117;&#x74;&#x2e;&#112;&#x72;&#x69;&#x6e;&#x74;&#x6c;&#x6e;">&#106;&#x61;&#x76;&#x61;&#46;&#x6c;&#97;&#x6e;&#x67;&#x2e;&#83;&#121;&#115;&#x74;&#x65;&#109;&#64;&#x6f;&#117;&#x74;&#x2e;&#112;&#x72;&#x69;&#x6e;&#x74;&#x6c;&#x6e;</a>(“hello ognl”)’</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="查看JVM-信息"><a href="#查看JVM-信息" class="headerlink" title="查看JVM 信息"></a>查看JVM 信息</h2><ul><li>sysprop：打印所有的System Properties信息</li><li>sysenv：获取到环境变量</li><li>jvm：打印出JVM的各种详细信息</li><li>dashboard：查看当前系统的实时数据面板</li></ul><h2 id="查看已加载的类"><a href="#查看已加载的类" class="headerlink" title="查看已加载的类"></a>查看已加载的类</h2><ul><li>sc：查找到所有JVM已经加载到的类</li><li>sm: 查找类的具体函数</li></ul><h2 id="反编译指令-Jad"><a href="#反编译指令-Jad" class="headerlink" title="反编译指令 Jad"></a>反编译指令 Jad</h2><h2 id="动态执行代码-ognl"><a href="#动态执行代码-ognl" class="headerlink" title="动态执行代码 ognl"></a>动态执行代码 ognl</h2><p>ognl ‘@<a href="mailto:&#x6a;&#97;&#x76;&#97;&#46;&#x6c;&#x61;&#x6e;&#103;&#46;&#x53;&#x79;&#x73;&#x74;&#101;&#109;&#64;&#x6f;&#x75;&#116;&#46;&#x70;&#x72;&#105;&#x6e;&#116;&#108;&#x6e;">&#x6a;&#97;&#x76;&#97;&#46;&#x6c;&#x61;&#x6e;&#103;&#46;&#x53;&#x79;&#x73;&#x74;&#101;&#109;&#64;&#x6f;&#x75;&#116;&#46;&#x70;&#x72;&#105;&#x6e;&#116;&#108;&#x6e;</a>(“hello ognl”)’</p>]]></content>
       
       
       <categories>
@@ -4117,6 +4142,31 @@
     
     
     <entry>
+      <title>传输层</title>
+      <link href="2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/%E4%BC%A0%E8%BE%93%E5%B1%82/"/>
+      <url>2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/%E4%BC%A0%E8%BE%93%E5%B1%82/</url>
+      
+        <content type="html"><![CDATA[<h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><p>功能：</p><ol><li>提供应用程序之间的逻辑通信</li><li>复用和分用。发送方的不同应用进程都可以使用同一个传输层协议传送数据。分用指接收方的传输层在博取报文的首部后能把这些数据正确交付到目的应用程序</li><li>传输层需要对报文的首部和数据部分进行差错检测</li><li>提供两种不同的传输协议。面向连接的TCP和无连接UDP。网略层也可以提供，但是不能同时提供</li></ol><h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><p>端口是传输层服务提供点TSAP<br>数据链路层的SAP就是MAC的地址，网络层的SAP就是IP地址，传输层的SAP就是端口<br>端口号的长度为16bit，能够表示65536个端口号<br>端口号的分类</p><ol><li>服务端使用的端口号<ol><li>熟知端口号，数值为0~1023<br>常用的熟知端口号</li></ol><ul><li>FTP 21</li><li>TELNET 23</li><li>SMTP 25</li><li>DNS 53</li><li>TFTP 69</li><li>HTTP 80</li><li>SNMP 161</li></ul><ol start="2"><li>登记端口号，数值为1024~49151</li></ol></li><li>客户端使用的端口号<br> 这类端口号尽在客户进程运行时才动态选择，又称短暂端口号<h3 id="套接字"><a href="#套接字" class="headerlink" title="套接字"></a>套接字</h3>套接字实际上就是一个通信端点。唯一标识了网络中一个主意和其上的一个应用(进程)</li></ol><p><strong>套接字 = (主机IP地址，端口号)</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Network </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>UDP</title>
       <link href="2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/UDP/"/>
       <url>2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/UDP/</url>
@@ -4136,31 +4186,6 @@
             <tag> Network </tag>
             
             <tag> TCP/IP </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>传输层</title>
-      <link href="2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/%E4%BC%A0%E8%BE%93%E5%B1%82/"/>
-      <url>2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/%E4%BC%A0%E8%BE%93%E5%B1%82/</url>
-      
-        <content type="html"><![CDATA[<h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><p>功能：</p><ol><li>提供应用程序之间的逻辑通信</li><li>复用和分用。发送方的不同应用进程都可以使用同一个传输层协议传送数据。分用指接收方的传输层在博取报文的首部后能把这些数据正确交付到目的应用程序</li><li>传输层需要对报文的首部和数据部分进行差错检测</li><li>提供两种不同的传输协议。面向连接的TCP和无连接UDP。网略层也可以提供，但是不能同时提供</li></ol><h3 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h3><p>端口是传输层服务提供点TSAP<br>数据链路层的SAP就是MAC的地址，网络层的SAP就是IP地址，传输层的SAP就是端口<br>端口号的长度为16bit，能够表示65536个端口号<br>端口号的分类</p><ol><li>服务端使用的端口号<ol><li>熟知端口号，数值为0~1023<br>常用的熟知端口号</li></ol><ul><li>FTP 21</li><li>TELNET 23</li><li>SMTP 25</li><li>DNS 53</li><li>TFTP 69</li><li>HTTP 80</li><li>SNMP 161</li></ul><ol start="2"><li>登记端口号，数值为1024~49151</li></ol></li><li>客户端使用的端口号<br> 这类端口号尽在客户进程运行时才动态选择，又称短暂端口号<h3 id="套接字"><a href="#套接字" class="headerlink" title="套接字"></a>套接字</h3>套接字实际上就是一个通信端点。唯一标识了网络中一个主意和其上的一个应用(进程)</li></ol><p><strong>套接字 = (主机IP地址，端口号)</strong></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 计算机基础 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Network </tag>
             
         </tags>
       
