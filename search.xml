@@ -29,6 +29,56 @@
     
     
     <entry>
+      <title>原子性操作的实现</title>
+      <link href="2021/05/04/%E5%90%8E%E7%AB%AF/Java/%E5%8E%9F%E5%AD%90%E6%80%A7%E6%93%8D%E4%BD%9C%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
+      <url>2021/05/04/%E5%90%8E%E7%AB%AF/Java/%E5%8E%9F%E5%AD%90%E6%80%A7%E6%93%8D%E4%BD%9C%E7%9A%84%E5%AE%9E%E7%8E%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="原子性操作的实现"><a href="#原子性操作的实现" class="headerlink" title="原子性操作的实现"></a>原子性操作的实现</h1><h2 id="CPU原子性操作的实现"><a href="#CPU原子性操作的实现" class="headerlink" title="CPU原子性操作的实现"></a>CPU原子性操作的实现</h2><h3 id="使用总线锁保证原子性："><a href="#使用总线锁保证原子性：" class="headerlink" title="使用总线锁保证原子性："></a>使用总线锁保证原子性：</h3><p>总线锁就是使用处理器提供的一个LOCK#信号，当一个处理器在总线上输出此信号的时候，其他处理器的请求将会被阻塞住，那么该处理器就可以独享内存</p><h3 id="通过缓存锁定来保证原子性："><a href="#通过缓存锁定来保证原子性：" class="headerlink" title="通过缓存锁定来保证原子性："></a>通过缓存锁定来保证原子性：</h3><p>内存区域如果被缓存在处理器的缓存行，并且在Lock操作期间被锁定，当它执行锁操作回写内存的时候，处理器不在总线上声称LOCK#信号，而是修改内部的内存地址，并允许它的缓存一致性机制来保证操作的原子性。<strong>缓存一致性机制会阻止同时修改由两个以上处理器缓存的内存区域，当其他处理器回写已经被锁定的缓存行数据时，会使缓存行失效</strong>。</p><h3 id="不适用缓存锁定的情况"><a href="#不适用缓存锁定的情况" class="headerlink" title="不适用缓存锁定的情况"></a>不适用缓存锁定的情况</h3><ul><li>操作的数据不能被缓存到处理器内部，或者操作的数据跨多个缓存行</li><li>不支持缓存锁定的处理器</li></ul><h2 id="Java原子性操作的实现"><a href="#Java原子性操作的实现" class="headerlink" title="Java原子性操作的实现"></a>Java原子性操作的实现</h2><h2 id="CAS（Compare-and-Swap）"><a href="#CAS（Compare-and-Swap）" class="headerlink" title="CAS（Compare and Swap）"></a>CAS（Compare and Swap）</h2><h3 id="CAS思想"><a href="#CAS思想" class="headerlink" title="CAS思想"></a>CAS思想</h3><p>当线程拿到一个值并对其修改，然后写入到内存中时。在写入之前，会先拿到当前内存中的值，然后与之前拿到的旧值进行对比。如果没有变化，则写入新的值。如果有变化，则使用新拿到的值进行修改<br>这一个行为称之为CAS操作。</p><p>CAS操作会不断轮询来判断旧值是否被修改,我们也称之为自旋CAS。</p><h3 id="Java是如何实现CAS的"><a href="#Java是如何实现CAS的" class="headerlink" title="Java是如何实现CAS的"></a>Java是如何实现CAS的</h3><p>Java中CAS操作的执行依赖于Unsafe类的方法。Unsafe类处于sun.misc.Unsafe类中的中。通过调用UnSafe类中CAS方法，JVM会帮我们实现CAS汇编指令。由于Java方法无法直接访问底层系统，需要通过本地（native）方法来访问，Unsafe的方法也都是native的方法，基于该类可以直接操作特定内存的数据,其内部方法操作可以像C的指针一样直接操作内存.</p><h3 id="CAS引发的问题"><a href="#CAS引发的问题" class="headerlink" title="CAS引发的问题"></a>CAS引发的问题</h3><ol><li>自旋CAS如果长期不成功,那么会不断地轮询,这样会给CPU带来非常大地执行开销。<ol><li>可以通过延迟流水线执行指令,使CPU不会消耗过多地资源,延迟时间取决于实现</li><li>避免在退出循环地时候因内存顺序冲突而引起地CPU流水线被清空,从而调高CPU的执行效率<blockquote><p>内存顺序冲突:多个CPU同时修改同一个缓存行的不同部分引起其中一个CPU的操作无效.当出现这个内存顺序冲突时,CPU会必须清空流水线</p></blockquote></li></ol></li><li>只能保证一个共享变量的原子操作<ol><li>Java1.5后,引入了AtomicReference类保证引用对象之间的原子性</li></ol></li><li>ABA问题:CAS只判断最终结果,保证了新值和旧值之间的正确性,但是旧值可能经过一系列操作之后,没有发生改变.比如50-&gt;100-&gt;50.CAS只关注一头一尾.<ol><li>解决方式是通过版本号,除了检查新值和旧值的正确性以外,还需要判断版本是否是一致的</li></ol></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>运维的价值</title>
+      <link href="2021/05/04/%E8%BF%90%E7%BB%B4/SRE/%E8%BF%90%E7%BB%B4%E4%BB%B7%E5%80%BC/"/>
+      <url>2021/05/04/%E8%BF%90%E7%BB%B4/SRE/%E8%BF%90%E7%BB%B4%E4%BB%B7%E5%80%BC/</url>
+      
+        <content type="html"><![CDATA[<h1 id="运维的价值"><a href="#运维的价值" class="headerlink" title="运维的价值"></a>运维的价值</h1><h1 id="核心价值"><a href="#核心价值" class="headerlink" title="核心价值"></a>核心价值</h1><ol><li>保证业务高质量不间断的对外服务</li><li>既要服务的好,又要运营成本最低</li><li>又稳又快又安全地让业务进行自我更新</li></ol><h2 id="阶段价值"><a href="#阶段价值" class="headerlink" title="阶段价值"></a>阶段价值</h2><ul><li>业务起步阶段:整个团队要的是快速迭代功能,快速发布.此时运维的<strong>重点在于快速</strong>.帮助团队搭建更好更敏捷的研发，测试环境，以及制定偏向敏捷高效的生产环境管理与发布流程</li><li>业务快速成长阶段:开发可能无法及时的去优化代码的，这个时期就需要<strong>运维保证充足的资源供应，用硬件弥补软件的性能不足，以及各种监控报警，救火预案，和开发一道维护线上的服务质量</strong>，后台开发和运维最辛苦的阶段</li><li>业务成熟阶段:这时更加关注的是<strong>稳定稳定还是稳定,还有就是成本</strong>。线上90%的故障都是有变更引起，这时运维会对严控变更流程，审批手段，变更时间，灰度时长，打分制度等都会一 一出台，除了卡着开发以外，还会去挖掘线上服务的性能问题，<strong>推动开发去优化改造以降低运营成本</strong>。</li><li>业务衰落期:此时在<strong>保证业务正常的前提下进一步的压缩运营成本</strong>，对于次要模块推动下线</li></ul><h2 id="三步工作法"><a href="#三步工作法" class="headerlink" title="三步工作法"></a>三步工作法</h2><ol><li>第一工作法:从开发-&gt;运维-&gt;客户的整个自左向右的工作流,为了使流量最大化,需要小的批量规模和工作间隔,决不让缺陷流向下游工作中心,并且不断为整体目标进行优化.</li><li>第二工作法:从开发&lt;-运维&lt;-客户的反向持续反馈流,放大其效益确保防止问题再次发生,或者更快地发现和修复问题.从源头上保证质量.</li><li>第三工作法:创造公司文化以至于带动两种风气:<ol><li><strong>不断尝试,需要承担风险并从成功和失败中吸取经验和教训</strong>,使我们不懈地改进工作系统.</li><li><strong>理解重复和联系是熟练掌握地前提</strong>,不断重复地日常操练赋于我们技能和经验,令我们可以撤回安全区并恢复正常运作</li></ol></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> SRE </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SRE </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Elasticsearch检索原理</title>
       <link href="2021/05/03/middleware/Elasticsearch/Elasticsearch%20%E6%A3%80%E7%B4%A2%E5%8E%9F%E7%90%86/"/>
       <url>2021/05/03/middleware/Elasticsearch/Elasticsearch%20%E6%A3%80%E7%B4%A2%E5%8E%9F%E7%90%86/</url>
@@ -665,7 +715,7 @@
       <link href="2021/05/01/arthas/"/>
       <url>2021/05/01/arthas/</url>
       
-        <content type="html"><![CDATA[<h2 id="查看JVM-信息"><a href="#查看JVM-信息" class="headerlink" title="查看JVM 信息"></a>查看JVM 信息</h2><ul><li>sysprop：打印所有的System Properties信息</li><li>sysenv：获取到环境变量</li><li>jvm：打印出JVM的各种详细信息</li><li>dashboard：查看当前系统的实时数据面板</li></ul><h2 id="查看已加载的类"><a href="#查看已加载的类" class="headerlink" title="查看已加载的类"></a>查看已加载的类</h2><ul><li>sc：查找到所有JVM已经加载到的类</li><li>sm: 查找类的具体函数</li></ul><h2 id="反编译指令-Jad"><a href="#反编译指令-Jad" class="headerlink" title="反编译指令 Jad"></a>反编译指令 Jad</h2><h2 id="动态执行代码-ognl"><a href="#动态执行代码-ognl" class="headerlink" title="动态执行代码 ognl"></a>动态执行代码 ognl</h2><p>ognl ‘@<a href="mailto:&#x6a;&#97;&#x76;&#97;&#x2e;&#108;&#97;&#x6e;&#103;&#46;&#x53;&#121;&#x73;&#116;&#101;&#x6d;&#64;&#x6f;&#x75;&#x74;&#x2e;&#x70;&#x72;&#x69;&#110;&#116;&#108;&#110;">&#x6a;&#97;&#x76;&#97;&#x2e;&#108;&#97;&#x6e;&#103;&#46;&#x53;&#121;&#x73;&#116;&#101;&#x6d;&#64;&#x6f;&#x75;&#x74;&#x2e;&#x70;&#x72;&#x69;&#110;&#116;&#108;&#110;</a>(“hello ognl”)’</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="查看JVM-信息"><a href="#查看JVM-信息" class="headerlink" title="查看JVM 信息"></a>查看JVM 信息</h2><ul><li>sysprop：打印所有的System Properties信息</li><li>sysenv：获取到环境变量</li><li>jvm：打印出JVM的各种详细信息</li><li>dashboard：查看当前系统的实时数据面板</li></ul><h2 id="查看已加载的类"><a href="#查看已加载的类" class="headerlink" title="查看已加载的类"></a>查看已加载的类</h2><ul><li>sc：查找到所有JVM已经加载到的类</li><li>sm: 查找类的具体函数</li></ul><h2 id="反编译指令-Jad"><a href="#反编译指令-Jad" class="headerlink" title="反编译指令 Jad"></a>反编译指令 Jad</h2><h2 id="动态执行代码-ognl"><a href="#动态执行代码-ognl" class="headerlink" title="动态执行代码 ognl"></a>动态执行代码 ognl</h2><p>ognl ‘@<a href="mailto:&#106;&#97;&#x76;&#97;&#46;&#x6c;&#97;&#110;&#x67;&#46;&#x53;&#121;&#x73;&#116;&#101;&#109;&#64;&#x6f;&#x75;&#x74;&#46;&#112;&#x72;&#x69;&#110;&#116;&#108;&#110;">&#106;&#97;&#x76;&#97;&#46;&#x6c;&#97;&#110;&#x67;&#46;&#x53;&#121;&#x73;&#116;&#101;&#109;&#64;&#x6f;&#x75;&#x74;&#46;&#112;&#x72;&#x69;&#110;&#116;&#108;&#110;</a>(“hello ognl”)’</p>]]></content>
       
       
       <categories>
@@ -890,11 +940,11 @@
     
     
     <entry>
-      <title>Docker 问题集</title>
-      <link href="2021/05/01/Docker/Docker%E9%97%AE%E9%A2%98%E9%9B%86/"/>
-      <url>2021/05/01/Docker/Docker%E9%97%AE%E9%A2%98%E9%9B%86/</url>
+      <title>Docker cookbook</title>
+      <link href="2021/05/01/Docker/docker%20cookbook/"/>
+      <url>2021/05/01/Docker/docker%20cookbook/</url>
       
-        <content type="html"><![CDATA[<h3 id="Dockerfile-和-docker-compose-yml-的区别"><a href="#Dockerfile-和-docker-compose-yml-的区别" class="headerlink" title="Dockerfile 和 docker-compose.yml 的区别"></a>Dockerfile 和 docker-compose.yml 的区别</h3><p>Dockerfile: Dockerfile 是拿来构建自定义镜像的，并没有直接生成容器<br>docker-compose.yml是用来编排项目的，里面包含使用各种镜像创建的容器服务,在服务启动的时候用到</p><h3 id="为什么容器是单进程模型"><a href="#为什么容器是单进程模型" class="headerlink" title="为什么容器是单进程模型"></a>为什么容器是单进程模型</h3><p>容器只是通过Linux的Namespaces、Cgroups实现了进程级别的隔离。虽然在容器里看不见宿主机上的其他进程，但归根结底它还只是一个运行在宿主机上的进程，所以就不具备操作系统的进程管理能力。</p><p>容器的”单进程模型”，并不是指容器里只能运行”一个”进程，而是指容器没有管理多个进程的能力。这是因为容器里的主进程（PID=1 的进程）就是应用本身，其他的进程都是这个主进程的子进程。可是，用户编写的应用，并不能够像正常操作系统里的init进程或者systemd 那样拥有进程管理的功能。<br>reference：<a href="https://cloud.tencent.com/developer/article/1671554">https://cloud.tencent.com/developer/article/1671554</a></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Docker-cookbook"><a href="#Docker-cookbook" class="headerlink" title="Docker cookbook"></a>Docker cookbook</h1><h2 id="无权限连接Docker-Daemon-socket"><a href="#无权限连接Docker-Daemon-socket" class="headerlink" title="无权限连接Docker Daemon socket"></a>无权限连接Docker Daemon socket</h2><p>问题描述：Got permission denied while trying to connect to the Docker daemon socket<br>问题原因：docker进程使用Unix Socket而不是TCP端口。而默认情况下，Unix socket属于root用户，需要root权限才能访问<br>解决措施：</p><ol><li>使用sudo获取管理员权限</li><li>docker守护进程启动时，会默认赋予docker的用户组读写Unix Socket的权限，因此只需将当前用户添加到用户组就有权限访问Unix Socket了<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker     #添加docker用户组</span><br><span class="line">sudo gpasswd -a $USER docker     #将登陆用户加入到docker用户组中</span><br><span class="line">newgrp docker     #更新用户组</span><br><span class="line">docker ps    #测试docker命令是否可以使用sudo正常使用</span><br></pre></td></tr></table></figure></li></ol><h2 id="修改国内镜像源"><a href="#修改国内镜像源" class="headerlink" title="修改国内镜像源"></a>修改国内镜像源</h2><p>问题描述：Error response from daemon: Head “<a href="https://registry-1.docker.io/v2/library/ngnix/manifests/latest&quot;">https://registry-1.docker.io/v2/library/ngnix/manifests/latest&quot;</a>: Get “<a href="https://auth.docker.io/token?scope=repository:library/ngnix:pull&amp;service=registry.docker.io&quot;">https://auth.docker.io/token?scope=repository%3Alibrary%2Fngnix%3Apull&amp;service=registry.docker.io&quot;</a>: net/http: TLS handshake timeout.<br>问题原因：国内无法访问镜像源<br>解决措施：更改为国内镜像源</p><ol><li>sudo vim /etc/docker/daemon.json</li><li>修改配置文件<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&#123;</span></span><br><span class="line"><span class="meta">&quot;registry-mirrors&quot;</span>: <span class="string">[&quot;https://docker.mirrors.ustc.edu.cn/&quot;,&quot;https://hub-mirror.c.163.com&quot;,&quot;https://registry.docker-cn.com&quot;],</span></span><br><span class="line"><span class="meta">&quot;insecure-registries&quot;</span>: <span class="string">[&quot;10.0.0.12:5000&quot;]</span></span><br><span class="line"><span class="attr">&#125;</span></span><br></pre></td></tr></table></figure></li><li>重新加载守护进程：sudo systemctl daemon-reload</li><li>重启docker：sudo service docker restart</li></ol>]]></content>
       
       
       <categories>
@@ -915,11 +965,11 @@
     
     
     <entry>
-      <title>Docker cookbook</title>
-      <link href="2021/05/01/Docker/docker%20cookbook/"/>
-      <url>2021/05/01/Docker/docker%20cookbook/</url>
+      <title>Docker 问题集</title>
+      <link href="2021/05/01/Docker/Docker%E9%97%AE%E9%A2%98%E9%9B%86/"/>
+      <url>2021/05/01/Docker/Docker%E9%97%AE%E9%A2%98%E9%9B%86/</url>
       
-        <content type="html"><![CDATA[<h1 id="Docker-cookbook"><a href="#Docker-cookbook" class="headerlink" title="Docker cookbook"></a>Docker cookbook</h1><h2 id="无权限连接Docker-Daemon-socket"><a href="#无权限连接Docker-Daemon-socket" class="headerlink" title="无权限连接Docker Daemon socket"></a>无权限连接Docker Daemon socket</h2><p>问题描述：Got permission denied while trying to connect to the Docker daemon socket<br>问题原因：docker进程使用Unix Socket而不是TCP端口。而默认情况下，Unix socket属于root用户，需要root权限才能访问<br>解决措施：</p><ol><li>使用sudo获取管理员权限</li><li>docker守护进程启动时，会默认赋予docker的用户组读写Unix Socket的权限，因此只需将当前用户添加到用户组就有权限访问Unix Socket了<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker     #添加docker用户组</span><br><span class="line">sudo gpasswd -a $USER docker     #将登陆用户加入到docker用户组中</span><br><span class="line">newgrp docker     #更新用户组</span><br><span class="line">docker ps    #测试docker命令是否可以使用sudo正常使用</span><br></pre></td></tr></table></figure></li></ol><h2 id="修改国内镜像源"><a href="#修改国内镜像源" class="headerlink" title="修改国内镜像源"></a>修改国内镜像源</h2><p>问题描述：Error response from daemon: Head “<a href="https://registry-1.docker.io/v2/library/ngnix/manifests/latest&quot;">https://registry-1.docker.io/v2/library/ngnix/manifests/latest&quot;</a>: Get “<a href="https://auth.docker.io/token?scope=repository:library/ngnix:pull&amp;service=registry.docker.io&quot;">https://auth.docker.io/token?scope=repository%3Alibrary%2Fngnix%3Apull&amp;service=registry.docker.io&quot;</a>: net/http: TLS handshake timeout.<br>问题原因：国内无法访问镜像源<br>解决措施：更改为国内镜像源</p><ol><li>sudo vim /etc/docker/daemon.json</li><li>修改配置文件<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&#123;</span></span><br><span class="line"><span class="meta">&quot;registry-mirrors&quot;</span>: <span class="string">[&quot;https://docker.mirrors.ustc.edu.cn/&quot;,&quot;https://hub-mirror.c.163.com&quot;,&quot;https://registry.docker-cn.com&quot;],</span></span><br><span class="line"><span class="meta">&quot;insecure-registries&quot;</span>: <span class="string">[&quot;10.0.0.12:5000&quot;]</span></span><br><span class="line"><span class="attr">&#125;</span></span><br></pre></td></tr></table></figure></li><li>重新加载守护进程：sudo systemctl daemon-reload</li><li>重启docker：sudo service docker restart</li></ol>]]></content>
+        <content type="html"><![CDATA[<h3 id="Dockerfile-和-docker-compose-yml-的区别"><a href="#Dockerfile-和-docker-compose-yml-的区别" class="headerlink" title="Dockerfile 和 docker-compose.yml 的区别"></a>Dockerfile 和 docker-compose.yml 的区别</h3><p>Dockerfile: Dockerfile 是拿来构建自定义镜像的，并没有直接生成容器<br>docker-compose.yml是用来编排项目的，里面包含使用各种镜像创建的容器服务,在服务启动的时候用到</p><h3 id="为什么容器是单进程模型"><a href="#为什么容器是单进程模型" class="headerlink" title="为什么容器是单进程模型"></a>为什么容器是单进程模型</h3><p>容器只是通过Linux的Namespaces、Cgroups实现了进程级别的隔离。虽然在容器里看不见宿主机上的其他进程，但归根结底它还只是一个运行在宿主机上的进程，所以就不具备操作系统的进程管理能力。</p><p>容器的”单进程模型”，并不是指容器里只能运行”一个”进程，而是指容器没有管理多个进程的能力。这是因为容器里的主进程（PID=1 的进程）就是应用本身，其他的进程都是这个主进程的子进程。可是，用户编写的应用，并不能够像正常操作系统里的init进程或者systemd 那样拥有进程管理的功能。<br>reference：<a href="https://cloud.tencent.com/developer/article/1671554">https://cloud.tencent.com/developer/article/1671554</a></p>]]></content>
       
       
       <categories>
@@ -965,33 +1015,6 @@
     
     
     <entry>
-      <title>Nginx反向代理</title>
-      <link href="2021/05/01/Nginx/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
-      <url>2021/05/01/Nginx/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Nginx反向代理"><a href="#Nginx反向代理" class="headerlink" title="Nginx反向代理"></a>Nginx反向代理</h1><h2 id="反向代理流程"><a href="#反向代理流程" class="headerlink" title="反向代理流程"></a>反向代理流程</h2><p><img src="/images/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%B5%81%E7%A8%8B.png" alt="Nginx反向代理流程"></p><h2 id="Proxy-pass模块规则"><a href="#Proxy-pass模块规则" class="headerlink" title="Proxy_pass模块规则"></a>Proxy_pass模块规则</h2><ul><li>URL必须以http://或者https://开头，接下来时域名，IP，unix socket地址或者upstream的名字。可以在域名或者IP之后加端口，最后可选的时URI</li><li>Nginx会根据当前URL参数当中携带URI与否，会导致发至上游请求的URL不同，<ul><li>不携带URI时，则直接将客户端请求中的URL直接发送到上游服务器。location参数后使用正则表达式、@名字时，应采用这种方式</li><li>携带URI时，会将location参数匹配上的一段替换为该URI</li></ul></li><li>更复杂的URL替换，可以在location内配置添加rewrite break语句</li></ul><h2 id="发送给上游的http请求头部包体处理"><a href="#发送给上游的http请求头部包体处理" class="headerlink" title="发送给上游的http请求头部包体处理"></a>发送给上游的http请求头部包体处理</h2><ul><li>请求行<ul><li>proxy method</li><li>proxy_http_version 1.0|1.1</li></ul></li><li>请求头部<ul><li>proxy_set_header</li><li>proxy_pass_request_headers on|off:是否把请求头部发给上游，默认时开启的</li></ul></li><li>请求体<ul><li>proxy_set_body</li><li>proxy_pass_request_body on|off:是否把请求体发给上游，默认时开启的</li></ul></li></ul><h2 id="接受客户端请求的包体"><a href="#接受客户端请求的包体" class="headerlink" title="接受客户端请求的包体"></a>接受客户端请求的包体</h2><h3 id="proxy-request-buffering-on-off"><a href="#proxy-request-buffering-on-off" class="headerlink" title="proxy_request_buffering on|off"></a>proxy_request_buffering on|off</h3><p>决定包体收完再转发还是边收边转发，默认时on</p><ul><li><p>on使用情景</p><ul><li>客户端网速较慢</li><li>上游服务并发处理能力地</li><li>适应高吞吐量场景</li></ul></li><li><p>off使用情景</p><ul><li>更及时的响应</li><li>降低Nginx读写磁盘的消耗</li><li>一旦发送内容，proxy_next_upstream功能失败</li></ul></li></ul><h3 id="客户端包体的接收"><a href="#客户端包体的接收" class="headerlink" title="客户端包体的接收"></a>客户端包体的接收</h3><h4 id="客户端包体的内存分配"><a href="#客户端包体的内存分配" class="headerlink" title="客户端包体的内存分配"></a>客户端包体的内存分配</h4><ul><li>若接收头部时已经接收完全部的包体，则不分配</li><li>若剩余待接收包体的长度小于client_body_buffer_size，则仅分配所需大小</li><li>分配client_body_buffer_size大小内存接收包体<ul><li>关闭包体缓存时，该内存上的内容及时发送给上游</li><li>打开包体缓存，该端内存用完时，写入临时文件，释放内存<h3 id="相关参数"><a href="#相关参数" class="headerlink" title="相关参数"></a>相关参数</h3></li></ul></li><li>client_body_buffer_size：缓存body长度</li><li>client_max_body_size: 最大包体长度限制</li><li>client_body_temp_path：包体临时文件路径</li><li>client_body_in_file_only：包体必须保存在文件中</li><li>client_body_timeout：读取包体时超时</li></ul><h3 id="和上游服务器建立连接"><a href="#和上游服务器建立连接" class="headerlink" title="和上游服务器建立连接"></a>和上游服务器建立连接</h3><ul><li>TCP keepalive</li><li>HTTP keepalive</li></ul><h3 id="处理上游的响应头部"><a href="#处理上游的响应头部" class="headerlink" title="处理上游的响应头部"></a>处理上游的响应头部</h3><h4 id="proxy-ignore-headers"><a href="#proxy-ignore-headers" class="headerlink" title="proxy_ignore_headers"></a>proxy_ignore_headers</h4><p>作用：禁用某些响应头部改变Nginx的行为<br>可禁用功能的头部：</p><ul><li>X-Accel-Redirect: 由上游服务指定nginx内部重定向，控制请求的执行</li><li>X-Accel-Limit-Rate：由上游设置发往客户端的速度限制</li><li>X-Accel-Buffering：由上游控制是否缓存上游的响应</li><li>X-Accel-Charset：由上游控制Content-Type的Charset</li><li>缓存相关：<ul><li>X-Accel-Expires：设置响应在Nginx中缓存时间</li><li>Expires：控制Nginx缓存时间</li><li>Cache-Control：控制Nginx缓存时间</li><li>Set-cookie：响应中出现Set-Cookie则不缓存</li><li>Vary：响应中出现Vary：*则不缓存</li></ul></li></ul><h2 id="Nginx缓存"><a href="#Nginx缓存" class="headerlink" title="Nginx缓存"></a>Nginx缓存</h2><h3 id="Nginx如何解决缓存失效时上游服务器的压力"><a href="#Nginx如何解决缓存失效时上游服务器的压力" class="headerlink" title="Nginx如何解决缓存失效时上游服务器的压力"></a>Nginx如何解决缓存失效时上游服务器的压力</h3><h4 id="合并回源请求，减轻峰值流量下的压力"><a href="#合并回源请求，减轻峰值流量下的压力" class="headerlink" title="合并回源请求，减轻峰值流量下的压力"></a>合并回源请求，减轻峰值流量下的压力</h4><p>使用proxy_cache_lock on|off，同一个时间，仅第一个请求发向上游，其他请求等待第一个响应返回或者超时后，使用缓存响应客户端。<br>可以通过proxy_cache_lock_timeout设置第一个返回响应的最大时间，到达时间后，直接向上游发送请求，<br>Proxy_cache_lock_age 上游请求返回响应的时间，到达该时间后再放行一个请求发送上游。</p><p><img src="//images/Nginx%E5%90%88%E5%B9%B6%E5%9B%9E%E6%BA%90%E8%AF%B7%E6%B1%82.png" alt="Nginx合并回源请求"></p><h4 id="减少回源请求，使用stale陈旧的缓存"><a href="#减少回源请求，使用stale陈旧的缓存" class="headerlink" title="减少回源请求，使用stale陈旧的缓存"></a>减少回源请求，使用stale陈旧的缓存</h4><p><img src="//images/Nginx%E5%90%88%E5%B9%B6%E5%9B%9E%E6%BA%90%E8%AF%B7%E6%B1%82.png" alt="Nginx合并回源请求"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 中间件 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Nginx </tag>
-            
-            <tag> 负载均衡 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Nginx 简介</title>
       <link href="2021/05/01/Nginx/Nginx/"/>
       <url>2021/05/01/Nginx/Nginx/</url>
@@ -1019,11 +1042,11 @@
     
     
     <entry>
-      <title>Nginx 负载均衡</title>
-      <link href="2021/05/01/Nginx/Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
-      <url>2021/05/01/Nginx/Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</url>
+      <title>Nginx 操作</title>
+      <link href="2021/05/01/Nginx/Nginx%E6%93%8D%E4%BD%9C/"/>
+      <url>2021/05/01/Nginx/Nginx%E6%93%8D%E4%BD%9C/</url>
       
-        <content type="html"><![CDATA[<h1 id="Nginx-负载均衡"><a href="#Nginx-负载均衡" class="headerlink" title="Nginx 负载均衡"></a>Nginx 负载均衡</h1><h2 id="Nginx-负载均衡特点"><a href="#Nginx-负载均衡特点" class="headerlink" title="Nginx 负载均衡特点"></a>Nginx 负载均衡特点</h2><p>Nginx并不会立刻转发到上游服务器，而是先把用户的请求（包括HTTP包体） 完整地接收到Nginx所在服务器的硬盘或者内存中，然后再向上游服务器发起连接， 把缓存的客户端请求转发到上游服务器。（接收到完整的客户端请求（如1GB的文件） 后， 才会与上游服务器建立连接转发请求）。</p><p>缺点：延长了一个请求的处理时间，并增加了用于缓存请求内容的内存和磁盘空间<br>优点：降低了上游服务器的负载， 尽量把压力放在Nginx服务器上<br><img src="/images/%E4%BD%9C%E4%B8%BA%E9%9D%99%E6%80%81Web%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84Nginx.png" alt="作为静态Web服务器与反向代理服务器的Nginx"></p><p><img src="/images/Nginx%E4%BD%9C%E4%B8%BA%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%B6%E8%BD%AC%E5%8F%91%E8%AF%B7%E6%B1%82%E7%9A%84%E6%B5%81%E7%A8%8B.png" alt="Nginx作为反向代理服务器时转发请求的流程"></p><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ol><li>upstream块：upstream块定义了一个上游服务器的集群， 便于反向代理中的proxy_pass使用</li><li>ip_hash：我们可能会希望来自某一个用户的请求始终落到固定的一台上游服务器中。如果同一个用户的请求任意地转发到集群中的任一台上游服务器中， 那么每一台上游服务器都有可能会缓存同一份信息， 这既会造成资源。的浪费， 也会难以有效地管理缓存信息，这样确保了<strong>同一个客户端的请求只会转发到指定的上游服务器中</strong>。</li><li>proxy_pass:此配置项将当前请求反向代理到URL参数指定的服务器上， URL可以是主机名或IP地址加端口的形式。</li><li>proxy_method:配置项表示转发时的协议方法名</li><li>proxy_hide_header:Nginx会将上游服务器的响应转发给客户端， 可以任意地指定哪些HTTP头部字段不能被转发。</li><li>proxy_pass_header:与proxy_hide_header 相反</li><li>proxy_pass_request_headers：作用为确定是否转发HTTP头部。</li><li>proxy_redirect：当上游服务器返回的响应是重定向或刷新请求（ 如HTTP响应码是301或者302） 时，proxy_redirect可以重设HTTP头部的location或refresh字段</li><li>proxy_next_upstream：此配置项表示当向一台上游服务器转发请求出现错误时， 继续换一台上游服务器处理这个请求</li></ol>]]></content>
+        <content type="html"><![CDATA[<h2 id="重载配置文件"><a href="#重载配置文件" class="headerlink" title="重载配置文件"></a>重载配置文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -S reload 或</span><br><span class="line">kill -HUP 主进程号</span><br></pre></td></tr></table></figure><h2 id="热部署"><a href="#热部署" class="headerlink" title="热部署"></a>热部署</h2><ol><li><p>备份旧的可执行文件</p></li><li><p>给主进程发USER2信号：执行完后新的主进程和旧的同时存在，会将新的请求/连接给到新的主进程中</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -USR2 9944</span><br></pre></td></tr></table></figure></li><li><p>给旧的主进程发送WINCH信号：通知旧的主进程优雅的关闭旧的work进程(执行完任务后关闭)，旧的主进程还在，以便做版本回退。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -WINCH 9944</span><br></pre></td></tr></table></figure></li><li><p>给旧的主进程发送QUIT信号，使其关闭。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -QUIT 9944</span><br></pre></td></tr></table></figure></li><li><p>如果需要进行版本回退，可以给旧的主进程发HUP命令，nginx不重新读取配置文件的情况下重新启动旧主进程的工作进程。然后再优雅的关闭新的主进程</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kill -HUP 9944</span><br><span class="line">kill -QUIT 新的主进程pid</span><br></pre></td></tr></table></figure></li></ol><h2 id="重启日志文件（日志文件分割）"><a href="#重启日志文件（日志文件分割）" class="headerlink" title="重启日志文件（日志文件分割）"></a>重启日志文件（日志文件分割）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reopen </span><br><span class="line">或者 kill -USR1 2030</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -1046,11 +1069,38 @@
     
     
     <entry>
-      <title>Nginx 操作</title>
-      <link href="2021/05/01/Nginx/Nginx%E6%93%8D%E4%BD%9C/"/>
-      <url>2021/05/01/Nginx/Nginx%E6%93%8D%E4%BD%9C/</url>
+      <title>Nginx反向代理</title>
+      <link href="2021/05/01/Nginx/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/"/>
+      <url>2021/05/01/Nginx/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</url>
       
-        <content type="html"><![CDATA[<h2 id="重载配置文件"><a href="#重载配置文件" class="headerlink" title="重载配置文件"></a>重载配置文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -S reload 或</span><br><span class="line">kill -HUP 主进程号</span><br></pre></td></tr></table></figure><h2 id="热部署"><a href="#热部署" class="headerlink" title="热部署"></a>热部署</h2><ol><li><p>备份旧的可执行文件</p></li><li><p>给主进程发USER2信号：执行完后新的主进程和旧的同时存在，会将新的请求/连接给到新的主进程中</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -USR2 9944</span><br></pre></td></tr></table></figure></li><li><p>给旧的主进程发送WINCH信号：通知旧的主进程优雅的关闭旧的work进程(执行完任务后关闭)，旧的主进程还在，以便做版本回退。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -WINCH 9944</span><br></pre></td></tr></table></figure></li><li><p>给旧的主进程发送QUIT信号，使其关闭。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -QUIT 9944</span><br></pre></td></tr></table></figure></li><li><p>如果需要进行版本回退，可以给旧的主进程发HUP命令，nginx不重新读取配置文件的情况下重新启动旧主进程的工作进程。然后再优雅的关闭新的主进程</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kill -HUP 9944</span><br><span class="line">kill -QUIT 新的主进程pid</span><br></pre></td></tr></table></figure></li></ol><h2 id="重启日志文件（日志文件分割）"><a href="#重启日志文件（日志文件分割）" class="headerlink" title="重启日志文件（日志文件分割）"></a>重启日志文件（日志文件分割）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reopen </span><br><span class="line">或者 kill -USR1 2030</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="Nginx反向代理"><a href="#Nginx反向代理" class="headerlink" title="Nginx反向代理"></a>Nginx反向代理</h1><h2 id="反向代理流程"><a href="#反向代理流程" class="headerlink" title="反向代理流程"></a>反向代理流程</h2><p><img src="/images/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%B5%81%E7%A8%8B.png" alt="Nginx反向代理流程"></p><h2 id="Proxy-pass模块规则"><a href="#Proxy-pass模块规则" class="headerlink" title="Proxy_pass模块规则"></a>Proxy_pass模块规则</h2><ul><li>URL必须以http://或者https://开头，接下来时域名，IP，unix socket地址或者upstream的名字。可以在域名或者IP之后加端口，最后可选的时URI</li><li>Nginx会根据当前URL参数当中携带URI与否，会导致发至上游请求的URL不同，<ul><li>不携带URI时，则直接将客户端请求中的URL直接发送到上游服务器。location参数后使用正则表达式、@名字时，应采用这种方式</li><li>携带URI时，会将location参数匹配上的一段替换为该URI</li></ul></li><li>更复杂的URL替换，可以在location内配置添加rewrite break语句</li></ul><h2 id="发送给上游的http请求头部包体处理"><a href="#发送给上游的http请求头部包体处理" class="headerlink" title="发送给上游的http请求头部包体处理"></a>发送给上游的http请求头部包体处理</h2><ul><li>请求行<ul><li>proxy method</li><li>proxy_http_version 1.0|1.1</li></ul></li><li>请求头部<ul><li>proxy_set_header</li><li>proxy_pass_request_headers on|off:是否把请求头部发给上游，默认时开启的</li></ul></li><li>请求体<ul><li>proxy_set_body</li><li>proxy_pass_request_body on|off:是否把请求体发给上游，默认时开启的</li></ul></li></ul><h2 id="接受客户端请求的包体"><a href="#接受客户端请求的包体" class="headerlink" title="接受客户端请求的包体"></a>接受客户端请求的包体</h2><h3 id="proxy-request-buffering-on-off"><a href="#proxy-request-buffering-on-off" class="headerlink" title="proxy_request_buffering on|off"></a>proxy_request_buffering on|off</h3><p>决定包体收完再转发还是边收边转发，默认时on</p><ul><li><p>on使用情景</p><ul><li>客户端网速较慢</li><li>上游服务并发处理能力地</li><li>适应高吞吐量场景</li></ul></li><li><p>off使用情景</p><ul><li>更及时的响应</li><li>降低Nginx读写磁盘的消耗</li><li>一旦发送内容，proxy_next_upstream功能失败</li></ul></li></ul><h3 id="客户端包体的接收"><a href="#客户端包体的接收" class="headerlink" title="客户端包体的接收"></a>客户端包体的接收</h3><h4 id="客户端包体的内存分配"><a href="#客户端包体的内存分配" class="headerlink" title="客户端包体的内存分配"></a>客户端包体的内存分配</h4><ul><li>若接收头部时已经接收完全部的包体，则不分配</li><li>若剩余待接收包体的长度小于client_body_buffer_size，则仅分配所需大小</li><li>分配client_body_buffer_size大小内存接收包体<ul><li>关闭包体缓存时，该内存上的内容及时发送给上游</li><li>打开包体缓存，该端内存用完时，写入临时文件，释放内存<h3 id="相关参数"><a href="#相关参数" class="headerlink" title="相关参数"></a>相关参数</h3></li></ul></li><li>client_body_buffer_size：缓存body长度</li><li>client_max_body_size: 最大包体长度限制</li><li>client_body_temp_path：包体临时文件路径</li><li>client_body_in_file_only：包体必须保存在文件中</li><li>client_body_timeout：读取包体时超时</li></ul><h3 id="和上游服务器建立连接"><a href="#和上游服务器建立连接" class="headerlink" title="和上游服务器建立连接"></a>和上游服务器建立连接</h3><ul><li>TCP keepalive</li><li>HTTP keepalive</li></ul><h3 id="处理上游的响应头部"><a href="#处理上游的响应头部" class="headerlink" title="处理上游的响应头部"></a>处理上游的响应头部</h3><h4 id="proxy-ignore-headers"><a href="#proxy-ignore-headers" class="headerlink" title="proxy_ignore_headers"></a>proxy_ignore_headers</h4><p>作用：禁用某些响应头部改变Nginx的行为<br>可禁用功能的头部：</p><ul><li>X-Accel-Redirect: 由上游服务指定nginx内部重定向，控制请求的执行</li><li>X-Accel-Limit-Rate：由上游设置发往客户端的速度限制</li><li>X-Accel-Buffering：由上游控制是否缓存上游的响应</li><li>X-Accel-Charset：由上游控制Content-Type的Charset</li><li>缓存相关：<ul><li>X-Accel-Expires：设置响应在Nginx中缓存时间</li><li>Expires：控制Nginx缓存时间</li><li>Cache-Control：控制Nginx缓存时间</li><li>Set-cookie：响应中出现Set-Cookie则不缓存</li><li>Vary：响应中出现Vary：*则不缓存</li></ul></li></ul><h2 id="Nginx缓存"><a href="#Nginx缓存" class="headerlink" title="Nginx缓存"></a>Nginx缓存</h2><h3 id="Nginx如何解决缓存失效时上游服务器的压力"><a href="#Nginx如何解决缓存失效时上游服务器的压力" class="headerlink" title="Nginx如何解决缓存失效时上游服务器的压力"></a>Nginx如何解决缓存失效时上游服务器的压力</h3><h4 id="合并回源请求，减轻峰值流量下的压力"><a href="#合并回源请求，减轻峰值流量下的压力" class="headerlink" title="合并回源请求，减轻峰值流量下的压力"></a>合并回源请求，减轻峰值流量下的压力</h4><p>使用proxy_cache_lock on|off，同一个时间，仅第一个请求发向上游，其他请求等待第一个响应返回或者超时后，使用缓存响应客户端。<br>可以通过proxy_cache_lock_timeout设置第一个返回响应的最大时间，到达时间后，直接向上游发送请求，<br>Proxy_cache_lock_age 上游请求返回响应的时间，到达该时间后再放行一个请求发送上游。</p><p><img src="//images/Nginx%E5%90%88%E5%B9%B6%E5%9B%9E%E6%BA%90%E8%AF%B7%E6%B1%82.png" alt="Nginx合并回源请求"></p><h4 id="减少回源请求，使用stale陈旧的缓存"><a href="#减少回源请求，使用stale陈旧的缓存" class="headerlink" title="减少回源请求，使用stale陈旧的缓存"></a>减少回源请求，使用stale陈旧的缓存</h4><p><img src="//images/Nginx%E5%90%88%E5%B9%B6%E5%9B%9E%E6%BA%90%E8%AF%B7%E6%B1%82.png" alt="Nginx合并回源请求"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 中间件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Nginx </tag>
+            
+            <tag> 负载均衡 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Nginx 负载均衡</title>
+      <link href="2021/05/01/Nginx/Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/"/>
+      <url>2021/05/01/Nginx/Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Nginx-负载均衡"><a href="#Nginx-负载均衡" class="headerlink" title="Nginx 负载均衡"></a>Nginx 负载均衡</h1><h2 id="Nginx-负载均衡特点"><a href="#Nginx-负载均衡特点" class="headerlink" title="Nginx 负载均衡特点"></a>Nginx 负载均衡特点</h2><p>Nginx并不会立刻转发到上游服务器，而是先把用户的请求（包括HTTP包体） 完整地接收到Nginx所在服务器的硬盘或者内存中，然后再向上游服务器发起连接， 把缓存的客户端请求转发到上游服务器。（接收到完整的客户端请求（如1GB的文件） 后， 才会与上游服务器建立连接转发请求）。</p><p>缺点：延长了一个请求的处理时间，并增加了用于缓存请求内容的内存和磁盘空间<br>优点：降低了上游服务器的负载， 尽量把压力放在Nginx服务器上<br><img src="/images/%E4%BD%9C%E4%B8%BA%E9%9D%99%E6%80%81Web%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8E%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84Nginx.png" alt="作为静态Web服务器与反向代理服务器的Nginx"></p><p><img src="/images/Nginx%E4%BD%9C%E4%B8%BA%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%B6%E8%BD%AC%E5%8F%91%E8%AF%B7%E6%B1%82%E7%9A%84%E6%B5%81%E7%A8%8B.png" alt="Nginx作为反向代理服务器时转发请求的流程"></p><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><ol><li>upstream块：upstream块定义了一个上游服务器的集群， 便于反向代理中的proxy_pass使用</li><li>ip_hash：我们可能会希望来自某一个用户的请求始终落到固定的一台上游服务器中。如果同一个用户的请求任意地转发到集群中的任一台上游服务器中， 那么每一台上游服务器都有可能会缓存同一份信息， 这既会造成资源。的浪费， 也会难以有效地管理缓存信息，这样确保了<strong>同一个客户端的请求只会转发到指定的上游服务器中</strong>。</li><li>proxy_pass:此配置项将当前请求反向代理到URL参数指定的服务器上， URL可以是主机名或IP地址加端口的形式。</li><li>proxy_method:配置项表示转发时的协议方法名</li><li>proxy_hide_header:Nginx会将上游服务器的响应转发给客户端， 可以任意地指定哪些HTTP头部字段不能被转发。</li><li>proxy_pass_header:与proxy_hide_header 相反</li><li>proxy_pass_request_headers：作用为确定是否转发HTTP头部。</li><li>proxy_redirect：当上游服务器返回的响应是重定向或刷新请求（ 如HTTP响应码是301或者302） 时，proxy_redirect可以重设HTTP头部的location或refresh字段</li><li>proxy_next_upstream：此配置项表示当向一台上游服务器转发请求出现错误时， 继续换一台上游服务器处理这个请求</li></ol>]]></content>
       
       
       <categories>
@@ -1727,6 +1777,31 @@
     
     
     <entry>
+      <title>CDN</title>
+      <link href="2021/05/01/network/CDN%E5%8A%A0%E9%80%9F/"/>
+      <url>2021/05/01/network/CDN%E5%8A%A0%E9%80%9F/</url>
+      
+        <content type="html"><![CDATA[<h3 id="CDN-Content-Delivery-Network"><a href="#CDN-Content-Delivery-Network" class="headerlink" title="CDN(Content Delivery Network)"></a>CDN(Content Delivery Network)</h3><ul><li>目的：内容分发网络通过在现有的Internet中添加一层新的缓存，将网站的内容发布到最接近用户的网络边缘节点，时用户能够就近地获取到内容，提高用户访问网站的响应速度。解决由于网络宽带小、用户访问量大、网点分布不均匀等问题。</li></ul><h4 id="优化作用的体现："><a href="#优化作用的体现：" class="headerlink" title="优化作用的体现："></a>优化作用的体现：</h4><ul><li>解决服务器端的“第一公里“的问题</li><li>缓解甚至消除不同运营商之间互联的瓶颈造成的影响</li><li>减轻各省的出口宽带压力</li><li>缓解骨干网的压力</li><li>优化网上热点内容分布</li></ul><h4 id="原理图："><a href="#原理图：" class="headerlink" title="原理图："></a>原理图：</h4><p>传统过程</p><p><img src="..%5Cimage%5CCDN%E4%BC%A0%E7%BB%9F%E8%BF%87%E7%A8%8B.png" alt="传统过程"></p><p>加速过程</p><p><img src="..%5Cimage%5CCDN%E5%8A%A0%E9%80%9F%E8%BF%87%E7%A8%8B.png" alt="传统过程"></p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.jianshu.com/p/1dae6e1680ff">https://www.jianshu.com/p/1dae6e1680ff</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Network </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>DHCP和PXE</title>
       <link href="2021/05/01/network/DHCP%E5%92%8CPXE/"/>
       <url>2021/05/01/network/DHCP%E5%92%8CPXE/</url>
@@ -1827,31 +1902,6 @@
     
     
     <entry>
-      <title>CDN</title>
-      <link href="2021/05/01/network/CDN%E5%8A%A0%E9%80%9F/"/>
-      <url>2021/05/01/network/CDN%E5%8A%A0%E9%80%9F/</url>
-      
-        <content type="html"><![CDATA[<h3 id="CDN-Content-Delivery-Network"><a href="#CDN-Content-Delivery-Network" class="headerlink" title="CDN(Content Delivery Network)"></a>CDN(Content Delivery Network)</h3><ul><li>目的：内容分发网络通过在现有的Internet中添加一层新的缓存，将网站的内容发布到最接近用户的网络边缘节点，时用户能够就近地获取到内容，提高用户访问网站的响应速度。解决由于网络宽带小、用户访问量大、网点分布不均匀等问题。</li></ul><h4 id="优化作用的体现："><a href="#优化作用的体现：" class="headerlink" title="优化作用的体现："></a>优化作用的体现：</h4><ul><li>解决服务器端的“第一公里“的问题</li><li>缓解甚至消除不同运营商之间互联的瓶颈造成的影响</li><li>减轻各省的出口宽带压力</li><li>缓解骨干网的压力</li><li>优化网上热点内容分布</li></ul><h4 id="原理图："><a href="#原理图：" class="headerlink" title="原理图："></a>原理图：</h4><p>传统过程</p><p><img src="..%5Cimage%5CCDN%E4%BC%A0%E7%BB%9F%E8%BF%87%E7%A8%8B.png" alt="传统过程"></p><p>加速过程</p><p><img src="..%5Cimage%5CCDN%E5%8A%A0%E9%80%9F%E8%BF%87%E7%A8%8B.png" alt="传统过程"></p><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.jianshu.com/p/1dae6e1680ff">https://www.jianshu.com/p/1dae6e1680ff</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 计算机基础 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Network </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>DDos</title>
       <link href="2021/05/01/safety/DDos/"/>
       <url>2021/05/01/safety/DDos/</url>
@@ -1929,6 +1979,31 @@
     
     
     <entry>
+      <title>XSS</title>
+      <link href="2021/05/01/safety/XSS(%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB)/"/>
+      <url>2021/05/01/safety/XSS(%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB)/</url>
+      
+        <content type="html"><![CDATA[<h3 id="XSS简介"><a href="#XSS简介" class="headerlink" title="XSS简介"></a>XSS简介</h3><p>Cross-Site Scripting（跨站脚本攻击）简称 XSS。攻击者往Web页面里插入恶意的Script代码，当用户浏览该页之时，嵌入其中Web里面的Script代码会被执行，从而达到恶意攻击用户的目的。</p><p>本质：恶意代码未经过滤，与网站正常的代码混在一起；浏览器无法分辨哪些脚本是可信的，导致恶意脚本被执行。</p><p>分类：存储型XSS,反射型XSS,DOM型XSS</p><h4 id="反射性XSS"><a href="#反射性XSS" class="headerlink" title="反射性XSS"></a>反射性XSS</h4><p>将用户输入的数据“反射”给浏览器。往往需要诱使用户点击一个恶意链接，才能攻击成功。又称“非持久性XSS”</p><h4 id="存储型XSS"><a href="#存储型XSS" class="headerlink" title="存储型XSS"></a>存储型XSS</h4><p>将用户输入的数据“存储”在服务器端。如写下一篇包含恶意JavaScript代码的博客</p><h4 id="DOM-型XSS"><a href="#DOM-型XSS" class="headerlink" title="DOM 型XSS"></a>DOM 型XSS</h4><p>类似于反射性XSS，用户点击时，修改页面的DOM节点形成XSS</p><p>通常来说风险：存储型 &gt; 反射性<br>攻击过程来说：反射性 &gt; 存储型</p><h3 id="XSS攻击进阶"><a href="#XSS攻击进阶" class="headerlink" title="XSS攻击进阶"></a>XSS攻击进阶</h3><h4 id="XSS-Payload"><a href="#XSS-Payload" class="headerlink" title="XSS Payload"></a>XSS Payload</h4><p>XSS Payload：攻击者能够对用户当前浏览器的页面植入恶意脚本，进而控制用户的浏览器。这种恶意脚本就称为”XSS Payload”</p><p>常见的 XSS Payload: 读取浏览器的cookie对象，从而发起“Cookie劫持”攻击</p><h4 id="构造GET-和POST请求"><a href="#构造GET-和POST请求" class="headerlink" title="构造GET 和POST请求"></a>构造GET 和POST请求</h4><p>通过JavaScript 模拟浏览器发包<br>通过GET执行某些操作<br>通过JavaScript发出Post请求，通过提交表单或者通过XMLHttpRequest</p><h4 id="XSS钓鱼"><a href="#XSS钓鱼" class="headerlink" title="XSS钓鱼"></a>XSS钓鱼</h4><p>XSS的攻击都是通过浏览器的JavaScript脚本自动进行的，缺少和用户交互的过程。<br>比如：修改用户密码时需要用户输入旧密码，这样就可以通过钓鱼 </p><h4 id="识别用户浏览器"><a href="#识别用户浏览器" class="headerlink" title="识别用户浏览器"></a>识别用户浏览器</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(navigator.userAgent);</span><br></pre></td></tr></table></figure><p>更高级的识别技巧：利用不同浏览器之间的是独有的对象判断</p><h4 id="识别用户安装的软件"><a href="#识别用户安装的软件" class="headerlink" title="识别用户安装的软件"></a>识别用户安装的软件</h4><p>如识别firefox的拓展</p><h4 id="获取用户的真实IP地址"><a href="#获取用户的真实IP地址" class="headerlink" title="获取用户的真实IP地址"></a>获取用户的真实IP地址</h4><p>如果客户安装了Java环境，XSS就可以通过调用JavaApplet的接口获取本机IP地址</p><h4 id="XSS构造技巧"><a href="#XSS构造技巧" class="headerlink" title="XSS构造技巧"></a>XSS构造技巧</h4><ul><li>利用字符编码</li><li>绕过长度限制<ul><li>利用 location,hash 藏代码</li><li>远程加载JS</li><li>利用注释符</li></ul></li><li>使用&lt;base&gt;标签<ul><li>作用是定义页面上所有使用相对路径标签的host地址</li></ul></li><li>window.name 实现跨域、跨页面请求数据</li></ul><h3 id="XSS防御"><a href="#XSS防御" class="headerlink" title="XSS防御"></a>XSS防御</h3><p>XSS本质是“HTML 注入”</p><h4 id="HTTP-only"><a href="#HTTP-only" class="headerlink" title="HTTP only"></a>HTTP only</h4><p>通过Set-Cookie给关键Cookie植入HTTPOnly标识，解决XXS后的Cookie劫持攻击<br>防御：</p><h4 id="输入检查"><a href="#输入检查" class="headerlink" title="输入检查"></a>输入检查</h4><p>前后端都对输入进行检查，检查用户输入的数据是否包含一些特殊的字符。这种方式成为“XSS Filter”</p><h4 id="输出检查"><a href="#输出检查" class="headerlink" title="输出检查"></a>输出检查</h4><p>变量输出到HTML页面时，可以使用编码或者转义的方式防御XSS</p><ul><li>使用安全的编码函数，需要注意的是安全编码后的长度可能发生改变，影响某些功能</li><li>可以考虑不止使用一种编码</li></ul><h4 id="处理富文本"><a href="#处理富文本" class="headerlink" title="处理富文本"></a>处理富文本</h4><p>禁止危险标签：&lt;iframe&gt;,&lt;script&gt;,&lt;base&gt;,&lt;form&gt;<br>标签应使用白名单，避免黑名单。如只允许使用&lt;a&gt;,&lt;img&gt;,&lt;div&gt;等安全标签<br>白名单同时应用于属性与事件的选择</p><h4 id="防御DOM-based-XSS"><a href="#防御DOM-based-XSS" class="headerlink" title="防御DOM based XSS"></a>防御DOM based XSS</h4><p>尽量避免用户的输入，关注会修改HTML的语句，如</p><ul><li>xxx.innerHTML= </li><li>document.write …..</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 安全 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 安全 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>安全基础</title>
       <link href="2021/05/01/safety/safety%E5%9F%BA%E7%A1%80/"/>
       <url>2021/05/01/safety/safety%E5%9F%BA%E7%A1%80/</url>
@@ -1984,31 +2059,6 @@
       <url>2021/05/01/safety/%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB/</url>
       
         <content type="html"><![CDATA[<h2 id="注入攻击"><a href="#注入攻击" class="headerlink" title="注入攻击"></a>注入攻击</h2><p>注入攻击是应用违背了“数据与代码分离原则的”结果</p><p>注入攻击的两个条件</p><ol><li>用户能够控制数据的输入</li><li>原本要执行的代码，拼接了用户的输入，把数据当做代码执行了<h3 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h3></li><li>要避免Web服务器开启错误回显，将错误信息直接返回</li><li>还可以盲注，比如注入 “and 1=2”</li><li>Timing Attach，用BENCHMARK函数造成延迟，如果不为真，则该语句很快就执行完</li><li>BENCHMARK()函数，可以让同一个函数执行若干次，使得结果返回的时间比平常要场，通过时间长短的变化，判断出注入语句是否执行成功。</li></ol><h4 id="防御SQL注入"><a href="#防御SQL注入" class="headerlink" title="防御SQL注入"></a>防御SQL注入</h4><p>要做的事情</p><ul><li><p>找到所有SQL注入漏洞</p></li><li><p>修补这些漏洞</p></li><li><p>使用预编译语句<br>如使用？代替变量</p></li><li><p>使用存储过程<br>尽量避免在存储过程内使用动态的sql，如果无法避免，应该使用严格的输入过滤或者编码函数来处理用户的输入数据</p></li><li><p>检查数据类型</p></li><li><p>使用安全函数</p></li><li><p>数据库应该使用最小权限原则，避免web应用直接使用root、dbowner等高权限账户直接连接数据库</p></li></ul><h3 id="XML注入"><a href="#XML注入" class="headerlink" title="XML注入"></a>XML注入</h3><p>与HTML类似，对用书输入数据包含语言本身的保留字符进行转义</p><h3 id="代码注入"><a href="#代码注入" class="headerlink" title="代码注入"></a>代码注入</h3><p>多吗注入多见于脚本语言<br>JSP的动态include也能导致代码注入</p><h3 id="CRLF注入"><a href="#CRLF注入" class="headerlink" title="CRLF注入"></a>CRLF注入</h3><p>CR(\r),LF(\n)<br>\r\n：换行</p><p>通过注入CRLF可能会改变原有的语义，HTTP就是通过“\r\n”来分割的。如果服务器端没有过滤“\r\n”，又把用户输入的数据放在HTTP头中，则有可能导致安全隐患</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 安全 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 安全 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>XSS</title>
-      <link href="2021/05/01/safety/XSS(%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB)/"/>
-      <url>2021/05/01/safety/XSS(%E8%B7%A8%E7%AB%99%E8%84%9A%E6%9C%AC%E6%94%BB%E5%87%BB)/</url>
-      
-        <content type="html"><![CDATA[<h3 id="XSS简介"><a href="#XSS简介" class="headerlink" title="XSS简介"></a>XSS简介</h3><p>Cross-Site Scripting（跨站脚本攻击）简称 XSS。攻击者往Web页面里插入恶意的Script代码，当用户浏览该页之时，嵌入其中Web里面的Script代码会被执行，从而达到恶意攻击用户的目的。</p><p>本质：恶意代码未经过滤，与网站正常的代码混在一起；浏览器无法分辨哪些脚本是可信的，导致恶意脚本被执行。</p><p>分类：存储型XSS,反射型XSS,DOM型XSS</p><h4 id="反射性XSS"><a href="#反射性XSS" class="headerlink" title="反射性XSS"></a>反射性XSS</h4><p>将用户输入的数据“反射”给浏览器。往往需要诱使用户点击一个恶意链接，才能攻击成功。又称“非持久性XSS”</p><h4 id="存储型XSS"><a href="#存储型XSS" class="headerlink" title="存储型XSS"></a>存储型XSS</h4><p>将用户输入的数据“存储”在服务器端。如写下一篇包含恶意JavaScript代码的博客</p><h4 id="DOM-型XSS"><a href="#DOM-型XSS" class="headerlink" title="DOM 型XSS"></a>DOM 型XSS</h4><p>类似于反射性XSS，用户点击时，修改页面的DOM节点形成XSS</p><p>通常来说风险：存储型 &gt; 反射性<br>攻击过程来说：反射性 &gt; 存储型</p><h3 id="XSS攻击进阶"><a href="#XSS攻击进阶" class="headerlink" title="XSS攻击进阶"></a>XSS攻击进阶</h3><h4 id="XSS-Payload"><a href="#XSS-Payload" class="headerlink" title="XSS Payload"></a>XSS Payload</h4><p>XSS Payload：攻击者能够对用户当前浏览器的页面植入恶意脚本，进而控制用户的浏览器。这种恶意脚本就称为”XSS Payload”</p><p>常见的 XSS Payload: 读取浏览器的cookie对象，从而发起“Cookie劫持”攻击</p><h4 id="构造GET-和POST请求"><a href="#构造GET-和POST请求" class="headerlink" title="构造GET 和POST请求"></a>构造GET 和POST请求</h4><p>通过JavaScript 模拟浏览器发包<br>通过GET执行某些操作<br>通过JavaScript发出Post请求，通过提交表单或者通过XMLHttpRequest</p><h4 id="XSS钓鱼"><a href="#XSS钓鱼" class="headerlink" title="XSS钓鱼"></a>XSS钓鱼</h4><p>XSS的攻击都是通过浏览器的JavaScript脚本自动进行的，缺少和用户交互的过程。<br>比如：修改用户密码时需要用户输入旧密码，这样就可以通过钓鱼 </p><h4 id="识别用户浏览器"><a href="#识别用户浏览器" class="headerlink" title="识别用户浏览器"></a>识别用户浏览器</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(navigator.userAgent);</span><br></pre></td></tr></table></figure><p>更高级的识别技巧：利用不同浏览器之间的是独有的对象判断</p><h4 id="识别用户安装的软件"><a href="#识别用户安装的软件" class="headerlink" title="识别用户安装的软件"></a>识别用户安装的软件</h4><p>如识别firefox的拓展</p><h4 id="获取用户的真实IP地址"><a href="#获取用户的真实IP地址" class="headerlink" title="获取用户的真实IP地址"></a>获取用户的真实IP地址</h4><p>如果客户安装了Java环境，XSS就可以通过调用JavaApplet的接口获取本机IP地址</p><h4 id="XSS构造技巧"><a href="#XSS构造技巧" class="headerlink" title="XSS构造技巧"></a>XSS构造技巧</h4><ul><li>利用字符编码</li><li>绕过长度限制<ul><li>利用 location,hash 藏代码</li><li>远程加载JS</li><li>利用注释符</li></ul></li><li>使用&lt;base&gt;标签<ul><li>作用是定义页面上所有使用相对路径标签的host地址</li></ul></li><li>window.name 实现跨域、跨页面请求数据</li></ul><h3 id="XSS防御"><a href="#XSS防御" class="headerlink" title="XSS防御"></a>XSS防御</h3><p>XSS本质是“HTML 注入”</p><h4 id="HTTP-only"><a href="#HTTP-only" class="headerlink" title="HTTP only"></a>HTTP only</h4><p>通过Set-Cookie给关键Cookie植入HTTPOnly标识，解决XXS后的Cookie劫持攻击<br>防御：</p><h4 id="输入检查"><a href="#输入检查" class="headerlink" title="输入检查"></a>输入检查</h4><p>前后端都对输入进行检查，检查用户输入的数据是否包含一些特殊的字符。这种方式成为“XSS Filter”</p><h4 id="输出检查"><a href="#输出检查" class="headerlink" title="输出检查"></a>输出检查</h4><p>变量输出到HTML页面时，可以使用编码或者转义的方式防御XSS</p><ul><li>使用安全的编码函数，需要注意的是安全编码后的长度可能发生改变，影响某些功能</li><li>可以考虑不止使用一种编码</li></ul><h4 id="处理富文本"><a href="#处理富文本" class="headerlink" title="处理富文本"></a>处理富文本</h4><p>禁止危险标签：&lt;iframe&gt;,&lt;script&gt;,&lt;base&gt;,&lt;form&gt;<br>标签应使用白名单，避免黑名单。如只允许使用&lt;a&gt;,&lt;img&gt;,&lt;div&gt;等安全标签<br>白名单同时应用于属性与事件的选择</p><h4 id="防御DOM-based-XSS"><a href="#防御DOM-based-XSS" class="headerlink" title="防御DOM based XSS"></a>防御DOM based XSS</h4><p>尽量避免用户的输入，关注会修改HTML的语句，如</p><ul><li>xxx.innerHTML= </li><li>document.write …..</li></ul>]]></content>
       
       
       <categories>
@@ -2258,7 +2308,7 @@
       <link href="2021/05/01/%E8%BF%90%E7%BB%B4/arthas/"/>
       <url>2021/05/01/%E8%BF%90%E7%BB%B4/arthas/</url>
       
-        <content type="html"><![CDATA[<h2 id="查看JVM-信息"><a href="#查看JVM-信息" class="headerlink" title="查看JVM 信息"></a>查看JVM 信息</h2><ul><li>sysprop：打印所有的System Properties信息</li><li>sysenv：获取到环境变量</li><li>jvm：打印出JVM的各种详细信息</li><li>dashboard：查看当前系统的实时数据面板</li></ul><h2 id="查看已加载的类"><a href="#查看已加载的类" class="headerlink" title="查看已加载的类"></a>查看已加载的类</h2><ul><li>sc：查找到所有JVM已经加载到的类</li><li>sm: 查找类的具体函数</li></ul><h2 id="反编译指令-Jad"><a href="#反编译指令-Jad" class="headerlink" title="反编译指令 Jad"></a>反编译指令 Jad</h2><h2 id="动态执行代码-ognl"><a href="#动态执行代码-ognl" class="headerlink" title="动态执行代码 ognl"></a>动态执行代码 ognl</h2><p>ognl ‘@<a href="mailto:&#x6a;&#97;&#x76;&#97;&#46;&#x6c;&#x61;&#x6e;&#103;&#46;&#x53;&#x79;&#x73;&#x74;&#101;&#109;&#64;&#x6f;&#x75;&#116;&#46;&#x70;&#x72;&#105;&#x6e;&#116;&#108;&#x6e;">&#x6a;&#97;&#x76;&#97;&#46;&#x6c;&#x61;&#x6e;&#103;&#46;&#x53;&#x79;&#x73;&#x74;&#101;&#109;&#64;&#x6f;&#x75;&#116;&#46;&#x70;&#x72;&#105;&#x6e;&#116;&#108;&#x6e;</a>(“hello ognl”)’</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="查看JVM-信息"><a href="#查看JVM-信息" class="headerlink" title="查看JVM 信息"></a>查看JVM 信息</h2><ul><li>sysprop：打印所有的System Properties信息</li><li>sysenv：获取到环境变量</li><li>jvm：打印出JVM的各种详细信息</li><li>dashboard：查看当前系统的实时数据面板</li></ul><h2 id="查看已加载的类"><a href="#查看已加载的类" class="headerlink" title="查看已加载的类"></a>查看已加载的类</h2><ul><li>sc：查找到所有JVM已经加载到的类</li><li>sm: 查找类的具体函数</li></ul><h2 id="反编译指令-Jad"><a href="#反编译指令-Jad" class="headerlink" title="反编译指令 Jad"></a>反编译指令 Jad</h2><h2 id="动态执行代码-ognl"><a href="#动态执行代码-ognl" class="headerlink" title="动态执行代码 ognl"></a>动态执行代码 ognl</h2><p>ognl ‘@<a href="mailto:&#106;&#97;&#x76;&#97;&#46;&#x6c;&#97;&#110;&#103;&#46;&#83;&#121;&#x73;&#x74;&#101;&#x6d;&#64;&#111;&#117;&#x74;&#46;&#112;&#114;&#x69;&#110;&#x74;&#x6c;&#x6e;">&#106;&#97;&#x76;&#97;&#46;&#x6c;&#97;&#110;&#103;&#46;&#83;&#121;&#x73;&#x74;&#101;&#x6d;&#64;&#111;&#117;&#x74;&#46;&#112;&#114;&#x69;&#110;&#x74;&#x6c;&#x6e;</a>(“hello ognl”)’</p>]]></content>
       
       
       <categories>
@@ -3328,31 +3378,6 @@
     
     
     <entry>
-      <title>Docker 问题集</title>
-      <link href="2021/05/01/%E8%BF%90%E7%BB%B4/Docker/Docker%E9%97%AE%E9%A2%98%E9%9B%86/"/>
-      <url>2021/05/01/%E8%BF%90%E7%BB%B4/Docker/Docker%E9%97%AE%E9%A2%98%E9%9B%86/</url>
-      
-        <content type="html"><![CDATA[<h3 id="Dockerfile-和-docker-compose-yml-的区别"><a href="#Dockerfile-和-docker-compose-yml-的区别" class="headerlink" title="Dockerfile 和 docker-compose.yml 的区别"></a>Dockerfile 和 docker-compose.yml 的区别</h3><p>Dockerfile: Dockerfile 是拿来构建自定义镜像的，并没有直接生成容器<br>docker-compose.yml是用来编排项目的，里面包含使用各种镜像创建的容器服务,在服务启动的时候用到</p><h3 id="为什么容器是单进程模型"><a href="#为什么容器是单进程模型" class="headerlink" title="为什么容器是单进程模型"></a>为什么容器是单进程模型</h3><p>容器只是通过Linux的Namespaces、Cgroups实现了进程级别的隔离。虽然在容器里看不见宿主机上的其他进程，但归根结底它还只是一个运行在宿主机上的进程，所以就不具备操作系统的进程管理能力。</p><p>容器的”单进程模型”，并不是指容器里只能运行”一个”进程，而是指容器没有管理多个进程的能力。这是因为容器里的主进程（PID=1 的进程）就是应用本身，其他的进程都是这个主进程的子进程。可是，用户编写的应用，并不能够像正常操作系统里的init进程或者systemd 那样拥有进程管理的功能。<br>reference：<a href="https://cloud.tencent.com/developer/article/1671554">https://cloud.tencent.com/developer/article/1671554</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 云原生 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Docker </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Docker cookbook</title>
       <link href="2021/05/01/%E8%BF%90%E7%BB%B4/Docker/docker%20cookbook/"/>
       <url>2021/05/01/%E8%BF%90%E7%BB%B4/Docker/docker%20cookbook/</url>
@@ -3420,6 +3445,31 @@
         <tags>
             
             <tag> SRE </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Docker 问题集</title>
+      <link href="2021/05/01/%E8%BF%90%E7%BB%B4/Docker/Docker%E9%97%AE%E9%A2%98%E9%9B%86/"/>
+      <url>2021/05/01/%E8%BF%90%E7%BB%B4/Docker/Docker%E9%97%AE%E9%A2%98%E9%9B%86/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Dockerfile-和-docker-compose-yml-的区别"><a href="#Dockerfile-和-docker-compose-yml-的区别" class="headerlink" title="Dockerfile 和 docker-compose.yml 的区别"></a>Dockerfile 和 docker-compose.yml 的区别</h3><p>Dockerfile: Dockerfile 是拿来构建自定义镜像的，并没有直接生成容器<br>docker-compose.yml是用来编排项目的，里面包含使用各种镜像创建的容器服务,在服务启动的时候用到</p><h3 id="为什么容器是单进程模型"><a href="#为什么容器是单进程模型" class="headerlink" title="为什么容器是单进程模型"></a>为什么容器是单进程模型</h3><p>容器只是通过Linux的Namespaces、Cgroups实现了进程级别的隔离。虽然在容器里看不见宿主机上的其他进程，但归根结底它还只是一个运行在宿主机上的进程，所以就不具备操作系统的进程管理能力。</p><p>容器的”单进程模型”，并不是指容器里只能运行”一个”进程，而是指容器没有管理多个进程的能力。这是因为容器里的主进程（PID=1 的进程）就是应用本身，其他的进程都是这个主进程的子进程。可是，用户编写的应用，并不能够像正常操作系统里的init进程或者systemd 那样拥有进程管理的功能。<br>reference：<a href="https://cloud.tencent.com/developer/article/1671554">https://cloud.tencent.com/developer/article/1671554</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 云原生 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
             
         </tags>
       
@@ -4088,6 +4138,33 @@
     
     
     <entry>
+      <title>TCP 流量控制</title>
+      <link href="2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/TCP%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6/"/>
+      <url>2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/TCP%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6/</url>
+      
+        <content type="html"><![CDATA[<h3 id="TCP-流量控制"><a href="#TCP-流量控制" class="headerlink" title="TCP 流量控制"></a>TCP 流量控制</h3><p>作用：用以消除发送方使接收方缓存溢出的可能性<br>本质上流量控制是一个速度匹配服务<br>原理：<br>接收方根据自己接受缓存的大小，动态地调整发送方的发送窗口发小。发送方通过设置确认报文首部的窗口字段。</p><h3 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h3><p>作用：防止过多的数据注入网络中造成网络路由器和链路过载</p><h4 id="TCP要求发送方维护两个窗口"><a href="#TCP要求发送方维护两个窗口" class="headerlink" title="TCP要求发送方维护两个窗口"></a>TCP要求发送方维护两个窗口</h4><ol><li>接受窗口 rwnd。接收方根据目前接受缓存大小所许诺的最新的窗口值。由发送方控制。</li><li>拥塞窗口 cwnd。发送发根据自己估算的网络拥塞程度而设置窗口值。由发送方根据链路状态估算。<br>$$ 发送窗口的上限值 = Min[rwnd,cwnd] $$</li></ol><p><em>窗口的值指的是最大报文长度(MSS)。MSS的默认值为536字节。所以所有主机都能接受的报文长度为556字节(加上TCP固定首部商都)</em></p><h4 id="维护拥塞窗口的算法"><a href="#维护拥塞窗口的算法" class="headerlink" title="维护拥塞窗口的算法"></a>维护拥塞窗口的算法</h4><p>慢开始、拥塞避免、快重传、快恢复</p><ol><li>一开始使用慢开始算法。发送时 cwnd = 1，每收到一个确认报文后加倍。直到到达一个阈值(ssthresh)。此时cwnd是呈指数增长的</li><li>达到阈值以后，使用拥塞避免算法。每经过一个往返时延，就cwnd + 1。此时cwnd的大小时线性增长的。</li><li>当出现第一次超时(网络拥塞)出现时。再使用慢开始算法，同时阈值调整为超时的cwnd大小的一半</li><li>快重传：当连续收到3个重复的ACK的时候，直接重传未收到的报文，不必等待报文段设置重传计时器超时</li><li>快恢复：当连续收到3个重复的ACK的时候，执行快恢复算法。将cwnd的大小设置为超时的cwnd的大小的一半，之后就执行拥塞避免算法。（不执行慢开始算法）</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Network </tag>
+            
+            <tag> TCP/IP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>TCP的RST报文</title>
       <link href="2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/TCP%E7%9A%84RST%E6%8A%A5%E6%96%87/"/>
       <url>2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/TCP%E7%9A%84RST%E6%8A%A5%E6%96%87/</url>
@@ -4115,11 +4192,11 @@
     
     
     <entry>
-      <title>TCP 流量控制</title>
-      <link href="2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/TCP%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6/"/>
-      <url>2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/TCP%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6/</url>
+      <title>UDP</title>
+      <link href="2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/UDP/"/>
+      <url>2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/UDP/</url>
       
-        <content type="html"><![CDATA[<h3 id="TCP-流量控制"><a href="#TCP-流量控制" class="headerlink" title="TCP 流量控制"></a>TCP 流量控制</h3><p>作用：用以消除发送方使接收方缓存溢出的可能性<br>本质上流量控制是一个速度匹配服务<br>原理：<br>接收方根据自己接受缓存的大小，动态地调整发送方的发送窗口发小。发送方通过设置确认报文首部的窗口字段。</p><h3 id="TCP拥塞控制"><a href="#TCP拥塞控制" class="headerlink" title="TCP拥塞控制"></a>TCP拥塞控制</h3><p>作用：防止过多的数据注入网络中造成网络路由器和链路过载</p><h4 id="TCP要求发送方维护两个窗口"><a href="#TCP要求发送方维护两个窗口" class="headerlink" title="TCP要求发送方维护两个窗口"></a>TCP要求发送方维护两个窗口</h4><ol><li>接受窗口 rwnd。接收方根据目前接受缓存大小所许诺的最新的窗口值。由发送方控制。</li><li>拥塞窗口 cwnd。发送发根据自己估算的网络拥塞程度而设置窗口值。由发送方根据链路状态估算。<br>$$ 发送窗口的上限值 = Min[rwnd,cwnd] $$</li></ol><p><em>窗口的值指的是最大报文长度(MSS)。MSS的默认值为536字节。所以所有主机都能接受的报文长度为556字节(加上TCP固定首部商都)</em></p><h4 id="维护拥塞窗口的算法"><a href="#维护拥塞窗口的算法" class="headerlink" title="维护拥塞窗口的算法"></a>维护拥塞窗口的算法</h4><p>慢开始、拥塞避免、快重传、快恢复</p><ol><li>一开始使用慢开始算法。发送时 cwnd = 1，每收到一个确认报文后加倍。直到到达一个阈值(ssthresh)。此时cwnd是呈指数增长的</li><li>达到阈值以后，使用拥塞避免算法。每经过一个往返时延，就cwnd + 1。此时cwnd的大小时线性增长的。</li><li>当出现第一次超时(网络拥塞)出现时。再使用慢开始算法，同时阈值调整为超时的cwnd大小的一半</li><li>快重传：当连续收到3个重复的ACK的时候，直接重传未收到的报文，不必等待报文段设置重传计时器超时</li><li>快恢复：当连续收到3个重复的ACK的时候，执行快恢复算法。将cwnd的大小设置为超时的cwnd的大小的一半，之后就执行拥塞避免算法。（不执行慢开始算法）</li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h1><p>设计哲学: 只做传输协议能做的最少工作。只在IP的数据报服务上增加复用和分用以及差错检测的功能<br>优点</p><ol><li>无需建立连接</li><li>无连接状态</li><li>分组首部开销小，仅有8字节开销</li><li>UDP没有拥塞控制。拥塞也不会影响主机的发送效率，能够容忍一些数据的丢失，但不允许有较大的延迟</li><li>适用于一次性传输比较少了的数据的网络应用。如DNS、SNMP</li><li>UDP提供尽最大努力交付。不保证可靠交付</li><li>面向报文</li></ol><h2 id="首部格式"><a href="#首部格式" class="headerlink" title="首部格式"></a>首部格式</h2><ol><li>源端口</li><li>目的端口</li><li>长度</li><li>校验和</li></ol><h2 id="UDP校验"><a href="#UDP校验" class="headerlink" title="UDP校验"></a>UDP校验</h2><p>在计算校验和时，在UDP数据报前增加12字节的伪首部。<br>伪首部由 源IP地址 目的IP地址、0字段、协议字段(UDP为17)、UDP数据报长度<br>伪首部仅仅只用来做校验和，不向下传送也不向上传递。</p><ol><li>UDP校验和校验出UDP数据报是错误的时候，可以丢弃，也可以交付给上层，但需要附上错误报告</li><li>通过伪首部，可以检查源端口号、目的端口号和UDP用户数据报的数据部分。还可以检查IP数据报的源IP地址和目的地址</li></ol><h2 id="可靠性UDP"><a href="#可靠性UDP" class="headerlink" title="可靠性UDP"></a>可靠性UDP</h2><p>实现可靠传输一般有两种途径，一是基于ARQ（Automatic Repeat reQuest）的确认和重传机制，二是使用前向纠错（FEC）。</p><ul><li><p>FEC：是纠删码在通信中的应用，一般在链路层用的比较多。可靠UDP传输主要还是依靠重传机制。</p></li><li><p>ARQ：<br>ARQ包括停等式、回退N帧、选择重传等机制。由于停等式的效率太低，TCP和可靠UDP协议一般使用的是基于回退N帧机制和滑动窗口协议的连续式ARQ。</p></li></ul><h3 id="可靠UDP协议"><a href="#可靠UDP协议" class="headerlink" title="可靠UDP协议"></a>可靠UDP协议</h3><ul><li>UDT(UDP-based Data Transfer Protocol)：DT的主要目的是支持高速广域网上的海量数据传输，所以除了在UDP之上实现类似TCP的协议和算法之外，UDT还对TCP的拥塞算法做了一些细节上的调整。不过UDT的重传效率较低，无效报文，实际效果并不理想。</li><li>KCP：KCP是一个很简单的ARQ的实现，包括选择重传和快重传等机制，对上层提供一个可靠的字节流。应用层可以使用多流复用的框架来实现对多个流的支持</li><li>QUIC：QUIC是Google实现的一种可靠UDP传输协议，并且已经被选择作为HTTP/3的基础。<ul><li>内建安全性，集成TLS</li><li>连接建立过程和TLS协商过程合并，减少往返请求次数，提高连接速度</li><li>集成多种拥塞算法，包括最新的BBR</li><li>多流支持，每个流有独立的拥塞控制，避免单个流中的丢包阻塞其它所有流（Head-of-line Blocking问题），更好的支持类似HTTP/2中的乱序请求</li><li>连接迁移：QUIC可以通过连接ID来唯一标识一个连接，当用户在有线、无线、移动网络之间切换时，可以保持上层连接的有效性，不需要再进行重连</li></ul></li></ul>]]></content>
       
       
       <categories>
@@ -4159,33 +4236,6 @@
         <tags>
             
             <tag> Network </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>UDP</title>
-      <link href="2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/UDP/"/>
-      <url>2021/05/01/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/%E4%BC%A0%E8%BE%93%E5%B1%82/UDP/</url>
-      
-        <content type="html"><![CDATA[<h1 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h1><p>设计哲学: 只做传输协议能做的最少工作。只在IP的数据报服务上增加复用和分用以及差错检测的功能<br>优点</p><ol><li>无需建立连接</li><li>无连接状态</li><li>分组首部开销小，仅有8字节开销</li><li>UDP没有拥塞控制。拥塞也不会影响主机的发送效率，能够容忍一些数据的丢失，但不允许有较大的延迟</li><li>适用于一次性传输比较少了的数据的网络应用。如DNS、SNMP</li><li>UDP提供尽最大努力交付。不保证可靠交付</li><li>面向报文</li></ol><h2 id="首部格式"><a href="#首部格式" class="headerlink" title="首部格式"></a>首部格式</h2><ol><li>源端口</li><li>目的端口</li><li>长度</li><li>校验和</li></ol><h2 id="UDP校验"><a href="#UDP校验" class="headerlink" title="UDP校验"></a>UDP校验</h2><p>在计算校验和时，在UDP数据报前增加12字节的伪首部。<br>伪首部由 源IP地址 目的IP地址、0字段、协议字段(UDP为17)、UDP数据报长度<br>伪首部仅仅只用来做校验和，不向下传送也不向上传递。</p><ol><li>UDP校验和校验出UDP数据报是错误的时候，可以丢弃，也可以交付给上层，但需要附上错误报告</li><li>通过伪首部，可以检查源端口号、目的端口号和UDP用户数据报的数据部分。还可以检查IP数据报的源IP地址和目的地址</li></ol><h2 id="可靠性UDP"><a href="#可靠性UDP" class="headerlink" title="可靠性UDP"></a>可靠性UDP</h2><p>实现可靠传输一般有两种途径，一是基于ARQ（Automatic Repeat reQuest）的确认和重传机制，二是使用前向纠错（FEC）。</p><ul><li><p>FEC：是纠删码在通信中的应用，一般在链路层用的比较多。可靠UDP传输主要还是依靠重传机制。</p></li><li><p>ARQ：<br>ARQ包括停等式、回退N帧、选择重传等机制。由于停等式的效率太低，TCP和可靠UDP协议一般使用的是基于回退N帧机制和滑动窗口协议的连续式ARQ。</p></li></ul><h3 id="可靠UDP协议"><a href="#可靠UDP协议" class="headerlink" title="可靠UDP协议"></a>可靠UDP协议</h3><ul><li>UDT(UDP-based Data Transfer Protocol)：DT的主要目的是支持高速广域网上的海量数据传输，所以除了在UDP之上实现类似TCP的协议和算法之外，UDT还对TCP的拥塞算法做了一些细节上的调整。不过UDT的重传效率较低，无效报文，实际效果并不理想。</li><li>KCP：KCP是一个很简单的ARQ的实现，包括选择重传和快重传等机制，对上层提供一个可靠的字节流。应用层可以使用多流复用的框架来实现对多个流的支持</li><li>QUIC：QUIC是Google实现的一种可靠UDP传输协议，并且已经被选择作为HTTP/3的基础。<ul><li>内建安全性，集成TLS</li><li>连接建立过程和TLS协商过程合并，减少往返请求次数，提高连接速度</li><li>集成多种拥塞算法，包括最新的BBR</li><li>多流支持，每个流有独立的拥塞控制，避免单个流中的丢包阻塞其它所有流（Head-of-line Blocking问题），更好的支持类似HTTP/2中的乱序请求</li><li>连接迁移：QUIC可以通过连接ID来唯一标识一个连接，当用户在有线、无线、移动网络之间切换时，可以保持上层连接的有效性，不需要再进行重连</li></ul></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 计算机基础 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Network </tag>
-            
-            <tag> TCP/IP </tag>
             
         </tags>
       
