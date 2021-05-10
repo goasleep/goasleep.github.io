@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>Redis是否能用作消息队列</title>
+      <link href="2021/05/10/middleware/Redis/Redis%E6%98%AF%E5%90%A6%E8%83%BD%E7%94%A8%E4%BD%9C%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
+      <url>2021/05/10/middleware/Redis/Redis%E6%98%AF%E5%90%A6%E8%83%BD%E7%94%A8%E4%BD%9C%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Redis是否可以作为消息队列？"><a href="#Redis是否可以作为消息队列？" class="headerlink" title="Redis是否可以作为消息队列？"></a>Redis是否可以作为消息队列？</h1><p>关于Redis能不能做消息队列，主要是解决以下两个问题</p><ul><li>能否保证消息不丢失</li><li>消息是否能够堆积<h2 id="使用List作为消息队列"><a href="#使用List作为消息队列" class="headerlink" title="使用List作为消息队列"></a>使用List作为消息队列</h2>如果使用Redis作为消息队列，那么首先会使用List这个数据类型。生产者将数据放入List中，消费者从List中读取数据。<br>那么会产生一个问题：消费者需要不断地从消息队列中读取数据。如果队列为空，那么就会出现CPU空转的情况。如果解决这个空转的问题呢？有两种方式</li></ul><ol><li>如果消息队列为空，那么就先让消费者休息一会，然后再尝试读取数据。这样又会引入一个问题，就是新的消息来了，消费者处理消息会存在延迟。</li><li>如果队列为空，消费者在拉取消息时就「阻塞等待」，一旦有新消息过来，就通知我的消费者立即处理新消息。Redis提供了阻塞式拉取消息的命令：BRPOP/BLPOP</li></ol><h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ol><li>不支持重复消费</li><li>消息丢失：消费者拉取到消息后，如果发生异常宕机，那这条消息就丢失了</li></ol><h2 id="使用发布订阅模型"><a href="#使用发布订阅模型" class="headerlink" title="使用发布订阅模型"></a>使用发布订阅模型</h2><p>Redis提供了PUBLISH/SUBSCRIBE 命令，来完成发布、订阅的操作。<br>Pub/Sub 最大的优势就是，支持多组生产者、消费者处理消息。</p><h3 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h3><ol><li>可能会导致信息丢失，消费者向队列发布消息，Redis就会转发给消费者的。这个过程是实时的，不存在任何的数据存储。</li><li>无法处理消息堆积。当消息积压时，有可能会导致消费失败和消息丢失。当生产者发布消息时，Redis先把消息写到对应消费者的缓冲区中。之后，消费者不断地从缓冲区读取消息，处理消息。</li></ol><h2 id="Redis新的数据类型Stream"><a href="#Redis新的数据类型Stream" class="headerlink" title="Redis新的数据类型Stream"></a>Redis新的数据类型Stream</h2><p>Stream通过XADD和XREAD完成最简单的生产、消费模型：</p><ul><li>XADD：发布消息</li><li>XREAD：读取消息</li></ul><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul><li>支持「阻塞式」拉取消息</li><li>支持发布/订阅模式</li><li>保证消息不丢失，重新消费。当一组消费者处理完消息后，需要执行 XACK 命令告知 Redis，这时 Redis 就会把这条消息标记为「处理完成」。</li><li>Stream 会写入到RDB和AOF做持久化。但是</li><li>消息堆积时，Stream指定队列的最大长度，防止队列积压导致内存爆炸。当队列长度超过上限后，旧消息会被删除，只保留固定长度的新消息。因此依旧可能会导致丢失消息。</li></ul><p><img src="/images/redis%E4%BD%9C%E4%B8%BA%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E9%97%AE%E9%A2%98.png" alt="redis作为消息队列问题"></p><p>Refer:<a href="https://mp.weixin.qq.com/s/3oFf0-v6Ba2iO7dIcXY-6A">https://mp.weixin.qq.com/s/3oFf0-v6Ba2iO7dIcXY-6A</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 中间件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Redis </tag>
+            
+            <tag> 消息队列 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>消息队列关注点</title>
+      <link href="2021/05/10/middleware/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%85%B3%E6%B3%A8%E7%82%B9/"/>
+      <url>2021/05/10/middleware/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%85%B3%E6%B3%A8%E7%82%B9/</url>
+      
+        <content type="html"><![CDATA[<h1 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h1><h2 id="消息队列的关注点"><a href="#消息队列的关注点" class="headerlink" title="消息队列的关注点"></a>消息队列的关注点</h2><ol><li>消息不丢</li><li>消息可堆积</li></ol><h3 id="如何保证消息不丢？"><a href="#如何保证消息不丢？" class="headerlink" title="如何保证消息不丢？"></a>如何保证消息不丢？</h3><p>消息队列的三个组成部分：生产者、消息队列、消费者<br>因此消息是否会发生丢失，在于以下三个环节</p><ul><li>生产者会不会丢数据</li><li>消费者会不会丢数据</li><li>消息中间件会不会丢数据</li></ul><h4 id="生产者丢消息"><a href="#生产者丢消息" class="headerlink" title="生产者丢消息"></a>生产者丢消息</h4><p>当生产者在发布消息时，可能会发生</p><ul><li>消息没有发出去：网络故障或其它问题导致发布失败，中间件直接返回失败</li><li>消息发了出去：网络问题导致发布超时，可能数据已发送成功，也可能没有发送成功。比如数据已发送成功，但读取响应结果超时了</li></ul><p>针对上面的方式，都可以采用重发的方式进行处理。宁可重发也不能丢失。</p><blockquote><p>生产者都会通过设置一个最大重试次数，超过上限，就需要记录日志报警处理</p></blockquote><p>重发之后，消费者会引入一个新的问题，就是有可能会收到多条重复的消息。这时消费就需要对重复的消息进行处理，保证消息的幂等性，即处理多条同样的消息会有相同的结果</p><h4 id="消费者丢消息"><a href="#消费者丢消息" class="headerlink" title="消费者丢消息"></a>消费者丢消息</h4><p>消费者拿到消息后，还没处理完就异常宕机了。这时候，消费者是否还能重新接收到处理失败数据？</p><p>解决这个问题，需要消费者在处理完消息后，必须通知队列中间件，队列中间件才会把处理完成的数据标记为处理，否则仍然将这些数据发送给消费者。</p><h4 id="队列中间件会不会丢数据"><a href="#队列中间件会不会丢数据" class="headerlink" title="队列中间件会不会丢数据"></a>队列中间件会不会丢数据</h4><p>消息中间件必须在宕机的时候，保证原本消息队列里的数据在中间件恢复的时候依旧存在。或者通过集群的方式保证某一结点挂了，集群的数据不丢失。</p><h3 id="消息可堆积"><a href="#消息可堆积" class="headerlink" title="消息可堆积"></a>消息可堆积</h3><p>消息存储在内存或者是硬盘中，如果存储在内存中的话，如果消息过多，当内存不够的时候，超过堆积上线的消息将会丢失。</p><p>当消息堆积时，一般有两种解决方案：</p><ol><li>生产者限流，避免消费者处理不及时，导致持续积压</li><li>丢弃消息：中间件丢弃旧的消息，只保留固定长度的消息</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 中间件 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 消息队列 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Volatile关键字</title>
       <link href="2021/05/04/%E5%90%8E%E7%AB%AF/Java/Volatile%E5%85%B3%E9%94%AE%E5%AD%97/"/>
       <url>2021/05/04/%E5%90%8E%E7%AB%AF/Java/Volatile%E5%85%B3%E9%94%AE%E5%AD%97/</url>
