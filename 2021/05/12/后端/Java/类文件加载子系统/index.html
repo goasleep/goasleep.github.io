@@ -456,7 +456,7 @@
 <p>此时不包含用final修饰的static，因为final在编译的时候就会分配了，准备阶段会显式初始化；<br>此时不会为实例变量分配初始化，类变量会分配在方法区中，而实例变量是会随着对象一起分配到Java堆中。</p>
 </blockquote>
 <h4 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h4><p>将常量池内的符号引用转换为直接引用。<br>解析动作主要针对类或接口、字段、类方法、接口方法、方法类型等。</p>
-<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>在类初始化阶段，执行类构造器&lt;clinit&gt;()方法。</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>在类初始化阶段，执行类构造器&lt;clinit&gt;()方法。</p>
 <ol>
 <li>编译器会在将 .java 文件编译成 .class 文件时，收集所有类初始化代码和 static {} 域的代码，收集在一起成为 &lt;clinit&gt;() 方法，收集的顺序是由语句在源文件出现的顺序决定的</li>
 <li>如果不存在静态语句块，也没有对变量初始化操作，就不会为这个类生成&lt;clinit&gt;()方法。</li>
@@ -468,42 +468,36 @@
 <li>它用来加载Java的核心库（JAVAHOME/jre/1ib/rt.jar、resources.jar或sun.boot.class.path路径下的内容），用于提供JVM自身需要的类</li>
 <li>并不继承自Java.lang.ClassLoader，<strong>没有父加载器</strong>。</li>
 <li>加载扩展类和应用程序类加载器，并指定为他们的父类加载器。</li>
-<li>出于安全考虑，<strong>Bootstrap启动类加载器只加载包名为java、javax、sun等开头的类</strong><h3 id="扩展类加载器-Extension-ClassLoader"><a href="#扩展类加载器-Extension-ClassLoader" class="headerlink" title="扩展类加载器(Extension ClassLoader)"></a>扩展类加载器(Extension ClassLoader)</h3></li>
+<li>出于安全考虑，<strong>Bootstrap启动类加载器只加载包名为java、javax、sun等开头的类</strong></li>
+</ul>
+<h3 id="扩展类加载器-Extension-ClassLoader"><a href="#扩展类加载器-Extension-ClassLoader" class="headerlink" title="扩展类加载器(Extension ClassLoader)"></a>扩展类加载器(Extension ClassLoader)</h3><ul>
 <li>Java语言编写，由sun.misc.Launcher$ExtClassLoader实现。</li>
 <li>派生于ClassLoader类</li>
 <li>父类加载器为启动类加载器</li>
 <li>从java.ext.dirs系统属性所指定的目录中加载类库，或从JDK的安装目录的jre/1ib/ext子目录（扩展目录）下加载类库。如果用户创建的JAR放在此目录下，也会自动由扩展类加载器加载。</li>
 </ul>
 <h3 id="应用程序类加载器-AppClassLoader"><a href="#应用程序类加载器-AppClassLoader" class="headerlink" title="应用程序类加载器(AppClassLoader)"></a>应用程序类加载器(AppClassLoader)</h3><ul>
-<li><p>java语言编写，由sun.misc.LaunchersAppClassLoader实现</p>
-</li>
-<li><p>派生于ClassLoader类</p>
-</li>
-<li><p>父类加载器为扩展类加载器</p>
-</li>
-<li><p>它负责加载环境变量classpath或系统属性java.class.path指定路径下的类库</p>
-</li>
-<li><p>该类加载是程序中默认的类加载器，一般来说，Java应用的类都是由它来完成加载</p>
-</li>
-<li><p>通过classLoader#getSystemclassLoader（）方法可以获取到该类加载器</p>
+<li>java语言编写，由sun.misc.LaunchersAppClassLoader实现</li>
+<li>派生于ClassLoader类</li>
+<li>父类加载器为扩展类加载器</li>
+<li>它负责加载环境变量classpath或系统属性java.class.path指定路径下的类库</li>
+<li>该类加载是程序中默认的类加载器，一般来说，Java应用的类都是由它来完成加载</li>
+<li>通过classLoader#getSystemclassLoader（）方法可以获取到该类加载器</li>
+</ul>
 <h3 id="用户自定义类加载器"><a href="#用户自定义类加载器" class="headerlink" title="用户自定义类加载器"></a>用户自定义类加载器</h3><p>为什么要自定义类加载器？</p>
-</li>
-<li><p>隔离加载类</p>
-</li>
-<li><p>修改类加载的方式</p>
-</li>
-<li><p>扩展加载源</p>
-</li>
-<li><p>防止源码泄漏</p>
-</li>
+<ul>
+<li>隔离加载类</li>
+<li>修改类加载的方式</li>
+<li>扩展加载源</li>
+<li>防止源码泄漏</li>
 </ul>
 <h2 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h2><p>双亲委派模型要求除了顶层的启动类加载器外，其余的类加载器都应该有自己的父类加载器。<br><img src="/images/JVM%E7%9A%84%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B.png" alt="JVM的双亲委派模型"></p>
-<h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><ul>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><ul>
 <li>如果一个类加载器收到类加载请求，它不会自己先去加载，而是把这个请求委托给父类的加载器去执行</li>
 <li>如果父类加载器还存在其父类加载器，则进一步向上委托，一次递归，最终将到达顶层的启动类加载器</li>
 <li>如果父类加载器可以完成类加载任务，则返回成功。若父类加载器无法完成加载任务，子加载器会尝试自己去加载</li>
 </ul>
-<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><ul>
+<h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ul>
 <li>避免类的重复加载</li>
 <li>保存程序安全，防止核心API被篡改，如Java.lang.*下的类</li>
 </ul>
@@ -748,18 +742,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/12/%E5%90%8E%E7%AB%AF/Java/%E7%B1%BB%E6%96%87%E4%BB%B6%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/">
+                <a href="/2021/05/13/%E5%90%8E%E7%AB%AF/Java/JVM%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%E5%9F%9F/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="类文件加载子系统">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="JVM运行时数据区域">
                         
-                        <span class="card-title">类文件加载子系统</span>
+                        <span class="card-title">JVM运行时数据区域</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -769,9 +762,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-12
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-13
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -784,7 +777,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -843,6 +835,10 @@
                     
                     <a href="/tags/Java/">
                         <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/JVM/">
+                        <span class="chip bg-color">JVM</span>
                     </a>
                     
                 </div>
@@ -991,7 +987,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">113.8k</span>&nbsp;字
+                class="white-color">116.6k</span>&nbsp;字
             
             
             
