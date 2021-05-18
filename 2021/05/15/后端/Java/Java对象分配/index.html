@@ -403,14 +403,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    674
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -430,20 +430,32 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="对象分配过程"><a href="#对象分配过程" class="headerlink" title="对象分配过程"></a>对象分配过程</h1><p><img src="/images/Java%E5%AF%B9%E8%B1%A1%E5%88%86%E9%85%8D%E8%BF%87%E7%A8%8B.png" alt="Java对象分配过程"></p>
-<h2 id="对象在栈上分配的过程"><a href="#对象在栈上分配的过程" class="headerlink" title="对象在栈上分配的过程"></a>对象在栈上分配的过程</h2><p>基本思想：将线程私有的对象打散分配在栈上<br>栈上分配是基于逃逸分析和标量替换实现的。逃逸分析的目的是判断对象的作用域是否有可能逃逸出函数体。标量替换是将聚合对象(非原始数据类型)，就会把这个对象拆解成若干个其中包含的若干个成员变量来代替。<br>比如</p>
+                <h1 id="对象的创建过程"><a href="#对象的创建过程" class="headerlink" title="对象的创建过程"></a>对象的创建过程</h1><h2 id="判断对象对应的类是否加载、链接、初始化"><a href="#判断对象对应的类是否加载、链接、初始化" class="headerlink" title="判断对象对应的类是否加载、链接、初始化"></a>判断对象对应的类是否加载、链接、初始化</h2><ol>
+<li>虚拟机遇到一条new指令，首先去检查这个指令的参数能否在Metaspace的常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已经被加载，解析和初始化。（即判断类元信息是否存在）</li>
+<li>如果没有，那么在双亲委派模式下，使用当前类加载器以ClassLoader + 包名 + 类名为key进行查找对应的 .class文件</li>
+<li>果没有找到文件，则抛出ClassNotFoundException异常，</li>
+<li>如果找到，则进行类加载，并生成对应的Class对象。</li>
+</ol>
+<h2 id="对象内存分配过程"><a href="#对象内存分配过程" class="headerlink" title="对象内存分配过程"></a>对象内存分配过程</h2><p>在分配之前，首先先会计算对象占用空间的大小，接着在堆中划分一块内存给新对象。（如果允许使用栈上分配，并且符合栈上分配的条件，则在栈上进行分配。）</p>
+<ul>
+<li>如果内存规整，则使用指针碰撞法。指针碰撞法意思就是放一个指针作为分界点，使用过的内存放在一边，空闲的放在另外一边。分配内存时调整指针的位置即可。</li>
+<li>如果内存不规整，则需要维护一个空闲列表记录可用的内存块来为对象分配内存。</li>
+</ul>
+<p>使用哪种方式是由堆是否规整所决定，而是否规整又由所采用的垃圾收集器是否带有压缩整理功能决定。</p>
+<p><img src="/images/Java%E5%AF%B9%E8%B1%A1%E5%88%86%E9%85%8D%E8%BF%87%E7%A8%8B.png" alt="Java对象分配过程"></p>
+<h3 id="对象在栈上分配的过程"><a href="#对象在栈上分配的过程" class="headerlink" title="对象在栈上分配的过程"></a>对象在栈上分配的过程</h3><p>基本思想：将线程私有的对象打散分配在栈上<br>栈上分配是基于逃逸分析和标量替换实现的。逃逸分析的目的是判断对象的作用域是否有可能逃逸出函数体。标量替换是将聚合对象(非原始数据类型)，就会把这个对象拆解成若干个其中包含的若干个成员变量来代替。<br>比如</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">alloc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Point point = <span class="keyword">new</span> Point(<span class="number">1</span>,<span class="number">2</span>);</span><br><span class="line">    System.out.println(<span class="string">&quot;point.x&quot;</span> + point.x + <span class="string">&quot;;point.y&quot;</span> + point.y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>会被替换成</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">alloc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> y = <span class="number">2</span>;</span><br><span class="line">    System.out.println(<span class="string">&quot;point.x = &quot;</span> + x + <span class="string">&quot;; point.y=&quot;</span> + y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="对象在TLAB分配的过程"><a href="#对象在TLAB分配的过程" class="headerlink" title="对象在TLAB分配的过程"></a>对象在TLAB分配的过程</h2><p><img src="/images/TLAB%E5%88%86%E9%85%8D%E8%BF%87%E7%A8%8B.png" alt="TLAB分配过程"><br>TLAB是从内存模型的角度，为Eden区继续划分，JVM为每个线程分配了一个私有缓存区域，它包含在Eden空间内。<br>多线程同时分配内存时，使用TLAB可以避免一系列的非线程安全问题，同时还能够提升内存分配的吞吐量，因此我们可以将这种内存分配方式称之为快速分配策略。</p>
+<h3 id="对象在TLAB分配的过程"><a href="#对象在TLAB分配的过程" class="headerlink" title="对象在TLAB分配的过程"></a>对象在TLAB分配的过程</h3><p><img src="/images/TLAB%E5%88%86%E9%85%8D%E8%BF%87%E7%A8%8B.png" alt="TLAB分配过程"><br>TLAB是从内存模型的角度，为Eden区继续划分，JVM为每个线程分配了一个私有缓存区域，它包含在Eden空间内。<br>多线程同时分配内存时，使用TLAB可以避免一系列的非线程安全问题，同时还能够提升内存分配的吞吐量，因此我们可以将这种内存分配方式称之为快速分配策略。</p>
 <p>对象首先是通过TLAB开辟空间，如果不能放入，那么需要通过Eden来进行分配</p>
 <p>若要分配的对象在TLAB中不足有多余空间分配，那么会有两种分配策略</p>
 <ul>
 <li>废弃当前的TLAB</li>
 <li>将这个30KB的对象直接分配到堆上，保留当前TLAB</li>
 </ul>
-<h2 id="对象在堆上的分配过程"><a href="#对象在堆上的分配过程" class="headerlink" title="对象在堆上的分配过程"></a>对象在堆上的分配过程</h2><ol>
+<h3 id="对象在堆上的分配过程"><a href="#对象在堆上的分配过程" class="headerlink" title="对象在堆上的分配过程"></a>对象在堆上的分配过程</h3><ol>
 <li>new的对象先放Eden园区。此区有大小限制。</li>
 <li>当Eden园的空间填满时，程序又需要创建对象，JVM的垃圾回收器将对Eden园区进行垃圾回收（MinorGC），将Eden园区中的不再被其他对象所引用的对象进行销毁。再加载新的对象放到Eden园区</li>
 <li>然后将Eden园中的剩余对象移动到Survivorv0区。</li>
@@ -454,6 +466,10 @@
 <li>若养老区执行了Major GC之后，发现依然无法进行对象的保存，就会产生OOM异常。</li>
 </ol>
 <p><img src="/images/%E5%AF%B9%E8%B1%A1%E5%9C%A8%E5%A0%86%E4%B8%8A%E7%9A%84%E5%88%86%E9%85%8D%E8%BF%87%E7%A8%8B.png" alt="对象在堆上的分配过程"></p>
+<h2 id="设置对象头"><a href="#设置对象头" class="headerlink" title="设置对象头"></a>设置对象头</h2><p>将对象的所属类（即类的元数据信息）、对象的HashCode和对象的GC信息、锁信息等数据存储在对象的对象头中。这个过程的具体设置方式取决于JVM实现。</p>
+<p>对象头包含了两部分，分别是 运行时元数据（Mark Word）和 类型指针</p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>执行init方法进行初始化。在Java程序的视角看来，初始化才正式开始。初始化成员变量，执行实例化代码块，调用类的构造方法，并把堆内对象的首地址赋值给引用变量</p>
+<p><img src="/images/Java%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B.png" alt="Java对象创建过程"></p>
 
                 
             </div>
@@ -924,7 +940,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">120.5k</span>&nbsp;字
+                class="white-color">124.5k</span>&nbsp;字
             
             
             

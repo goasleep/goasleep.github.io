@@ -311,11 +311,11 @@
                 </a>
                 
                 
-                <a href="/categories/%E5%90%8E%E7%AB%AF/" title="后端: 20">
+                <a href="/categories/%E5%90%8E%E7%AB%AF/" title="后端: 21">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             style="background-color: #F5EEF8;">后端
-                        <span class="tag-length">20</span>
+                        <span class="tag-length">21</span>
                     </span>
                 </a>
                 
@@ -405,6 +405,58 @@
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/2021/05/18/%E5%90%8E%E7%AB%AF/Java/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="垃圾收集器">
+                            
+                            <span class="card-title">垃圾收集器</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                垃圾收集器新生代收集器：Serial、ParNew、Parallel Scavenge；老年代收集器：Serial old、Parallel old、CMS；整堆收集器：G1；
+
+Serial收集器：串行回收Serial收集器采用复制算法、
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Java/">
+                            <span class="chip bg-color">Java</span>
+                        </a>
+                        
+                        <a href="/tags/JVM/">
+                            <span class="chip bg-color">JVM</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/2021/05/15/%E5%90%8E%E7%AB%AF/Java/Java%E5%AF%B9%E8%B1%A1%E5%88%86%E9%85%8D/">
                         <div class="card-image tag-image">
                             
@@ -417,8 +469,8 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                对象分配过程
-对象在栈上分配的过程基本思想：将线程私有的对象打散分配在栈上栈上分配是基于逃逸分析和标量替换实现的。逃逸分析的目的是判断对象的作用域是否有可能逃逸出函数体。标量替换是将聚合对象(非原始数据类型)，就会把这个对象拆解成若干个其中
+                                对象的创建过程判断对象对应的类是否加载、链接、初始化
+虚拟机遇到一条new指令，首先去检查这个指令的参数能否在Metaspace的常量池中定位到一个类的符号引用，并且检查这个符号引用代表的类是否已经被加载，解析和初始化。（即判断类元信息是否
                             
                         </div>
                         <div class="publish-info">
@@ -521,14 +573,15 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                JVM运行时数据区域
+                                [toc]
+JVM运行时数据区域
 
 每个线程：独立包括程序计数器、Java栈(虚拟机栈)、本地栈(Native Method Stack)。
 线程间共享：堆、堆外内存（永久代或元空间、代码缓存）
 
 栈是运行时的单位，而堆是存储的单位
 
-栈解决程序的运行
+栈解
                             
                         </div>
                         <div class="publish-info">
@@ -769,57 +822,6 @@
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/05/01/%E5%90%8E%E7%AB%AF/Restful/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Restful 设计">
-                            
-                            <span class="card-title">Restful 设计</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Restful 设计
- 资源
-表现层：资源的表现形式：如以json表现。HTTP请求头中的accept和content-type字段控制
-状态转化(get,post,put,delete)原则：
-每一种URI 代表一种资源
-服务器和客户端之
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                    后端
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E8%AE%BE%E8%AE%A1/">
-                            <span class="chip bg-color">设计</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
                     <a href="/2021/05/01/java%E7%A2%8E%E7%A2%8E%E5%BF%B5/">
                         <div class="card-image tag-image">
                             
@@ -935,7 +937,7 @@ APImicrosoft RESTfulAPI design gui
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">1 / 2</div>
+            <div class="center-align b-text-gray">1 / 3</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -966,7 +968,7 @@ APImicrosoft RESTfulAPI design gui
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">120.5k</span>&nbsp;字
+                class="white-color">124.5k</span>&nbsp;字
             
             
             
