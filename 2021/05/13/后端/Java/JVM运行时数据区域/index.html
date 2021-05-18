@@ -403,14 +403,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.1k
+                    5.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    18 分
                 </div>
                 
 
@@ -592,6 +592,13 @@
 <li>加载该类的类加载器已经被回收</li>
 <li>该类对应的java.lang.Class对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法</li>
 </ul>
+<h3 id="直接内存"><a href="#直接内存" class="headerlink" title="直接内存"></a>直接内存</h3><p>直接内存时Java堆外的，直接向系统申请的内存区间。<br>来源于NIO，通过存在堆中的DirectByteBuffer操作Native内存<br>访问直接内存的速度会优于Java堆，读写性能更高</p>
+<p>使用场景</p>
+<ul>
+<li>读写频繁的可能会考虑使用直接内存</li>
+<li>Java的NIO库允许Java程序使用直接内存，用于数据缓冲区</li>
+</ul>
+<p>存在的问题：<br>由于直接内存在堆外，因此不受JVM内存回收管理。同时系统的内存时有限的，JVM的内存和直接内存的总和受限于操作系统给出的最大内存。</p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="栈上分配"><a href="#栈上分配" class="headerlink" title="栈上分配"></a>栈上分配</h3><p>基本思想是对于那些线程私有的对象（指的是不可能被其他线程访问的对象），可以将它们打散分配在栈上，而不是分配在堆上。<br>优点：</p>
 <ol>
 <li>可以在函数调用结束后自行销毁对象，不需要垃圾回收器的介入，有效避免垃圾回收带来的负面影响</li>
@@ -1098,7 +1105,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">124.5k</span>&nbsp;字
+                class="white-color">124.7k</span>&nbsp;字
             
             
             
