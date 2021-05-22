@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Java线程池, 彭峰的博客">
+    <meta name="keywords" content="彭峰的博客">
     <meta name="description" content="天行健，君子以自强不息；地势坤，君子以厚德载物">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Java线程池 | 彭峰的博客</title>
+    <title>彭峰的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -244,12 +244,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Java线程池</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -363,29 +363,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
-                            </a>
-                        
-                            <a href="/tags/JVM/">
-                                <span class="chip bg-color">JVM</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                后端
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -394,7 +377,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-19
+                    2021-05-21
                 </div>
                 
 
@@ -403,14 +386,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    806
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -425,43 +408,83 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Java线程池"><a href="#Java线程池" class="headerlink" title="Java线程池"></a>Java线程池</h1><h2 id="ThreadPoolExecutor"><a href="#ThreadPoolExecutor" class="headerlink" title="ThreadPoolExecutor"></a>ThreadPoolExecutor</h2><p>为什么需要使用线程池？线程池做的主要工作就是控制运行的线程的数量，处理过程中，将任务放入到队列中，然后线程创建后，启动这些任务，如果线程数量超过了最大数量的线程排队等候，等其它线程执行完毕，再从队列中取出任务来执行。</p>
-<p>它的主要特点为：线程复用、控制最大并发数、管理线程</p>
-<h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><p><img src="/images/Java%E7%BA%BF%E7%A8%8B%E6%B1%A0.png" alt="Java线程池"></p>
-<ol>
-<li>在创建了线程池后，等待提交过来的任务请求</li>
-<li>当调用execute()方法添加一个请求任务时，线程池会做出如下判断<ol>
-<li>如果正在运行的线程池数量小于corePoolSize，那么马上创建线程运行这个任务</li>
-<li>如果正在运行的线程数量大于或等于corePoolSize，那么将这个任务放入队列</li>
-<li>如果这时候队列满了，并且正在运行的线程数量还小于maximumPoolSize，那么还是创建非核心线程来运行这个任务；</li>
-<li>如果队列满了并且正在运行的线程数量大于或等于maximumPoolSize，那么线程池会启动饱和拒绝策略来执行</li>
+                <h2 id="消息队列对比"><a href="#消息队列对比" class="headerlink" title="消息队列对比"></a>消息队列对比</h2><p>主流MQ包括：kafka、ActiveMQ、RabbitMQ和RocketMQ</p>
+<p>常见的MQ其实就上面的四种</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>ActiveMQ</th>
+<th>RabbitMQ</th>
+<th>RocketMQ</th>
+<th>Kafka</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单机吞吐量</td>
+<td>万级，吞吐量比RocketMQ和Kafka要低一个数量级</td>
+<td>万级，吞吐量比RocketMQ和Kafka要低一个数量级</td>
+<td>10万级，RocketMQ也是可以支撑高吞吐的一种MQ</td>
+<td>10万级1这是kafka最大的优点，就是吞吐量高。一般配置和数据类的系统进行实时数据计算、日志采集等场景</td>
+</tr>
+<tr>
+<td>时效性</td>
+<td>ms级</td>
+<td>微妙级，这是RabbitMQ的一大特点，就是延迟最低</td>
+<td>ms级</td>
+<td>延迟在ms级内</td>
+</tr>
+<tr>
+<td>可用性</td>
+<td>基于主从架构实现高可用</td>
+<td>高，基于主从架构实现高可用</td>
+<td>非常高，分布式架构</td>
+<td>非常高，kafka是分布式的，一个数据多个副本，少数机器宕机后，不会丢失数据，不会导致不可用</td>
+</tr>
+<tr>
+<td>消息可靠性</td>
+<td>有较低的概率丢失数据</td>
+<td>消息不丢失</td>
+<td>经过参数优化配置，可以做到0丢失</td>
+<td>经过参数优化配置可以做到0丢失</td>
+</tr>
+<tr>
+<td>核心特点</td>
+<td>MQ领域的功能及其完备</td>
+<td>基于Erlang开发，所以并发能力强，性能及其好，延时很低</td>
+<td>MQ功能较为完善，还是分布式的，扩展性好</td>
+<td>功能较为简单，主要支持简单的MQ功能，在大数据领域的实时计算以及日志采集被大规模使用，是实时上的标准。</td>
+</tr>
+<tr>
+<td></td>
+<td>非常成熟，功能强大，在业内大量公司以及项目都有应用。  但是偶尔消息丢失的概率，并且现在社区以及国内应用都越来越少，官方社区对ActiveMQ5.X维护越来越少，而且确实主要是基于解耦和异步来用的，较少在大规模吞吐场景中使用</td>
+<td>erlang语言开发的，性能及其好，延时很低。而且开源的版本，就提供的管理界面非常棒，在国内一些互联网公司近几年用RabbitMQ也是比较多一些，特别适用于中小型的公司 缺点显而易见，就是吞吐量会低一些，这是因为它做的实现机制比较中，因为使用erlang开发，目前没有多少公司使用其开发。所以针对源码界别的定制，非常困难，因此公司的掌控非常弱，只能依赖于开源社区的维护。</td>
+<td>接口简单易用，毕竟在阿里大规模应用过，有阿里平台保障，日处理消息上 百亿之多，可以做到大规模吞吐，性能也非常好，分布式扩展也很方便，社区维护还可以，可靠性和可用性都是OK的，还可以支撑大规模的topic数量，支持复杂MQ业务场景。</td>
+<td>仅仅提供较少的核心功能，但是提供超高的吞吐量，ms级别的延迟，极高的可用性以及可靠性，分布式可以任意扩展。    同时kafka最好是支撑较少的topic数量即可，保证其超高的吞吐量。</td>
+</tr>
+</tbody></table>
+<h2 id="为什么Kafka的吞吐量这么高？"><a href="#为什么Kafka的吞吐量这么高？" class="headerlink" title="为什么Kafka的吞吐量这么高？"></a>为什么Kafka的吞吐量这么高？</h2><ol>
+<li>基于磁盘的顺序读写。磁盘的顺序读写性能高于内存随机读写。kafka的消息不断地追加到本地磁盘的末尾，而不是随机写入</li>
+<li>利用了系统本身的Page cache。即利用操作系统本身的内存，而不是JVM的内存。这样避免了Object的消耗和CG问题。通过Page Cache，kafka的读写操作基本是基于内存的</li>
+<li>零拷贝。Page Cache 结合 sendfile 方法，Kafka消费端的性能也大幅提升。这也是为什么有时候消费端在不断消费数据时，我们并没有看到磁盘io比较高，此刻正是操作系统缓存在提供数据。</li>
+<li>分区分段+索引。topic中的数据暗道一个个的分区存储到不同的broker节点。而分区实际上又是segment分段存储的。因此kafka的message实际上分布式存储在一个个segment中，每次文件操作也是直接操作segment的。同时kafka又为每一个分段的数据文件建立索引。不仅提升数据读取效率，还提高数据处理的并行度</li>
+<li>批量读写。kafka数据读写是批量的而不是单条的。写入数据时，可以采用批次写入。这样避免网络上频繁传输单个消息带来的延迟和带宽开销</li>
+<li>批量压缩。在很多情况下，系统的瓶颈不是CPU或磁盘，而是网络IO，对于需要在广域网上的数据中心之间发送消息的数据流水线尤其如此。进行数据压缩会消耗少量的CPU资源,不过对于kafka而言,网络IO更应该需要考虑。<ol>
+<li>采取批量压缩，而不是每条message都压缩</li>
+<li>kafka支持多压缩协议</li>
 </ol>
 </li>
-<li>当一个线程完成任务时，它会从队列中取下一个任务来执行</li>
-<li>当一个线程无事可做操作一定的时间(keepAliveTime)时，线程池会判断：<ol>
-<li>如果当前运行的线程数大于corePoolSize，那么这个线程就被停掉</li>
-<li>所以线程池的所有任务完成后，它会最终收缩到corePoolSize的大小</li>
 </ol>
-</li>
-</ol>
-<h2 id="拒绝策略"><a href="#拒绝策略" class="headerlink" title="拒绝策略"></a>拒绝策略</h2><ul>
-<li>AbortPolicy：默认，直接抛出RejectedExcutionException异常，阻止系统正常运行</li>
-<li>DiscardPolicy：直接丢弃任务，不予任何处理也不抛出异常，如果运行任务丢失，这是一种好方案</li>
-<li>CallerRunsPolicy：该策略既不会抛弃任务，也不会抛出异常，而是将某些任务回退到调用者</li>
-<li>DiscardOldestPolicy：抛弃队列中等待最久的任务，然后把当前任务加入队列中尝试再次提交当前任务</li>
-</ul>
-<h2 id="重要参数"><a href="#重要参数" class="headerlink" title="重要参数"></a>重要参数</h2><p>corePoolSize：核心线程数，线程池中的常驻核心线程数，最小线程数量。<br>maximumPoolSize：线程池能够容纳同时执行的最大线程数，此值必须大于等于1<br>keepAliveTime：多余的空闲线程存活时间。针对超过corePollSize数量的线程<br>unit：keepAliveTime的单位<br>workQueue：任务队列，被提交但是没有被执行的任务<br>threadFactory：表示生成线程池中工作线程的线程工厂，用于创建线程池 一般用默认即可<br>handler：拒绝策略，表示当<strong>队列满了并且工作线程大于线程池的最大线程数（maximumPoolSize）</strong>时，如何来拒绝请求执行的Runnable的策略</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,</span></span></span><br><span class="line"><span class="function"><span class="params">                          <span class="keyword">int</span> maximumPoolSize,</span></span></span><br><span class="line"><span class="function"><span class="params">                          <span class="keyword">long</span> keepAliveTime,</span></span></span><br><span class="line"><span class="function"><span class="params">                          TimeUnit unit,</span></span></span><br><span class="line"><span class="function"><span class="params">                          BlockingQueue&lt;Runnable&gt; workQueue,</span></span></span><br><span class="line"><span class="function"><span class="params">                          ThreadFactory threadFactory,</span></span></span><br><span class="line"><span class="function"><span class="params">                          RejectedExecutionHandler handler)</span> </span>&#123;</span><br></pre></td></tr></table></figure>
-
-<h2 id="参数设置"><a href="#参数设置" class="headerlink" title="参数设置"></a>参数设置</h2><ul>
-<li>CPU密集型任务配置尽可能少的线程数量。一般：CPU核数 + 1个线程数</li>
-<li>IO密集型任务尽可能配置多的线程数量。参考公式：CPU核数 / (1 - 阻塞系数)  阻塞系数在0.8 ~ 0.9左右。比如8核CPU配置80个线程数量</li>
-</ul>
+<p>kafka速度的秘诀在于：<strong>它把所有的消息都变成一个批量的文件，并且进行合理的批量压缩，减少网络IO损耗，通过mmap提高I/O速度，写入数据的时候由于单个Partion是末尾添加所以速度最优；读取数据的时候配合sendfile直接暴力输出。</strong>，同样也因为如此，kafka的时效性并不高，不过也在ms以内<br>(<a target="_blank" rel="noopener" href="https://www.cnblogs.com/18800105616a/p/13863254.html">https://www.cnblogs.com/18800105616a/p/13863254.html</a>)</p>
+<h2 id="为什么RabbitMQ随着队列的堆积导致吞吐量降低？"><a href="#为什么RabbitMQ随着队列的堆积导致吞吐量降低？" class="headerlink" title="为什么RabbitMQ随着队列的堆积导致吞吐量降低？"></a>为什么RabbitMQ随着队列的堆积导致吞吐量降低？</h2><p><a target="_blank" rel="noopener" href="https://www.freesion.com/article/7358885921/">https://www.freesion.com/article/7358885921/</a></p>
 
                 
             </div>
@@ -488,7 +511,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/05/19/%E5%90%8E%E7%AB%AF/Java/Java%E7%BA%BF%E7%A8%8B%E6%B1%A0/">http://example.com/2021/05/19/%E5%90%8E%E7%AB%AF/Java/Java%E7%BA%BF%E7%A8%8B%E6%B1%A0/</a>
+                    <a href="http://example.com/2021/05/21/middleware/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%B7%AE%E5%BC%82/">http://example.com/2021/05/21/middleware/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E5%B7%AE%E5%BC%82/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -525,15 +548,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
-                                </a>
-                            
-                                <a href="/tags/JVM/">
-                                    <span class="chip bg-color">JVM</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -707,13 +722,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/05/19/%E5%90%8E%E7%AB%AF/Java/Java%E9%94%81/">
+                <a href="/2021/05/22/%E5%90%8E%E7%AB%AF/Go/Go%E5%BC%80%E7%AF%87/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Java锁">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Go入门">
                         
-                        <span class="card-title">Java锁</span>
+                        <span class="card-title">Go入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -724,7 +739,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-19
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-22
                         </span>
                         <span class="publish-author">
                             
@@ -741,12 +756,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                    <a href="/tags/JVM/">
-                        <span class="chip bg-color">JVM</span>
+                    <a href="/tags/Go/">
+                        <span class="chip bg-color">Go</span>
                     </a>
                     
                 </div>
@@ -760,13 +771,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/18/%E5%90%8E%E7%AB%AF/Java/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">
+                <a href="/2021/05/20/%E5%90%8E%E7%AB%AF/Java/Java%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="垃圾收集器">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Java线程池">
                         
-                        <span class="card-title">垃圾收集器</span>
+                        <span class="card-title">Java线程池</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -777,7 +788,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-20
                             </span>
                         <span class="publish-author">
                             
@@ -948,7 +959,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">127.2k</span>&nbsp;字
+                class="white-color">133.6k</span>&nbsp;字
             
             
             
