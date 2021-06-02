@@ -399,14 +399,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    479
+                    787
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -434,8 +434,16 @@
 <p>Go中，所有变量都默认初始化为零值。数值类型默认为0，字符串类型默认为空字符串，布尔值默认为false，指针默认为nil</p>
 <p>创建引用类型需要使用make()来构造，如make(map[string]Matcher),类似于创建Java 中的Map&lt;String,Matcher&gt;</p>
 <h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><p>range可以迭代数组、字符串、切片、映射和通道。每次迭代会返回元素的索引以及元素值得副本。如果某些变量我们并不需要，可以使用下划线代替将其忽略</p>
-<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>可以在匿名函数里面访问外部变量</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>可以在匿名函数里面访问外部变量，一般访问共享变量</p>
 <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>自己实现函数，最好保证函数有返回值，并且也有错误返回。如果发生了错误，永远不要使用函数返回的另一个值。尽量遵守这个准则，保证含义足够明确</p>
+<h2 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h2><p>每一个.go文件，都应该在第一行声明自己所属的包。每个包都应该在单独一个目录中，不要将多个包放入到同一个目录，也不要将同一个包的文件拆分到多个不同目录中。<br>同一个目录的下.go文件必须声明同一个包名</p>
+<p>给包命名应该使用简洁、清晰且<strong>全小写</strong>的形式</p>
+<h3 id="main包"><a href="#main包" class="headerlink" title="main包"></a>main包</h3><p>所以Go语言编译的可执行程序都比如有一个名为main的包。同时当编译器发现包名为main的时候，必须也要有main函数，不然编译器不会创建可执行文件。<br>编译时，会将main包所在代码所在的目录的目录名作为二进制可执行文件的文件名。</p>
+<p>如果不是main包，则编译器认为这就是一个包，而不是命令。</p>
+<blockquote>
+<p>Go中经常使用命令来指代可执行文件。命令时可执行的，而包只是作为予以上的功能单元</p>
+</blockquote>
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><p>go：启动一个goroutine。如go func(){}<br>defer：安排随后的函数调用在函数返回时才执行, 如 defer func(){}</p>
 <h2 id="goroutine和-channal"><a href="#goroutine和-channal" class="headerlink" title="goroutine和 channal"></a>goroutine和 channal</h2><p>gouroutine是可以和其他goroutine并行执行的函数，同时也会和主程序并行执行</p>
 <p>channal是一种数据结果，能够让goroutine之间进行安全的数据通信</p>
 
@@ -900,7 +908,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">133.6k</span>&nbsp;字
+                class="white-color">134.2k</span>&nbsp;字
             
             
             

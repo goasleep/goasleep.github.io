@@ -454,7 +454,9 @@
 <li>缓存(会话缓存，全页缓存)</li>
 <li>查找表</li>
 <li>消息队列(不推荐)</li>
-<li>分布式锁<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2>|数据类型|可以存储的值|应用场景|<br>|String|字符串、整数或者浮点数| 适合最简单的k-v存储，类似于memcached的存储结构，短信验证码，配置信息等|<br>|List|列表|因为list是有序的，比较适合存储一些有序且数据相对固定的数据。如省市区表、字典表等，类似粉丝列表，文章的评论列表|<br>|Set|无序集合|可以简单的理解为ID-List的模式，如微博中一个人有哪些好友，set最牛的地方在于，可以对两个set提供交集、并集、差集操作，比如交集，可以把两个人的粉丝列表整一个交集|<br>|Hash|包含键值对的无序散列表|一般key为ID或者唯一标示，value对应的就是详情了。如商品详情，个人信息详情，新闻详情等|<br>|Zset|有序集合|去重但可以排序，如获取排名前几名的用户|<h2 id="持久化方式"><a href="#持久化方式" class="headerlink" title="持久化方式"></a>持久化方式</h2>Redis 提供两种持久化机制 RDB（默认） 和 AOF 机制.当两种方式同时开启时，数据恢复Redis会优先选择AOF恢复。<h3 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h3>RDB：是Redis DataBase缩写快照，是Redis默认的持久化方式。按照一定的时间将内存的数据以快照的形式保存到硬盘中，对应产生的数据文件为dump.rdb。<br>优点：</li>
+<li>分布式锁</li>
+<li>内存数据库</li>
+<li>请求限流，redis+lua<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2>|数据类型|可以存储的值|应用场景|<br>|String|字符串、整数或者浮点数| 适合最简单的k-v存储，类似于memcached的存储结构，短信验证码，配置信息等|<br>|List|列表|因为list是有序的，比较适合存储一些有序且数据相对固定的数据。如省市区表、字典表等，类似粉丝列表，文章的评论列表|<br>|Set|无序集合|可以简单的理解为ID-List的模式，如微博中一个人有哪些好友，set最牛的地方在于，可以对两个set提供交集、并集、差集操作，比如交集，可以把两个人的粉丝列表整一个交集|<br>|Hash|包含键值对的无序散列表|一般key为ID或者唯一标示，value对应的就是详情了。如商品详情，个人信息详情，新闻详情等|<br>|Zset|有序集合|去重但可以排序，如获取排名前几名的用户|<h2 id="持久化方式"><a href="#持久化方式" class="headerlink" title="持久化方式"></a>持久化方式</h2>Redis 提供两种持久化机制 RDB（默认） 和 AOF 机制.当两种方式同时开启时，数据恢复Redis会优先选择AOF恢复。<h3 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h3>RDB：是Redis DataBase缩写快照，是Redis默认的持久化方式。按照一定的时间将内存的数据以快照的形式保存到硬盘中，对应产生的数据文件为dump.rdb。<br>优点：</li>
 <li>只有一个文件dump.rdb，方便持久化</li>
 <li>容灾性号，一个文件可以保存到安全的磁盘</li>
 <li>性能最大化，fork子进程赖完成写操作，主进程继续处理命令</li>
@@ -1022,7 +1024,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">133.6k</span>&nbsp;字
+                class="white-color">134.2k</span>&nbsp;字
             
             
             
