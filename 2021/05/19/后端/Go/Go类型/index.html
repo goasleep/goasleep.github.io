@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="彭峰的博客">
+    <meta name="keywords" content="Go类型, 彭峰的博客">
     <meta name="description" content="天行健，君子以自强不息；地势坤，君子以厚德载物">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>彭峰的博客</title>
+    <title>Go类型 | 彭峰的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -244,12 +244,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">Go类型</h1>
                 </div>
             </div>
         </div>
@@ -363,12 +363,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Go/">
+                                <span class="chip bg-color">Go</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                后端
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -377,7 +390,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-24
+                    2021-05-19
                 </div>
                 
 
@@ -386,14 +399,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    39
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    6 分
                 </div>
                 
 
@@ -416,17 +429,102 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h1><h2 id="内置类型"><a href="#内置类型" class="headerlink" title="内置类型"></a>内置类型</h2><ul>
+                <h1 id="Go类型"><a href="#Go类型" class="headerlink" title="Go类型"></a>Go类型</h1><h2 id="用户自定义类型"><a href="#用户自定义类型" class="headerlink" title="用户自定义类型"></a>用户自定义类型</h2><p>声明一个类型的时，这个声明就给编译器提供一个框架，告知必要的内存大小和表示信息。声明后与内置类型的运作方式类型。</p>
+<blockquote>
+<p>需要注意得是，不同类型即使相互兼容，但是也不能相互赋值</p>
+</blockquote>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// 定义一个新的类型</span>
+<span class="token keyword">type</span> user <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span>
+    name       <span class="token builtin">string</span>
+    email      <span class="token builtin">string</span>
+    ext        <span class="token builtin">int</span>
+    privileged <span class="token builtin">bool</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 类型可以嵌套</span>
+<span class="token keyword">type</span> admin <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span>
+    persion user
+    level   <span class="token builtin">string</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>初始化与赋值</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// 默认值为新类型里属性对应的默认值</span>
+<span class="token keyword">var</span> bill user
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>bill<span class="token punctuation">)</span>
+
+<span class="token comment">//类型创建并初始化</span>
+newUser <span class="token operator">:=</span> user<span class="token punctuation">&#123;</span>
+	name<span class="token punctuation">:</span>       <span class="token string">"smith"</span><span class="token punctuation">,</span>
+	email<span class="token punctuation">:</span>      <span class="token string">"smith@example.com"</span><span class="token punctuation">,</span>
+	ext<span class="token punctuation">:</span>        <span class="token number">0</span><span class="token punctuation">,</span>
+	privileged<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span>
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>newUser<span class="token punctuation">)</span>
+
+<span class="token comment">//类型创建并初始化的另外一种方式,需要注意值得顺序</span>
+newUser2 <span class="token operator">:=</span> user<span class="token punctuation">&#123;</span><span class="token string">"smith"</span><span class="token punctuation">,</span> <span class="token string">"smith@example.com"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">&#125;</span>
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>newUser2<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>方法能给用户定义得类型添加新的行为。</p>
+<p>在定义方法的时候，关键字func和函数名之间的参数被称作为接受者，将函数与接受者的类型绑定在一起。如果一个函数有接受者，那么这个函数就被称作为方法。</p>
+<p>Go中有两种接受者： 值接受者和指针接收者。</p>
+<p>如果使用值接收者，那么调用时会使用这个值的一个副本来执行</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">type</span> user <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span>
+	name       <span class="token builtin">string</span>
+	email      <span class="token builtin">string</span>
+	ext        <span class="token builtin">int</span>
+	privileged <span class="token builtin">bool</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">// 为user添加修改名字的方法，值接受者</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>u user<span class="token punctuation">)</span> <span class="token function">changeName</span><span class="token punctuation">(</span>name <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	u<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 指针接受者</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>u <span class="token operator">*</span>user<span class="token punctuation">)</span> <span class="token function">changeEmail</span><span class="token punctuation">(</span>email <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	u<span class="token punctuation">.</span>email <span class="token operator">=</span> email
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>值得注意的是，值接受者使用值得副本来调用方法，而指针接受者使用实际的值调用方法，也可以使用一个值来调用使用指针接受者声明的方法。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">newUser<span class="token punctuation">.</span><span class="token function">changeName</span><span class="token punctuation">(</span><span class="token string">"smith1"</span><span class="token punctuation">)</span>
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>newUser<span class="token punctuation">)</span>
+
+    <span class="token comment">//(&amp;newUser).changeEmail("smith1@example.com"),两者是等价的</span>
+newUser<span class="token punctuation">.</span><span class="token function">changeEmail</span><span class="token punctuation">(</span><span class="token string">"smith1@example.com"</span><span class="token punctuation">)</span>
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>newUser<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token operator">&amp;</span>newUser<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">changeEmail</span><span class="token punctuation">(</span><span class="token string">"smith2@example.com"</span><span class="token punctuation">)</span>
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>newUser<span class="token punctuation">)</span>
+
+newUser4 <span class="token operator">:=</span> <span class="token operator">&amp;</span>user<span class="token punctuation">&#123;</span><span class="token string">"smith"</span><span class="token punctuation">,</span> <span class="token string">"smith@example.com"</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">&#125;</span>
+newUser4<span class="token punctuation">.</span><span class="token function">changeName</span><span class="token punctuation">(</span><span class="token string">"123"</span><span class="token punctuation">)</span>
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>newUser4<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="什么时候使用指针接受者，什么时候使用值接受者"><a href="#什么时候使用指针接受者，什么时候使用值接受者" class="headerlink" title="什么时候使用指针接受者，什么时候使用值接受者"></a>什么时候使用指针接受者，什么时候使用值接受者</h3><p>首先需要明白如果给某个类型增加或者删除某个值，是要修改当前值，还是更新当前值？如果是要创建一个新值，该类型的方法就使用值接受者，如果要修改当前值，就使用指针接受者。</p>
+<p><strong>原则是不要关注某个方法如何处理值，而是关注这个值的本质是什么</strong></p>
+<p>如果方法的接收者是值类型，无论调用者是对象还是对象指针，修改的都是对象的副本，不影响调用者；如果方法的接收者是指针类型，则调用者修改的是指针指向的对象本身。</p>
+<p>使用指针作为方法的接收者的理由：</p>
+<ul>
+<li>方法能够修改接收者指向的值。</li>
+<li>避免在每次调用方法时复制该值，在值的类型为大型结构体时，这样做会更加高效。</li>
+</ul>
+<h4 id="何时使用值类型"><a href="#何时使用值类型" class="headerlink" title="何时使用值类型"></a>何时使用值类型</h4><p>1.如果接受者是一个 map，func 或者 chan，使用值类型(因为它们本身就是引用类型)。<br>2.如果接受者是一个 slice，并且方法不执行 reslice 操作，也不重新分配内存给 slice，使用值类型。<br>3.如果接受者是一个小的数组或者原生的值类型结构体类型(比如 time.Time 类型)，而且没有可修改的字段和指针，又或者接受者是一个简单地基本类型像是 int 和 string，使用值类型就好了。</p>
+<p>一个值类型的接受者可以减少一定数量的垃圾生成，如果一个值被传入一个值类型接受者的方法，一个栈上的拷贝会替代在堆上分配内存(但不是保证一定成功)，所以在没搞明白代码想干什么之前，别因为这个原因而选择值类型接受者。</p>
+<h4 id="何时使用指针类型"><a href="#何时使用指针类型" class="headerlink" title="何时使用指针类型"></a>何时使用指针类型</h4><p>1.如果方法需要修改接受者，接受者必须是指针类型。<br>2.如果接受者是一个包含了 sync.Mutex 或者类似同步字段的结构体，接受者必须是指针，这样可以避免拷贝。<br>3.如果接受者是一个大的结构体或者数组，那么指针类型接受者更有效率。(多大算大呢？假设把接受者的所有元素作为参数传给方法，如果你觉得参数有点多，那么它就是大)。<br>4.从此方法中并发的调用函数和方法时，接受者可以被修改吗？一个值类型的接受者当方法调用时会创建一份拷贝，所以外部的修改不能作用到这个接受者上。如果修改必须被原始的接受者可见，那么接受者必须是指针类型。<br>5.如果接受者是一个结构体，数组或者 slice，它们中任意一个元素是指针类型而且可能被修改，建议使用指针类型接受者，这样会增加程序的可读性</p>
+<p>当你看完这个还是有疑虑，还是<strong>不知道该使用哪种接受者，那么记住使用指针接受者</strong>。</p>
+<p>是使用值接受者还是指针接受者，不应该由该方法是否修改了接收到的值来决定。这个决策应该基于该类型的本质。<br>只有一个例外，需要让类型值复合某个接口的时候，即便类型的本质是非原始的，也可以选择使用值接受者声明方法。这样做完全复合调用方法的机制。<br>ref：<a target="_blank" rel="noopener" href="https://www.136.la/tech/show-933792.html">https://www.136.la/tech/show-933792.html</a></p>
+<h2 id="类型的本质"><a href="#类型的本质" class="headerlink" title="类型的本质"></a>类型的本质</h2><h3 id="内置类型"><a href="#内置类型" class="headerlink" title="内置类型"></a>内置类型</h3><ul>
 <li>数值类型</li>
 <li>字符串类型</li>
-<li>布尔类型<h2 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h2></li>
+<li>布尔类型</li>
+</ul>
+<p>内置类型的本质是原始类型。<br>对于内置类型，对这些值进行增加或者删除的时候，会创建新值，把这些类型的值传递给方法或者函数的时候，应该传递一个对应值的副本。</p>
+<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><ul>
 <li>切片</li>
 <li>映射</li>
 <li>通道</li>
 <li>接口</li>
 <li>函数类型</li>
 </ul>
-<h2 id="结构类型"><a href="#结构类型" class="headerlink" title="结构类型"></a>结构类型</h2>
+<p>引用类型创建的变量成为标头值。每个标头值包含一个指向底层数据结构的指针。因此通过复制一个引用类型的值的副本，本质上就是在共享底层数据结构。<br>每个引用类型还包含足以独特的字段，用于管理底层数据结构。<strong>标头值是为了复制而设计的，所以永远不要共享一个引用类型的值</strong>。</p>
+<h3 id="结构类型"><a href="#结构类型" class="headerlink" title="结构类型"></a>结构类型</h3><p>结构类型用来描述一组数据值，这组值得本质可以是原始的，也可以是非原始的。</p>
+
                 
             </div>
             <hr/>
@@ -452,7 +550,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/05/24/%E5%90%8E%E7%AB%AF/Go/Go%E7%B1%BB%E5%9E%8B/">http://example.com/2021/05/24/%E5%90%8E%E7%AB%AF/Go/Go%E7%B1%BB%E5%9E%8B/</a>
+                    <a href="http://example.com/2021/05/19/%E5%90%8E%E7%AB%AF/Go/Go%E7%B1%BB%E5%9E%8B/">http://example.com/2021/05/19/%E5%90%8E%E7%AB%AF/Go/Go%E7%B1%BB%E5%9E%8B/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -489,7 +587,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Go/">
+                                    <span class="chip bg-color">Go</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -663,13 +765,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/06/04/leetcode%E9%A2%98%E8%A7%A3/%E5%89%91%E6%8C%87offer%E7%BA%AA%E5%BF%B5%E7%89%88/">
+                <a href="/2021/05/19/%E5%90%8E%E7%AB%AF/Java/Java%E9%94%81/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="剑指offer对应题">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Java锁">
                         
-                        <span class="card-title">剑指offer对应题</span>
+                        <span class="card-title">Java锁</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -680,14 +782,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-04
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-19
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
                                 </a>
                             
                             
@@ -697,8 +799,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Leetcode/">
-                        <span class="chip bg-color">Leetcode</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/JVM/">
+                        <span class="chip bg-color">JVM</span>
                     </a>
                     
                 </div>
@@ -712,13 +818,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/23/%E5%90%8E%E7%AB%AF/Go/Go%E7%8E%AF%E5%A2%83/">
+                <a href="/2021/05/18/%E5%90%8E%E7%AB%AF/Java/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="垃圾收集器">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">垃圾收集器</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -729,15 +835,31 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-18
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            彭峰
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/JVM/">
+                        <span class="chip bg-color">JVM</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -884,7 +1006,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">135.7k</span>&nbsp;字
+                class="white-color">137.4k</span>&nbsp;字
             
             
             

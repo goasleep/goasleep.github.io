@@ -386,7 +386,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    152
+                    155
                 </div>
                 
 
@@ -423,14 +423,38 @@
 <li>排列问题</li>
 <li>棋盘问题</li>
 </ol>
-<h2 id="代码模板"><a href="#代码模板" class="headerlink" title="代码模板"></a>代码模板</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void backTracking(参数)&#123;</span><br><span class="line">    if（终止条件）&#123;</span><br><span class="line">        收集结果;</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for(遍历集合元素)&#123;</span><br><span class="line">        处理节点;</span><br><span class="line">        递归函数;</span><br><span class="line">        回溯操作;</span><br><span class="line">    &#125;</span><br><span class="line">    return </span><br><span class="line">&#125;   </span><br></pre></td></tr></table></figure>
+<h2 id="代码模板"><a href="#代码模板" class="headerlink" title="代码模板"></a>代码模板</h2><pre class="line-numbers language-none"><code class="language-none">void backTracking(参数)&#123;
+    if（终止条件）&#123;
+        收集结果;
+        return
+    &#125;
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">res &#x3D; []</span><br><span class="line">path &#x3D; []</span><br><span class="line"></span><br><span class="line">def backtrack(未探索区域, res, path):</span><br><span class="line">    if 未探索区域满足结束条件:</span><br><span class="line">        res.add(path) # 深度拷贝</span><br><span class="line">        return</span><br><span class="line">    for 选择 in 未探索区域当前可能的选择:</span><br><span class="line">        if 当前选择符合要求:</span><br><span class="line">            path.add(当前选择)</span><br><span class="line">            backtrack(新的未探索区域, res, path)</span><br><span class="line">            path.pop()</span><br></pre></td></tr></table></figure>
+    for(遍历集合元素)&#123;
+        处理节点;
+        递归函数;
+        回溯操作;
+    &#125;
+    return 
+&#125;   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">res &#x3D; []
+path &#x3D; []
+
+def backtrack(未探索区域, res, path):
+    if 未探索区域满足结束条件:
+        res.add(path) # 深度拷贝
+        return
+    for 选择 in 未探索区域当前可能的选择:
+        if 当前选择符合要求:
+            path.add(当前选择)
+            backtrack(新的未探索区域, res, path)
+            path.pop()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><ol start="78">
 <li>子集</li>
 <li>子集 II</li>
+<li> 目标和</li>
 </ol>
 
                 
@@ -878,7 +902,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">135.7k</span>&nbsp;字
+                class="white-color">137.4k</span>&nbsp;字
             
             
             
