@@ -390,7 +390,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-09
+                    2021-06-17
                 </div>
                 
 
@@ -399,14 +399,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    2.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    8 分
                 </div>
                 
 
@@ -525,6 +525,67 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
 </ul>
 <p>引用类型创建的变量成为标头值。每个标头值包含一个指向底层数据结构的指针。因此通过复制一个引用类型的值的副本，本质上就是在共享底层数据结构。<br>每个引用类型还包含足以独特的字段，用于管理底层数据结构。<strong>标头值是为了复制而设计的，所以永远不要共享一个引用类型的值</strong>。</p>
 <h3 id="结构类型"><a href="#结构类型" class="headerlink" title="结构类型"></a>结构类型</h3><p>结构类型用来描述一组数据值，这组值得本质可以是原始的，也可以是非原始的。</p>
+<h2 id="嵌入类型"><a href="#嵌入类型" class="headerlink" title="嵌入类型"></a>嵌入类型</h2><p>嵌入类型是将已有的类型直接声明在新的结构类型里。被嵌入的类型成为新的外部类型的内部类型。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">type</span> user <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span>
+	name  <span class="token builtin">string</span>
+	email <span class="token builtin">string</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">type</span> admin <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span>
+	user <span class="token comment">// 内嵌</span>
+	level <span class="token builtin">string</span>
+<span class="token punctuation">&#125;</span>
+
+user1 <span class="token operator">:=</span> user<span class="token punctuation">&#123;</span><span class="token string">"smith"</span><span class="token punctuation">,</span> <span class="token string">"smith@email.com"</span><span class="token punctuation">&#125;</span>
+ad <span class="token operator">:=</span> admin<span class="token punctuation">&#123;</span>
+	user<span class="token punctuation">:</span>  user1<span class="token punctuation">,</span>
+	level<span class="token punctuation">:</span> <span class="token string">"super"</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span>
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>ad<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>内部类型的提升</strong>：对于外部类型来说，内部类型总是存在的。这就意味着，虽然没有指定内部类型对应的字段名，还是可以使用内部类型的类型名来范文内部类型的值。<br>即下面两者是等价的。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>ad<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token comment">//smith</span>
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>ad<span class="token punctuation">.</span>user<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token comment">//smith</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>同样的，对于接口的值而言，因为内部类型的提升，内部类型实现的接口会自动地提升到外部类型，因此外部类型也同样实现了这个接口</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// 定义接口</span>
+<span class="token keyword">type</span> notifier <span class="token keyword">interface</span> <span class="token punctuation">&#123;</span>
+	<span class="token function">notify</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 内部类型实现接口</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>u <span class="token operator">*</span>user<span class="token punctuation">)</span> <span class="token function">notify</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"user interface name:%s email:%s\n"</span><span class="token punctuation">,</span> u<span class="token punctuation">.</span>name<span class="token punctuation">,</span> u<span class="token punctuation">.</span>email<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 外部类型使用内部类型地接口</span>
+ad<span class="token punctuation">.</span><span class="token function">notify</span><span class="token punctuation">(</span><span class="token punctuation">)</span>     <span class="token comment">//user interface name:smith email:smith@email.com</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>但是如果外部类型同样实现同样的接口或者使用同样的变量，内部类型就不会得到提升。</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">//重新定义admin</span>
+<span class="token keyword">type</span> admin <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span>
+	user
+	email <span class="token builtin">string</span> <span class="token comment">// 与user有同样的字段</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// admin实现接口</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>u <span class="token operator">*</span>admin<span class="token punctuation">)</span> <span class="token function">notify</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"Admin interface name:%s email:%s\n"</span><span class="token punctuation">,</span> u<span class="token punctuation">.</span>name<span class="token punctuation">,</span> u<span class="token punctuation">.</span>email<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+user1 <span class="token operator">:=</span> user<span class="token punctuation">&#123;</span><span class="token string">"smith"</span><span class="token punctuation">,</span> <span class="token string">"smith@email.com"</span><span class="token punctuation">&#125;</span>
+ad <span class="token operator">:=</span> admin<span class="token punctuation">&#123;</span>
+	user<span class="token punctuation">:</span>  user1<span class="token punctuation">,</span>
+	email<span class="token punctuation">:</span> <span class="token string">"super@test.com"</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 同样的字段或者变量，内部类型不会得到提升</span>
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>ad<span class="token punctuation">.</span>email<span class="token punctuation">)</span>      <span class="token comment">//super@test.com</span>
+fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>ad<span class="token punctuation">.</span>user<span class="token punctuation">.</span>email<span class="token punctuation">)</span> <span class="token comment">//smith@email.com</span>
+ad<span class="token punctuation">.</span><span class="token function">notify</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// Admin interface name:smith email:super@test.com</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>需要注意一点是，<strong>即便内部类型是未公开的，内部类型声明的字段是公开的。那么这些公共字段也可以通过外部类型去访问</strong>。</p>
 
                 
             </div>
@@ -551,7 +612,7 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/06/09/%E5%90%8E%E7%AB%AF/Go/Go%E7%B1%BB%E5%9E%8B/">http://example.com/2021/06/09/%E5%90%8E%E7%AB%AF/Go/Go%E7%B1%BB%E5%9E%8B/</a>
+                    <a href="http://example.com/2021/06/17/%E5%90%8E%E7%AB%AF/Go/Go%E7%B1%BB%E5%9E%8B/">http://example.com/2021/06/17/%E5%90%8E%E7%AB%AF/Go/Go%E7%B1%BB%E5%9E%8B/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -766,13 +827,13 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/06/15/%E5%90%8E%E7%AB%AF/Go/Go%E6%8E%A5%E5%8F%A3/">
+                <a href="/2021/06/19/%E5%90%8E%E7%AB%AF/Go/Go%E5%B9%B6%E5%8F%91/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Go接口">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Go类型">
                         
-                        <span class="card-title">Go接口</span>
+                        <span class="card-title">Go类型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -783,7 +844,7 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-15
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-19
                         </span>
                         <span class="publish-author">
                             
@@ -815,13 +876,13 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/08/%E5%90%8E%E7%AB%AF/Go/Go%E6%96%B9%E6%B3%95/">
+                <a href="/2021/06/15/%E5%90%8E%E7%AB%AF/Go/Go%E6%8E%A5%E5%8F%A3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Go接口">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">Go接口</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -832,15 +893,27 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-15
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            彭峰
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Go/">
+                        <span class="chip bg-color">Go</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -987,7 +1060,7 @@ fmt<span class="token punctuation">.</span><span class="token function">Println<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">138.3k</span>&nbsp;字
+                class="white-color">140.5k</span>&nbsp;字
             
             
             

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="彭峰的博客">
+    <meta name="keywords" content="Go类型, 彭峰的博客">
     <meta name="description" content="天行健，君子以自强不息；地势坤，君子以厚德载物">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>彭峰的博客</title>
+    <title>Go类型 | 彭峰的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -244,12 +244,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title"></h1>
+                    <h1 class="description center-align post-title">Go类型</h1>
                 </div>
             </div>
         </div>
@@ -363,12 +363,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Go/">
+                                <span class="chip bg-color">Go</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                后端
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -377,7 +390,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-08
+                    2021-06-19
                 </div>
                 
 
@@ -386,14 +399,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    6 分
                 </div>
                 
 
@@ -416,7 +429,167 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p>[toc]</p>
+<h1 id="Go并发"><a href="#Go并发" class="headerlink" title="Go并发"></a>Go并发</h1><h2 id="goroutine"><a href="#goroutine" class="headerlink" title="goroutine"></a>goroutine</h2><p>Go的并发是指让某个函数独立于其他函数运行的能力。当函数创建为goroutine时，Go将会将其视为一个独立的工作单元。这个单元会通过Go调度器被调度到逻辑处理器上执行。</p>
+<p>Go调度器能管理被创建的所有goroutine并为其分配执行时间。调度器在操作系统之上，将操作系统的线程与语言运行时的逻辑处理器绑定，并在逻辑处理器运行goroutine。它能够在任何给定的时间，全面控制哪个goroutine在哪个逻辑处理器上运行。<strong>每个逻辑处理器都分别绑定在单个操作系统线程上。</strong></p>
+<p>Go的并发模型来自于CSP(Communicatting Sequential Process) 通信顺序进程。它时一种消息模型，通过goroutine之间传递数据来传递消息。而不是通过对数据加锁来实现同步访问。</p>
+<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><h4 id="执行系统IO"><a href="#执行系统IO" class="headerlink" title="执行系统IO"></a>执行系统IO</h4><p>如果创建一个goroutine并准备运行，这个goroutine就会被放到调度器的全局运行队列中，之后，就会为这个goroutine分配一个逻辑处理器，并被放到逻辑处理对应的本地队列中等待执行。</p>
+<p>正在运行的goroutine要执行一个阻塞的系统调用，如果读文件的IO操作。线程和goroutine会从逻辑处理器上分离。该线程会继续阻塞，等待系统调用的返回。</p>
+<p>与此同时，逻辑处理器就失去了用来运行的线程。所以调度器会创建一个新线程，并将其绑定在该逻辑处理器上。之后，调度器会选择本地运行队列里的另外一个goroutine来运行。</p>
+<p>一旦被阻塞的系统调用执行完并返回，对应的goroutine会放回到本地运行队列，而之前的线程会保存好，以便后续可以继续使用。</p>
+<h4 id="执行网络IO"><a href="#执行网络IO" class="headerlink" title="执行网络IO"></a>执行网络IO</h4><p>如果goroutine要做一个网络IO的调用。goroutine会和逻辑处理器分离(<strong>注意线程和逻辑处理器不分离</strong>)，并移到集成了网络轮询器的运行时。一旦轮询器指示某个网络读或者写操作就绪后，对应的goroutine就会重新分配到逻辑处理上完成操作。</p>
+<blockquote>
+<p>调度器创建的逻辑处理器没有限制，但是语言运行时默认限制每个程序最多创建10000个线程。</p>
+</blockquote>
+<p>一个goroutine在工作结束前，可以被停止并重新调度。调度器这么做的目的就是防止某个goroutine占用逻辑处理器的时间太长。此时，调度器会停止当前正在运行的goroutine，并给其他可运行的goroutine运行的机会.</p>
+<p>go关键字修饰的函数，可以像普通的函数一样，传递参数进去，但是goroutine终止时，是无法获取函数的返回值的。</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">"fmt"</span>
+	<span class="token string">"runtime"</span>
+	<span class="token string">"sync"</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token comment">// 分配1个逻辑处理器</span>
+	runtime<span class="token punctuation">.</span><span class="token function">GOMAXPROCS</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+	<span class="token comment">//wg 使用WaitGroup等待goroutine完成，类似于信号量</span>
+	<span class="token keyword">var</span> wg sync<span class="token punctuation">.</span>WaitGroup
+	wg<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"start goroutine"</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">defer</span> wg<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 保证每个工作完成都调用wg.Done方法</span>
+
+		<span class="token keyword">for</span> count <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> count <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">;</span> count<span class="token operator">++</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">for</span> char <span class="token operator">:=</span> <span class="token string">'a'</span><span class="token punctuation">;</span> char <span class="token operator">&lt;</span> <span class="token string">'a'</span><span class="token operator">+</span><span class="token number">26</span><span class="token punctuation">;</span> char<span class="token operator">++</span> <span class="token punctuation">&#123;</span>
+				fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span> char<span class="token punctuation">)</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 后加括号表示立即调用</span>
+
+	<span class="token keyword">go</span> <span class="token keyword">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token keyword">defer</span> wg<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+		<span class="token keyword">for</span> count <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> count <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">;</span> count<span class="token operator">++</span> <span class="token punctuation">&#123;</span>
+			<span class="token keyword">for</span> char <span class="token operator">:=</span> <span class="token string">'A'</span><span class="token punctuation">;</span> char <span class="token operator">&lt;</span> <span class="token string">'A'</span><span class="token operator">+</span><span class="token number">26</span><span class="token punctuation">;</span> char<span class="token operator">++</span> <span class="token punctuation">&#123;</span>
+				fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"%c "</span><span class="token punctuation">,</span> char<span class="token punctuation">)</span>
+			<span class="token punctuation">&#125;</span>
+		<span class="token punctuation">&#125;</span>
+	<span class="token punctuation">&#125;</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"wait for finish\n"</span><span class="token punctuation">)</span>
+	wg<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"\n terminal"</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h2 id="锁机制"><a href="#锁机制" class="headerlink" title="锁机制"></a>锁机制</h2><p>Go 提供了同步goroutine的机制，就是对共享资源加锁，可以使用atomic和sync包里面的函数实现顺序访问。</p>
+<h3 id="原子函数"><a href="#原子函数" class="headerlink" title="原子函数"></a>原子函数</h3><p>原子函数能够以底层的加锁机制来同步访问整形变量和指针。</p>
+<p>Atomic包提供类似于Java中Java中的原子操作。比如atomic.AddInt64等。<br>同时还提供原子读和原子写，LoadInt64和StoreInt64</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">"fmt"</span>
+	<span class="token string">"runtime"</span>
+	<span class="token string">"sync"</span>
+	<span class="token string">"sync/atomic"</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">var</span> <span class="token punctuation">(</span>
+	counter <span class="token builtin">int64</span>
+	wg sync<span class="token punctuation">.</span>WaitGroup
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	wg<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">go</span> <span class="token function">increate</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+	<span class="token keyword">go</span> <span class="token function">increate</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+	wg<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"Final counter:"</span><span class="token punctuation">,</span> counter<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token function">increate</span><span class="token punctuation">(</span>num <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">defer</span> wg<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">for</span> count <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> count <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">;</span> count<span class="token operator">++</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 原子添加</span>
+		atomic<span class="token punctuation">.</span><span class="token function">AddInt64</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>counter<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+		<span class="token comment">// 当前goroutine 从线程退出，并放回队列</span>
+		runtime<span class="token punctuation">.</span><span class="token function">Gosched</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="互斥锁"><a href="#互斥锁" class="headerlink" title="互斥锁"></a>互斥锁</h3><p>互斥锁用于在代码上创建一个临界区，保证同一时间只有一个goroutine可以执行这个临界区代码</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">"fmt"</span>
+	<span class="token string">"runtime"</span>
+	<span class="token string">"sync"</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">var</span> <span class="token punctuation">(</span>
+	counter <span class="token builtin">int64</span>
+	wg sync<span class="token punctuation">.</span>WaitGroup
+	<span class="token comment">// 定义互斥锁</span>
+	mutex sync<span class="token punctuation">.</span>Mutex
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	wg<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">go</span> <span class="token function">increate</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+	<span class="token keyword">go</span> <span class="token function">increate</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+
+	wg<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"Final counter:"</span><span class="token punctuation">,</span> counter<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">func</span> <span class="token function">increate</span><span class="token punctuation">(</span>num <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token keyword">defer</span> wg<span class="token punctuation">.</span><span class="token function">Done</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+	<span class="token keyword">for</span> count <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> count <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">;</span> count<span class="token operator">++</span> <span class="token punctuation">&#123;</span>
+		mutex<span class="token punctuation">.</span><span class="token function">Lock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 加锁</span>
+		<span class="token punctuation">&#123;</span>
+			value <span class="token operator">:=</span> counter
+			value<span class="token operator">++</span>
+			runtime<span class="token punctuation">.</span><span class="token function">Gosched</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+			counter <span class="token operator">=</span> value
+		<span class="token punctuation">&#125;</span>
+		mutex<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 释放锁</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="通道Channel"><a href="#通道Channel" class="headerlink" title="通道Channel"></a>通道Channel</h2><p>Go中，可以使用原子函数和互斥锁来保证对共享资源的安全访问和消除竞争状态，还可以使用通过，通过发送和接收需要共享的资源，在goroutine之间做同步。</p>
+<p>Channel又分有缓存的通道和无缓存的通道。</p>
+<ul>
+<li>无缓存通道(unbuffered channel)要求发送goroutie和接收goroutine同时准备好，才能发送发送和接收操作。如果有两者没有准备好，通道会导致先执行发送或者接收操作的goroutine进行阻塞。这种交互行为时同步的</li>
+<li>有缓存通道(buffered channel)是在被接受前能存储一个或者多个值的通道。它不强制要求goroutine之间完成发送和接收。只有通道中没有接收的值时，接收动作才会被阻塞。或者通道没有缓存区容纳被发送的值，发送动作才会阻塞。</li>
+</ul>
+<p>对于有缓存的通道，当通道关闭后，goroutine 依旧可以从通道中接收数据，但是不允许向通道发送数据。这样能够保证通道关闭后，不会有数据丢失。如果通道内没有数据，则会返回立即返回通道类型的零值，或者获取值时加入可选标志，得到通道信息。</p>
+<h3 id="通道的使用"><a href="#通道的使用" class="headerlink" title="通道的使用"></a>通道的使用</h3><p>在使用通道过程中，<strong>箭头指向接收的变量</strong><br>同时，当通道不再用的时候，需要对通道进行关闭</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token comment">// 声明无缓存的通道</span>
+count <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token builtin">int</span><span class="token punctuation">)</span>
+<span class="token comment">// 声明有缓存的通道</span>
+count1 <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token builtin">int</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 从通道中添加值</span>
+count <span class="token operator">&lt;-</span> <span class="token number">1</span>
+
+<span class="token comment">// 从通道中取值</span>
+value<span class="token punctuation">,</span> ok <span class="token operator">:=</span> <span class="token operator">&lt;-</span>count
+
+<span class="token comment">// 关闭通道,必须要记得关闭</span>
+<span class="token function">clost</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
                 
             </div>
             <hr/>
@@ -442,7 +615,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/06/08/%E5%90%8E%E7%AB%AF/Go/Go%E6%96%B9%E6%B3%95/">http://example.com/2021/06/08/%E5%90%8E%E7%AB%AF/Go/Go%E6%96%B9%E6%B3%95/</a>
+                    <a href="http://example.com/2021/06/19/%E5%90%8E%E7%AB%AF/Go/Go%E5%B9%B6%E5%8F%91/">http://example.com/2021/06/19/%E5%90%8E%E7%AB%AF/Go/Go%E5%B9%B6%E5%8F%91/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -479,7 +652,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Go/">
+                                    <span class="chip bg-color">Go</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -649,11 +826,12 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/06/09/%E5%90%8E%E7%AB%AF/Go/Go%E7%B1%BB%E5%9E%8B/">
+                <a href="/2021/06/19/%E5%90%8E%E7%AB%AF/Go/Go%E5%B9%B6%E5%8F%91/">
                     <div class="card-image">
                         
                         
@@ -669,9 +847,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -684,6 +862,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -702,13 +881,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/07/%E5%90%8E%E7%AB%AF/Go/%E6%95%B0%E7%BB%84%E3%80%81%E5%88%87%E7%89%87%E5%92%8C%E6%98%A0%E5%B0%84/">
+                <a href="/2021/06/17/%E5%90%8E%E7%AB%AF/Go/Go%E7%B1%BB%E5%9E%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Go数组、切片和映射">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Go类型">
                         
-                        <span class="card-title">Go数组、切片和映射</span>
+                        <span class="card-title">Go类型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -719,7 +898,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-17
                             </span>
                         <span class="publish-author">
                             
@@ -886,7 +1065,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">138.3k</span>&nbsp;字
+                class="white-color">140.5k</span>&nbsp;字
             
             
             
