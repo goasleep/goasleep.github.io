@@ -399,7 +399,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    282
+                    306
                 </div>
                 
 
@@ -434,15 +434,24 @@
 <li>下载IDEA安装包到这个目录并解压 tar -zxvf  ideaUI-2020.3.2.tar.gz</li>
 <li>在桌面创建快捷方式 vi idea.desktop 添加以下内容</li>
 </ol>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">[Desktop</span> <span class="string">Entry]</span></span><br><span class="line"><span class="attr">Name</span>=<span class="string">IntelliJ IDEA</span></span><br><span class="line"><span class="attr">Comment</span>=<span class="string">IntelliJ IDEA</span></span><br><span class="line"><span class="attr">Exec</span>=<span class="string">/opt/idea/idea-IC-203.7148.57/bin/idea.sh</span></span><br><span class="line"><span class="attr">Icon</span>=<span class="string">/opt/idea/idea-IC-203.7148.57/bin/idea.png</span></span><br><span class="line"><span class="attr">Terminal</span>=<span class="string">false</span></span><br><span class="line"><span class="attr">Type</span>=<span class="string">Application</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">[Desktop</span> <span class="token attr-value">Entry]</span>
+<span class="token attr-name">Name</span><span class="token punctuation">=</span><span class="token attr-value">IntelliJ IDEA</span>
+<span class="token attr-name">Comment</span><span class="token punctuation">=</span><span class="token attr-value">IntelliJ IDEA</span>
+<span class="token attr-name">Exec</span><span class="token punctuation">=</span><span class="token attr-value">/opt/idea/idea-IC-203.7148.57/bin/idea.sh</span>
+<span class="token attr-name">Icon</span><span class="token punctuation">=</span><span class="token attr-value">/opt/idea/idea-IC-203.7148.57/bin/idea.png</span>
+<span class="token attr-name">Terminal</span><span class="token punctuation">=</span><span class="token attr-value">false</span>
+<span class="token attr-name">Type</span><span class="token punctuation">=</span><span class="token attr-value">Application</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="安装中文输入法"><a href="#安装中文输入法" class="headerlink" title="安装中文输入法"></a>安装中文输入法</h3><ol>
 <li>安装fcitx5<br>sudo pacman -S fcitx5 fcitx5-configtool fcitx5-qt fcitx5-gtk fcitx5-chinese-addons</li>
-<li>修改环境变量<br>vim ~/.pam_environment<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">GTK_IM_MODULE</span> <span class="string">DEFAULT=fcitx</span></span><br><span class="line"><span class="attr">QT_IM_MODULE</span>  <span class="string">DEFAULT=fcitx</span></span><br><span class="line"><span class="attr">XMODIFIERS</span>    <span class="string">DEFAULT=@im=fcitx</span></span><br></pre></td></tr></table></figure></li>
-<li>设置登陆后默认启动输入法<br>vim ~/.xprofile<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">fcitx5</span> <span class="string">&amp; </span></span><br></pre></td></tr></table></figure></li>
+<li>修改环境变量<br>vim ~/.pam_environment<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">GTK_IM_MODULE</span> <span class="token attr-value">DEFAULT=fcitx</span>
+<span class="token attr-name">QT_IM_MODULE</span> <span class="token attr-value"> DEFAULT=fcitx</span>
+<span class="token attr-name">XMODIFIERS</span> <span class="token attr-value">   DEFAULT=@im=fcitx</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>设置登陆后默认启动输入法<br>vim ~/.xprofile<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"><span class="token attr-name">fcitx5</span> <span class="token attr-value">&amp; </span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 <h2 id="软件配置"><a href="#软件配置" class="headerlink" title="软件配置"></a>软件配置</h2><h2 id="bash-ll-command-not-found"><a href="#bash-ll-command-not-found" class="headerlink" title="bash: ll: command not found"></a>bash: ll: command not found</h2><p>问题描述：bash: ll: command not found<br>问题原因：ll 是 “ls -l”的别名写，是别名，而不是原生自带的，所以在bash里面是找不到这个指令的。<br>问题解决：bash每次启动时候会添加每个用户下的.bashrc文件，该文件里面时bash的配置<br>         只需在该配置文件里面加上一句即可alias ll=’ls -l’,保存后再重新载入source ~/.bashrc<br>         如果时对于所有用户，则配置文件在/etc/bash.bashrc</p>
-<h2 id="配置Java开发环境"><a href="#配置Java开发环境" class="headerlink" title="配置Java开发环境"></a>配置Java开发环境</h2>
+<h2 id="配置Java开发环境"><a href="#配置Java开发环境" class="headerlink" title="配置Java开发环境"></a>配置Java开发环境</h2><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="删除大于100M的文件"><a href="#删除大于100M的文件" class="headerlink" title="删除大于100M的文件"></a>删除大于100M的文件</h3><p>find / -type f -size +100M | xargs rm -rf</p>
+
                 
             </div>
             <hr/>
@@ -916,7 +925,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">140.5k</span>&nbsp;字
+                class="white-color">141.3k</span>&nbsp;字
             
             
             
