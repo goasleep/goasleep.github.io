@@ -477,13 +477,21 @@
 <li>能够对运输实体资源进行分配<br>TCP连接的端口是套接字<br>TCP采用C/S模式</li>
 </ol>
 <h4 id="TCP-状态机"><a href="#TCP-状态机" class="headerlink" title="TCP 状态机"></a>TCP 状态机</h4><p><img src="/images/TCP%E7%8A%B6%E6%80%81%E6%9C%BA.png" alt="TCP状态机"></p>
-<h4 id="TCP的三次握手"><a href="#TCP的三次握手" class="headerlink" title="TCP的三次握手"></a>TCP的三次握手</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line">    Client -&gt;&gt; Server:SYN &#x3D; 1, ACK &#x3D; 0, seq &#x3D; x</span><br><span class="line">    Server -&gt;&gt; Client:SYN &#x3D; 1, ACK &#x3D; 1, seq &#x3D; y,ack &#x3D; x + 1</span><br><span class="line">    Client -&gt;&gt; Server:ACK &#x3D; 1, seq &#x3D; x + 1, ack &#x3D; y + 1</span><br></pre></td></tr></table></figure>
+<h4 id="TCP的三次握手"><a href="#TCP的三次握手" class="headerlink" title="TCP的三次握手"></a>TCP的三次握手</h4><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid">sequenceDiagram
+    Client -&gt;&gt; Server:SYN &#x3D; 1, ACK &#x3D; 0, seq &#x3D; x
+    Server -&gt;&gt; Client:SYN &#x3D; 1, ACK &#x3D; 1, seq &#x3D; y,ack &#x3D; x + 1
+    Client -&gt;&gt; Server:ACK &#x3D; 1, seq &#x3D; x + 1, ack &#x3D; y + 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>通俗来讲：<br>client 对 server 说：我要建立连接<br>server 对 client 说：我已经准好了建立连接了，你也准备一下<br>client 对 server 说：我也准备好了，可以开始了传输数据了</p>
 <h4 id="TCP-三次握手队列（未完成连接队列，已完成连接队列）"><a href="#TCP-三次握手队列（未完成连接队列，已完成连接队列）" class="headerlink" title="TCP 三次握手队列（未完成连接队列，已完成连接队列）"></a>TCP 三次握手队列（未完成连接队列，已完成连接队列）</h4><ul>
 <li><strong>未完成连接队列</strong>（incomplete connection queue），服务器只要收到了 SYN 段，就将该连接加入未完成连接队列。</li>
 <li><strong>已完成连接队列</strong>（complete connection queue），服务器收到了客户端对 SYN 段的确认，将未完成连接队列中的连接移到已完成连接队列。<br><img src="/images/TCP%E8%BF%9E%E6%8E%A5%E9%98%9F%E5%88%97.png" alt="TCP连接队列"></li>
 </ul>
-<h4 id="TCP的四次挥手"><a href="#TCP的四次挥手" class="headerlink" title="TCP的四次挥手"></a>TCP的四次挥手</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line">    Client -&gt;&gt; Server:FIN &#x3D; 1, seq &#x3D; u</span><br><span class="line">    Server -&gt;&gt; Client:ACK &#x3D; 1, seq &#x3D; v,ack &#x3D; u + 1</span><br><span class="line">    Server -&gt;&gt; Client:FIN &#x3D; 1, ACK &#x3D; 1, seq &#x3D; w, ack &#x3D; u + 1</span><br><span class="line">    Client -&gt;&gt; Server:ACK &#x3D; 1, seq &#x3D; u + 1, ack &#x3D; w + 1</span><br><span class="line">    Client -&gt;&gt; Client: wait 2MSL(Maximum Segment Lifetime)</span><br></pre></td></tr></table></figure>
+<h4 id="TCP的四次挥手"><a href="#TCP的四次挥手" class="headerlink" title="TCP的四次挥手"></a>TCP的四次挥手</h4><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid">sequenceDiagram
+    Client -&gt;&gt; Server:FIN &#x3D; 1, seq &#x3D; u
+    Server -&gt;&gt; Client:ACK &#x3D; 1, seq &#x3D; v,ack &#x3D; u + 1
+    Server -&gt;&gt; Client:FIN &#x3D; 1, ACK &#x3D; 1, seq &#x3D; w, ack &#x3D; u + 1
+    Client -&gt;&gt; Server:ACK &#x3D; 1, seq &#x3D; u + 1, ack &#x3D; w + 1
+    Client -&gt;&gt; Client: wait 2MSL(Maximum Segment Lifetime)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>通俗来讲：<br>client 对 server 说：我传完数据了，我要关闭链接了<br>server 对 client 说：等一下，我还有数据传给你<br>server 传完在对 client 说：我也传完数据了，可以关闭链接了<br>client 对 server 说：好的，我收到。<br>client 等了一会再关，为了防止还有消息在路上。如果有通知过来，我就再等会。</p>
 <h4 id="为什么需要四次挥手"><a href="#为什么需要四次挥手" class="headerlink" title="为什么需要四次挥手"></a>为什么需要四次挥手</h4><p>因为TCP连接是全双工的。因此每个方向就必须能够单独的关闭。就比如客户端执行了半关闭操作后，只是通知服务器它没有数据要发送了，并不代表它不能接收数据。因此，只要服务器还没有主动关闭，就能够向客户端继续发送数据。也就相当于在步骤 2 和 步骤 3 之间，服务器仍然能够向客户端发送数据。</p>
 <h4 id="为什么要等待2MSL"><a href="#为什么要等待2MSL" class="headerlink" title="为什么要等待2MSL"></a>为什么要等待2MSL</h4><p>MSL表示报文的最大存活时间，等待2MSL能够</p>
@@ -499,7 +507,7 @@
 </ul>
 <h4 id="累计确认"><a href="#累计确认" class="headerlink" title="累计确认"></a>累计确认</h4><p>有时候，发送方发送速度非常快，接收方一下下接收到了好几个 tcp 段，可以通过累积确认的方式，一次确认好几个 tcp 段，这样减少报文段的传输。</p>
 <h4 id="捎带确认"><a href="#捎带确认" class="headerlink" title="捎带确认"></a>捎带确认</h4><p>，双方互相发送数据，当接收到对方的 tcp 段后，先不着急确认，而是等待一会儿，连同数据和 ack 一起发送过去，这种情况叫捎带确认。如果等了一会儿（到时间了），接收方还没有数据要发送，那就直接回复一个纯 ack 过去，这样的 ack 称为延时的 ack（Delayed ACK）.</p>
-<h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><h4 id="连接异常"><a href="#连接异常" class="headerlink" title="连接异常"></a>连接异常</h4><p>当请求连接的主机不在网络中或者主机在网络中，但是服务没有开启时候，客户端会尝试重新发3此SYN报文尝试重新连接</p>
+<h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><h4 id="连接异常"><a href="#连接异常" class="headerlink" title="连接异常"></a>连接异常</h4><p>当请求连接的主机不在网络中或者主机在网络中，但是服务没有开启时候，客户端会尝试重新发3次SYN报文尝试重新连接</p>
 <h4 id="异常释放连接"><a href="#异常释放连接" class="headerlink" title="异常释放连接"></a>异常释放连接</h4><p>正常情况下，<strong>关闭连接的方式是发送FIN段</strong>，即四次挥手。这种方式也称为有序释放(orderly release)。也可以<strong>通过发送RST段给对端来释放连接，这种方式称为异常释放</strong>(abortive release)。</p>
 <p>异常终止连接特点：</p>
 <ul>
@@ -1002,7 +1010,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">141.3k</span>&nbsp;字
+                class="white-color">141.8k</span>&nbsp;字
             
             
             
