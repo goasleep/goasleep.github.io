@@ -399,7 +399,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    277
+                    546
                 </div>
                 
 
@@ -432,6 +432,25 @@
                 <h3 id="Dockerfile-和-docker-compose-yml-的区别"><a href="#Dockerfile-和-docker-compose-yml-的区别" class="headerlink" title="Dockerfile 和 docker-compose.yml 的区别"></a>Dockerfile 和 docker-compose.yml 的区别</h3><p>Dockerfile: Dockerfile 是拿来构建自定义镜像的，并没有直接生成容器<br>docker-compose.yml是用来编排项目的，里面包含使用各种镜像创建的容器服务,在服务启动的时候用到</p>
 <h3 id="为什么容器是单进程模型"><a href="#为什么容器是单进程模型" class="headerlink" title="为什么容器是单进程模型"></a>为什么容器是单进程模型</h3><p>容器只是通过Linux的Namespaces、Cgroups实现了进程级别的隔离。虽然在容器里看不见宿主机上的其他进程，但归根结底它还只是一个运行在宿主机上的进程，所以就不具备操作系统的进程管理能力。</p>
 <p>容器的”单进程模型”，并不是指容器里只能运行”一个”进程，而是指容器没有管理多个进程的能力。这是因为容器里的主进程（PID=1 的进程）就是应用本身，其他的进程都是这个主进程的子进程。可是，用户编写的应用，并不能够像正常操作系统里的init进程或者systemd 那样拥有进程管理的功能。<br>reference：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1671554">https://cloud.tencent.com/developer/article/1671554</a></p>
+<h3 id="如何构建更小的镜像"><a href="#如何构建更小的镜像" class="headerlink" title="如何构建更小的镜像"></a>如何构建更小的镜像</h3><p>核心：除去不必要的东西，只留下核心</p>
+<ul>
+<li>使用多阶段构建：多阶段构建的想法很简单：“我不想在最终的镜像中包含一堆 C 或 Go 编译器和整个编译工具链，我只要一个编译好的可执行文件！”<ul>
+<li>第一阶段使用经典的基础镜像。这里经典的镜像指的是 CentOS，Debian，Fedora 和 Ubuntu 之类的镜像</li>
+<li>COPY –from 使用绝对路径。从上一个构建阶段拷贝文件时，使用的路径是相对于上一阶段的根目录的。</li>
+</ul>
+</li>
+<li>FROM scratch。scratch 是一个虚拟镜像，不能被 pull，也不能运行，因为它表示空镜像<ul>
+<li>缺少 shell：scratch 镜像的第一个不便是没有 shell</li>
+<li>缺少调试工具：scratch 镜像不包含任何调试工具，ls、ps、ping 这些统统没有。</li>
+<li>缺少 libc：解决方式有三种<ul>
+<li>使用静态库</li>
+<li>拷贝库文件到镜像中</li>
+<li>使用 busybox:glibc 作为基础镜像<br>reference：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/qianxiaox/p/13724223.html">https://www.cnblogs.com/qianxiaox/p/13724223.html</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
                 
             </div>
@@ -906,7 +925,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">144.4k</span>&nbsp;字
+                class="white-color">147.5k</span>&nbsp;字
             
             
             

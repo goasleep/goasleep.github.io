@@ -4,6 +4,95 @@
   
     
     <entry>
+      <title>Python VSCode 环境搭建</title>
+      <link href="2021/07/22/%E5%90%8E%E7%AB%AF/python/vscode%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+      <url>2021/07/22/%E5%90%8E%E7%AB%AF/python/vscode%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Python-VSCode-环境搭建"><a href="#Python-VSCode-环境搭建" class="headerlink" title="Python VSCode 环境搭建"></a>Python VSCode 环境搭建</h1><h2 id="安装Python"><a href="#安装Python" class="headerlink" title="安装Python"></a>安装Python</h2><p>安装包地址：<a href="https://www.python.org/">https://www.python.org/</a></p><h2 id="使用Python虚拟环境"><a href="#使用Python虚拟环境" class="headerlink" title="使用Python虚拟环境"></a>使用Python虚拟环境</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pip <span class="token function">install</span> virtualenvvirtualenv venv<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>在VSCode中使用更换解释器：</p><ol><li>Ctrl + Shift + P 打开命令面板</li><li> Python:Select Interpreter</li><li> 选择刚才安装的虚拟环境<h2 id="安装VSCode插件"><a href="#安装VSCode插件" class="headerlink" title="安装VSCode插件"></a>安装VSCode插件</h2></li></ol><ul><li>Python：微软提供插件，提供智能补全、代码检查、代码格式、调试、测试、Jupyter Notebook等功能</li><li>Python Snippets：提供常用代码片段</li><li>Python Type Hint：提供针对Python的类型提示自动完成功能，以及针对内置类型、类和键入模块的完成项。</li><li>Python Preview：可视化你的代码结果</li><li>Python Test Explorer for Visual Studio Code:Python的测试套件</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 编程语言 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="2021/07/20/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%BF%85%E9%A1%BB%E5%85%B7%E5%A4%87%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%83%BD%E5%8A%9B/"/>
+      <url>2021/07/20/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%BF%85%E9%A1%BB%E5%85%B7%E5%A4%87%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%83%BD%E5%8A%9B/</url>
+      
+        <content type="html"><![CDATA[<table><thead><tr><th>基本技能</th><th>技能描述</th></tr></thead><tbody><tr><td>阅读代码</td><td>这个技能需要程序员能够具备读懂已经存在的代码的能力，这样的能力可以让程序员分析程序的行为，了解程序，这样才能和开发团队一起工作，继承维护或是改进现有的程序。</td></tr><tr><td>编写程序</td><td>编写程序并不包括程序设计。不要以为编程是一件很简单的事情，很多程序员都认为编程只需要懂得程序语言的语法，并把设计实现就可以了。但是这离编写程序还远远不够，使用什么样的编码风格成为编写程序员最需要具备的基本技能。能否使用非常良好的编程风格直接决写了程序员的级别。</td></tr><tr><td>软件设计</td><td>这一能力直接决定了需要吏用什么样的代码技术达到怎么样的功能，而系统架构设计直接决定了软件的质量、性能和可维护性。并不是所有的程序在这一方面都非常优秀，但每个程序员都需要或多或少的明白和掌握这一基本技能</td></tr><tr><td>熟悉软件工程</td><td>每个程序员都应该明白软件工程是什么东西，都应该知道，需求分析，设计，编码，测试，Release和维护这几个阶段。当然，几乎所有的人都知道这些东西，但并不是每个人都很清楚这些东西。现在很多高级程序员都会混淆“需求规格说明书FS”和“概要设计HLD”。另外，程序员还需要知道一些软件开发的方法论，比如：敏捷开发或瀑布模型。</td></tr><tr><td>使用程序库或框架</td><td>一个程序员需要学会使用已有的代码，无论是标论的程序库，或是第三方的，还是自己公司内部的，都需要学会做。比如：C++中，需要学会使用STL，MFC，ATL，BOOST，ACE，CPPUNIT等等。使用这些东西，可以让你的工作事半功倍。</td></tr><tr><td>程序调试</td><td>程序调试是分析BUG和解决问题最直接的能力。没有人能够保证程序写出来不用调试就可以运行正常，也没有人可以保证程序永远不会出BUG。所以，熟练使用调试器是一个程序员需要具备的基本技能。</td></tr><tr><td>使用IDE</td><td>学会使用IDE工具也会让你的工作事半功倍。比如，VC++，Emacs，Eclipse等等，并要知道这些IDE的长处和短处。</td></tr><tr><td>使用版本控制</td><td>一定要学会使用版本控制工具，什么叫mainline/trunk，什么叫tag，什么叫branch，怎么做patch，怎么merge代码，怎么reverse，怎么利用版本控制工具维护不同版本的软件。这是程序员需要明的的软件配置管理中最重要的一块。</td></tr><tr><td>单元测试</td><td>单元测试是每个程序都需要做的。很多单元测试也是需要编码的。一定要学会在xUnit框架下进行单元测试。比如JUnit, NUnit, CppUnit等等。</td></tr><tr><td>重构代码</td><td>每个程序员都需要有最基本的能力去重构目前已有的代码，使代码达到最优但却不能影响任何的已有的功能。有一本书叫《软件的重构》，每个程序员都应该读一下。</td></tr><tr><td>自动化编译</td><td>程序员需要使用一个脚本，其能自动化编程所有的工程和代码，这样，整个开发团队可以不停地集成代码，自动化测试，自动化部署，以及使用一些工具进行静态代码分析或是自动化测试。</td></tr></tbody></table><p>Ref:<a href="https://coolshell.cn/articles/428.html">https://coolshell.cn/articles/428.html</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="2021/07/19/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/2%E5%B9%B4/"/>
+      <url>2021/07/19/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/2%E5%B9%B4/</url>
+      
+        <content type="html"><![CDATA[<p>不知不觉大学已经毕业了两年，不禁感慨时间过得飞快。自己也从懵懂的IT大学生逐渐成为了一个工程师。我觉得2年对于我来说是一个里程碑，也正因为如此，感觉自己必须短暂地停下去思考、回顾过去的两年生活、工作学习。<br>为什么说两年对于我来说是一个里程碑？经过两年的工作学习，自己渐渐地有了职场人的觉悟，渐渐地开始对事物有自己的思考，慢慢开始探索事物的本质。开始用不一样的方式去理解技术。对于自己的成长，自己也希望做个记录。让以后的我看到之后反思自己是不是没有什么成长。或者是希望未来的自己对以前的认知有更进一步的理解。<br>很有幸自己能在这两年里面做运维研发。对于我来说简单的理解就是具有开发技能的运维。也用过许多开发语言和框架，像Java、Nodejs和Vue.js等等。也学习过许多中间件和虚拟化服务，像Mongodb、docker和k8s等。同样的，也维护了许多旧时代的应用，像JSP，ant等比较古老的技术。不得不说，这两年是我技术学习的爆发时期，在不断学习企业应用中所使用的技术，并且技术有老有新。我很有幸能够在一个技术转型期的企业感受到了技术的变更。</p><h2 id="1-对技术的态度的转变"><a href="#1-对技术的态度的转变" class="headerlink" title="1. 对技术的态度的转变"></a>1. 对技术的态度的转变</h2><p>其中对我来讲一个很重要的认知改变就是<strong>技术是为了业务服务的</strong>。理解了这点，就不难理解为什么10年以前的老技术还没有被淘汰被抛弃。就像是为什么JDK16都出了，JDK8的使用率还这么高。因为老技术编写的应用依旧能给企业带来价值。然而这就够了。而什么时候考虑将旧技术升级为新技术呢？当旧应用的维护成本高于开发成本时，就会考虑使用新技术去重构。第二个点在于，大多数公司无论是业务驱动的，还是技术驱动的企业，都需要靠业务赚钱。对于业务驱动的公司来讲，技术是为业务提供服务的。而对于技术驱动的公司来讲，技术本来就是它们的业务。而最终的结果都是用技术解决业务问题。</p><h2 id="2-关于自己的职业规划"><a href="#2-关于自己的职业规划" class="headerlink" title="2. 关于自己的职业规划"></a>2. 关于自己的职业规划</h2><p>30岁以前，提升自己学习能力和解决难题的能力。</p><ul><li>高效的学习能力。这意味着——基础知识扎实、触类旁通、读英文文档不费劲、有寻找前沿知识的能力、能够看到问题和技术的本质、善于思辩、能独立思考。</li><li>解决问题的能力。这意味着——你要高效的学习能力、见过很多的场景、犯过或是处理很多错误、能够防火而不是救火。<h2 id="3-自我打分目标"><a href="#3-自我打分目标" class="headerlink" title="3. 自我打分目标"></a>3. 自我打分目标</h2></li></ul><ol><li>能顺利完成自己的任务，能写code，解决需求。</li><li>能编写高质量的代码，高质量、高效地完成自己地任务。</li><li>在完成任务的基础上，能够帮助团队、协助其他同事解决问题。<h2 id="3-自己做的不好的地方"><a href="#3-自己做的不好的地方" class="headerlink" title="3. 自己做的不好的地方"></a>3. 自己做的不好的地方</h2><ol><li>距离知行合一还有距离，实践相对较少</li><li>没有做到尽量使用一手的资料</li><li>缺乏阶段性的总结和归纳</li></ol></li></ol><p>ref:<a href="https://coolshell.cn/articles/17583.html">https://coolshell.cn/articles/17583.html</a><br>ref：<a href="https://coolshell.cn/articles/20977.html">https://coolshell.cn/articles/20977.html</a><br>ref：<a href="https://coolshell.cn/articles/19464.html">https://coolshell.cn/articles/19464.html</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java碎碎念</title>
+      <link href="2021/07/19/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/%E6%8A%8A%E6%8E%A7%E8%87%AA%E5%B7%B1%E7%9A%84%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF/"/>
+      <url>2021/07/19/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/%E6%8A%8A%E6%8E%A7%E8%87%AA%E5%B7%B1%E7%9A%84%E8%81%8C%E4%B8%9A%E7%94%9F%E6%B6%AF/</url>
+      
+        <content type="html"><![CDATA[<p>Ref:<a href="https://coolshell.cn/articles/20977.html">https://coolshell.cn/articles/20977.html</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 成长 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 个人成长 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="2021/07/12/%E8%BF%90%E7%BB%B4/IO%E6%A8%A1%E5%9E%8B/"/>
+      <url>2021/07/12/%E8%BF%90%E7%BB%B4/IO%E6%A8%A1%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[<h1 id="IO模型"><a href="#IO模型" class="headerlink" title="IO模型"></a>IO模型</h1><h2 id="阻塞IO"><a href="#阻塞IO" class="headerlink" title="阻塞IO"></a>阻塞IO</h2><p>发起请求就一直等待，直到数据返回。</p><p>比如老师盯着学生完成作业。</p><h2 id="非阻塞IO"><a href="#非阻塞IO" class="headerlink" title="非阻塞IO"></a>非阻塞IO</h2><p>不管有没有数据都返回，没有就隔一段时间再来请求，如此循环。<br>比如老师时不时问学生完成作业没。</p><h2 id="多路复用IO"><a href="#多路复用IO" class="headerlink" title="多路复用IO"></a>多路复用IO</h2><p>I/O是指网络I/O,多路指多个TCP连接(即socket或者channel）,复用指复用一个或几个线程。意思说一个或一组线程处理多个连接。<br>比如课堂上学生做完了作业就举手，老师就下去检查作业。</p><h2 id="信号驱动IO"><a href="#信号驱动IO" class="headerlink" title="信号驱动IO"></a>信号驱动IO</h2><p>事先发出一个请求，当有数据后会返回一个标识回调，这时你可以去请求数据。</p><p>比如老师叫学号1，2，3上黑板默写。叫到1的时候，1就可以上去默写了。</p><h2 id="异步IO"><a href="#异步IO" class="headerlink" title="异步IO"></a>异步IO</h2><p>发出请求就返回，剩下的事情会异步自动完成，不需要做任何处理。</p><p>比如老师叫班长安排值日，自己什么也不用管</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>五种IO的模型：阻塞IO、非阻塞IO、多路复用IO、信号驱动IO和异步IO；前四种都是同步IO，在内核数据copy到用户空间时都是阻塞的。<br>阻塞IO和非阻塞IO的区别在于第一步，发起IO请求是否会被阻塞，如果会那就是传统的阻塞IO，如果不会那就是非阻塞IO。<br>同步IO和异步IO的区别就在于第二个步骤是否阻塞，如果实际的IO读写阻塞请求进程，那么就是同步IO；如果不阻塞，而是操作系统帮你做完IO操作再将结果返回给你，那么就是异步IO</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Elasticsearch集群</title>
       <link href="2021/07/06/middleware/Elasticsearch/Elasticsearch%E9%9B%86%E7%BE%A4/"/>
       <url>2021/07/06/middleware/Elasticsearch/Elasticsearch%E9%9B%86%E7%BE%A4/</url>
@@ -1233,7 +1322,7 @@
       <link href="2021/05/02/%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/"/>
       <url>2021/05/02/%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/</url>
       
-        <content type="html"><![CDATA[<h2 id="多益网络"><a href="#多益网络" class="headerlink" title="多益网络"></a>多益网络</h2><ol><li>常见攻击类型sql注入防治，ddos防治</li><li>Ngnix分发策略：hash,轮询有什么区别</li><li>磁盘的Raid模式</li><li>Linux的iptables</li><li>普罗米修斯的监控</li><li>HTTPS加密策略</li></ol><h2 id="网上面试题整理"><a href="#网上面试题整理" class="headerlink" title="网上面试题整理"></a>网上面试题整理</h2><p>计算机网络：<a href="https://zhuanlan.zhihu.com/p/24001696">https://zhuanlan.zhihu.com/p/24001696</a></p><h2 id="IBM"><a href="#IBM" class="headerlink" title="IBM"></a>IBM</h2><ol><li>在网址中输入URL之后，发生了什么</li><li>Nosql数据库和sql数据库的区别</li><li>Vue的了解</li><li>介绍Java内存模型（JMM）</li><li>如何排查CPU 过高的问题<br>如何具体定位到某行代码？具体思路，定位进程，查看线程，打印Java堆栈，可借助arthas工具。对于非Java程序呢？<br>没有指具体是CPU，对于应用服务器的CPU，那对于数据库服务器的CPU，Web服务器的呢？<br>Ref：<a href="https://www.cnblogs.com/you-men/p/13382659.html">https://www.cnblogs.com/you-men/p/13382659.html</a></li><li>Shell脚本如何区分bash和dash(首行注解)</li><li>给一台Linux机器，如何区分是使用Bash还是dash(linux的env环境里有配置项)<br><em>Remind：unix/linux 一切皆文件</em></li></ol><h2 id="Flat-incubator"><a href="#Flat-incubator" class="headerlink" title="Flat incubator"></a>Flat incubator</h2><ol><li>中介者模式(MVC架构使用了中介者模式)</li><li>cpu 中的load是如何计算的</li><li>布隆过滤器</li></ol><h2 id="卓动科技"><a href="#卓动科技" class="headerlink" title="卓动科技"></a>卓动科技</h2><ol><li>df -h 磁盘满，du -sh 磁盘少</li><li>数据库的级联更新</li><li>如何优雅的关闭程序</li><li>python切片越界</li><li>CDN基本原理和同步</li><li>判断端口是否存在和Cronjob设置</li><li>业务监控的调用链，性能排查</li></ol><h2 id="钱大妈"><a href="#钱大妈" class="headerlink" title="钱大妈"></a>钱大妈</h2><ol><li>有关zabbix的配置，如何监控网络，netstat的效率不好</li><li>MQ爆了怎么办？（能不能设置消息队列做housekeep？</li><li>同时跑CI/CD，怎么解决？</li></ol><h2 id="字节"><a href="#字节" class="headerlink" title="字节"></a>字节</h2><ol><li>Java 闭包</li><li>JVM的GC机制 G1垃圾回收器</li><li>如何判断对象是否为垃圾？</li><li>Spring处理请求的流程？</li><li>请求是如何被Spring处理的，Java是如何将请求的body识别为对象？根据什么转化为XML?JSON</li><li>如何保证Java的某个线程在其他线程执行完后再执行</li><li>如何update数据库，Oracle和MySql有什么区别</li><li>如何设计一张表的，数据时常要更新？</li><li>数据库中的varchar和text的区别</li><li>进程是如何通信的？</li><li>如何找出某个进程占用的端口或者是找到某个端口被哪个进程占用？</li><li>有关.socket</li><li>编程题浮点数的N次方</li></ol><h2 id="网易"><a href="#网易" class="headerlink" title="网易"></a>网易</h2><ol><li>top的详情</li><li>如何排查CPU过高的问题</li><li>在不够内存的时候，起一个进程会发生什么？</li><li></li></ol>]]></content>
+        <content type="html"><![CDATA[<h2 id="多益网络"><a href="#多益网络" class="headerlink" title="多益网络"></a>多益网络</h2><ol><li>常见攻击类型sql注入防治，ddos防治</li><li>Ngnix分发策略：hash,轮询有什么区别</li><li>磁盘的Raid模式</li><li>Linux的iptables</li><li>普罗米修斯的监控</li><li>HTTPS加密策略</li></ol><h2 id="网上面试题整理"><a href="#网上面试题整理" class="headerlink" title="网上面试题整理"></a>网上面试题整理</h2><p>计算机网络：<a href="https://zhuanlan.zhihu.com/p/24001696">https://zhuanlan.zhihu.com/p/24001696</a></p><h2 id="IBM"><a href="#IBM" class="headerlink" title="IBM"></a>IBM</h2><ol><li>在网址中输入URL之后，发生了什么</li><li>Nosql数据库和sql数据库的区别</li><li>Vue的了解</li><li>介绍Java内存模型（JMM）</li><li>如何排查CPU 过高的问题<br>如何具体定位到某行代码？具体思路，定位进程，查看线程，打印Java堆栈，可借助arthas工具。对于非Java程序呢？<br>没有指具体是CPU，对于应用服务器的CPU，那对于数据库服务器的CPU，Web服务器的呢？<br>Ref：<a href="https://www.cnblogs.com/you-men/p/13382659.html">https://www.cnblogs.com/you-men/p/13382659.html</a></li><li>Shell脚本如何区分bash和dash(首行注解)</li><li>给一台Linux机器，如何区分是使用Bash还是dash(linux的env环境里有配置项)<br><em>Remind：unix/linux 一切皆文件</em></li></ol><h2 id="Flat-incubator"><a href="#Flat-incubator" class="headerlink" title="Flat incubator"></a>Flat incubator</h2><ol><li>中介者模式(MVC架构使用了中介者模式)</li><li>cpu 中的load是如何计算的</li><li>布隆过滤器</li></ol><h2 id="卓动科技"><a href="#卓动科技" class="headerlink" title="卓动科技"></a>卓动科技</h2><ol><li>df -h 磁盘满，du -sh 磁盘少</li><li>数据库的级联更新</li><li>如何优雅的关闭程序</li><li>python切片越界</li><li>CDN基本原理和同步</li><li>判断端口是否存在和Cronjob设置</li><li>业务监控的调用链，性能排查</li></ol><h2 id="钱大妈"><a href="#钱大妈" class="headerlink" title="钱大妈"></a>钱大妈</h2><ol><li>有关zabbix的配置，如何监控网络，netstat的效率不好</li><li>MQ爆了怎么办？（能不能设置消息队列做housekeep？</li><li>同时跑CI/CD，怎么解决？</li></ol><h2 id="字节"><a href="#字节" class="headerlink" title="字节"></a>字节</h2><ol><li>Java 闭包</li><li>JVM的GC机制 G1垃圾回收器</li><li>如何判断对象是否为垃圾？</li><li>Spring处理请求的流程？</li><li>请求是如何被Spring处理的，Java是如何将请求的body识别为对象？根据什么转化为XML?JSON</li><li>如何保证Java的某个线程在其他线程执行完后再执行</li><li>如何update数据库，Oracle和MySql有什么区别</li><li>如何设计一张表的，数据时常要更新？</li><li>数据库中的varchar和text的区别</li><li>进程是如何通信的？</li><li>如何找出某个进程占用的端口或者是找到某个端口被哪个进程占用？</li><li>有关.socket</li><li>编程题浮点数的N次方</li></ol><h2 id="网易"><a href="#网易" class="headerlink" title="网易"></a>网易</h2><ol><li>top的详情参数</li><li>如何排查CPU过高的问题，排查非JAVA进程呢？</li><li>在不够内存的时候，起一个进程会发生什么？</li><li>说下你处理过的事故？MQ爆碟，事故后又做了什么优化</li><li>Nginx原理和负载均衡</li><li>如何理解SRE和devops</li><li>CI/CD流程</li><li>说说K8S</li><li>Mongodb和mysql有什么区别</li><li>Mongodb是怎么实现高可用的？</li><li>Mongodb的事务机制</li><li>Linux进程优先级</li><li>http协议和https的区别</li><li>游戏运维和web运维的区别</li><li>网易加速器原理和了解</li><li>如何降低游戏的延迟</li><li>暴露的API是怎么做访问控制的？使用一个密码</li><li>这个密码是hardcode的？怎么防止中间人攻击？能否改成动态的。</li><li>除了从应用层面改动态，能不能从网络层面思考怎么改？</li><li>你的项目的部署架构是什么？为什么要做这样的技术选型</li><li>前后端是怎么通信的？</li><li>http1.0，1.1和2.0和3的区别，如何保持长连接</li><li>如何做性能排查？前端性能排查和后端性能排查</li><li>最左前缀索引的应用</li><li>如何优化sql查询的速度？有什么思路？减少回表和覆盖索引</li><li>常见的网络IO模型区别</li><li>常见排序算法</li><li>CSRF和注入原理和防御</li><li>TCP的三次握手和四次挥手过程</li><li>304状态码的原因和过程</li><li>MVC架构的优缺点</li><li>Python的GIL锁</li><li>nodejs的事件机制</li><li>JRE和JDK的区别，为什么js没有分jdk和jre</li><li>Vue的watch和compute的区别</li><li>虚拟Dom的优点和缺点</li><li>Docker的本质是什么？</li><li>Docker是如何做隔离的？</li><li>如何降低Docker镜像的体积？</li><li>如何解决高并发问题的思路</li></ol>]]></content>
       
       
       
@@ -1361,31 +1450,6 @@
         <tags>
             
             <tag> tool </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Java碎碎念</title>
-      <link href="2021/05/01/java%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-      <url>2021/05/01/java%E7%A2%8E%E7%A2%8E%E5%BF%B5/</url>
-      
-        <content type="html"><![CDATA[<h2 id="抽象类的作用"><a href="#抽象类的作用" class="headerlink" title="抽象类的作用"></a>抽象类的作用</h2><p>降低接口实现类对接口实现过程的难度，将接口中不需要使用抽象方法交给抽象类进行完成，这样接口实现类只需对接口需要的方法进行重写</p><h2 id="编程时每一个操作都有理论依据"><a href="#编程时每一个操作都有理论依据" class="headerlink" title="编程时每一个操作都有理论依据"></a>编程时每一个操作都有理论依据</h2><h2 id="为什么要问源码？"><a href="#为什么要问源码？" class="headerlink" title="为什么要问源码？"></a>为什么要问源码？</h2><ol><li>方便调试BUG</li><li>看懂源码，方便扩展</li><li>方便做二次开发或者自己项目接口开发</li><li>提升内功，学习别人的设计思想</li></ol><h2 id="spring源码："><a href="#spring源码：" class="headerlink" title="spring源码："></a>spring源码：</h2><ol><li>ioc创建过程</li><li>bean实例化过程</li><li>循环依赖</li><li>AOP</li><li>事件发布监听</li></ol><h2 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h2><p>函数式编程（FP）的意义所在。通过合并现有代码来生成新功能而不是从头开始编写所有内容，我们可以更快地获得更可靠的代码。<br>OO（object oriented，面向对象）是抽象数据，FP（functional programming，函数式编程）是抽象行为。</p><h2 id="Stream的使用建议"><a href="#Stream的使用建议" class="headerlink" title="Stream的使用建议"></a>Stream的使用建议</h2><ul><li>简单的迭代逻辑，可以直接使用 iterator，对于有多步处理的迭代逻辑，可以使用 stream，损失一点几乎没有的效率，换来代码的高可读性是值得的；</li><li>单核 cpu 环境，不推荐使用 parallel stream，在多核 cpu 且有大数据量的条件下，推荐使用 paralle stream；</li><li>stream 中含有装箱类型，在进行中间操作之前，最好转成对应的数值流，减少由于频繁的拆箱、装箱造成的性能损失</li></ul><p><a href="https://xie.infoq.cn/article/6521ea3ae8a36f2bdaece6e61">https://xie.infoq.cn/article/6521ea3ae8a36f2bdaece6e61</a></p><h2 id="IO流装饰器模式"><a href="#IO流装饰器模式" class="headerlink" title="IO流装饰器模式"></a>IO流装饰器模式</h2>]]></content>
-      
-      
-      <categories>
-          
-          <category> 后端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 个人成长 </tag>
             
         </tags>
       
@@ -1552,7 +1616,7 @@
       <link href="2021/05/01/Docker/Docker%E9%97%AE%E9%A2%98%E9%9B%86/"/>
       <url>2021/05/01/Docker/Docker%E9%97%AE%E9%A2%98%E9%9B%86/</url>
       
-        <content type="html"><![CDATA[<h3 id="Dockerfile-和-docker-compose-yml-的区别"><a href="#Dockerfile-和-docker-compose-yml-的区别" class="headerlink" title="Dockerfile 和 docker-compose.yml 的区别"></a>Dockerfile 和 docker-compose.yml 的区别</h3><p>Dockerfile: Dockerfile 是拿来构建自定义镜像的，并没有直接生成容器<br>docker-compose.yml是用来编排项目的，里面包含使用各种镜像创建的容器服务,在服务启动的时候用到</p><h3 id="为什么容器是单进程模型"><a href="#为什么容器是单进程模型" class="headerlink" title="为什么容器是单进程模型"></a>为什么容器是单进程模型</h3><p>容器只是通过Linux的Namespaces、Cgroups实现了进程级别的隔离。虽然在容器里看不见宿主机上的其他进程，但归根结底它还只是一个运行在宿主机上的进程，所以就不具备操作系统的进程管理能力。</p><p>容器的”单进程模型”，并不是指容器里只能运行”一个”进程，而是指容器没有管理多个进程的能力。这是因为容器里的主进程（PID=1 的进程）就是应用本身，其他的进程都是这个主进程的子进程。可是，用户编写的应用，并不能够像正常操作系统里的init进程或者systemd 那样拥有进程管理的功能。<br>reference：<a href="https://cloud.tencent.com/developer/article/1671554">https://cloud.tencent.com/developer/article/1671554</a></p>]]></content>
+        <content type="html"><![CDATA[<h3 id="Dockerfile-和-docker-compose-yml-的区别"><a href="#Dockerfile-和-docker-compose-yml-的区别" class="headerlink" title="Dockerfile 和 docker-compose.yml 的区别"></a>Dockerfile 和 docker-compose.yml 的区别</h3><p>Dockerfile: Dockerfile 是拿来构建自定义镜像的，并没有直接生成容器<br>docker-compose.yml是用来编排项目的，里面包含使用各种镜像创建的容器服务,在服务启动的时候用到</p><h3 id="为什么容器是单进程模型"><a href="#为什么容器是单进程模型" class="headerlink" title="为什么容器是单进程模型"></a>为什么容器是单进程模型</h3><p>容器只是通过Linux的Namespaces、Cgroups实现了进程级别的隔离。虽然在容器里看不见宿主机上的其他进程，但归根结底它还只是一个运行在宿主机上的进程，所以就不具备操作系统的进程管理能力。</p><p>容器的”单进程模型”，并不是指容器里只能运行”一个”进程，而是指容器没有管理多个进程的能力。这是因为容器里的主进程（PID=1 的进程）就是应用本身，其他的进程都是这个主进程的子进程。可是，用户编写的应用，并不能够像正常操作系统里的init进程或者systemd 那样拥有进程管理的功能。<br>reference：<a href="https://cloud.tencent.com/developer/article/1671554">https://cloud.tencent.com/developer/article/1671554</a></p><h3 id="如何构建更小的镜像"><a href="#如何构建更小的镜像" class="headerlink" title="如何构建更小的镜像"></a>如何构建更小的镜像</h3><p>核心：除去不必要的东西，只留下核心</p><ul><li>使用多阶段构建：多阶段构建的想法很简单：“我不想在最终的镜像中包含一堆 C 或 Go 编译器和整个编译工具链，我只要一个编译好的可执行文件！”<ul><li>第一阶段使用经典的基础镜像。这里经典的镜像指的是 CentOS，Debian，Fedora 和 Ubuntu 之类的镜像</li><li>COPY –from 使用绝对路径。从上一个构建阶段拷贝文件时，使用的路径是相对于上一阶段的根目录的。</li></ul></li><li>FROM scratch。scratch 是一个虚拟镜像，不能被 pull，也不能运行，因为它表示空镜像<ul><li>缺少 shell：scratch 镜像的第一个不便是没有 shell</li><li>缺少调试工具：scratch 镜像不包含任何调试工具，ls、ps、ping 这些统统没有。</li><li>缺少 libc：解决方式有三种<ul><li>使用静态库</li><li>拷贝库文件到镜像中</li><li>使用 busybox:glibc 作为基础镜像<br>reference：<a href="https://www.cnblogs.com/qianxiaox/p/13724223.html">https://www.cnblogs.com/qianxiaox/p/13724223.html</a></li></ul></li></ul></li></ul>]]></content>
       
       
       <categories>
@@ -1877,206 +1941,6 @@
         <tags>
             
             <tag> SRE </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>V8工作原理</title>
-      <link href="2021/05/01/browser/V8%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/"/>
-      <url>2021/05/01/browser/V8%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</url>
-      
-        <content type="html"><![CDATA[<h1 id="V8工作原理"><a href="#V8工作原理" class="headerlink" title="V8工作原理"></a>V8工作原理</h1><h2 id="数据是如何存储的？"><a href="#数据是如何存储的？" class="headerlink" title="数据是如何存储的？"></a>数据是如何存储的？</h2><ul><li>栈空间</li></ul><ol><li>通常用来存放一些原始类型的小数据</li></ol><ul><li>堆空间</li></ul><ol><li>通常用来存放引用类型的数据</li></ol><h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><h3 id="代际假说"><a href="#代际假说" class="headerlink" title="代际假说"></a>代际假说</h3><ol><li>大部分对象在内存中存在的时间很短</li><li>不死对象就会获得很久<h3 id="新生代和老生代"><a href="#新生代和老生代" class="headerlink" title="新生代和老生代"></a>新生代和老生代</h3></li><li>生存时间短的对象放在新生代</li><li>生存时间久的对象放在老生代</li><li>新生代和老生代分别使用不同的垃圾回收机制<ol><li>新生代使用副垃圾回收机制</li><li>老生带使用主垃圾回收机制</li></ol></li></ol><h3 id="垃圾回收器的工作流程"><a href="#垃圾回收器的工作流程" class="headerlink" title="垃圾回收器的工作流程"></a>垃圾回收器的工作流程</h3><h4 id="副垃圾回收器"><a href="#副垃圾回收器" class="headerlink" title="副垃圾回收器"></a>副垃圾回收器</h4><ol><li>使用scavenge算法，把新生代划分为两个区域，一半是对象区域，一半是空闲区域</li><li>当对象空间快满的时候，才执行对象回收操作</li><li>首先对对象区域的垃圾做标记</li><li>标记完后，将活着的对象移到空闲区域，同时有序的排列起来</li><li>完成复制后，对象区域和空间区域进行互换<h4 id="主垃圾回收器"><a href="#主垃圾回收器" class="headerlink" title="主垃圾回收器"></a>主垃圾回收器</h4></li><li>使用标记-整理算法</li></ol><h4 id="垃圾回收的全停顿"><a href="#垃圾回收的全停顿" class="headerlink" title="垃圾回收的全停顿"></a>垃圾回收的全停顿</h4><ul><li>进行一次标记-清理-整理，需要一段时间。这种行为就是全停顿，影响应用的性能和响应能力</li><li>为了降低老生代垃圾回收造成的卡顿。V8使用增量标记算法，将垃圾回收标记和应用逻辑交替执行，直到标记阶段完成。</li></ul><h2 id="V8如何执行一段代码"><a href="#V8如何执行一段代码" class="headerlink" title="V8如何执行一段代码"></a>V8如何执行一段代码</h2><ol><li>生成抽象语法树(AST)和执行上下文<ol><li>词法分析</li><li>语法分析</li></ol></li><li>生成字节码<ol><li>解释器Ignition会根据AST生成字节码，并执行字节码</li></ol></li><li>执行代码<ol><li>生成字节码之后，解释器Ignition会逐条解释执行。</li><li>如果发现有热点代码(一段代码被重复执行多次),编译器TurboFan会把这段热点的字节码编译成机器码</li><li>当这段代码再次被执行的时候，执行编译后的机器码就可以了(JIT技术)</li></ol></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 浏览器 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Chrome</title>
-      <link href="2021/05/01/browser/chrome/"/>
-      <url>2021/05/01/browser/chrome/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h1><h2 id="多进程架构"><a href="#多进程架构" class="headerlink" title="多进程架构"></a>多进程架构</h2><p>Chrome 包括1个浏览器（Browser）主进程、1个 GPU 进程、1个网络（NetWork）进程、多个渲染进程和多个插件进程</p><ul><li>浏览器进程。主要负责界面显示、用户交互、子进程管理，同时提供存储等功能</li><li>渲染进程。核心任务是将 HTML、CSS 和 JavaScript 转换为用户可以与之交互的网页，排版引擎Blink和JavaScript引擎V8都是运行在该进程中，默认情况下，Chrome会为每个Tab标签创建一个渲染进程。出于安全考虑，渲染进程都是运行在沙箱模式下</li><li>GPU进程。其实，Chrome刚开始发布的时候是没有GPU进程的。而GPU的使用初衷是为了实现3D CSS的效果，只是随后网页、Chrome的UI界面都选择采用GPU来绘制，这使得GPU成为浏览器普遍的需求。最后，Chrome在其多进程架构上也引入了GPU进程</li><li>网络进程。主要负责页面的网络资源加载.</li><li>插件进程。主要是负责插件的运行，因插件易崩溃，所以需要通过插件进程来隔离，以保证插件进程崩溃不会对浏览器和页面造成影响</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 浏览器 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>localStorage和sessionStorage</title>
-      <link href="2021/05/01/browser/localStorage/"/>
-      <url>2021/05/01/browser/localStorage/</url>
-      
-        <content type="html"><![CDATA[<h3 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h3><h4 id="localStorage-和-sessionStorage不同点"><a href="#localStorage-和-sessionStorage不同点" class="headerlink" title="localStorage 和 sessionStorage不同点"></a>localStorage 和 sessionStorage不同点</h4><ul><li>localStorage 是没有时间限制的，永久的。除非特定的清除localStorage或者通过浏览器来清除</li><li>sessionStorage 生命周期为当前窗口或者标签页，当窗口或者标签页被清除时，sessionStorage就会被清空。（页面及标签页仅指顶级窗口，如果一个标签页包含多个iframe标签且他们属于同源页面，那么他们之间是可以共享sessionStorage）</li></ul><h4 id="localStorage的优点："><a href="#localStorage的优点：" class="headerlink" title="localStorage的优点："></a>localStorage的优点：</h4><ol><li>localStorage拓展了cookie的4K限制，扩展到5M</li><li>localStorage会可以将请求的数据直接存储到本地</li><li>遵循同源策略，不同的网站直接是不能共用相同的localStorage</li></ol><h4 id="localStorage的缺点："><a href="#localStorage的缺点：" class="headerlink" title="localStorage的缺点："></a>localStorage的缺点：</h4><ol><li>浏览器的localStorage大小不统一，只有IE8以上的IE版本才支持localStorage这个属性</li><li>localStorage的值类型限定为string类型。即使你存储的是数组和对象，localStorage也会将数组和对象以字符串的形式存储。</li><li>localStorage在浏览器的隐私模式下面是不可读取的</li><li>localStorage过大会导致页面卡顿</li><li>localStorage不能被爬虫爬取</li></ol><p>参考</p><p><a href="http://www.manongjc.com/article/35746.html">http://www.manongjc.com/article/35746.html</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 浏览器 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>输入URL 到页面展示</title>
-      <link href="2021/05/01/browser/url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA/"/>
-      <url>2021/05/01/browser/url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA/</url>
-      
-        <content type="html"><![CDATA[<h1 id="输入URL-到页面展示"><a href="#输入URL-到页面展示" class="headerlink" title="输入URL 到页面展示"></a>输入URL 到页面展示</h1><h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><p><img src="..%5Cimage%5C%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA%E6%B5%81%E7%A8%8B.png" alt="展示过程"></p><h2 id="1-用户输入"><a href="#1-用户输入" class="headerlink" title="1. 用户输入"></a>1. 用户输入</h2><ol><li>如果是搜索内容，地址栏会使用浏览器的默认搜索引擎合成搜索关键字的url</li><li>如果输入内容符合url规则，浏览器会根据规则，并加上协议，合成为完整的URL</li></ol><h2 id="2-URL请求过程"><a href="#2-URL请求过程" class="headerlink" title="2. URL请求过程"></a>2. URL请求过程</h2><ol><li>浏览器进程会吧进程间通信(IPC)把URL请求发送倒网络进行</li><li>网络进程接收到URL请求后，会查本地进程是否缓存了该资源，有则直接返回资源给浏览器进程</li><li>如果没有，则进行DNS解析，获取IP地址。如果是HTTPS请求，还需要建立TLS连接</li><li>理网络进程利用IP地址和服务器建立连接，完成后，会根据请求行，请求头等信息，并把和该域名相关的cookie信息附加到请求头，然后向服务器端发送构建请求信息</li><li>服务器接受到请求信息后，根据请求信息生成响应数据(包含响应头，响应行，响应体等信息)并发给网络进程</li><li>网络进程接收到响应行和响应头之后，解析响应头内容</li><li>解析响应头为301或者302，重定向到响应头里面的Location字段的地址</li><li>解析响应头为3202，会解析响应数据类型，解析响应数据类型为text/html，则浏览器会准备渲染进程</li><li>若为其他响应数据类型，则有对应的处理</li></ol><h2 id="3-准备渲染进程"><a href="#3-准备渲染进程" class="headerlink" title="3. 准备渲染进程"></a>3. 准备渲染进程</h2><ol><li>每个标签对应一个渲染进程</li><li>如果新页面和当前页面是属于同一个站点的话，那么新页面就会复用父页面的渲染进程</li></ol><h2 id="4-提交文档-URL请求的响应体数据"><a href="#4-提交文档-URL请求的响应体数据" class="headerlink" title="4. 提交文档(URL请求的响应体数据)"></a>4. 提交文档(URL请求的响应体数据)</h2><ol><li>“提交文档消息”由浏览器进程发出，渲染进程接收到提交文档后，会和网络进程建立传输数据的管道</li><li>当数据传输完成后，渲染进程会返回“确认提交”的消息给到浏览器进程</li><li>浏览器进程收到确认提交消息后，会更新浏览器界面状态。包括安全转态、地址栏URL、前进后退的历史状态，并更新web压面</li></ol><h2 id="5-渲染阶段"><a href="#5-渲染阶段" class="headerlink" title="5. 渲染阶段"></a>5. 渲染阶段</h2><p>页面完成后，渲染进程会发送一个消息给浏览器进程，浏览器接收到消息后，会停止变迁的图标变化</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 浏览器 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>浏览器的JavaScript的执行机制</title>
-      <link href="2021/05/01/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84JS%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/"/>
-      <url>2021/05/01/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84JS%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/</url>
-      
-        <content type="html"><![CDATA[<h1 id="浏览器的JavaScript的执行机制"><a href="#浏览器的JavaScript的执行机制" class="headerlink" title="浏览器的JavaScript的执行机制"></a>浏览器的JavaScript的执行机制</h1><h2 id="执行顺序问题"><a href="#执行顺序问题" class="headerlink" title="执行顺序问题"></a>执行顺序问题</h2><h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><ol><li>在代码执行过程汇总，JavaScript引擎将变量的声明部分和函数的声明部分提升到代码开头。</li><li>变量被提升后，会给变量设置默认值</li></ol><h3 id="JavaScript的执行流程"><a href="#JavaScript的执行流程" class="headerlink" title="JavaScript的执行流程"></a>JavaScript的执行流程</h3><p><img src="/images/V8%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AE%B5JavaScript%E4%BB%A3%E7%A0%81.png" alt="JavaScript的执行流程"></p><ol><li>语法检查</li><li>预编译阶段<ol><li>js的运行环境<ol><li>全局环境，代码进入预编译即进入了全局环境</li><li>函数环境，函数执行调用，就进入该函数的函数韩静</li><li>eval环境，(允许执行代码字符串，避免使用)</li><li>每进入一个环境都会创建一个相应的执行上下文。js引擎会以栈的方式对这些执行上下文进行处理，形成函数调用栈</li></ol></li><li>函数调用栈<ol><li>首次运行时，会创建一个全局执行上下文并push到栈中</li><li>每当发生函数调用，就会创建新的函数执行上下文push到栈顶</li><li>函数完成后，对应函数的执行上下文会从栈中pop出，上下文控制权交给下一个执行上下文</li></ol></li><li>执行上下文的创建<ol><li>创建变量对象<ol><li>变量提升，函数声明的优先级高于变量声明的优先级</li><li>此时，变量属性都未赋值，默认为undefined</li></ol></li><li>建立作用域链<ol><li>创建作用域链，就是创建词法环境</li><li>词法环境由两部分组成<ol><li>环境记录：环境变量和函数声明的实际位置</li><li>对外部环境的引用：可以访问其外部词法环境</li></ol></li></ol></li><li>确定this的指向<ol><li>this是和执行上下文绑定的，每个执行上下文都有一个this</li><li>全局中的this是指向window对象的</li><li>this指向完全取决于函数调用的位置</li><li>嵌套函数的this不会从外层函数中继承</li></ol></li></ol></li></ol></li><li>执行阶段</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 浏览器 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>浏览器缓存</title>
-      <link href="2021/05/01/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/"/>
-      <url>2021/05/01/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/</url>
-      
-        <content type="html"><![CDATA[<h1 id="缓存流程"><a href="#缓存流程" class="headerlink" title="缓存流程"></a>缓存流程</h1><p><img src="/images/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98.png" alt="浏览器缓存"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 浏览器 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>浏览器渲染流程</title>
-      <link href="2021/05/01/browser/%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B/"/>
-      <url>2021/05/01/browser/%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B/</url>
-      
-        <content type="html"><![CDATA[<h1 id="渲染流程"><a href="#渲染流程" class="headerlink" title="渲染流程"></a>渲染流程</h1><h2 id="渲染流水线"><a href="#渲染流水线" class="headerlink" title="渲染流水线"></a>渲染流水线</h2><p><img src="/images/%E6%B8%B2%E6%9F%93%E6%B5%81%E6%B0%B4%E7%BA%BF.png" alt="渲染流水线"></p><h2 id="1-HTML-转化成DOM树"><a href="#1-HTML-转化成DOM树" class="headerlink" title="1. HTML 转化成DOM树"></a>1. HTML 转化成DOM树</h2><h3 id="构建流程"><a href="#构建流程" class="headerlink" title="构建流程"></a>构建流程</h3><ol><li>网络进程接收到响应头的content-type字段为html的时候，就会请求选择或创建一个管道</li><li>渲染进程准备好后，会建立一个共享的数据管道</li><li>当网络进程接收到数据以后，就会将数据送入管道中</li><li>渲染进程的动态的从管道中接收字节流，进行词法分析，解析成DOM节点，然后添加到DOM树中</li><li>当包含了CSS的引用的时候，需在先构建CSSOM树，而JS又可以改变CSS，所以执行JS依赖于CSSOM树</li><li>当执行到了JS的脚本，暂停整个DOM的解析，JavaScript引擎介入并执行这段脚本，之后继续解析<h3 id="DOM构建流程图"><a href="#DOM构建流程图" class="headerlink" title="DOM构建流程图"></a>DOM构建流程图</h3><img src="/images/DOM%E6%A0%91%E6%9E%84%E9%80%A0.png" alt="DOM构建流程图"><h3 id="构建中的优化"><a href="#构建中的优化" class="headerlink" title="构建中的优化"></a>构建中的优化</h3></li><li>JS文件下载会阻塞DOM的解析，Chrome在接收到字节流的时候，添加了预解析的流程，开启预解析线程，分析HTML中的JS,CSS文件，然后提前下载JS CSS 文件</li><li>也可以使用CDN，或者压缩JS文件体积来加速JS文件的下载</li><li>如果JS没有操作DOM的代码，可以设置JS脚本设置为异步加载</li><li>对于大的CSS，可能拆分多个不同用途的CSS文件，这样在特定的场景才会加载特定的CSS文件<h2 id="2-构建CSSOM-树"><a href="#2-构建CSSOM-树" class="headerlink" title="2. 构建CSSOM 树"></a>2. 构建CSSOM 树</h2></li><li>将CSS文本转换成styleSheets(样式表)结构中的数据<ul><li>CSS来源<ul><li>通过link引用外部CSS文件</li><li>&lt;style&gt;标记内的CSS</li><li>元素style属性内嵌的CSS</li></ul></li></ul></li><li>转换样式表中的属性值，使其标准化(如将所有的em解析成px，颜色解析成rgb)</li><li>计算出DOM树每个节点的具体样式<ul><li>CSS的继承规则</li><li>CSS的层叠规则<h2 id="3-布局阶段"><a href="#3-布局阶段" class="headerlink" title="3. 布局阶段"></a>3. 布局阶段</h2></li></ul></li><li>创建布局树(渲染树)<ol><li>遍历DOM树中所有可见节点，并将这些节点加到布局树种</li><li>不可见的节点将忽略，如head下面的全部内容</li></ol></li><li>布局计算<ol><li>计算不布局树节点的坐标位置<h2 id="4-分层"><a href="#4-分层" class="headerlink" title="4. 分层"></a>4. 分层</h2></li></ol></li><li>生成图层树<ol><li>拥有层叠上下文属性的元素会被提升为单独一层</li><li>需要剪裁的地方也会被创建为图层<h2 id="5-图层绘制"><a href="#5-图层绘制" class="headerlink" title="5. 图层绘制"></a>5. 图层绘制</h2>渲染引擎会把一个图层的绘制拆分成很多小的绘制指令，然后把这些指令按照顺序组成待绘制列表<br>(绘制列表只用来记录绘制顺序和绘制指令)<h2 id="6-光栅化"><a href="#6-光栅化" class="headerlink" title="6. 光栅化"></a>6. 光栅化</h2></li></ol></li><li>当图层的绘制列表完成后，主线程会将列表提交给合成线程</li><li>合成线程会将图层划分为图块，然后按照视口附近的图块通知渲染进程生成位图</li><li>渲染进程维护一个栅格化线程池，生成位图的操作是有栅格化线程来执行。而图块是栅格化执行的最小单位</li><li>若有GPU，渲染进程会把生成图块的指令发给GPU，然后GPU生成图块的位图，并保存在GPU中<h2 id="7-合成"><a href="#7-合成" class="headerlink" title="7. 合成"></a>7. 合成</h2></li><li>当所有图块被光栅化之后，合成线程就会生成一个绘制图块的命令(DrawQuad)，然后提交给浏览器进程</li><li>浏览器进程将其页面内容绘制到内存中，最后显示在屏幕上</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 浏览器 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>虚拟DOM</title>
-      <link href="2021/05/01/browser/%E8%99%9A%E6%8B%9FDOM/"/>
-      <url>2021/05/01/browser/%E8%99%9A%E6%8B%9FDOM/</url>
-      
-        <content type="html"><![CDATA[<h1 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h1><h2 id="出现原因"><a href="#出现原因" class="headerlink" title="出现原因"></a>出现原因</h2><p>减少JavaScript对DOM的操作</p><ol><li>将页面改变的内容应用到虚拟DOM上，而不是直接应用到DOM上</li><li>变化被应用到虚拟DOM上时，虚拟DOM并不急着渲染界面，而是调整虚拟DOM的内部状态</li><li>当虚拟DOM收集到足够的改变时，再将这一些变化应用到真实的DOM上</li></ol><h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><h3 id="重排"><a href="#重排" class="headerlink" title="重排"></a>重排</h3><p>通过JavaScript或者CSS 修改元素的几何位置属性。触发浏览器的重新布局</p><h3 id="重绘"><a href="#重绘" class="headerlink" title="重绘"></a>重绘</h3><p>修改元素的背景色，布局并没有发生改变。相对于重排，省去了布局和分层阶段</p><h3 id="重新合成"><a href="#重新合成" class="headerlink" title="重新合成"></a>重新合成</h3><p>渲染引擎跳过布局和绘制，在非主线程上执行合成动画的操作</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 浏览器 </tag>
             
         </tags>
       
@@ -2679,106 +2543,6 @@
         <tags>
             
             <tag> 安全 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Jest跑测试文件</title>
-      <link href="2021/05/01/vue/Jest%E8%B7%91%E5%8D%95%E4%B8%AA%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6/"/>
-      <url>2021/05/01/vue/Jest%E8%B7%91%E5%8D%95%E4%B8%AA%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Jest跑单个测试文件"><a href="#Jest跑单个测试文件" class="headerlink" title="Jest跑单个测试文件"></a>Jest跑单个测试文件</h1><blockquote><p>问题背景：当我们使用vue框架进行测试时，使用的是直接运行jest，就会直接测试所有在__tests__目录下的所有测试文件。但往往有时候，我们不需要执行所有的测试文件，那么如何使用jest运行单个测试文件或者是运行非__tests__目录下的文件</p></blockquote><p>遇到第一个问题的第一反应，我就查看官方提供的文档。<br>官方文档是这样描述的</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Run unit tests with Jest. Default testMatch is &lt;rootDir&gt;&#x2F;(tests&#x2F;unit&#x2F;**&#x2F;*.spec.(js|jsx|ts|tsx)|**&#x2F;__tests__&#x2F;*.(js|jsx|ts|tsx)) which matches:</span><br><span class="line"></span><br><span class="line">Any files in tests&#x2F;unit that end in .spec.(js|jsx|ts|tsx);</span><br><span class="line">Any js(x)&#x2F;ts(x) files inside __tests__ directories.</span><br></pre></td></tr></table></figure><p>通过文档描述，使用jest测试有三个要求</p><ul><li>测试文件名要以spec结果</li><li>测试文件后缀为js，jsx，ts，tsx</li><li>测试文件需要放在tests/unit/目录下或者是/__tests__/目录下<br>只要满足这三个要求的测试文件，使用运行jest时就会自动执行</li></ul><p>同时官方用例提供了一种方式告诉你如何使用jest进行单个文件测试</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jest my-test #or</span><br><span class="line">jest path&#x2F;to&#x2F;my-test.js</span><br></pre></td></tr></table></figure><p>我们也可以打开jest的执行文件的源码</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">basedir=$(dirname <span class="string">&quot;<span class="subst">$(echo <span class="string">&quot;<span class="variable">$0</span>&quot;</span> | sed -e &#x27;s,\\,/,g&#x27;)</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> `uname` <span class="keyword">in</span></span><br><span class="line">    *CYGWIN*) basedir=`cygpath -w <span class="string">&quot;<span class="variable">$basedir</span>&quot;</span>`;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ -x <span class="string">&quot;<span class="variable">$basedir</span>/node&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">  <span class="string">&quot;<span class="variable">$basedir</span>/node&quot;</span>  <span class="string">&quot;<span class="variable">$basedir</span>/../jest/bin/jest.js&quot;</span> <span class="string">&quot;<span class="variable">$@</span>&quot;</span></span><br><span class="line">  ret=$?</span><br><span class="line"><span class="keyword">else</span> </span><br><span class="line">  node  <span class="string">&quot;<span class="variable">$basedir</span>/../jest/bin/jest.js&quot;</span> <span class="string">&quot;<span class="variable">$@</span>&quot;</span></span><br><span class="line">  ret=$?</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">exit</span> <span class="variable">$ret</span></span><br></pre></td></tr></table></figure><p>&emsp;&emsp;可以发现jest文件可以接受一个参数列表，而这一个参数列表就是我们需要执行测试的文件或者需要执行的文件目录。</p><p>&emsp;&emsp;到这里我们可以很顺利的运用jest执行我们需要执行的文件。但是我们还是没有改变需要执行的目录，测试文件仍然还需要在__tests__目录下。想到竟然这一个目录被定死了，那么肯定有它的配置文件，那么就看一下它的配置文件。  很容易知道他的配置文件就是package.json。然而这个文件没有我们需要寻找的jest路径的相关信息。然后就去找最顶级的默认配置文档。发现有testMatch这一个属性。</p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&quot;jest&quot;: &#123;</span><br><span class="line">  &quot;testEnvironment&quot;: &quot;node&quot;,</span><br><span class="line">  &quot;setupFiles&quot;: [</span><br><span class="line">    <span class="string">&quot;&lt;rootDir&gt;/scripts/testSetup.js&quot;</span></span><br><span class="line">  ],</span><br><span class="line">  &quot;testMatch&quot;: [</span><br><span class="line">    <span class="string">&quot;**/__tests__/**/*.spec.js&quot;</span></span><br><span class="line">  ]</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure><p>这里很清晰的说明了jest的测试目录，只要修改这一个“testMatch的值”，就可以随心所欲地运行某个我们想运行的文件。</p><hr><p>&emsp;&emsp;如果仅仅需要测试单个文件。可以使用Node.js提供了一个运行文件的方法(同时也是VSCode的Jest Runner插件使用的方法).该方法提供两个参数，第一个参数为jest.js文件的绝对路径，第二个文件为测试文件的绝对路径。如</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node &quot;d:&#x2F;Smith_Peng&#x2F;project&#x2F;node_modules&#x2F;jest&#x2F;bin&#x2F;jest.js&quot; &quot;d:&#x2F;Smith_Peng&#x2F;project&#x2F;all&#x2F;main-spec.js&quot;</span><br></pre></td></tr></table></figure><hr><p>Reference :<br>vue默认配置文档：<a href="https://github.com/vuejs/vue-cli/blob/dev/package.json">https://github.com/vuejs/vue-cli/blob/dev/package.json</a><br>官方文档：<a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-unit-jest">https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-unit-jest</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Vue </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Vue路由周期</title>
-      <link href="2021/05/01/vue/Vue%E8%B7%AF%E7%94%B1%E5%91%A8%E6%9C%9F/"/>
-      <url>2021/05/01/vue/Vue%E8%B7%AF%E7%94%B1%E5%91%A8%E6%9C%9F/</url>
-      
-        <content type="html"><![CDATA[<p><a href="https://juejin.cn/post/6844903924760051725">https://juejin.cn/post/6844903924760051725</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Vue </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Vue版本更换</title>
-      <link href="2021/05/01/vue/vue%20%E7%89%88%E6%9C%AC%E6%9B%B4%E6%8D%A2/"/>
-      <url>2021/05/01/vue/vue%20%E7%89%88%E6%9C%AC%E6%9B%B4%E6%8D%A2/</url>
-      
-        <content type="html"><![CDATA[<h3 id="查看Vue-版本"><a href="#查看Vue-版本" class="headerlink" title="查看Vue 版本"></a>查看Vue 版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue -V</span><br></pre></td></tr></table></figure><p>若不是2.9.6</p><h3 id="卸载Vue-版本"><a href="#卸载Vue-版本" class="headerlink" title="卸载Vue 版本"></a>卸载Vue 版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall -g @vue&#x2F;cli</span><br></pre></td></tr></table></figure><h3 id="安装2-9-6版本"><a href="#安装2-9-6版本" class="headerlink" title="安装2.9.6版本"></a>安装2.9.6版本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g vue-cli@2.9.6</span><br></pre></td></tr></table></figure><p>有其他问题，重启大法</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Vue </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>VueX</title>
-      <link href="2021/05/01/vue/vuex/"/>
-      <url>2021/05/01/vue/vuex/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h1><h2 id="Vuex的本质"><a href="#Vuex的本质" class="headerlink" title="Vuex的本质"></a>Vuex的本质</h2><p>Vuex本质上是一个Vue插件，是一个状态管理器。<br>核心就是一个Store对象，他是一个全局并且是单例的对象<br>这个对象通过state保存数据，里面getter和mutation和action的操作方式</p><h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><p>State就是状态数据，而Actions、Mutations都是对这些状态数据进行处理</p><h3 id="Getters"><a href="#Getters" class="headerlink" title="Getters"></a>Getters</h3><p>getter 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算</p><h3 id="Mutations"><a href="#Mutations" class="headerlink" title="Mutations"></a>Mutations</h3><p>Mutation是更改state的唯一方法。Mutation唯一的触发方式就是commit，mutation非常类似于事件注册，mutation必须是同步函数</p><h3 id="Actions"><a href="#Actions" class="headerlink" title="Actions"></a>Actions</h3><p>用法和Mutations一样，但是可以是异步函数，action处理函数所做的事情则是commit mutation</p><h3 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h3><p>module 实际上就是对Store对象的切割。可以理解为对Store进行水平切分和垂直切分独立的模块。每个模块可以看做为一个命名空间。而最外层的Store则是全局命名空间。</p><h2 id="Vuex的状态管理"><a href="#Vuex的状态管理" class="headerlink" title="Vuex的状态管理"></a>Vuex的状态管理</h2><p><img src="/images/Vuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86.png" alt="Vuex"><br>View</p><ol><li>Vue组件通过dispatch的方法调用Actions</li><li>在Actions中，使用commit的方法调用mutations</li><li>mutations更改了state之后重新渲染到Vue组件</li></ol><h2 id="辅助函数"><a href="#辅助函数" class="headerlink" title="辅助函数"></a>辅助函数</h2><p>本质是一个快捷映射，作用是简化开发</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; mapState &#125; <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  computed: mapState(&#123;</span><br><span class="line">    count: <span class="function"><span class="params">state</span> =&gt;</span> state.count,</span><br><span class="line">    countAlias: <span class="string">&#x27;count&#x27;</span>,</span><br><span class="line">    countPlusLocalState (state) &#123;</span><br><span class="line">      <span class="keyword">return</span> state.count + <span class="built_in">this</span>.localCount</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在引用mapState以后，我们就可以使用</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">this</span>.count 来代替 <span class="built_in">this</span>.$store.count</span><br></pre></td></tr></table></figure><p>都有对应的辅助函数<br>state —&gt; mapState<br>getters —&gt; mapGetters</p><h3 id="为什么Mutation必须为同步"><a href="#为什么Mutation必须为同步" class="headerlink" title="为什么Mutation必须为同步"></a>为什么Mutation必须为同步</h3><p>Mutation唯一的限制就是同步Mutation,作用的为了能用devtools追踪变化</p><p><a href="https://mobilesite.github.io/2016/12/18/vuex-introduction/">https://mobilesite.github.io/2016/12/18/vuex-introduction/</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Vue </tag>
             
         </tags>
       
@@ -5212,6 +4976,331 @@
             <tag> Linux </tag>
             
             <tag> Vim </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java碎碎念</title>
+      <link href="2021/05/01/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/java%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+      <url>2021/05/01/%E4%B8%AA%E4%BA%BA%E6%88%90%E9%95%BF/java%E7%A2%8E%E7%A2%8E%E5%BF%B5/</url>
+      
+        <content type="html"><![CDATA[<h2 id="抽象类的作用"><a href="#抽象类的作用" class="headerlink" title="抽象类的作用"></a>抽象类的作用</h2><p>降低接口实现类对接口实现过程的难度，将接口中不需要使用抽象方法交给抽象类进行完成，这样接口实现类只需对接口需要的方法进行重写</p><h2 id="编程时每一个操作都有理论依据"><a href="#编程时每一个操作都有理论依据" class="headerlink" title="编程时每一个操作都有理论依据"></a>编程时每一个操作都有理论依据</h2><h2 id="为什么要问源码？"><a href="#为什么要问源码？" class="headerlink" title="为什么要问源码？"></a>为什么要问源码？</h2><ol><li>方便调试BUG</li><li>看懂源码，方便扩展</li><li>方便做二次开发或者自己项目接口开发</li><li>提升内功，学习别人的设计思想</li></ol><h2 id="spring源码："><a href="#spring源码：" class="headerlink" title="spring源码："></a>spring源码：</h2><ol><li>ioc创建过程</li><li>bean实例化过程</li><li>循环依赖</li><li>AOP</li><li>事件发布监听</li></ol><h2 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h2><p>函数式编程（FP）的意义所在。通过合并现有代码来生成新功能而不是从头开始编写所有内容，我们可以更快地获得更可靠的代码。<br>OO（object oriented，面向对象）是抽象数据，FP（functional programming，函数式编程）是抽象行为。</p><h2 id="Stream的使用建议"><a href="#Stream的使用建议" class="headerlink" title="Stream的使用建议"></a>Stream的使用建议</h2><ul><li>简单的迭代逻辑，可以直接使用 iterator，对于有多步处理的迭代逻辑，可以使用 stream，损失一点几乎没有的效率，换来代码的高可读性是值得的；</li><li>单核 cpu 环境，不推荐使用 parallel stream，在多核 cpu 且有大数据量的条件下，推荐使用 paralle stream；</li><li>stream 中含有装箱类型，在进行中间操作之前，最好转成对应的数值流，减少由于频繁的拆箱、装箱造成的性能损失</li></ul><p><a href="https://xie.infoq.cn/article/6521ea3ae8a36f2bdaece6e61">https://xie.infoq.cn/article/6521ea3ae8a36f2bdaece6e61</a></p><h2 id="IO流装饰器模式"><a href="#IO流装饰器模式" class="headerlink" title="IO流装饰器模式"></a>IO流装饰器模式</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 个人成长 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>虚拟DOM</title>
+      <link href="2021/05/01/%E5%89%8D%E7%AB%AF/%E8%99%9A%E6%8B%9FDOM/"/>
+      <url>2021/05/01/%E5%89%8D%E7%AB%AF/%E8%99%9A%E6%8B%9FDOM/</url>
+      
+        <content type="html"><![CDATA[<h1 id="虚拟DOM"><a href="#虚拟DOM" class="headerlink" title="虚拟DOM"></a>虚拟DOM</h1><h2 id="出现原因"><a href="#出现原因" class="headerlink" title="出现原因"></a>出现原因</h2><p>减少JavaScript对DOM的操作</p><ol><li>将页面改变的内容应用到虚拟DOM上，而不是直接应用到DOM上</li><li>变化被应用到虚拟DOM上时，虚拟DOM并不急着渲染界面，而是调整虚拟DOM的内部状态</li><li>当虚拟DOM收集到足够的改变时，再将这一些变化应用到真实的DOM上</li></ol><h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><h3 id="重排"><a href="#重排" class="headerlink" title="重排"></a>重排</h3><p>通过JavaScript或者CSS 修改元素的几何位置属性。触发浏览器的重新布局</p><h3 id="重绘"><a href="#重绘" class="headerlink" title="重绘"></a>重绘</h3><p>修改元素的背景色，布局并没有发生改变。相对于重排，省去了布局和分层阶段</p><h3 id="重新合成"><a href="#重新合成" class="headerlink" title="重新合成"></a>重新合成</h3><p>渲染引擎跳过布局和绘制，在非主线程上执行合成动画的操作</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 浏览器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Jest跑测试文件</title>
+      <link href="2021/05/01/%E5%89%8D%E7%AB%AF/vue/Jest%E8%B7%91%E5%8D%95%E4%B8%AA%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6/"/>
+      <url>2021/05/01/%E5%89%8D%E7%AB%AF/vue/Jest%E8%B7%91%E5%8D%95%E4%B8%AA%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Jest跑单个测试文件"><a href="#Jest跑单个测试文件" class="headerlink" title="Jest跑单个测试文件"></a>Jest跑单个测试文件</h1><blockquote><p>问题背景：当我们使用vue框架进行测试时，使用的是直接运行jest，就会直接测试所有在__tests__目录下的所有测试文件。但往往有时候，我们不需要执行所有的测试文件，那么如何使用jest运行单个测试文件或者是运行非__tests__目录下的文件</p></blockquote><p>遇到第一个问题的第一反应，我就查看官方提供的文档。<br>官方文档是这样描述的</p><pre class="line-numbers language-none"><code class="language-none">Run unit tests with Jest. Default testMatch is &lt;rootDir&gt;&#x2F;(tests&#x2F;unit&#x2F;**&#x2F;*.spec.(js|jsx|ts|tsx)|**&#x2F;__tests__&#x2F;*.(js|jsx|ts|tsx)) which matches:Any files in tests&#x2F;unit that end in .spec.(js|jsx|ts|tsx);Any js(x)&#x2F;ts(x) files inside __tests__ directories.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>通过文档描述，使用jest测试有三个要求</p><ul><li>测试文件名要以spec结果</li><li>测试文件后缀为js，jsx，ts，tsx</li><li>测试文件需要放在tests/unit/目录下或者是/__tests__/目录下<br>只要满足这三个要求的测试文件，使用运行jest时就会自动执行</li></ul><p>同时官方用例提供了一种方式告诉你如何使用jest进行单个文件测试</p><pre class="line-numbers language-none"><code class="language-none">jest my-test #orjest path&#x2F;to&#x2F;my-test.js<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>我们也可以打开jest的执行文件的源码</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">basedir</span><span class="token operator">=</span><span class="token variable"><span class="token variable">$(</span><span class="token function">dirname</span> <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$0</span>"</span> <span class="token operator">|</span> <span class="token function">sed</span> -e <span class="token string">'s,<span class="token entity" title="\\">\\</span>,/,g'</span><span class="token variable">)</span></span>"</span><span class="token variable">)</span></span><span class="token keyword">case</span> <span class="token variable"><span class="token variable">`</span><span class="token function">uname</span><span class="token variable">`</span></span> <span class="token keyword">in</span>    *CYGWIN*<span class="token punctuation">)</span> <span class="token assign-left variable">basedir</span><span class="token operator">=</span><span class="token variable"><span class="token variable">`</span>cygpath -w <span class="token string">"<span class="token variable">$basedir</span>"</span><span class="token variable">`</span></span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token keyword">esac</span><span class="token keyword">if</span> <span class="token punctuation">[</span> -x <span class="token string">"<span class="token variable">$basedir</span>/node"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token keyword">then</span>  <span class="token string">"<span class="token variable">$basedir</span>/node"</span>  <span class="token string">"<span class="token variable">$basedir</span>/../jest/bin/jest.js"</span> <span class="token string">"<span class="token variable">$@</span>"</span>  <span class="token assign-left variable">ret</span><span class="token operator">=</span><span class="token variable">$?</span><span class="token keyword">else</span>   node  <span class="token string">"<span class="token variable">$basedir</span>/../jest/bin/jest.js"</span> <span class="token string">"<span class="token variable">$@</span>"</span>  <span class="token assign-left variable">ret</span><span class="token operator">=</span><span class="token variable">$?</span><span class="token keyword">fi</span><span class="token builtin class-name">exit</span> <span class="token variable">$ret</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>&emsp;&emsp;可以发现jest文件可以接受一个参数列表，而这一个参数列表就是我们需要执行测试的文件或者需要执行的文件目录。</p><p>&emsp;&emsp;到这里我们可以很顺利的运用jest执行我们需要执行的文件。但是我们还是没有改变需要执行的目录，测试文件仍然还需要在__tests__目录下。想到竟然这一个目录被定死了，那么肯定有它的配置文件，那么就看一下它的配置文件。  很容易知道他的配置文件就是package.json。然而这个文件没有我们需要寻找的jest路径的相关信息。然后就去找最顶级的默认配置文档。发现有testMatch这一个属性。</p><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token property">"jest"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>  <span class="token property">"testEnvironment"</span><span class="token operator">:</span> <span class="token string">"node"</span><span class="token punctuation">,</span>  <span class="token property">"setupFiles"</span><span class="token operator">:</span> <span class="token punctuation">[</span>    <span class="token string">"&lt;rootDir>/scripts/testSetup.js"</span>  <span class="token punctuation">]</span><span class="token punctuation">,</span>  <span class="token property">"testMatch"</span><span class="token operator">:</span> <span class="token punctuation">[</span>    <span class="token string">"**/__tests__/**/*.spec.js"</span>  <span class="token punctuation">]</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>这里很清晰的说明了jest的测试目录，只要修改这一个“testMatch的值”，就可以随心所欲地运行某个我们想运行的文件。</p><hr><p>&emsp;&emsp;如果仅仅需要测试单个文件。可以使用Node.js提供了一个运行文件的方法(同时也是VSCode的Jest Runner插件使用的方法).该方法提供两个参数，第一个参数为jest.js文件的绝对路径，第二个文件为测试文件的绝对路径。如</p><pre class="line-numbers language-none"><code class="language-none">node &quot;d:&#x2F;Smith_Peng&#x2F;project&#x2F;node_modules&#x2F;jest&#x2F;bin&#x2F;jest.js&quot; &quot;d:&#x2F;Smith_Peng&#x2F;project&#x2F;all&#x2F;main-spec.js&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><hr><p>Reference :<br>vue默认配置文档：<a href="https://github.com/vuejs/vue-cli/blob/dev/package.json">https://github.com/vuejs/vue-cli/blob/dev/package.json</a><br>官方文档：<a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-unit-jest">https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-unit-jest</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Vue路由周期</title>
+      <link href="2021/05/01/%E5%89%8D%E7%AB%AF/vue/Vue%E8%B7%AF%E7%94%B1%E5%91%A8%E6%9C%9F/"/>
+      <url>2021/05/01/%E5%89%8D%E7%AB%AF/vue/Vue%E8%B7%AF%E7%94%B1%E5%91%A8%E6%9C%9F/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://juejin.cn/post/6844903924760051725">https://juejin.cn/post/6844903924760051725</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Vue版本更换</title>
+      <link href="2021/05/01/%E5%89%8D%E7%AB%AF/vue/vue%20%E7%89%88%E6%9C%AC%E6%9B%B4%E6%8D%A2/"/>
+      <url>2021/05/01/%E5%89%8D%E7%AB%AF/vue/vue%20%E7%89%88%E6%9C%AC%E6%9B%B4%E6%8D%A2/</url>
+      
+        <content type="html"><![CDATA[<h3 id="查看Vue-版本"><a href="#查看Vue-版本" class="headerlink" title="查看Vue 版本"></a>查看Vue 版本</h3><pre class="line-numbers language-none"><code class="language-none">vue -V<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>若不是2.9.6</p><h3 id="卸载Vue-版本"><a href="#卸载Vue-版本" class="headerlink" title="卸载Vue 版本"></a>卸载Vue 版本</h3><pre class="line-numbers language-none"><code class="language-none">npm uninstall -g @vue&#x2F;cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="安装2-9-6版本"><a href="#安装2-9-6版本" class="headerlink" title="安装2.9.6版本"></a>安装2.9.6版本</h3><pre class="line-numbers language-none"><code class="language-none">npm install -g vue-cli@2.9.6<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>有其他问题，重启大法</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>VueX</title>
+      <link href="2021/05/01/%E5%89%8D%E7%AB%AF/vue/vuex/"/>
+      <url>2021/05/01/%E5%89%8D%E7%AB%AF/vue/vuex/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h1><h2 id="Vuex的本质"><a href="#Vuex的本质" class="headerlink" title="Vuex的本质"></a>Vuex的本质</h2><p>Vuex本质上是一个Vue插件，是一个状态管理器。<br>核心就是一个Store对象，他是一个全局并且是单例的对象<br>这个对象通过state保存数据，里面getter和mutation和action的操作方式</p><h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><h3 id="State"><a href="#State" class="headerlink" title="State"></a>State</h3><p>State就是状态数据，而Actions、Mutations都是对这些状态数据进行处理</p><h3 id="Getters"><a href="#Getters" class="headerlink" title="Getters"></a>Getters</h3><p>getter 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算</p><h3 id="Mutations"><a href="#Mutations" class="headerlink" title="Mutations"></a>Mutations</h3><p>Mutation是更改state的唯一方法。Mutation唯一的触发方式就是commit，mutation非常类似于事件注册，mutation必须是同步函数</p><h3 id="Actions"><a href="#Actions" class="headerlink" title="Actions"></a>Actions</h3><p>用法和Mutations一样，但是可以是异步函数，action处理函数所做的事情则是commit mutation</p><h3 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h3><p>module 实际上就是对Store对象的切割。可以理解为对Store进行水平切分和垂直切分独立的模块。每个模块可以看做为一个命名空间。而最外层的Store则是全局命名空间。</p><h2 id="Vuex的状态管理"><a href="#Vuex的状态管理" class="headerlink" title="Vuex的状态管理"></a>Vuex的状态管理</h2><p><img src="/images/Vuex%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86.png" alt="Vuex"><br>View</p><ol><li>Vue组件通过dispatch的方法调用Actions</li><li>在Actions中，使用commit的方法调用mutations</li><li>mutations更改了state之后重新渲染到Vue组件</li></ol><h2 id="辅助函数"><a href="#辅助函数" class="headerlink" title="辅助函数"></a>辅助函数</h2><p>本质是一个快捷映射，作用是简化开发</p><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> mapState <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vuex'</span><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>  computed<span class="token operator">:</span> <span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>    <span class="token function-variable function">count</span><span class="token operator">:</span> <span class="token parameter">state</span> <span class="token operator">=></span> state<span class="token punctuation">.</span>count<span class="token punctuation">,</span>    countAlias<span class="token operator">:</span> <span class="token string">'count'</span><span class="token punctuation">,</span>    <span class="token function">countPlusLocalState</span> <span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>      <span class="token keyword">return</span> state<span class="token punctuation">.</span>count <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>localCount    <span class="token punctuation">&#125;</span>  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>在引用mapState以后，我们就可以使用</p><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span>count 来代替 <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>count<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>都有对应的辅助函数<br>state —&gt; mapState<br>getters —&gt; mapGetters</p><h3 id="为什么Mutation必须为同步"><a href="#为什么Mutation必须为同步" class="headerlink" title="为什么Mutation必须为同步"></a>为什么Mutation必须为同步</h3><p>Mutation唯一的限制就是同步Mutation,作用的为了能用devtools追踪变化</p><p><a href="https://mobilesite.github.io/2016/12/18/vuex-introduction/">https://mobilesite.github.io/2016/12/18/vuex-introduction/</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>V8工作原理</title>
+      <link href="2021/05/01/%E5%89%8D%E7%AB%AF/browser/V8%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/"/>
+      <url>2021/05/01/%E5%89%8D%E7%AB%AF/browser/V8%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="V8工作原理"><a href="#V8工作原理" class="headerlink" title="V8工作原理"></a>V8工作原理</h1><h2 id="数据是如何存储的？"><a href="#数据是如何存储的？" class="headerlink" title="数据是如何存储的？"></a>数据是如何存储的？</h2><ul><li>栈空间</li></ul><ol><li>通常用来存放一些原始类型的小数据</li></ol><ul><li>堆空间</li></ul><ol><li>通常用来存放引用类型的数据</li></ol><h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><h3 id="代际假说"><a href="#代际假说" class="headerlink" title="代际假说"></a>代际假说</h3><ol><li>大部分对象在内存中存在的时间很短</li><li>不死对象就会获得很久<h3 id="新生代和老生代"><a href="#新生代和老生代" class="headerlink" title="新生代和老生代"></a>新生代和老生代</h3></li><li>生存时间短的对象放在新生代</li><li>生存时间久的对象放在老生代</li><li>新生代和老生代分别使用不同的垃圾回收机制<ol><li>新生代使用副垃圾回收机制</li><li>老生带使用主垃圾回收机制</li></ol></li></ol><h3 id="垃圾回收器的工作流程"><a href="#垃圾回收器的工作流程" class="headerlink" title="垃圾回收器的工作流程"></a>垃圾回收器的工作流程</h3><h4 id="副垃圾回收器"><a href="#副垃圾回收器" class="headerlink" title="副垃圾回收器"></a>副垃圾回收器</h4><ol><li>使用scavenge算法，把新生代划分为两个区域，一半是对象区域，一半是空闲区域</li><li>当对象空间快满的时候，才执行对象回收操作</li><li>首先对对象区域的垃圾做标记</li><li>标记完后，将活着的对象移到空闲区域，同时有序的排列起来</li><li>完成复制后，对象区域和空间区域进行互换<h4 id="主垃圾回收器"><a href="#主垃圾回收器" class="headerlink" title="主垃圾回收器"></a>主垃圾回收器</h4></li><li>使用标记-整理算法</li></ol><h4 id="垃圾回收的全停顿"><a href="#垃圾回收的全停顿" class="headerlink" title="垃圾回收的全停顿"></a>垃圾回收的全停顿</h4><ul><li>进行一次标记-清理-整理，需要一段时间。这种行为就是全停顿，影响应用的性能和响应能力</li><li>为了降低老生代垃圾回收造成的卡顿。V8使用增量标记算法，将垃圾回收标记和应用逻辑交替执行，直到标记阶段完成。</li></ul><h2 id="V8如何执行一段代码"><a href="#V8如何执行一段代码" class="headerlink" title="V8如何执行一段代码"></a>V8如何执行一段代码</h2><ol><li>生成抽象语法树(AST)和执行上下文<ol><li>词法分析</li><li>语法分析</li></ol></li><li>生成字节码<ol><li>解释器Ignition会根据AST生成字节码，并执行字节码</li></ol></li><li>执行代码<ol><li>生成字节码之后，解释器Ignition会逐条解释执行。</li><li>如果发现有热点代码(一段代码被重复执行多次),编译器TurboFan会把这段热点的字节码编译成机器码</li><li>当这段代码再次被执行的时候，执行编译后的机器码就可以了(JIT技术)</li></ol></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 浏览器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Chrome</title>
+      <link href="2021/05/01/%E5%89%8D%E7%AB%AF/browser/chrome/"/>
+      <url>2021/05/01/%E5%89%8D%E7%AB%AF/browser/chrome/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Chrome"><a href="#Chrome" class="headerlink" title="Chrome"></a>Chrome</h1><h2 id="多进程架构"><a href="#多进程架构" class="headerlink" title="多进程架构"></a>多进程架构</h2><p>Chrome 包括1个浏览器（Browser）主进程、1个 GPU 进程、1个网络（NetWork）进程、多个渲染进程和多个插件进程</p><ul><li>浏览器进程。主要负责界面显示、用户交互、子进程管理，同时提供存储等功能</li><li>渲染进程。核心任务是将 HTML、CSS 和 JavaScript 转换为用户可以与之交互的网页，排版引擎Blink和JavaScript引擎V8都是运行在该进程中，默认情况下，Chrome会为每个Tab标签创建一个渲染进程。出于安全考虑，渲染进程都是运行在沙箱模式下</li><li>GPU进程。其实，Chrome刚开始发布的时候是没有GPU进程的。而GPU的使用初衷是为了实现3D CSS的效果，只是随后网页、Chrome的UI界面都选择采用GPU来绘制，这使得GPU成为浏览器普遍的需求。最后，Chrome在其多进程架构上也引入了GPU进程</li><li>网络进程。主要负责页面的网络资源加载.</li><li>插件进程。主要是负责插件的运行，因插件易崩溃，所以需要通过插件进程来隔离，以保证插件进程崩溃不会对浏览器和页面造成影响</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 浏览器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>localStorage和sessionStorage</title>
+      <link href="2021/05/01/%E5%89%8D%E7%AB%AF/browser/localStorage/"/>
+      <url>2021/05/01/%E5%89%8D%E7%AB%AF/browser/localStorage/</url>
+      
+        <content type="html"><![CDATA[<h3 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h3><h4 id="localStorage-和-sessionStorage不同点"><a href="#localStorage-和-sessionStorage不同点" class="headerlink" title="localStorage 和 sessionStorage不同点"></a>localStorage 和 sessionStorage不同点</h4><ul><li>localStorage 是没有时间限制的，永久的。除非特定的清除localStorage或者通过浏览器来清除</li><li>sessionStorage 生命周期为当前窗口或者标签页，当窗口或者标签页被清除时，sessionStorage就会被清空。（页面及标签页仅指顶级窗口，如果一个标签页包含多个iframe标签且他们属于同源页面，那么他们之间是可以共享sessionStorage）</li></ul><h4 id="localStorage的优点："><a href="#localStorage的优点：" class="headerlink" title="localStorage的优点："></a>localStorage的优点：</h4><ol><li>localStorage拓展了cookie的4K限制，扩展到5M</li><li>localStorage会可以将请求的数据直接存储到本地</li><li>遵循同源策略，不同的网站直接是不能共用相同的localStorage</li></ol><h4 id="localStorage的缺点："><a href="#localStorage的缺点：" class="headerlink" title="localStorage的缺点："></a>localStorage的缺点：</h4><ol><li>浏览器的localStorage大小不统一，只有IE8以上的IE版本才支持localStorage这个属性</li><li>localStorage的值类型限定为string类型。即使你存储的是数组和对象，localStorage也会将数组和对象以字符串的形式存储。</li><li>localStorage在浏览器的隐私模式下面是不可读取的</li><li>localStorage过大会导致页面卡顿</li><li>localStorage不能被爬虫爬取</li></ol><p>参考</p><p><a href="http://www.manongjc.com/article/35746.html">http://www.manongjc.com/article/35746.html</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 浏览器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>浏览器的JavaScript的执行机制</title>
+      <link href="2021/05/01/%E5%89%8D%E7%AB%AF/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84JS%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/"/>
+      <url>2021/05/01/%E5%89%8D%E7%AB%AF/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E7%9A%84JS%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="浏览器的JavaScript的执行机制"><a href="#浏览器的JavaScript的执行机制" class="headerlink" title="浏览器的JavaScript的执行机制"></a>浏览器的JavaScript的执行机制</h1><h2 id="执行顺序问题"><a href="#执行顺序问题" class="headerlink" title="执行顺序问题"></a>执行顺序问题</h2><h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><ol><li>在代码执行过程汇总，JavaScript引擎将变量的声明部分和函数的声明部分提升到代码开头。</li><li>变量被提升后，会给变量设置默认值</li></ol><h3 id="JavaScript的执行流程"><a href="#JavaScript的执行流程" class="headerlink" title="JavaScript的执行流程"></a>JavaScript的执行流程</h3><p><img src="/images/V8%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E4%B8%80%E6%AE%B5JavaScript%E4%BB%A3%E7%A0%81.png" alt="JavaScript的执行流程"></p><ol><li>语法检查</li><li>预编译阶段<ol><li>js的运行环境<ol><li>全局环境，代码进入预编译即进入了全局环境</li><li>函数环境，函数执行调用，就进入该函数的函数韩静</li><li>eval环境，(允许执行代码字符串，避免使用)</li><li>每进入一个环境都会创建一个相应的执行上下文。js引擎会以栈的方式对这些执行上下文进行处理，形成函数调用栈</li></ol></li><li>函数调用栈<ol><li>首次运行时，会创建一个全局执行上下文并push到栈中</li><li>每当发生函数调用，就会创建新的函数执行上下文push到栈顶</li><li>函数完成后，对应函数的执行上下文会从栈中pop出，上下文控制权交给下一个执行上下文</li></ol></li><li>执行上下文的创建<ol><li>创建变量对象<ol><li>变量提升，函数声明的优先级高于变量声明的优先级</li><li>此时，变量属性都未赋值，默认为undefined</li></ol></li><li>建立作用域链<ol><li>创建作用域链，就是创建词法环境</li><li>词法环境由两部分组成<ol><li>环境记录：环境变量和函数声明的实际位置</li><li>对外部环境的引用：可以访问其外部词法环境</li></ol></li></ol></li><li>确定this的指向<ol><li>this是和执行上下文绑定的，每个执行上下文都有一个this</li><li>全局中的this是指向window对象的</li><li>this指向完全取决于函数调用的位置</li><li>嵌套函数的this不会从外层函数中继承</li></ol></li></ol></li></ol></li><li>执行阶段</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 浏览器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>输入URL 到页面展示</title>
+      <link href="2021/05/01/%E5%89%8D%E7%AB%AF/browser/url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA/"/>
+      <url>2021/05/01/%E5%89%8D%E7%AB%AF/browser/url%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA/</url>
+      
+        <content type="html"><![CDATA[<h1 id="输入URL-到页面展示"><a href="#输入URL-到页面展示" class="headerlink" title="输入URL 到页面展示"></a>输入URL 到页面展示</h1><h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><p><img src="/images/%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA%E6%B5%81%E7%A8%8B.png" alt="展示过程"></p><h2 id="1-用户输入"><a href="#1-用户输入" class="headerlink" title="1. 用户输入"></a>1. 用户输入</h2><ol><li>如果是搜索内容，地址栏会使用浏览器的默认搜索引擎合成搜索关键字的url</li><li>如果输入内容符合url规则，浏览器会根据规则，并加上协议，合成为完整的URL</li></ol><h2 id="2-URL请求过程"><a href="#2-URL请求过程" class="headerlink" title="2. URL请求过程"></a>2. URL请求过程</h2><ol><li>浏览器进程会吧进程间通信(IPC)把URL请求发送倒网络进行</li><li>网络进程接收到URL请求后，会查本地进程是否缓存了该资源，有则直接返回资源给浏览器进程</li><li>如果没有，则进行DNS解析，获取IP地址。如果是HTTPS请求，还需要建立TLS连接</li><li>理网络进程利用IP地址和服务器建立连接，完成后，会根据请求行，请求头等信息，并把和该域名相关的cookie信息附加到请求头，然后向服务器端发送构建请求信息</li><li>服务器接受到请求信息后，根据请求信息生成响应数据(包含响应头，响应行，响应体等信息)并发给网络进程</li><li>网络进程接收到响应行和响应头之后，解析响应头内容</li><li>解析响应头为301或者302，重定向到响应头里面的Location字段的地址</li><li>解析响应头为302，会解析响应数据类型，解析响应数据类型为text/html，则浏览器会准备渲染进程</li><li>若为其他响应数据类型，则有对应的处理</li></ol><h2 id="3-准备渲染进程"><a href="#3-准备渲染进程" class="headerlink" title="3. 准备渲染进程"></a>3. 准备渲染进程</h2><ol><li>每个标签对应一个渲染进程</li><li>如果新页面和当前页面是属于同一个站点的话，那么新页面就会复用父页面的渲染进程</li></ol><h2 id="4-提交文档-URL请求的响应体数据"><a href="#4-提交文档-URL请求的响应体数据" class="headerlink" title="4. 提交文档(URL请求的响应体数据)"></a>4. 提交文档(URL请求的响应体数据)</h2><ol><li>“提交文档消息”由浏览器进程发出，渲染进程接收到提交文档后，会和网络进程建立传输数据的管道</li><li>当数据传输完成后，渲染进程会返回“确认提交”的消息给到浏览器进程</li><li>浏览器进程收到确认提交消息后，会更新浏览器界面状态。包括安全转态、地址栏URL、前进后退的历史状态，并更新web压面</li></ol><h2 id="5-渲染阶段"><a href="#5-渲染阶段" class="headerlink" title="5. 渲染阶段"></a>5. 渲染阶段</h2><p>页面完成后，渲染进程会发送一个消息给浏览器进程，浏览器接收到消息后，会停止变迁的图标变化</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 浏览器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>浏览器缓存</title>
+      <link href="2021/05/01/%E5%89%8D%E7%AB%AF/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/"/>
+      <url>2021/05/01/%E5%89%8D%E7%AB%AF/browser/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="缓存流程"><a href="#缓存流程" class="headerlink" title="缓存流程"></a>缓存流程</h1><p><img src="/images/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98.png" alt="浏览器缓存"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 浏览器 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>浏览器渲染流程</title>
+      <link href="2021/05/01/%E5%89%8D%E7%AB%AF/browser/%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B/"/>
+      <url>2021/05/01/%E5%89%8D%E7%AB%AF/browser/%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<h1 id="渲染流程"><a href="#渲染流程" class="headerlink" title="渲染流程"></a>渲染流程</h1><h2 id="渲染流水线"><a href="#渲染流水线" class="headerlink" title="渲染流水线"></a>渲染流水线</h2><p><img src="/images/%E6%B8%B2%E6%9F%93%E6%B5%81%E6%B0%B4%E7%BA%BF.png" alt="渲染流水线"></p><h2 id="1-HTML-转化成DOM树"><a href="#1-HTML-转化成DOM树" class="headerlink" title="1. HTML 转化成DOM树"></a>1. HTML 转化成DOM树</h2><h3 id="构建流程"><a href="#构建流程" class="headerlink" title="构建流程"></a>构建流程</h3><ol><li>网络进程接收到响应头的content-type字段为html的时候，就会请求选择或创建一个管道</li><li>渲染进程准备好后，会建立一个共享的数据管道</li><li>当网络进程接收到数据以后，就会将数据送入管道中</li><li>渲染进程的动态的从管道中接收字节流，进行词法分析，解析成DOM节点，然后添加到DOM树中</li><li>当包含了CSS的引用的时候，需在先构建CSSOM树，而JS又可以改变CSS，所以执行JS依赖于CSSOM树</li><li>当执行到了JS的脚本，暂停整个DOM的解析，JavaScript引擎介入并执行这段脚本，之后继续解析<h3 id="DOM构建流程图"><a href="#DOM构建流程图" class="headerlink" title="DOM构建流程图"></a>DOM构建流程图</h3><img src="/images/DOM%E6%A0%91%E6%9E%84%E9%80%A0.png" alt="DOM构建流程图"><h3 id="构建中的优化"><a href="#构建中的优化" class="headerlink" title="构建中的优化"></a>构建中的优化</h3></li><li>JS文件下载会阻塞DOM的解析，Chrome在接收到字节流的时候，添加了预解析的流程，开启预解析线程，分析HTML中的JS,CSS文件，然后提前下载JS CSS 文件</li><li>也可以使用CDN，或者压缩JS文件体积来加速JS文件的下载</li><li>如果JS没有操作DOM的代码，可以设置JS脚本设置为异步加载</li><li>对于大的CSS，可能拆分多个不同用途的CSS文件，这样在特定的场景才会加载特定的CSS文件<h2 id="2-构建CSSOM-树"><a href="#2-构建CSSOM-树" class="headerlink" title="2. 构建CSSOM 树"></a>2. 构建CSSOM 树</h2></li><li>将CSS文本转换成styleSheets(样式表)结构中的数据<ul><li>CSS来源<ul><li>通过link引用外部CSS文件</li><li>&lt;style&gt;标记内的CSS</li><li>元素style属性内嵌的CSS</li></ul></li></ul></li><li>转换样式表中的属性值，使其标准化(如将所有的em解析成px，颜色解析成rgb)</li><li>计算出DOM树每个节点的具体样式<ul><li>CSS的继承规则</li><li>CSS的层叠规则<h2 id="3-布局阶段"><a href="#3-布局阶段" class="headerlink" title="3. 布局阶段"></a>3. 布局阶段</h2></li></ul></li><li>创建布局树(渲染树)<ol><li>遍历DOM树中所有可见节点，并将这些节点加到布局树种</li><li>不可见的节点将忽略，如head下面的全部内容</li></ol></li><li>布局计算<ol><li>计算不布局树节点的坐标位置<h2 id="4-分层"><a href="#4-分层" class="headerlink" title="4. 分层"></a>4. 分层</h2></li></ol></li><li>生成图层树<ol><li>拥有层叠上下文属性的元素会被提升为单独一层</li><li>需要剪裁的地方也会被创建为图层<h2 id="5-图层绘制"><a href="#5-图层绘制" class="headerlink" title="5. 图层绘制"></a>5. 图层绘制</h2>渲染引擎会把一个图层的绘制拆分成很多小的绘制指令，然后把这些指令按照顺序组成待绘制列表<br>(绘制列表只用来记录绘制顺序和绘制指令)<h2 id="6-光栅化"><a href="#6-光栅化" class="headerlink" title="6. 光栅化"></a>6. 光栅化</h2></li></ol></li><li>当图层的绘制列表完成后，主线程会将列表提交给合成线程</li><li>合成线程会将图层划分为图块，然后按照视口附近的图块通知渲染进程生成位图</li><li>渲染进程维护一个栅格化线程池，生成位图的操作是有栅格化线程来执行。而图块是栅格化执行的最小单位</li><li>若有GPU，渲染进程会把生成图块的指令发给GPU，然后GPU生成图块的位图，并保存在GPU中<h2 id="7-合成"><a href="#7-合成" class="headerlink" title="7. 合成"></a>7. 合成</h2></li><li>当所有图块被光栅化之后，合成线程就会生成一个绘制图块的命令(DrawQuad)，然后提交给浏览器进程</li><li>浏览器进程将其页面内容绘制到内存中，最后显示在屏幕上</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 浏览器 </tag>
             
         </tags>
       
